@@ -8,13 +8,13 @@ a:focus {
 	outline: 0;
 }
 html {
-	background: #313940;
+	background: #7a8d9e;
 }
 body {
 	min-height: 100vh;
-	background-color: #313940;
-	font-family: "Open Sans", Arial, Helvetica, sans-serif;
-	background: #313940;
+	background-color: #7a8d9e;
+	font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+	background: #7a8d9e;
 	overflow-x: hidden;
 }
 .header {
@@ -22,7 +22,7 @@ body {
 	width: 100%;
 	border-bottom: 1px solid;
 	border-image-slice: 1;
-	border-image-source: linear-gradient(to left, #38495a, #a2abb3, #38495a);
+	border-image-source: linear-gradient(to left, #7a8d9e, #fff, #7a8d9e);
 }
 .header-title {
 	line-height: 60px;
@@ -52,10 +52,10 @@ body {
 	width: 150px;
 	height: 40px;
 	padding: 0 10px;
-	background-color: #454c53;
+	background-color: #67717c;
 	border: 0;
 	border-radius: 2px;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Josefin Sans", sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	color: #fff;
@@ -64,16 +64,16 @@ body {
 	transition: 0.3s;
 }
 .btn:not(.btn-active):hover {
-	background-color: #515961;
+	background-color: #576474;
 }
 .btn:active {
-	background-color: #00c9b7;
+	background-color: #244e72;
 }
 .btn-active {
-	background-color: #00b4a4;
+	background-color: #366894;
 }
 .btn-active:hover {
-	background-color: #00c9b7;
+	background-color: #4079ac;
 }
 .piano {
 	position: relative;
@@ -81,18 +81,20 @@ body {
 	justify-content: space-between;
 	width: 100%;
 	height: 270px;
-	max-width: 560px;
+	max-width: 490px;
 	margin: 0 auto 60px;
 }
 .piano-key {
 	position: relative;
-	width: 80px;
+	width: 70px;
 	height: 270px;
 	background-color: rgba(255, 255, 255, 0.85);
-	border: 4px solid #313940;
-	border-radius: 0px 0px 12px 12px;
+	border: 4px dashed #7a8d9e;
 	transition: 0.3s;
 	cursor: pointer;
+}
+.piano-key:not(:first-child) {
+	border-left: 0;
 }
 .piano-key:hover {
 	background-color: #fff;
@@ -103,6 +105,8 @@ body {
 	bottom: 0;
 	left: 53px;
 	right: 53px;
+	margin-left: -10px;
+	margin-right: -10px;
 	display: flex;
 	justify-content: space-between;
 	pointer-events: none;
@@ -110,9 +114,9 @@ body {
 .piano-key.sharp {
 	width: 54px;
 	height: 170px;
-	background-color: #313940;
-	border: 0;
-	border-radius: 0px 0px 9px 9px;
+	background-color: #7a8d9e;
+	border: 4px dashed rgba(255, 255, 255, 0.85);
+	border-top: 0;
 	top: 0;
 	z-index: 3;
 	pointer-events: auto;
@@ -137,7 +141,7 @@ body {
 	font-size: 26px;
 	line-height: 40px;
 	text-align: center;
-	color: #a2abb3;
+	color: #fff;
 	bottom: -45px;
 	left: 20px;
 	transition: 0.3s;
@@ -171,7 +175,7 @@ body {
 }
 
 .piano-key-remove-mouse:active::before {
-	color: #a2abb3;
+	color: #fff;
 }
 
 .piano-key-active-pseudo:hover::after,
@@ -204,7 +208,7 @@ body {
 .footer {
 	border-top: 1px solid;
 	border-image-slice: 1;
-	border-image-source: linear-gradient(to left, #38495a, #a2abb3, #38495a);
+	border-image-source: linear-gradient(to left, #fff, #7a8d9e, #fff);
 }
 .footer-container {
 	padding: 0 15px;
@@ -227,7 +231,7 @@ body {
 	line-height: 45px;
 	color: #cbd5de;
 	font-size: 16px;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Josefin Sans", sans-serif;
 	transition: 0.3s;
 }
 .github:hover {
@@ -236,7 +240,7 @@ body {
 .rss {
 	display: block;
 	position: relative;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Josefin Sans", sans-serif;
 	width: 86px;
 	height: 32px;
 	background-image: url("assets/svg/rss.svg");
@@ -273,23 +277,22 @@ body {
 		padding-top: 40px;
 	}
 	.piano {
-		width: 310px;
+		width: 360px;
 		height: 160px;
 	}
 	.piano-key {
-		width: 44px;
+		width: 53px;
 		height: 160px;
-		border-radius: 0px 0px 8px 8px;
-		border: 2px solid #313940;
+		border: 4px dashed #7a8d9e;
 	}
 	.keys-sharp {
 		left: 26px;
 		right: 26px;
+		margin: 0;
 	}
 	.piano-key.sharp {
-		width: 36px;
-		height: 100px;
-		border-radius: 0px 0px 6px 6px;
+		width: 40px;
+		height: 105px;
 	}
 	.piano-key::before,
 	.piano-key::after {
