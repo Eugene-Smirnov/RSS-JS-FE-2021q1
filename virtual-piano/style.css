@@ -93,8 +93,16 @@ body {
 	transition: 0.3s;
 	cursor: pointer;
 }
-.piano-key:not(:first-child) {
-	border-left: 0;
+.piano-key:not(.sharp),
+.piano-key:not(.sharp) {
+	border-left: 2px dashed #759bbd;;
+	border-right: 2px dashed #759bbd;;
+}
+.piano-key:not(.sharp):first-child{
+	border-left: 4px dashed #759bbd;;
+}
+.piano-key:not(.sharp):nth-last-child(2){
+	border-right: 4px dashed #759bbd;;
 }
 .piano-key:hover {
 	background-color: #fff;
@@ -122,9 +130,11 @@ body {
 	pointer-events: auto;
 	transform-origin: center top;
 }
-.piano-key.piano-key-active,
 .piano-key.sharp.piano-key-active {
-	transform: scale(0.96);
+	transform: scale(0.95);
+}
+.piano-key:not(.sharp).piano-key-active{
+	background-color:rgb(247, 211, 196);
 }
 .piano-key.none {
 	background-color: transparent;
@@ -142,7 +152,7 @@ body {
 	font-size: 26px;
 	line-height: 40px;
 	text-align: center;
-	color: #fff;
+	color: #d7dfe6;
 	bottom: -45px;
 	left: 20px;
 	transition: 0.3s;
@@ -158,7 +168,7 @@ body {
 }
 .piano-key:hover::before,
 .piano-key:hover::after {
-	color: #d7dfe6;
+	color: #fff;
 }
 
 .sharp:active {
@@ -181,14 +191,14 @@ body {
 }
 
 .piano-key-remove-mouse:active::before {
-	color: #fff;
+	color: #d7dfe6;
 }
 
 .piano-key-active-pseudo:hover::after,
 .piano-key-active-pseudo:hover::before,
 .piano-key-active::after,
 .piano-key-active::before {
-	color: #00b4a4;
+	color: #0072b4;
 }
 
 .fullscreen {
