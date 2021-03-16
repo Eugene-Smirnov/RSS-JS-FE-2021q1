@@ -20,7 +20,26 @@ buttonContainer.addEventListener('click', notationSwitcher);
 
 // // PIANO
 // AUDIO
+const sounds = {
+    'a': new Audio('./assets/audio/a.mp3'),
+    'a♯': new Audio('./assets/audio/a♯.mp3'),
+    'b': new Audio('./assets/audio/b.mp3'),
+    'c': new Audio('./assets/audio/c.mp3'),
+    'c♯': new Audio('./assets/audio/c♯.mp3'),
+    'd': new Audio('./assets/audio/d.mp3'),
+    'd♯': new Audio('./assets/audio/d♯.mp3'),
+    'e': new Audio('./assets/audio/e.mp3'),
+    'f': new Audio('./assets/audio/f.mp3'),
+    'f♯': new Audio('./assets/audio/f♯.mp3'),
+    'g': new Audio('./assets/audio/g.mp3'),
+    'g♯': new Audio('./assets/audio/g♯.mp3'),
 
+    play(audio) {
+        audio.currentTime = 0;
+        audio.play();
+    },
+};
+console.log(sounds);
 // MOUSE EVENTS
 const piano = document.querySelector('.piano');
 
@@ -37,7 +56,12 @@ function keyMouseUpDown(event) {
     key.classList.toggle('piano-key-active');   
 };
 
-piano.addEventListener('mousedown', keyMouseUpDown);
+function keyMouseDown(event) {
+    keyMouseUpDown(event);
+    sounds.play(sounds[`${event.target.dataset.note}`])
+}
+
+piano.addEventListener('mousedown', keyMouseDown);
 piano.addEventListener('mouseup', keyMouseUpDown);
 
 function keyMouseOver(event) {
@@ -45,6 +69,7 @@ function keyMouseOver(event) {
     let keyOver = event.target.closest('.piano-key');
     if (isMouseDown) {
         keyOver.classList.toggle('piano-key-active');
+        sounds.play(sounds[`${event.target.dataset.note}`])
     };
 };
 
