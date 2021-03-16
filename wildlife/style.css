@@ -415,6 +415,11 @@ footer .logo {
     width: 25%;
 }
 
+footer .logo a {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
 footer nav {
     margin-top: 13.75%;
     margin-bottom: 13.5%;
