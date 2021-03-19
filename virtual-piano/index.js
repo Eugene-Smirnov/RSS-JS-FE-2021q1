@@ -54,7 +54,7 @@ function mouseUp() {
     isMouseDown = false;
 };
 
-window.addEventListener('mouseup', mouseUp);
+window.addEventListener('pointerup', mouseUp);
 
 function keyMouseDown(event) {
     mouseDown();
@@ -63,7 +63,7 @@ function keyMouseDown(event) {
     sounds.play(sounds[`${event.target.dataset.note}`])
 };
 
-piano.addEventListener('mousedown', keyMouseDown);
+piano.addEventListener('pointerdown', keyMouseDown);
 
 function keyMouseUp(event) {
     mouseUp();
@@ -71,7 +71,7 @@ function keyMouseUp(event) {
     key.classList.remove('piano-key-active');   
 };
 
-piano.addEventListener('mouseup', keyMouseUp);
+piano.addEventListener('pointerup', keyMouseUp);
 
 function keyMouseOver(event) {
     if (!event.target) return;
@@ -82,7 +82,7 @@ function keyMouseOver(event) {
     };
 };
 
-piano.addEventListener('mouseover', keyMouseOver);
+piano.addEventListener('pointerover', keyMouseOver);
 
 function keyMouseOut(event) {
     if (!event.target) return;
@@ -92,7 +92,7 @@ function keyMouseOut(event) {
     };
 };
 
-piano.addEventListener('mouseout', keyMouseOut);
+piano.addEventListener('pointerout', keyMouseOut);
 
 // KEYBOARD EVENTS
 
