@@ -96,3 +96,39 @@ piano.addEventListener('mouseout', keyMouseOut);
 
 // KEYBOARD EVENTS
 
+function keyDown(event) {
+    if (event.code.length > 5) return;
+    if (event.repeat === true) return;
+    const keyLetter = `${event.code[3]}`;
+        // const 'keys' were declared in NOTATION SWITCHER
+    let key;
+    for (let div of keys) {
+        if (div.dataset.letter === keyLetter) {
+            key = div;
+            break;
+        };
+    };
+    if (key) {
+        key.classList.add('piano-key-active');  
+        sounds.play(sounds[`${key.dataset.note}`]);
+    };
+};
+
+document.addEventListener('keydown', keyDown);
+
+function keyUp(event) {
+    if (event.code.length > 5) return;
+    const keyLetter = `${event.code[3]}`;
+    let key;
+    for (let div of keys) {
+        if (div.dataset.letter === keyLetter) {
+            key = div;
+            break;
+        };
+    };
+    if (key) {
+        key.classList.remove('piano-key-active');  
+    };
+};
+
+document.addEventListener('keyup', keyUp);
