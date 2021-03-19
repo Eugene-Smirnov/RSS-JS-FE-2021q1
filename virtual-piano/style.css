@@ -243,8 +243,9 @@ body {
 	margin: 0 auto;
 }
 .github {
+	opacity: 0.7;
 	display: block;
-	width: 120px;
+	width: 162px;
 	height: 45px;
 	padding-left: 45px;
 	background-image: url("assets/svg/github.svg");
@@ -258,9 +259,10 @@ body {
 	transition: 0.3s;
 }
 .github:hover {
-	color: #fff;
+	opacity: 1;
 }
 .rss {
+	opacity: 0.7;
 	display: block;
 	position: relative;
 	font-family: "Josefin Sans", sans-serif;
@@ -271,6 +273,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: left center;
 	padding-right: 111px;
+	transition: 0.3s;
 }
 .rss-year {
 	position: absolute;
@@ -283,9 +286,15 @@ body {
 	font-weight: bold;
 	transition: 0.3s;
 }
+.rss:hover {
+	opacity: 1;
+
+}
 .rss:hover .rss-year {
+	opacity: 1;
 	right: -5px;
 	letter-spacing: 0;
+	color: #fff;
 }
 @media (max-width: 768px) {
 	.fullscreen {
