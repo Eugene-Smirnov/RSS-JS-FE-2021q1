@@ -40,29 +40,38 @@ const sounds = {
     },
 };
 console.log(sounds);
+
 // MOUSE EVENTS
+
 const piano = document.querySelector('.piano');
-
 let isMouseDown = false;
-function isMouseDownSwitch() {
-    isMouseDown = !isMouseDown;
+
+function mouseDown() {
+    isMouseDown = true;
 };
 
-window.addEventListener('mousedown', isMouseDownSwitch);
-window.addEventListener('mouseup', isMouseDownSwitch);
-
-function keyMouseUpDown(event) {
-    let key = event.target.closest('.piano-key');
-    key.classList.toggle('piano-key-active');   
+function mouseUp() {
+    isMouseDown = false;
 };
+
+window.addEventListener('mouseup', mouseUp);
 
 function keyMouseDown(event) {
-    keyMouseUpDown(event);
+    mouseDown();
+    let key = event.target.closest('.piano-key');
+    key.classList.add('piano-key-active');  
     sounds.play(sounds[`${event.target.dataset.note}`])
-}
+};
 
 piano.addEventListener('mousedown', keyMouseDown);
-piano.addEventListener('mouseup', keyMouseUpDown);
+
+function keyMouseUp(event) {
+    mouseUp();
+    let key = event.target.closest('.piano-key');
+    key.classList.remove('piano-key-active');   
+};
+
+piano.addEventListener('mouseup', keyMouseUp);
 
 function keyMouseOver(event) {
     if (!event.target) return;
@@ -84,3 +93,6 @@ function keyMouseOut(event) {
 };
 
 piano.addEventListener('mouseout', keyMouseOut);
+
+// KEYBOARD EVENTS
+

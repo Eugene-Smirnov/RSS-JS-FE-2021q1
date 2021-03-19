@@ -146,6 +146,7 @@ body {
 .piano-key.notes::after, 
 .piano-key.letters::before,
 .piano-key.letters::after{
+	pointer-events: none;
 	position: absolute;
 	width: 30px;
 	height: 35px;
@@ -156,6 +157,12 @@ body {
 	bottom: -45px;
 	left: 20px;
 	transition: 0.3s;
+}
+.piano-key.notes.piano-key-active::before,
+.piano-key.notes.piano-key-active::after, 
+.piano-key.letters.piano-key-active::before,
+.piano-key.letters.piano-key-active::after{
+	color: rgb(247, 211, 196);
 }
 .piano-key.notes::before,
 .piano-key.notes::after{
