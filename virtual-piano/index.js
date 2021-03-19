@@ -18,6 +18,20 @@ function notationSwitcher(event) {
 
 buttonContainer.addEventListener('click', notationSwitcher);
 
+// FULLSCREEN SWITCHER
+
+    const fullscreenButton = document.querySelector('.fullscreen');
+
+    function fullscreenSwitcher(event) {
+        if (document.fullscreen) {
+            document.exitFullscreen();
+            return;
+        };
+        document.documentElement.requestFullscreen();
+    };
+
+    fullscreenButton.addEventListener('click', fullscreenSwitcher);
+
 // // PIANO
 // AUDIO
 const sounds = {
@@ -39,7 +53,6 @@ const sounds = {
         audio.play();
     },
 };
-console.log(sounds);
 
 // MOUSE EVENTS
 
