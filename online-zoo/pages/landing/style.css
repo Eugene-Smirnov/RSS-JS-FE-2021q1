@@ -73,6 +73,7 @@ a {
   height: 42px;
   width: 60px;
   fill: #333;
+  pointer-events: none;
 }
 
 .header {
