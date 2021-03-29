@@ -1,0 +1,54 @@
+@import '../values.scss';
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: $additional-color_theme-light;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 6px;
+      bottom: 5px;
+      border-radius: 50%;
+      background-color: $base-color_theme_light;
+      -webkit-transition: .4s;
+      transition: .4s;
+      
+      box-shadow: 2px 4px 15px 0px #060c4615;
+    }
+  }
+}
+
+.switch__checkbox:checked + .switch__slider:before {
+  background-color: $dark-color;
+}
+
+.switch__checkbox:checked + .switch__slider {
+  background-color: $additional-color_theme-dark;
+}
+
+.switch__checkbox:checked + .switch__slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}

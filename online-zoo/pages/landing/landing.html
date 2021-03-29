@@ -5,10 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Eugene Smirnov | Online-zoo</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="wrapper header__wrapper">
+            <h1 class="header__h1">online zoo</h1>
+            <a href="../landing/landing.html">
+                <object data="../../assets/icons/logo.svg" 
+                    type="image/svg+xml" 
+                    class="logo">
+                        Your browser does not support SVG
+                </object>
+            </a>
+            <nav class="nav header-nav">
+                <ul class="header-nav__ul">
+                    <li class="header-nav__li">
+                        <a href="#" 
+                           class="header-nav__link header-nav__link_active">
+                           about
+                        </a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="../zoos-panda/zoos-panda.html"
+                           class="header-nav__link">
+                             zoos
+                        </a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="../map/map.html"
+                           class="header-nav__link">
+                               map
+                        </a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="#"
+                           class="header-nav__link">
+                               contact us
+                        </a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
+                           class="header-nav__link">
+                                design
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <label class="switch">
+                <input class="switch__checkbox" type="checkbox">
+                <div class="switch__slider"></div>
+            </label>
+        </div>
+    </header>
 </body>
 </html>

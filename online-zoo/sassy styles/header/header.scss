@@ -1,0 +1,53 @@
+@import '../values.scss';
+@import '../base.scss';
+@import './swithcer.scss';
+@import '../logo.scss';
+
+.header {
+  background-color: $base-color_theme_light;
+  color: $base-color_theme_dark;
+  box-shadow: 0px 4px 8px 0px #2c654d0c;
+
+  &__h1 {
+    display: none;
+  }
+
+  &__wrapper {
+    height: 94px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+  }
+
+  &-nav {
+
+    &__ul {
+      display: flex;
+    }
+  
+    &__li {
+      padding: 8px 38px 0px 38px;
+  
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+
+    &__link {
+      padding: 0px 4px;
+
+      &:hover {
+        border-bottom: 1px solid;
+      }
+
+      &_active {
+        padding: 0px 4px;
+        border-bottom: 1px solid;
+    
+        font-weight: 900;
+        pointer-events: none;
+      }
+    }
+  }
+
+}
+
