@@ -138,6 +138,25 @@ a {
   max-width: 1620px;
 }
 
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 245px;
+  height: 55px;
+  border-width: 0;
+  border-radius: 3px;
+  background: linear-gradient(106.89deg, #4BD8B5 -14.32%, #49D6DF 100.68%);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fefefe;
+}
+.button::before {
+  content: url("../../assets/icons/button__play.svg");
+  display: inline-block;
+}
+
 .first-screen {
   height: 940px;
   background-image: url(../../assets/images/first-screen__bg.png);
@@ -181,6 +200,21 @@ a {
   height: 11.41px;
   mask-image: url("../../assets/icons/vk.svg");
   -webkit-mask-image: url("../../assets/icons/vk.svg");
+}
+.first-screen__content {
+  position: relative;
+  top: 85px;
+  left: 210px;
+  width: 800px;
+}
+.first-screen__heading {
+  font-weight: 900;
+  font-size: 89px;
+  line-height: 104px;
+}
+.first-screen__button {
+  margin-top: 37px;
+  padding: 0px 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

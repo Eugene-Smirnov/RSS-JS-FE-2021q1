@@ -1,5 +1,6 @@
 @import '../../../sassy\ styles/values.scss';
 @import '../../../sassy\ styles/base.scss';
+@import '../../../sassy\ styles/button.scss';
 
 .first-screen {
   height: 940px;
@@ -55,5 +56,22 @@
 
   }
 
+  &__content {
+    position: relative;
+    top: 85px;
+    left: 210px;
+    width: 800px;
+  }
+
+  &__heading {
+      font-weight: 900;
+      font-size: 89px;
+      line-height: 104px;
+  }
+
+  &__button {
+    margin-top: 37px;
+    padding: 0px 40px;
+  }
 }
 
