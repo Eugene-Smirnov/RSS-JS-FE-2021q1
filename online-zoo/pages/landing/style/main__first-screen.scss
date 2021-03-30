@@ -1,0 +1,59 @@
+@import '../../../sassy\ styles/values.scss';
+@import '../../../sassy\ styles/base.scss';
+
+.first-screen {
+  height: 940px;
+  background-image: url(../../assets/images/first-screen__bg.png);
+  background-size: cover;
+  color: $base-color_theme_light;
+
+  &__wrapper {
+    height: 940px;
+  }
+
+  &-aside {
+    position: relative;
+    top: 718px;
+
+    &__icon {
+      display: inline-block;
+      background-color: $base-color_theme_light;
+      height: auto;
+      width: 20px;
+      padding: 5.5px 0px;
+
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+
+      &_instagram {
+        height: 20px;
+        mask-image: url('../../assets/icons/instagram.svg');
+        -webkit-mask-image: url('../../assets/icons/instagram.svg');
+      }
+
+      &_twitter {
+        height: 16.25px;
+        mask-image: url('../../assets/icons/twitter.svg');
+        -webkit-mask-image: url('../../assets/icons/twitter.svg');
+      }
+
+      &_youtube {
+        height: 13.75px;
+        mask-image: url('../../assets/icons/youtube.svg');
+        -webkit-mask-image: url('../../assets/icons/youtube.svg');
+      }
+
+      &_vk {
+        height: 11.41px;
+        mask-image: url('../../assets/icons/vk.svg');
+        -webkit-mask-image: url('../../assets/icons/vk.svg');
+      }
+
+    }
+
+  }
+
+}
+

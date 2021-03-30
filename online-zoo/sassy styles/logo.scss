@@ -1,8 +1,10 @@
 @import './values.scss';
 
 .logo {
+  display: inline-block;
   height: 42px;
   width: 60px;
-  fill: $base-color_theme_dark;
-  pointer-events: none;
+  background-color: $base-color_theme_dark;
+  mask-image: url('../../assets/icons/logo.svg');
+  -webkit-mask-image: url('../../assets/icons/logo.svg');
 }

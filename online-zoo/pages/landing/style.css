@@ -49,7 +49,7 @@ a {
   left: 6px;
   bottom: 5px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #fefefe;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   box-shadow: 2px 4px 15px 0px #060c4615;
@@ -70,14 +70,16 @@ a {
 }
 
 .logo {
+  display: inline-block;
   height: 42px;
   width: 60px;
-  fill: #333;
-  pointer-events: none;
+  background-color: #333;
+  mask-image: url("../../assets/icons/logo.svg");
+  -webkit-mask-image: url("../../assets/icons/logo.svg");
 }
 
 .header {
-  background-color: #fff;
+  background-color: #fefefe;
   color: #333;
   box-shadow: 0px 4px 8px 0px #2c654d0c;
 }
@@ -100,15 +102,85 @@ a {
 }
 .header-nav__link {
   padding: 0px 4px;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s ease-in-out;
+  -webkit-transition: border 0.2s ease-in-out;
 }
 .header-nav__link:hover {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #333;
 }
 .header-nav__link_active {
   padding: 0px 4px;
   border-bottom: 1px solid;
   font-weight: 900;
   pointer-events: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul,
+li,
+a {
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1620px;
+}
+
+.first-screen {
+  height: 940px;
+  background-image: url(../../assets/images/first-screen__bg.png);
+  background-size: cover;
+  color: #fefefe;
+}
+.first-screen__wrapper {
+  height: 940px;
+}
+.first-screen-aside {
+  position: relative;
+  top: 718px;
+}
+.first-screen-aside__icon {
+  display: inline-block;
+  background-color: #fefefe;
+  height: auto;
+  width: 20px;
+  padding: 5.5px 0px;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+.first-screen-aside__icon_instagram {
+  height: 20px;
+  mask-image: url("../../assets/icons/instagram.svg");
+  -webkit-mask-image: url("../../assets/icons/instagram.svg");
+}
+.first-screen-aside__icon_twitter {
+  height: 16.25px;
+  mask-image: url("../../assets/icons/twitter.svg");
+  -webkit-mask-image: url("../../assets/icons/twitter.svg");
+}
+.first-screen-aside__icon_youtube {
+  height: 13.75px;
+  mask-image: url("../../assets/icons/youtube.svg");
+  -webkit-mask-image: url("../../assets/icons/youtube.svg");
+}
+.first-screen-aside__icon_vk {
+  height: 11.41px;
+  mask-image: url("../../assets/icons/vk.svg");
+  -webkit-mask-image: url("../../assets/icons/vk.svg");
 }
 
 /*# sourceMappingURL=style.css.map */

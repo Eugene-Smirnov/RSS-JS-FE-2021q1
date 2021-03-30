@@ -34,9 +34,13 @@
 
     &__link {
       padding: 0px 4px;
+      border-bottom: 1px solid transparent;
+
+      transition: border 0.2s ease-in-out;
+      -webkit-transition: border 0.2s ease-in-out;  
 
       &:hover {
-        border-bottom: 1px solid;
+        border-bottom: 1px solid $base-color_theme_dark;
       }
 
       &_active {
