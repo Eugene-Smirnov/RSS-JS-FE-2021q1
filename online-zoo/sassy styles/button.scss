@@ -1,12 +1,15 @@
+/* BUTTON */
+
 .button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 245px;
   height: 55px;
-  border-width: 0;
+  border: 1px solid $base-gradient__green;
   border-radius: 3px;
 
+  background-color: $base-gradient__green;
   background: $base-gradient;
 
   text-transform: uppercase;
@@ -14,10 +17,25 @@
   font-weight: 500;
   color: $base-color_theme_light;
 
+  transition: padding 0.3s ease-in-out;
   
   &::before {
     content: url('../../assets/icons/button__play.svg');
     display: inline-block;
   }
   
+  &:hover {
+    background: rgba($base-gradient__green, 50%);
+    border: 1px solid $base-gradient__green;
+  }
+
+  &:active {
+    background: rgba($base-gradient__green, 80%);
+    transition: background-color 0.1s ease-in-out, padding 0.3s ease-in-out;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }

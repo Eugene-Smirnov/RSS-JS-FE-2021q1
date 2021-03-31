@@ -1,6 +1,4 @@
-@import '../../../sassy\ styles/values.scss';
-@import '../../../sassy\ styles/base.scss';
-@import '../../../sassy\ styles/button.scss';
+/* MAIN__FIRST-SCREEN */
 
 .first-screen {
   height: 940px;
@@ -71,7 +69,29 @@
 
   &__button {
     margin-top: 37px;
-    padding: 0px 40px;
+    padding: 0px 38px;
+
+    &:hover,
+    &:active {
+      padding: 0px 34px;
+    }
+  }
+
+  &-slider {
+    
+    &__current-value {
+      color: $base-color_theme_light;
+      font-weight: 900;
+      font-size: 24px;
+    }
+
+    &__amount {
+      color: $grey-color;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    
   }
 }
 

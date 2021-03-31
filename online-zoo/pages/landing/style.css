@@ -1,3 +1,4 @@
+/* BASE */
 * {
   margin: 0;
   padding: 0;
@@ -15,11 +16,130 @@ a {
   list-style: none;
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1620px;
 }
 
+/* LOGO */
+.logo {
+  display: inline-block;
+  height: 42px;
+  width: 60px;
+  background-color: #333;
+  mask-image: url("../../assets/icons/logo.svg");
+  -webkit-mask-image: url("../../assets/icons/logo.svg");
+}
+
+/* BUTTON */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 245px;
+  height: 55px;
+  border: 1px solid #4bd8b5;
+  border-radius: 3px;
+  background-color: #4bd8b5;
+  background: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fefefe;
+  transition: padding 0.3s ease-in-out;
+}
+.button::before {
+  content: url("../../assets/icons/button__play.svg");
+  display: inline-block;
+}
+.button:hover {
+  background: rgba(75, 216, 181, 0.5);
+  border: 1px solid #4bd8b5;
+}
+.button:active {
+  background: rgba(75, 216, 181, 0.8);
+  transition: background-color 0.1s ease-in-out, padding 0.3s ease-in-out;
+}
+.button:active, .button:focus {
+  outline: none;
+}
+
+/* RANGE-INPUT */
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+  margin-top: -3px;
+}
+.range-input::-moz-range-thumb, .range-input::-ms-thumb {
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+}
+.range-input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-webkit-slider-runnable-track {
+  background: rgba(189, 189, 189, 0.7);
+}
+.range-input::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 0;
+  color: transparent;
+}
+.range-input::-ms-fill-lower {
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-ms-fill-lower {
+  background: rgba(189, 189, 189, 0.7);
+}
+.range-input::-ms-fill-upper {
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-ms-fill-upper {
+  background: rgba(189, 189, 189, 0.7);
+}
+
+/* HEADER */
+/* SWITCHER */
 .switch {
   position: relative;
   display: inline-block;
@@ -69,15 +189,6 @@ a {
   transform: translateX(20px);
 }
 
-.logo {
-  display: inline-block;
-  height: 42px;
-  width: 60px;
-  background-color: #333;
-  mask-image: url("../../assets/icons/logo.svg");
-  -webkit-mask-image: url("../../assets/icons/logo.svg");
-}
-
 .header {
   background-color: #fefefe;
   color: #333;
@@ -116,47 +227,8 @@ a {
   pointer-events: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Roboto", sans-serif;
-}
-
-ul,
-li,
-a {
-  color: inherit;
-  text-decoration: none;
-  list-style: none;
-}
-
-.wrapper {
-  margin: 0 auto;
-  max-width: 1620px;
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 245px;
-  height: 55px;
-  border-width: 0;
-  border-radius: 3px;
-  background: linear-gradient(106.89deg, #4BD8B5 -14.32%, #49D6DF 100.68%);
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fefefe;
-}
-.button::before {
-  content: url("../../assets/icons/button__play.svg");
-  display: inline-block;
-}
-
+/* MAIN */
+/* MAIN__FIRST-SCREEN */
 .first-screen {
   height: 940px;
   background-image: url(../../assets/images/first-screen__bg.png);
@@ -214,7 +286,20 @@ a {
 }
 .first-screen__button {
   margin-top: 37px;
-  padding: 0px 40px;
+  padding: 0px 38px;
+}
+.first-screen__button:hover, .first-screen__button:active {
+  padding: 0px 34px;
+}
+.first-screen-slider__current-value {
+  color: #fefefe;
+  font-weight: 900;
+  font-size: 24px;
+}
+.first-screen-slider__amount {
+  color: #bdbdbd;
+  font-weight: 900;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=style.css.map */
