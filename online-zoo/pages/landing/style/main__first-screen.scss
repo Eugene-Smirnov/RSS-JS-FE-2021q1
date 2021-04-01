@@ -164,6 +164,16 @@
         height: 355px;
 
         cursor: initial;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          background: $img-active-gradient;
+        }
       }
 
       &_1 {
@@ -207,6 +217,8 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 16.41px;
+
+        z-index: 1;
       }
 
       &_active > &__content {
@@ -218,6 +230,8 @@
         align-items: center;
         justify-content: space-between;
         margin: 0 25px 38px;
+
+        z-index: 1;
       }
 
       &_active > &__buttons {
