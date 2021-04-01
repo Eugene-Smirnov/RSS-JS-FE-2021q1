@@ -72,6 +72,11 @@
     margin-top: 37px;
     padding: 0px 38px;
 
+    &::before {
+      content: url('../../assets/icons/button__play.svg');
+      display: inline-block;
+    }  
+
     &:hover,
     &:active {
       padding: 0px 34px;

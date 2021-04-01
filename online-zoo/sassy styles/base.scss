@@ -40,8 +40,19 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
+.main {
+  background-color: $base-color_theme_light;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1620px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 900;
+
+  color: $base-color_theme_dark;
 }
 
