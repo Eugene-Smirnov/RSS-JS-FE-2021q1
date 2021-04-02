@@ -1,0 +1,55 @@
+/* ARROW */
+
+.arrow {
+
+  &_left {
+    width: 18px;
+    height: 30px;
+
+    background-color: #828282;
+    transition: background-color 0.3s ease-in-out;
+
+    border: none;
+
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    mask-image: url('../../assets/icons/arrow-left.svg');
+    -webkit-mask-image: url('../../assets/icons/arrow-left.svg');
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  
+  }
+
+  &_right {
+    width: 18px;
+    height: 30px;
+
+    background-color: #828282;
+    transition: background-color 0.3s ease-in-out;
+
+    border: none;
+
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    transform: rotate(180deg);
+
+    mask-image: url('../../assets/icons/arrow-left.svg');
+    -webkit-mask-image: url('../../assets/icons/arrow-left.svg');
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+}
