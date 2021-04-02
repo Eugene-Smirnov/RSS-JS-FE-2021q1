@@ -234,7 +234,11 @@ input[type=range]::-ms-track {
   box-shadow: 0px 4px 8px 0px #2c654d0c;
 }
 .header__h1 {
-  display: none;
+  position: absolute;
+  top: -50px;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
 }
 .header__wrapper {
   height: 94px;
