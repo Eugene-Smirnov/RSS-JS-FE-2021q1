@@ -27,6 +27,7 @@
     &__image {
       height: 80px;
       width: 80px;
+      filter: drop-shadow(2px 4px 15px rgb(6 12 70 / 15%));
     }
 
     &__heading {
@@ -44,6 +45,7 @@
       font-weight: 400;
       color: $additional-color_theme-dark;
     }
+
   }
 
 }

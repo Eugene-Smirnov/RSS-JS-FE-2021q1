@@ -661,6 +661,7 @@ input[type=range]::-ms-track {
 .about-item__image {
   height: 80px;
   width: 80px;
+  filter: drop-shadow(2px 4px 15px rgba(6, 12, 70, 0.15));
 }
 .about-item__heading {
   margin-top: 15px;
