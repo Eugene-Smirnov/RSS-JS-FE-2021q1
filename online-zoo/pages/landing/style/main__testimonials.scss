@@ -1,0 +1,150 @@
+/* TESTIMONIALS */
+
+.testimonials {
+  height: 810px;
+  overflow: hidden;
+
+  &__wrapper {
+    width: 1229px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    margin-top: 100px;
+    margin-bottom: 0;
+  }
+
+  &-slider {
+    width: max-content;
+    position: relative;
+
+    display: inline-flex;
+    justify-content: flex-start;
+
+    &__box {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__arrow_left {
+      position: relative;
+      left: -11px;
+      cursor: pointer;
+    }
+
+    &__arrow_right {
+      position: relative;
+      left: 11px;
+      cursor: pointer;
+    }
+
+    &__arrow_left:hover,
+    &__arrow_right:hover {
+      background-color: $base-color_theme_dark;
+    }
+
+    &__arrow_left:active,
+    &__arrow_right:active {
+      background-color: $additional-color_theme-dark;
+    }
+
+    &__wrapper {
+      width: 1229px;
+      height: 340px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-item {
+      width: 585px;
+      height: 310px;
+      margin: 0 15px;
+
+      display: flex;
+      flex-direction: column;  
+      align-items: center;
+      overflow: hidden;
+
+      border-radius: 5px;
+      box-shadow: $testimonials-slider-item__shadow;
+      
+      color: $additional-color_theme-dark;
+
+      &__avatar {
+        height: 66px;
+        width: 66px;
+
+        margin-top: 48px;
+
+        border: 1px solid $grey-color;
+        border-radius: 50%;
+      }
+      
+      &__heading {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: 900;
+        color: $base-color_theme_dark;
+      }
+
+      &__content {
+        max-width: 440px;
+        margin-top: 18px;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.41px;
+        color: $additional-color_theme-dark;
+      }
+
+    }
+
+    &__range-input-wrapper {
+      width: 245px;
+
+      margin-top: 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__range-input {
+      margin-top: 14px;
+
+      &::-webkit-slider-thumb {
+        background: $base-color_theme_dark;
+      }
+      
+      &::-moz-range-thumb,
+      &::-ms-thumb {
+        background: $base-color_theme_dark;
+      }
+    }
+
+    &__current-value {
+      color: $base-color_theme_dark;
+      font-weight: 900;
+      font-size: 24px;
+    }
+
+    &__amount {
+      color: $grey-color;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+  }
+
+  &__button {
+    margin-top: 33px;
+    justify-content: center;
+  }
+
+}

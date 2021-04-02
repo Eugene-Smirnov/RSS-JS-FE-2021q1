@@ -6,6 +6,7 @@
 }
 
 body {
+  background-color: $base-color_theme_light;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -40,8 +41,9 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-.main {
-  background-color: $base-color_theme_light;
+.bold {
+  font-weight: 500;
+  color: $base-color_theme_dark;
 }
 
 .wrapper {
