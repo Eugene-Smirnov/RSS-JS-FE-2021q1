@@ -11,7 +11,7 @@ $grey-color: #bdbdbd;
 $base-gradient__blue: #49d6df;
 $base-gradient__green: #4bd8b5;
 $base-gradient: linear-gradient(106.89deg, #4bd8b5 -14.32%, #49d6df 100.68%);
-$base-gradient_opacity_05: linear-gradient(106.89deg, rgba(75, 216, 181, 0.5) -14.32%, rgba(73, 214, 223, 0.5) 100.68%);
+$base-gradient_opacity: linear-gradient(106.89deg, rgba(75, 216, 181, 0) -14.32%, rgba(73, 214, 223, 1) 100.68%);
 $base-gradient_opacity_08: linear-gradient(106.89deg, rgba(75, 216, 181, 0.8) -14.32%, rgba(73, 214, 223, 0.8) 100.68%);
 
 $img-active-gradient: linear-gradient(357.17deg, #000000 -56.45%, rgba(0, 0, 0, 0) 65.03%);
