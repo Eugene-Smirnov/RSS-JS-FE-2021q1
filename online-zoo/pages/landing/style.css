@@ -77,6 +77,7 @@ input[type=range]::-ms-track {
   font-size: 18px;
   font-weight: 700;
   color: #fefefe;
+  cursor: pointer;
   transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 .button:hover {
@@ -406,7 +407,6 @@ input[type=range]::-ms-track {
   top: -15px;
   width: 245px;
   height: 355px;
-  cursor: initial;
 }
 .first-screen-slider-item_active::before {
   content: "";
@@ -588,6 +588,7 @@ input[type=range]::-ms-track {
   position: relative;
   margin: 0 5px;
   left: -5px;
+  cursor: pointer;
 }
 .how-it-works-slider__image {
   width: 790px;
@@ -733,6 +734,7 @@ input[type=range]::-ms-track {
   overflow: hidden;
   color: #fefefe;
   background-size: cover;
+  cursor: pointer;
 }
 .gallery-slider-item_1 {
   background-image: url("../../assets/images/first-screen-slider__item_2.png");
