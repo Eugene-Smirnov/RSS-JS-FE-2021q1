@@ -14,39 +14,30 @@
     <header class="header">
         <h1 class="header__h1">online zoo</h1>
         <div class="wrapper header__wrapper">
-            <a href="../landing/landing.html" class="logo"></a>
+            <a href="#" class="logo
+                               header__logo"></a>
             <nav class="nav header-nav">
                 <ul class="header-nav__ul">
                     <li class="header-nav__li">
                         <a href="#" 
                            class="header-nav__link 
-                                  header-nav__link_active">
-                                about
-                        </a>
+                                  header-nav__link_active">about</a>
                     </li>
                     <li class="header-nav__li">
                         <a href="../zoos-panda/zoos-panda.html"
-                           class="header-nav__link">
-                                zoos
-                        </a>
+                           class="header-nav__link">zoos</a>
                     </li>
                     <li class="header-nav__li">
                         <a href="../map/map.html"
-                           class="header-nav__link">
-                               map
-                        </a>
+                           class="header-nav__link">map</a>
                     </li>
                     <li class="header-nav__li">
-                        <a href="#"
-                           class="header-nav__link">
-                               contact us
-                        </a>
+                        <a href="#contact-us-form"
+                           class="header-nav__link">contact us</a>
                     </li>
                     <li class="header-nav__li">
                         <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
-                           class="header-nav__link">
-                                design
-                        </a>
+                           class="header-nav__link">design</a>
                     </li>
                 </ul>
             </nav>
@@ -613,5 +604,73 @@
             </div>
         </div>
     </main>
+    <footer class="footer" id="contact-us-form">
+        <div class="wrapper
+                    footer_wrapper">
+            <div class="footer__top-bar">
+                <a href="#" class="logo 
+                                   footer__logo">
+                </a>
+                <nav class="footer-nav">
+                    <ul class="footer-nav__ul">
+                        <li class="footer-nav__li">
+                            <a href="#" class="footer-nav__link">about</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="../zoos-panda/zoos-panda.html" class="footer-nav__link">zoos</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="../map/map.html" class="footer-nav__link">map</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="footer-nav__link">design</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__middle-box">
+                <form method="post" class="footer-form">
+                    <h2 class="footer-form__heading">Contact us</h2>
+                    <input type="text" 
+                           id="footer-form__name" 
+                           name="username" 
+                           placeholder="name"
+                           required
+                           class="footer-form__text-input">
+                    <input type="email" 
+                           id="footer-form__mail" 
+                           name="usermail" 
+                           placeholder="email"
+                           required
+                           class="footer-form__text-input">
+                    <fieldset class="footer-form__fieldset">
+                        <legend class="footer-form__legend">Please enter your message</legend>
+                        <textarea id="footer-form__message"
+                                  name="usermessage" 
+                                  maxlength="280"
+                                  required
+                                  class="footer-form__textarea"></textarea>
+                    </fieldset>
+                    <label for="footer-form__checkbox"
+                           class="footer-form__checkbox-label">
+                        I agree to the processing of Personal Data
+                        <input type="checkbox"
+                               id="footer-form__checkbox"
+                               name="checkbox"
+                               required
+                               class="footer-form__checkbox">
+                    </label>
+                    <button type="submit"
+                            id="footer-form__submit"
+                            name="submit"
+                            class="footer-form__submit"> send</button>
+                </form>
+            </div>
+            <hr class="footer__hr">
+            <small class="footer__copyrights">
+                ©Noora Sagnayeva<br>©RSSchool and ©Yem Digital - 2021
+            </small>
+        </div>
+    </footer>
 </body>
 </html>
