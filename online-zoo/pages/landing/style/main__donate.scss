@@ -34,6 +34,12 @@
     justify-content: space-between;
     align-items: center;
 
+    &__arrow {
+      width: 108px;
+      height: 20px;
+      background-image: url("../../assets/icons/description__arrow.svg");
+    }
+
     &__item {
       display: flex;
       flex-direction: column;
@@ -47,21 +53,6 @@
       border-radius: 50%;
     }
 
-    &::before,
-    &::after {
-      position: absolute;
-      content: url("../../assets/icons/description__arrow.svg");
-    }
-
-    &::before {
-      left: 666px;
-    }
-
-    &::after {
-      right: 666px;
-    }
-
-    
     &__image {
       margin-top: -8px;
       
