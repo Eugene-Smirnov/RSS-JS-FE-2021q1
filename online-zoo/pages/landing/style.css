@@ -1110,6 +1110,7 @@ input[type=range]::-ms-track {
   width: 67px;
   height: 95px;
   position: absolute;
+  cursor: pointer;
 }
 .map__pointer_bg {
   width: 67px;
