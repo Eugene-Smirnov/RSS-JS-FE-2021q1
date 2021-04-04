@@ -214,7 +214,7 @@
         transition: color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
 
         &::before {
-          transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+          transition: border-color 0.3s ease-in-out;
         }
       }
 
@@ -225,7 +225,6 @@
         border-left-color: $base-gradient__green;
 
         &::before {
-          color: $base-gradient__green;
           border-color: $base-gradient__green;
         }
       }

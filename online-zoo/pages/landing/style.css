@@ -533,14 +533,13 @@ input[type=range]::-ms-track {
   transition: color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
 }
 .first-screen-slider-item__link::before, .first-screen-slider-item__link > *::before, .first-screen-slider-item__donate::before {
-  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
 }
 .first-screen-slider-item__link:hover, .first-screen-slider-item__link:hover > *, .first-screen-slider-item__donate:hover {
   color: #4bd8b5;
   border-left-color: #4bd8b5;
 }
 .first-screen-slider-item__link:hover::before, .first-screen-slider-item__link:hover > *::before, .first-screen-slider-item__donate:hover::before {
-  color: #4bd8b5;
   border-color: #4bd8b5;
 }
 .first-screen-slider__range-input-wrapper {
@@ -850,14 +849,13 @@ input[type=range]::-ms-track {
   transition: color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
 }
 .gallery-slider-item__link::before, .gallery-slider-item__link > *::before, .gallery-slider-item__donate::before {
-  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
 }
 .gallery-slider-item__link:hover, .gallery-slider-item__link:hover > *, .gallery-slider-item__donate:hover {
   color: #4bd8b5;
   border-left-color: #4bd8b5;
 }
 .gallery-slider-item__link:hover::before, .gallery-slider-item__link:hover > *::before, .gallery-slider-item__donate:hover::before {
-  color: #4bd8b5;
   border-color: #4bd8b5;
 }
 .gallery-slider__range-input-wrapper {
