@@ -248,6 +248,16 @@
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-position: center;
 
+      transition: background-color 0.2s ease-in-out;
+      
+      &:hover {
+        background-color: $base-gradient__green;
+      }
+
+      &:active {
+        background-color: $base-gradient__blue;
+      }
+
       &_instagram {
         height: 20px;
         mask-image: url('../../assets/icons/instagram.svg');
