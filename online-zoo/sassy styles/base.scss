@@ -62,3 +62,8 @@ input[type=range]::-ms-track {
   color: $base-color_theme_dark;
 }
 
+.main {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
