@@ -405,7 +405,7 @@ input[type=range]::-ms-track {
   -webkit-mask-image: url("../../../assets/icons/arrow-left.svg");
   position: relative;
   left: 70px;
-  bottom: 50px;
+  bottom: 30px;
   cursor: pointer;
   transform: rotate(-90deg);
 }
