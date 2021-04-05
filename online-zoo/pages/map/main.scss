@@ -26,12 +26,13 @@
 
   &-slider {
     height: 157px;
-    width: 1110px;
-    display: inline-flex;
+    width: 1090px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
     &__box {
+      width: 1130px;
       margin-top: 54px;
       display: flex;
       align-items: center;
@@ -63,34 +64,40 @@
     &__wrapper {
       width: 1110px;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
     &__item {
       width: 123px;
       height: 123px;
-      margin: 5px;
-      
+        
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
       
       background: $image-border-gradient;
       border-radius: 50%;
       
-      transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+      transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+      cursor: pointer;
 
       &::before {
         position: absolute;
         content: "";
-        height: 160px;
-        width: 140px;
+        height: 159px;
+        width: 159px;
+        border-radius: 50%;
         background-color: $base-color_theme_light;
-        transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+        transition: opacity 0.3s ease-in-out;
       }
 
       &_active {
         width: 157px;
         height: 157px;
+
+        z-index: 1;
 
         &>.main-slider__image {
           width: 137px;
@@ -114,10 +121,6 @@
           border-width: 7px;
         }
 
-        &::before {
-          width: 160px;
-        }
-
       }
 
     }
@@ -126,10 +129,11 @@
       width: 108px;
       height: 108px;
       background-size: cover;
-      border: 5.5px solid $base-color_theme_light;
+      background-position: center;
+      border: 5px solid $base-color_theme_light;
       border-radius: 50%;
       z-index: 1;
-      transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+      transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
 
       &_gorilla {
         background-image: url(../../assets/images/map-slider/map-slider__gorilla.png)
@@ -206,6 +210,7 @@
 }
 
 .main-slider:hover > .main-slider__item_active {
+  transition-delay: 0.1s;
   width: 123px;
   height: 123px;
 
@@ -213,6 +218,7 @@
     width: 108px;
     height: 108px;
     border-width: 5px;
+    transition-delay: 0.1s;
   }
 
 }

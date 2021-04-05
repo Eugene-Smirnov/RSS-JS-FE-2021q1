@@ -312,12 +312,13 @@ input[type=range]::-ms-track {
 }
 .main-slider {
   height: 157px;
-  width: 1110px;
-  display: inline-flex;
+  width: 1090px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .main-slider__box {
+  width: 1130px;
   margin-top: 54px;
   display: flex;
   align-items: center;
@@ -342,29 +343,34 @@ input[type=range]::-ms-track {
 .main-slider__wrapper {
   width: 1110px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 .main-slider__item {
   width: 123px;
   height: 123px;
-  margin: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   background: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
   border-radius: 50%;
-  transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+  cursor: pointer;
 }
 .main-slider__item::before {
   position: absolute;
   content: "";
-  height: 160px;
-  width: 140px;
+  height: 159px;
+  width: 159px;
+  border-radius: 50%;
   background-color: #fefefe;
-  transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .main-slider__item_active {
   width: 157px;
   height: 157px;
+  z-index: 1;
 }
 .main-slider__item_active > .main-slider__image {
   width: 137px;
@@ -383,17 +389,15 @@ input[type=range]::-ms-track {
   height: 137px;
   border-width: 7px;
 }
-.main-slider__item:hover::before {
-  width: 160px;
-}
 .main-slider__image {
   width: 108px;
   height: 108px;
   background-size: cover;
-  border: 5.5px solid #fefefe;
+  background-position: center;
+  border: 5px solid #fefefe;
   border-radius: 50%;
   z-index: 1;
-  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
 }
 .main-slider__image_gorilla {
   background-image: url(../../assets/images/map-slider/map-slider__gorilla.png);
@@ -449,6 +453,7 @@ input[type=range]::-ms-track {
 }
 
 .main-slider:hover > .main-slider__item_active {
+  transition-delay: 0.1s;
   width: 123px;
   height: 123px;
 }
@@ -456,6 +461,7 @@ input[type=range]::-ms-track {
   width: 108px;
   height: 108px;
   border-width: 5px;
+  transition-delay: 0.1s;
 }
 
 .main-slider:hover > .main-slider__item_active:hover {
