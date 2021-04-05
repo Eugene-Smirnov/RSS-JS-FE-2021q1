@@ -295,7 +295,183 @@ input[type=range]::-ms-track {
   -webkit-mask-image: url("../../../assets/icons/logo.svg");
 }
 
-/* */
+/* ZOOS MAIN (based on panda) */
+.main {
+  margin: 67px 0;
+  display: flex;
+  overflow: visible;
+}
+.main__wrapper {
+  width: 1199px;
+  margin: 0 203px 34px;
+}
+.main__box {
+  display: flex;
+  margin-top: 40px;
+}
+.main__heading {
+  margin-top: -7px;
+  text-transform: capitalize;
+}
+.main-content {
+  width: 380px;
+  margin-left: 30px;
+}
+.main-content__heading {
+  font-size: 20px;
+  font-weight: 900;
+}
+.main-content__text {
+  margin: 7px 0px 12px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.main__button {
+  margin-top: 34px;
+  width: 193px;
+  justify-content: center;
+}
+
+.video__stream {
+  border-radius: 5px;
+}
+.video__preview-box {
+  margin-top: 26px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.video__preview {
+  pointer-events: none;
+}
+.video__preview_1, .video__preview_2, .video__preview_3 {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 141px;
+  cursor: pointer;
+}
+.video-selection__wrapper {
+  margin-top: 30px;
+  width: 100%;
+  height: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-selection__button {
+  margin: 2.5px;
+  height: 8px;
+  width: 8px;
+  background-color: #c4c4c4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.video-selection__button:hover {
+  background-color: #49d6df;
+}
+.video-selection__button:active {
+  background-color: #4f4f4f;
+}
+.video-selection__button_active {
+  height: 11px;
+  width: 11px;
+  background-color: #4bd8b5;
+  pointer-events: none;
+}
+
+.aside {
+  position: sticky;
+  top: 2px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 580px;
+}
+.aside__arrow_up {
+  mask-image: url("../../../assets/icons/arrow-left.svg");
+  -webkit-mask-image: url("../../../assets/icons/arrow-left.svg");
+  position: relative;
+  left: 70px;
+  top: -10px;
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+.aside__arrow_down {
+  mask-image: url("../../../assets/icons/arrow-left.svg");
+  -webkit-mask-image: url("../../../assets/icons/arrow-left.svg");
+  position: relative;
+  left: 70px;
+  bottom: 50px;
+  cursor: pointer;
+  transform: rotate(-90deg);
+}
+.aside__arrow_left:hover, .aside__arrow_right:hover {
+  background-color: #333;
+}
+.aside__arrow_left:active, .aside__arrow_right:active {
+  background-color: #4f4f4f;
+}
+.aside__item {
+  width: 123px;
+  height: 123px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
+  border-radius: 50%;
+  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+  cursor: pointer;
+}
+.aside__item::before {
+  position: absolute;
+  content: "";
+  height: 159px;
+  width: 159px;
+  border-radius: 50%;
+  background-color: #fefefe;
+  transition: opacity 0.3s ease-in-out;
+}
+.aside__item_active {
+  width: 157px;
+  height: 157px;
+  z-index: 1;
+}
+.aside__item_active > .aside__image {
+  width: 137px;
+  height: 137px;
+  border-width: 7px;
+}
+.aside__item_active::before {
+  opacity: 0;
+}
+.aside__image {
+  width: 108px;
+  height: 108px;
+  background-size: cover;
+  background-position: center;
+  border: 5px solid #fefefe;
+  border-radius: 50%;
+  z-index: 1;
+  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
+}
+.aside__image_gorilla {
+  background-image: url(../../../assets/images/map-slider/map-slider__gorilla.png);
+}
+.aside__image_panda {
+  background-image: url(../../../assets/images/map-slider/map-slider__panda.png);
+}
+.aside__image_alligator {
+  background-image: url(../../../assets/images/map-slider/map-slider__alligator.png);
+}
+.aside__image_eagle {
+  background-image: url(../../../assets/images/map-slider/map-slider__eagle.png);
+}
+
 /* FOOTER */
 .footer {
   background-color: #333;

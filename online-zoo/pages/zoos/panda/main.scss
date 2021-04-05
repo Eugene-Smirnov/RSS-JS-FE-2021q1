@@ -1,1 +1,250 @@
-/* */
+/* ZOOS MAIN (based on panda) */
+
+.main {
+  margin: 67px 0;
+  display: flex;
+  overflow: visible;
+
+  &__wrapper {
+    width: 1199px;
+    margin: 0 203px 34px;
+  }
+
+  &__box {
+    display: flex;
+    margin-top: 40px;
+  }
+ 
+  &__heading {
+    margin-top: -7px;
+    text-transform: capitalize;
+  }
+
+  &-content {
+    width: 380px;
+    margin-left: 30px;
+
+    &__heading {
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    &__text {
+      margin: 7px 0px 12px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+  }
+
+  &__button {
+    margin-top: 34px;
+    width: 193px;
+    justify-content: center;
+  }
+
+}
+
+.video {
+
+  &__stream {
+    border-radius: 5px;
+  }
+
+  &__preview-box {
+    margin-top: 26px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  &__preview {
+    pointer-events: none;
+
+    &_1, &_2, &_3 {
+      border-radius: 5px;
+      overflow: hidden;
+      height: 141px;
+      cursor: pointer;
+    }
+    
+  }
+
+  &-selection {
+
+    &__wrapper {
+      margin-top: 30px;
+
+      width: 100%;
+      height: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__button {
+      margin: 2.5px;
+      height: 8px;
+      width: 8px;
+      background-color: $video-dots-color;
+      border-radius: 50%;
+
+      cursor: pointer;
+      transition: height 0.3s ease-in-out, width  0.3s ease-in-out, background-color  0.3s ease-in-out;
+
+      &:hover {
+        background-color: $base-gradient__blue;
+      }
+
+      &:active {
+        background-color: $additional-color_theme-dark;
+      }
+
+      &_active {
+        height: 11px;
+        width: 11px;
+        background-color: $base-gradient__green;
+
+        pointer-events: none;
+      }
+    }
+
+  }
+
+}
+
+.aside {
+  position: sticky;
+  top: 2px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 580px;
+
+
+  &__box {
+    // margin-top: 54px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+  }
+
+  &__arrow_up {
+    mask-image: url('../../../assets/icons/arrow-left.svg');
+    -webkit-mask-image: url('../../../assets/icons/arrow-left.svg');
+
+    position: relative;
+    left: 70px;
+    top: -10px;
+
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
+  &__arrow_down{
+    mask-image: url('../../../assets/icons/arrow-left.svg');
+    -webkit-mask-image: url('../../../assets/icons/arrow-left.svg');
+
+    position: relative;
+    left: 70px;
+    bottom: 50px;
+
+    cursor: pointer;
+    transform: rotate(-90deg);
+  }
+
+  &__arrow_left:hover,
+  &__arrow_right:hover {
+    background-color: $base-color_theme_dark;
+  }
+
+  &__arrow_left:active,
+  &__arrow_right:active {
+    background-color: $additional-color_theme-dark;
+  }
+
+  &__wrapper {
+    // overflow: hidden;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+  }
+
+  &__item {
+    width: 123px;
+    height: 123px;
+      
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    
+    background: $image-border-gradient;
+    border-radius: 50%;
+    
+    transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 159px;
+      width: 159px;
+      border-radius: 50%;
+      background-color: $base-color_theme_light;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &_active {
+      width: 157px;
+      height: 157px;
+
+      z-index: 1;
+
+      &>.aside__image {
+        width: 137px;
+        height: 137px;
+        border-width: 7px;
+      }
+
+      &::before {
+        opacity: 0;
+      }
+
+    }
+
+  }
+
+  &__image {
+    width: 108px;
+    height: 108px;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid $base-color_theme_light;
+    border-radius: 50%;
+    z-index: 1;
+    transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
+
+    &_gorilla {
+      background-image: url(../../../assets/images/map-slider/map-slider__gorilla.png)
+    }
+
+    &_panda {
+      background-image: url(../../../assets/images/map-slider/map-slider__panda.png);
+    }
+    
+    &_alligator {
+      background-image: url(../../../assets/images/map-slider/map-slider__alligator.png);
+    }
+    
+    &_eagle {
+      background-image: url(../../../assets/images/map-slider/map-slider__eagle.png);
+    }
+
+  }
+    
+}
