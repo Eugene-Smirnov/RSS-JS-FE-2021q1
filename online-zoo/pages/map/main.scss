@@ -1,7 +1,7 @@
 /* MAIN */
 
 .main {
-  height: 1297px;
+  height: 1287px;
   overflow: hidden;
 
   &__wrapper {
@@ -207,6 +207,21 @@
 
   }
 
+  &__button {
+    margin-top: 47px;
+    padding: 0px 39px;
+
+    &::before {
+      content: url('../../assets/icons/button__play.svg');
+      display: inline-block;
+    }  
+
+    &:hover,
+    &:active {
+      padding: 0px 34px;
+    }
+  }
+
 }
 
 .main-slider:hover > .main-slider__item_active {
@@ -232,5 +247,84 @@
     height: 137px;
     border-width: 7px;
   }
+
+}
+
+.map {
+  width: 1200px;
+  height: 498px;
+  background-image: url("../../assets/images/map.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  &__wrapper {
+    width: 1199px;
+    margin-top: 82px;
+
+    position: relative;
+  }
+
+  &__pointer {
+    width: 67px;
+    height: 95px;
+    position: absolute;
+    cursor: pointer;
+
+    &_bg {
+      width: 67px;
+      height: 95px;
+      position: absolute;
+      background-color: $base-gradient__green;
+      mask-image: url('../../assets/images/pointer_bg.png');
+      -webkit-mask-image: url('../../assets/images/pointer_bg.png');
+
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    &:hover &_bg,
+    &_active &_bg {
+      background-color: $pointer-color_red;
+    }
+
+    // &:hover .map-tooltip {
+    //   opacity: 1;
+    //   pointer-events: initial;
+    // }
+
+    &_eagle {
+      top: 82px;
+      left: 131px;
+    }
+
+    &_alligator {
+      top: 101px;
+      left: 244px;
+    }
+
+    &_gorilla {
+      top: 188px;
+      left: 571px;
+    }
+
+    &_panda {
+      top: 98px;
+      left: 903px;
+    }
+
+  }
+
+  &__image {
+    height: 39px;
+    width: 39px;
+    position: absolute;
+
+    top: 16px;
+    left: 14px;
+    
+  }
+
+
 
 }

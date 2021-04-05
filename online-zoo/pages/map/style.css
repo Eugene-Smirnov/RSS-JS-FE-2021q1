@@ -82,6 +82,7 @@ input[type=range]::-ms-track {
   justify-content: space-between;
   width: 245px;
   height: 55px;
+  box-sizing: border-box;
   border: 1px solid #4bd8b5;
   border-radius: 3px;
   background: linear-gradient(106.89deg, rgba(75, 216, 181, 0) -14.32%, #49d6df 100.68%), #4bd8b5;
@@ -291,7 +292,7 @@ input[type=range]::-ms-track {
 
 /* MAIN */
 .main {
-  height: 1297px;
+  height: 1287px;
   overflow: hidden;
 }
 .main__wrapper {
@@ -451,6 +452,17 @@ input[type=range]::-ms-track {
   font-weight: 900;
   font-size: 14px;
 }
+.main__button {
+  margin-top: 47px;
+  padding: 0px 39px;
+}
+.main__button::before {
+  content: url("../../assets/icons/button__play.svg");
+  display: inline-block;
+}
+.main__button:hover, .main__button:active {
+  padding: 0px 34px;
+}
 
 .main-slider:hover > .main-slider__item_active {
   transition-delay: 0.1s;
@@ -472,6 +484,61 @@ input[type=range]::-ms-track {
   width: 137px;
   height: 137px;
   border-width: 7px;
+}
+
+.map {
+  width: 1200px;
+  height: 498px;
+  background-image: url("../../assets/images/map.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.map__wrapper {
+  width: 1199px;
+  margin-top: 82px;
+  position: relative;
+}
+.map__pointer {
+  width: 67px;
+  height: 95px;
+  position: absolute;
+  cursor: pointer;
+}
+.map__pointer_bg {
+  width: 67px;
+  height: 95px;
+  position: absolute;
+  background-color: #4bd8b5;
+  mask-image: url("../../assets/images/pointer_bg.png");
+  -webkit-mask-image: url("../../assets/images/pointer_bg.png");
+  transition: background-color 0.3s ease-in-out;
+}
+.map__pointer:hover .map__pointer_bg, .map__pointer_active .map__pointer_bg {
+  background-color: #eb5757;
+}
+.map__pointer_eagle {
+  top: 82px;
+  left: 131px;
+}
+.map__pointer_alligator {
+  top: 101px;
+  left: 244px;
+}
+.map__pointer_gorilla {
+  top: 188px;
+  left: 571px;
+}
+.map__pointer_panda {
+  top: 98px;
+  left: 903px;
+}
+.map__image {
+  height: 39px;
+  width: 39px;
+  position: absolute;
+  top: 16px;
+  left: 14px;
 }
 
 /* FOOTER */
