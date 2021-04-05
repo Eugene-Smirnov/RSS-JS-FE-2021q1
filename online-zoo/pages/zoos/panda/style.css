@@ -440,6 +440,7 @@ input[type=range]::-ms-track {
   width: 157px;
   height: 157px;
   z-index: 1;
+  cursor: default;
 }
 .aside__item_active > .aside__image {
   width: 137px;
