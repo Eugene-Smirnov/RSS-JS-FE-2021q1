@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Online-zoo | Map</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__h1">online zoo</h1>
+        <div class="wrapper header__wrapper">
+            <a href="#" class="logo
+                               header__logo"></a>
+            <nav class="nav header-nav">
+                <ul class="header-nav__ul">
+                    <li class="header-nav__li">
+                        <a href="../landing/" 
+                           class="header-nav__link">about</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="../zoos/panda/"
+                           class="header-nav__link">zoos</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="../map/"
+                           class="header-nav__link
+                                  header-nav__link_active">map</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="#contact-form"
+                           class="header-nav__link">contact us</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp"
+                           class="header-nav__link">design</a>
+                    </li>
+                </ul>
+            </nav>
+            <label class="switch">
+                <input class="switch__checkbox" type="checkbox">
+                <div class="switch__slider"></div>
+            </label>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__wrapper">
+        <h2 class="heading
+                   main__heading">Choose your favorite</h2>
+        <p class="main__paragraph">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects, including providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
+        <div class="main-slider__box">
+            <button class="arrow_left 
+                           main-slider__arrow_left"></button>
+            <div class="main-slider__wrapper">
+                <ul class="main-slider">
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_gorilla"></div>
+                    </li>
+                    <li class="main-slider__item
+                               main-slider__item_active">
+                        <div class="main-slider__image
+                                    main-slider__image_panda"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_alligator"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_eagle"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_tiger"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_elephant"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_lion"></div>
+                    </li>
+                    <li class="main-slider__item">
+                        <div class="main-slider__image
+                                    main-slider__image_zebra"></div>
+                    </li>
+                </ul>
+            </div>
+            <button class="arrow_right 
+                           main-slider__arrow_right"></button>
+        </div>
+        <div class="main-slider__range-input-wrapper">
+            <label for="main-slider__range-input" >
+                        <span class="main-slider__current-value">02/</span>
+                        <span class="main-slider__amount">08</span>
+            </label>
+            <input type="range" 
+                name="" 
+                min="1"
+                max="8"
+                value="2"
+                id="main-slider__range-input" 
+                class="range-input main-slider__range-input">
+
+        </div>
+        <div class="map__wrapper">
+            <div class="map"></div>
+
+            <div title="eagle"
+                class="map__pointer
+                        map__pointer_eagle">
+                <div class="map__pointer_bg"></div>
+                <img src="../../assets/images/pointer_eagle.png" alt="eagle" class="map__image map__image_eagle">
+                
+                <!-- <div class="map-tooltip">
+                    <img src="../../assets/images/tooltip__image_eagle.png" alt="eagle" class="map-tooltip__image">
+                    <div class="map-tooltip__description">
+                        <h3 class="map-tooltip__heading">west end bald eagle</h3>
+                        <p class="map-tooltip__content">
+                            <b class="bold">Region: </b>on an island near Los Angeles <b class="bold">Population: </b>more than 270 pairs in 2013
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div title="alligator" 
+                class="map__pointer
+                        map__pointer_alligator">
+                <div class="map__pointer_bg"></div>
+                <img src="../../assets/images/pointer_alligator.png" alt="alligator"  class="map__image map__image_alligator">
+                
+                <!-- <div class="map-tooltip">
+                    <img src="../../assets/images/pointer_alligator.png" alt="alligator" class="map-tooltip__image">
+                    <div class="map-tooltip__description">
+                        <h3 class="map-tooltip__heading">american alligator</h3>
+                        <p class="map-tooltip__content">
+                            <b class="bold">Region: </b>on east-side of united states <b class="bold">Population: </b>approximatly 12'000 pairs in 2015
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div title="gorilla"
+                class="map__pointer
+                        map__pointer_gorilla">
+                <div class="map__pointer_bg"></div>
+                <img src="../../assets/images/pointer_gorilla.png" alt="gorilla"  class="map__image map__image_gorilla">
+                
+                <!-- <div class="map-tooltip">
+                    <img src="../../assets/images/pointer_gorilla.png" alt="gorilla" class="map-tooltip__image">
+                    <div class="map-tooltip__description">
+                        <h3 class="map-tooltip__heading">african gorilla</h3>
+                        <p class="map-tooltip__content">
+                            <b class="bold">Region: </b>in forests of continental africa <b class="bold">Population: </b>over 100'000 western lowland gorillas
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div title="panda"
+                 class="map__pointer
+                        map__pointer_panda
+                        map__pointer_active">
+                <div class="map__pointer_bg"></div>
+                <img src="../../assets/images/pointer_panda.png" alt="panda"  class="map__image map__image_panda">
+            
+                <!-- <div class="map-tooltip">
+                    <img src="../../assets/images/pointer_panda.png" alt="panda" class="map-tooltip__image">
+                    <div class="map-tooltip__description">
+                        <h3 class="map-tooltip__heading">panda</h3>
+                        <p class="map-tooltip__content">
+                            <b class="bold">Region: </b>middle of china tropical forests <b class="bold">Population: </b>approximatly 1'590 pairs in 2016
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div onclick="window.location.href='../zoos/panda/'"
+             class="button main__button"> watch online</div>
+         </div>
+    </main>
+    <footer class="footer">
+        <div class="wrapper
+                    footer__wrapper">
+            <div class="footer__top-bar">
+                <div class="footer__logo-wrapper">
+                    <a href="#" class="logo 
+                                       footer__logo"></a>
+                </div>
+                <nav class="footer-nav">
+                    <ul class="footer-nav__ul">
+                        <li class="footer-nav__li">
+                            <a href="../landing/" class="footer-nav__link">about</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="../zoos/panda/" class="footer-nav__link">zoos</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="../map/" class="footer-nav__link">map</a>
+                        </li>
+                        <li class="footer-nav__li">
+                            <a href="https://www.figma.com/file/HKt5Nlx0jghQtJp6jW9q8F/zooApp" class="footer-nav__link">design</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__middle-box">
+                <form method="post" class="footer-form" id="contact-form">
+                    <h2 class="footer-form__heading">Contact us</h2>
+                    <input type="text" 
+                           id="contact-form__name" 
+                           name="username" 
+                           placeholder="Name"
+                           required
+                           class="footer-form__text-input">
+                    <input type="email" 
+                           id="contact-form__mail" 
+                           name="usermail" 
+                           placeholder="Email"
+                           required
+                           class="footer-form__text-input">
+                    <fieldset class="footer-form__fieldset">
+                        <legend class="footer-form__legend">Please enter your message</legend>
+                        <textarea id="contact-form__message"
+                                  name="usermessage" 
+                                  maxlength="280"
+                                  required
+                                  class="footer-form__textarea"></textarea>
+                    </fieldset>
+                    <label for="contact-form__checkbox"
+                           class="footer-form__checkbox-label">
+                        <input type="checkbox"
+                                id="contact-form__checkbox"
+                                name="checkbox"
+                                required
+                                class="footer-form__checkbox">
+                        <span class="footer-form__checkbox-pseudo">✔</span>
+                        I agree to the processing of Personal Data
+                    </label>
+                    <button type="submit"
+                            id="contact-form__submit"
+                            name="submit"
+                            class="button footer-form__submit"
+                            onsubmit="alert('Thanks for feedback!'); return false;">send </button>
+                </form>
+                <div class="footer__info-box">
+                    <h3 class="footer-adress__heading">zoo online centre</h3>
+                    <address class="footer-adress">
+                        <p>132, Address District, Street</p>
+                        <p>Open Daily 10:00 am - 5:00 pm</p>
+                        <br>
+                        T<a href="tel:(702) 163-3433">(702) 163-3433</a>
+                        <br>
+                        <a href="mailto:zoo.online@gmail.com">zoo.online@gmail.com</a>
+                    </address>
+                    <ul class="footer-socials">
+                        <li class="footer-socials__li">
+                            <a href="https://instagram.com" 
+                               class="footer-socials__link
+                                      footer-socials__link_instagram"></a>
+                        </li>
+                        <li class="footer-socials__li">
+                            <a href="https://twitter.com" 
+                               class="footer-socials__link
+                                      footer-socials__link_twitter"></a>
+                        </li>
+                        <li class="footer-socials__li">
+                            <a href="https://vk.com" 
+                               class="footer-socials__link
+                                      footer-socials__link_vk"></a>
+                        </li>
+                        <li class="footer-socials__li">
+                            <a href="https://youtube.com" 
+                               class="footer-socials__link
+                                      footer-socials__link_youtube"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="button 
+                           footer__button">donate for volunteers</button>
+            <hr class="footer__hr">
+            <small class="footer__copyrights">
+                ©Noora Sagnayeva<br>©RSSchool and ©Yem Digital - 2021
+            </small>
+        </div>
+    </footer>
+</body>
+</html>

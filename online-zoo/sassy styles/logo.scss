@@ -1,0 +1,10 @@
+/* LOGO */
+
+.logo {
+  display: inline-block;
+  height: 42px;
+  width: 60px;
+  background-color: $base-color_theme_dark;
+  mask-image: url('../../assets/icons/logo.svg');
+  -webkit-mask-image: url('../../assets/icons/logo.svg');
+}

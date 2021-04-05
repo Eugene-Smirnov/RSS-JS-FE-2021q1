@@ -1,0 +1,32 @@
+/* PANDA_PAGE FOOTER POSITIONING AND URL ROUTING*/
+
+.footer-socials__link {
+  &_instagram {
+    height: 20px;
+    mask-image: url('../../../assets/icons/instagram.svg');
+    -webkit-mask-image: url('../../../assets/icons/instagram.svg');
+  }
+
+  &_twitter {
+    height: 16.25px;
+    mask-image: url('../../../assets/icons/twitter.svg');
+    -webkit-mask-image: url('../../../assets/icons/twitter.svg');
+  }
+
+  &_youtube {
+    height: 13.75px;
+    mask-image: url('../../../assets/icons/youtube.svg');
+    -webkit-mask-image: url('../../../assets/icons/youtube.svg');
+  }
+
+  &_vk {
+    height: 11.41px;
+    mask-image: url('../../../assets/icons/vk.svg');
+    -webkit-mask-image: url('../../../assets/icons/vk.svg');
+  }
+
+}
+
+.footer-form__submit::after {
+  content: url('../../../assets/icons/footer__arrow.svg');
+}

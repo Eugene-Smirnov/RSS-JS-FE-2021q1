@@ -1,0 +1,107 @@
+/* HOW IT WORKS BOX*/
+
+.how-it-works {
+  height: 783px;
+
+  &__wrapper {
+    width: 790px;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-bottom: 101px;
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    display: flex;
+    width: 100%;
+  }
+
+  &__content {
+    margin-top: 32px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: $additional-color_theme-dark;
+  }
+
+  &-slider {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: 790px;
+
+    margin-top: 29px;
+    overflow: hidden;
+
+    &__item {
+      position: relative;
+      margin: 0 5px;
+      left: -5px;
+      cursor: pointer;
+    }
+
+    &__image {
+      width: 790px;
+      height: 323px;
+      border-radius: 5px;
+    }
+  }
+
+  &__range-input-wrapper {
+    width: 245px;
+
+    margin-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__range-input {
+    margin-top: 17px;
+
+    &::-webkit-slider-thumb {
+      width: 62px;
+      background: $base-color_theme_dark;
+      cursor: pointer;
+      margin-top: -3px; 
+    }
+    
+    &::-moz-range-thumb,
+    &::-ms-thumb {
+      width: 62px;
+      background: $base-color_theme_dark;
+      cursor: pointer;
+    }
+  }
+
+  &__current-value {
+    color: $base-color_theme_dark;
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  &__amount {
+    color: $grey-color;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  &__button {
+    margin-top: 31px;
+    padding: 0px 38px;
+
+    &::before {
+      content: url('../../assets/icons/button__play.svg');
+      display: inline-block;
+    }  
+
+    &:hover,
+    &:active {
+      padding: 0px 34px;
+    }
+  }
+}

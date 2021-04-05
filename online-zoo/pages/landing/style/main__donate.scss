@@ -1,0 +1,87 @@
+/* DONATE-BOX */
+
+.donate {
+  background-color: $additional-color_theme-light;
+  overflow: hidden;
+
+  &__wrapper {
+    width: 1199px;
+    height: 754px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    margin-top: 100px;
+    margin-bottom: 0px;
+  }
+
+  &__content {
+    margin-top: 33px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: $additional-color_theme-dark;
+  }
+
+  &-description {
+    margin-top: 90px;
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &__arrow {
+      width: 108px;
+      height: 20px;
+      background-image: url("../../assets/icons/description__arrow.svg");
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 239px;
+      height: 239px;
+
+      border: 3px solid $base-gradient__green;
+      border-radius: 50%;
+    }
+
+    &__image {
+      margin-top: -8px;
+      
+      box-sizing: border-box;
+      max-width: 100%;
+
+      &_1 {
+        margin-top: 0;
+      }
+
+    }
+
+    &__text {
+      position: relative;
+      top: 15px;
+
+      max-width: 135px;
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 23.44px;
+      text-align: center;
+      color: $additional-color_theme-dark;
+    }
+
+  }
+
+  &__button {
+    margin-top: 60px;
+    justify-content: center;
+  }
+
+}

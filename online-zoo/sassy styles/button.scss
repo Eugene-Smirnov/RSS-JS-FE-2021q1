@@ -1,0 +1,36 @@
+/* BUTTON */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 245px;
+  height: 55px;
+  box-sizing: border-box;
+  border: 1px solid $base-gradient__green;
+  border-radius: 3px;
+
+  background: $base-gradient_opacity, $base-gradient__green;
+
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  color: $base-color_theme_light;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    
+  &:hover {
+    background: rgba($base-gradient__green, 70%);
+    border: 1px solid $base-gradient__green;
+  }
+
+  &:active {
+    background: rgba($base-gradient__blue, 70%);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
