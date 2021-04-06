@@ -15,12 +15,26 @@
     margin-top: -3px; 
   }
   
-  &::-moz-range-thumb,
-  &::-ms-thumb {
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
     height: 10px;
     width: 30px;
-    background: $base-color_theme_light;
+    background: #fefefe;
     cursor: pointer;
+    margin-top: -3px;
+    border: none;
+    border-radius: 0;
+  }
+
+  &::-ms-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 30px;
+    background: #fefefe;
+    cursor: pointer;
+    margin-top: -3px;
+    border: none;
+    border-radius: 0;
   }
 
   // TRACK

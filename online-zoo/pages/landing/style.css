@@ -111,11 +111,15 @@ input[type=range]::-ms-track {
   cursor: pointer;
   margin-top: -3px;
 }
-.range-input::-moz-range-thumb, .range-input::-ms-thumb {
+.range-input::-moz-range-thumb {
+  -webkit-appearance: none;
   height: 10px;
   width: 30px;
   background: #fefefe;
   cursor: pointer;
+  margin-top: -3px;
+  border: none;
+  border-radius: 0;
 }
 .range-input::-webkit-slider-runnable-track {
   width: 100%;
