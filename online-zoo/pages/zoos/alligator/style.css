@@ -1,4 +1,4 @@
-/* PANDA-PAGE STYLE */
+/* ALLIGATOR-PAGE STYLE */
 /* BASE */
 html {
   scroll-behavior: smooth;
@@ -383,7 +383,7 @@ input[type=range]::-ms-track {
 
 .aside {
   position: sticky;
-  top: 2px;
+  top: 60px;
   left: 25px;
   display: flex;
   flex-direction: column;
