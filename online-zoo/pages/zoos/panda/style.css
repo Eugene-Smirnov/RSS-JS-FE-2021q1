@@ -217,6 +217,7 @@ input[type=range]::-ms-track {
   display: none;
 }
 .switch__slider {
+  display: block;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -351,6 +352,7 @@ input[type=range]::-ms-track {
 
 .video__stream {
   border-radius: 5px;
+  border: none;
 }
 .video__preview-box {
   margin-top: 26px;
