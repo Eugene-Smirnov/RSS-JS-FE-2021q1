@@ -25,9 +25,10 @@
   }
 
   &-slider {
-    height: 157px;
+    height: 158px;
+    width: 95%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     &__box {
@@ -64,8 +65,8 @@
     }
 
     &__item {
-      width: 124px;
-      height: 124px;
+      width: 126px;
+      height: 126px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -73,11 +74,10 @@
             
       background: $image-border-gradient;
       border-radius: 50%;
-      
 
       // for outline gradient delays 0.1s needed
-      -webkit-transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
-      transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+      -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
+      transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
       cursor: pointer;
 
       &::before {
@@ -88,12 +88,12 @@
         border-radius: 50%;
         background-color: #fefefe;
         pointer-events: none;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.25s ease-in-out;
       }
 
       &_active {
-        width: 157px;
-        height: 157px;
+        width: 158px;
+        height: 158px;
 
         z-index: 1;  
         
@@ -101,8 +101,8 @@
         transition-delay: 0s;
 
         &>.main-slider__image {
-          width: 137px;
-          height: 137px;
+          width: 136px;
+          height: 136px;
           border-width: 7px;
 
           
@@ -117,15 +117,15 @@
       }
 
       &:hover {
-        width: 157px;
-        height: 157px;
+        width: 158px;
+        height: 158px;
 
         // -webkit-transition-delay: 0s;
         // transition-delay: 0s;
 
         &>.main-slider__image {
-          width: 137px;
-          height: 137px;
+          width: 136px;
+          height: 136px;
           border-width: 7px;
 
           // -webkit-transition-delay: 0.1s;
@@ -144,8 +144,8 @@
       border: 5px solid $base-color_theme_light;
       border-radius: 50%;
       z-index: 1;
-      transition: height 0.3s ease-in-out, width 0.3s ease-in-out, border-width 0.3s ease-in-out;
-      -webkit-transition: height 0.3s ease-in-out, width 0.3s ease-in-out, border-width 0.3s ease-in-out;
+      transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
+      -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
 
       &_gorilla {
         background-image: url(../../assets/images/map-slider/map-slider__gorilla.png)
@@ -236,8 +236,8 @@
 
 .main-slider:hover > .main-slider__item_active {
   transition-delay: 0.1s;
-  width: 124px;
-  height: 124px;
+  width: 126px;
+  height: 126px;
 
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
@@ -254,15 +254,15 @@
 }
 
 .main-slider:hover > .main-slider__item_active:hover {
-  width: 157px;
-  height: 157px;
+  width: 158px;
+  height: 158px;
   
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
 
   &>.main-slider__image {
-    width: 137px;
-    height: 137px;
+    width: 136px;
+    height: 136px;
     border-width: 7px;
 
     
@@ -302,7 +302,7 @@
       mask-image: url('../../assets/images/pointer_bg.png');
       -webkit-mask-image: url('../../assets/images/pointer_bg.png');
 
-      transition: background-color 0.3s ease-in-out;
+      transition: background-color 0.25s ease-in-out;
     }
 
     &:hover &_bg,
