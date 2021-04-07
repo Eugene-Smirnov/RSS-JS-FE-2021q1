@@ -362,6 +362,7 @@ input[type=range]::-ms-track {
 }
 .video__preview {
   pointer-events: none;
+  border: none;
 }
 .video__preview_1, .video__preview_2, .video__preview_3 {
   border-radius: 5px;
