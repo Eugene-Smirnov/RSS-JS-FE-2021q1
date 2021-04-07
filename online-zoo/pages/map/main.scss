@@ -26,9 +26,8 @@
 
   &-slider {
     height: 157px;
-    width: 1090px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     &__box {
@@ -40,14 +39,10 @@
     }
 
     &__arrow_left {
-      position: relative;
-      left: -26px;
       cursor: pointer;
     }
 
     &__arrow_right {
-      position: relative;
-      left: 26px;
       cursor: pointer;
     }
 
@@ -69,27 +64,30 @@
     }
 
     &__item {
-      width: 123px;
-      height: 123px;
-        
-      display: flex;
+      width: 124px;
+      height: 124px;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
-      flex-shrink: 0;
-      
+      overflow: hidden;
+            
       background: $image-border-gradient;
       border-radius: 50%;
       
-      transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+
+      // for outline gradient delays 0.1s needed
+      -webkit-transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+      transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
       cursor: pointer;
 
       &::before {
         position: absolute;
         content: "";
-        height: 159px;
-        width: 159px;
+        height: 165px;
+        width: 165px;
         border-radius: 50%;
-        background-color: $base-color_theme_light;
+        background-color: #fefefe;
+        pointer-events: none;
         transition: opacity 0.3s ease-in-out;
       }
 
@@ -97,12 +95,19 @@
         width: 157px;
         height: 157px;
 
-        z-index: 1;
+        z-index: 1;  
+        
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
 
         &>.main-slider__image {
           width: 137px;
           height: 137px;
           border-width: 7px;
+
+          
+          -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
         }
 
         &::before {
@@ -115,10 +120,16 @@
         width: 157px;
         height: 157px;
 
+        // -webkit-transition-delay: 0s;
+        // transition-delay: 0s;
+
         &>.main-slider__image {
           width: 137px;
           height: 137px;
           border-width: 7px;
+
+          // -webkit-transition-delay: 0.1s;
+          // transition-delay: 0.1s;
         }
 
       }
@@ -133,7 +144,8 @@
       border: 5px solid $base-color_theme_light;
       border-radius: 50%;
       z-index: 1;
-      transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
+      transition: height 0.3s ease-in-out, width 0.3s ease-in-out, border-width 0.3s ease-in-out;
+      -webkit-transition: height 0.3s ease-in-out, width 0.3s ease-in-out, border-width 0.3s ease-in-out;
 
       &_gorilla {
         background-image: url(../../assets/images/map-slider/map-slider__gorilla.png)
@@ -173,8 +185,6 @@
       width: 245px;
       margin-top: 32px;
 
-      position: relative;
-      left: -16px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -226,14 +236,19 @@
 
 .main-slider:hover > .main-slider__item_active {
   transition-delay: 0.1s;
-  width: 123px;
-  height: 123px;
+  width: 124px;
+  height: 124px;
+
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 
   &>.main-slider__image {
     width: 108px;
     height: 108px;
     border-width: 5px;
-    transition-delay: 0.1s;
+    
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
   }
 
 }
@@ -241,11 +256,18 @@
 .main-slider:hover > .main-slider__item_active:hover {
   width: 157px;
   height: 157px;
+  
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 
   &>.main-slider__image {
     width: 137px;
     height: 137px;
     border-width: 7px;
+
+    
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
   }
 
 }
