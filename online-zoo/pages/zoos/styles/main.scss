@@ -224,10 +224,16 @@
       z-index: 1;
       cursor: default;
 
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+
       &>.aside__image {
         width: 136px;
         height: 136px;
         border-width: 7px;
+
+        -webkit-transition-delay: 0.1s;
+        transition-delay: 0.1s;
       }
 
       &::before {
