@@ -1,0 +1,210 @@
+/* POPUP STYLE */
+/* BASE */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fefefe;
+  font-family: "Roboto", sans-serif;
+}
+
+ul,
+li,
+a {
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.bold {
+  font-weight: 500;
+  color: #333;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1620px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 900;
+  color: #333;
+}
+
+.main {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* LOGO */
+.logo {
+  display: inline-block;
+  height: 42px;
+  width: 60px;
+  background-color: #333;
+  mask-image: url("../../assets/icons/logo.svg");
+  -webkit-mask-image: url("../../assets/icons/logo.svg");
+}
+
+/* BUTTON */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 245px;
+  height: 55px;
+  box-sizing: border-box;
+  border: 1px solid #4bd8b5;
+  border-radius: 3px;
+  background: linear-gradient(106.89deg, rgba(75, 216, 181, 0) -14.32%, #49d6df 100.68%), #4bd8b5;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fefefe;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.button:hover {
+  background: rgba(75, 216, 181, 0.7);
+  border: 1px solid #4bd8b5;
+}
+.button:active {
+  background: rgba(73, 214, 223, 0.7);
+}
+.button:active, .button:focus {
+  outline: none;
+}
+
+/* RANGE-INPUT */
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+  margin-top: -3px;
+}
+.range-input::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+  margin-top: -3px;
+  border: none;
+  border-radius: 0;
+}
+.range-input::-ms-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+  margin-top: -3px;
+  border: none;
+  border-radius: 0;
+}
+.range-input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-webkit-slider-runnable-track {
+  background: rgba(189, 189, 189, 0.7);
+}
+.range-input::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 0;
+  color: transparent;
+}
+.range-input::-ms-fill-lower {
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-ms-fill-lower {
+  background: rgba(189, 189, 189, 0.7);
+}
+.range-input::-ms-fill-upper {
+  background: rgba(189, 189, 189, 0.53);
+}
+.range-input:focus::-ms-fill-upper {
+  background: rgba(189, 189, 189, 0.7);
+}
+
+/* ARROW */
+.arrow_left {
+  width: 18px;
+  height: 30px;
+  background-color: #828282;
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("../../assets/icons/arrow-left.svg");
+  -webkit-mask-image: url("../../assets/icons/arrow-left.svg");
+}
+.arrow_left:active, .arrow_left:focus {
+  outline: none;
+}
+.arrow_right {
+  width: 18px;
+  height: 30px;
+  background-color: #828282;
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transform: rotate(180deg);
+  mask-image: url("../../assets/icons/arrow-left.svg");
+  -webkit-mask-image: url("../../assets/icons/arrow-left.svg");
+}
+.arrow_right:active, .arrow_right:focus {
+  outline: none;
+}
+
+/* POPUP MAIN */
+
+/*# sourceMappingURL=style.css.map */
