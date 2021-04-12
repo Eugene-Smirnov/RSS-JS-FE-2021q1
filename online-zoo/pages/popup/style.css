@@ -206,5 +206,125 @@ input[type=range]::-ms-track {
 }
 
 /* POPUP MAIN */
+input,
+select {
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.popup {
+  display: flex;
+}
+.popup__wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 1200px;
+  box-shadow: 2px 4px 15px 0px rgba(6, 12, 70, 0.15);
+  background-color: #fefefe;
+}
+.popup__sidepic {
+  width: 197px;
+  background-image: url("../../assets/images/popup__image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.popup__content {
+  width: 725px;
+}
+.popup__content-wrapper {
+  margin: 100px auto auto;
+}
+.popup__heading {
+  margin-bottom: 42px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.popup-form__inputs-wrapper {
+  width: 726px;
+}
+.popup-form__input-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4f4f4f;
+}
+.popup-form__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.popup-form__box_top {
+  height: 65px;
+}
+.popup-form__box_bottom {
+  margin-top: 40px;
+}
+.popup-form__select_animal, .popup-form__animal-option {
+  text-transform: capitalize;
+}
+.popup-form__fieldset {
+  margin-top: 21px;
+  width: 335px;
+  box-sizing: border-box;
+  border: 1px solid #828282;
+  border-radius: 5px;
+}
+.popup-form__fieldset_border {
+  content: "";
+  display: block;
+  height: 32px;
+  width: 1px;
+  background-color: #828282;
+}
+.popup-form__fieldset_phone {
+  display: flex;
+  justify-content: space-around;
+}
+.popup-form__fieldset_phone .popup-form__input_phone-code {
+  width: 15%;
+}
+.popup-form__fieldset_phone .popup-form__input_tel {
+  width: 70%;
+}
+.popup-form__fieldset_date {
+  display: flex;
+  justify-content: space-around;
+}
+.popup-form__fieldset_date .popup-form__select_card-month,
+.popup-form__fieldset_date .popup-form__select_card-year {
+  width: 45%;
+}
+.popup-form__box_top > * {
+  margin-top: 0;
+}
+.popup-form__legend {
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #828282;
+}
+.popup-form__select, .popup-form__input {
+  height: 31px;
+}
+.popup-form__submit {
+  margin-top: 42px;
+  margin-bottom: 79px;
+  justify-content: center;
+}
+.popup__agree-message {
+  margin-top: 42px;
+  width: 478px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #828282;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */
