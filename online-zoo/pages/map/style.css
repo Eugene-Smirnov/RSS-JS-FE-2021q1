@@ -113,11 +113,25 @@ input[type=range]::-ms-track {
   cursor: pointer;
   margin-top: -3px;
 }
-.range-input::-moz-range-thumb, .range-input::-ms-thumb {
+.range-input::-moz-range-thumb {
+  -webkit-appearance: none;
   height: 10px;
   width: 30px;
   background: #fefefe;
   cursor: pointer;
+  margin-top: -3px;
+  border: none;
+  border-radius: 0;
+}
+.range-input::-ms-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 30px;
+  background: #fefefe;
+  cursor: pointer;
+  margin-top: -3px;
+  border: none;
+  border-radius: 0;
 }
 .range-input::-webkit-slider-runnable-track {
   width: 100%;
@@ -203,6 +217,7 @@ input[type=range]::-ms-track {
   display: none;
 }
 .switch__slider {
+  display: block;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -313,9 +328,9 @@ input[type=range]::-ms-track {
 }
 .main-slider {
   height: 157px;
-  width: 1090px;
+  width: 95%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .main-slider__box {
@@ -326,13 +341,9 @@ input[type=range]::-ms-track {
   justify-content: center;
 }
 .main-slider__arrow_left {
-  position: relative;
-  left: -26px;
   cursor: pointer;
 }
 .main-slider__arrow_right {
-  position: relative;
-  left: 26px;
   cursor: pointer;
 }
 .main-slider__arrow_left:hover, .main-slider__arrow_right:hover {
@@ -348,35 +359,41 @@ input[type=range]::-ms-track {
   justify-content: center;
 }
 .main-slider__item {
-  width: 123px;
-  height: 123px;
-  display: flex;
+  width: 124px;
+  height: 124px;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  overflow: hidden;
   background: linear-gradient(103.3deg, #07EEE0 -15.1%, #DF496D 92.15%);
   border-radius: 50%;
-  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s;
+  -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
+  transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
   cursor: pointer;
 }
 .main-slider__item::before {
   position: absolute;
   content: "";
-  height: 159px;
-  width: 159px;
+  height: 165px;
+  width: 165px;
   border-radius: 50%;
   background-color: #fefefe;
-  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  transition: opacity 0.25s ease-in-out;
 }
 .main-slider__item_active {
   width: 157px;
   height: 157px;
   z-index: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 }
 .main-slider__item_active > .main-slider__image {
   width: 137px;
   height: 137px;
   border-width: 7px;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 .main-slider__item_active::before {
   opacity: 0;
@@ -398,7 +415,8 @@ input[type=range]::-ms-track {
   border: 5px solid #fefefe;
   border-radius: 50%;
   z-index: 1;
-  transition: height 0.3s ease-in-out 0.1s, width 0.3s ease-in-out 0.1s, border-width 0.3s ease-in-out 0.1s;
+  transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
+  -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
 }
 .main-slider__image_gorilla {
   background-image: url(../../assets/images/map-slider/map-slider__gorilla.png);
@@ -427,8 +445,6 @@ input[type=range]::-ms-track {
 .main-slider__range-input-wrapper {
   width: 245px;
   margin-top: 32px;
-  position: relative;
-  left: -16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -466,24 +482,31 @@ input[type=range]::-ms-track {
 
 .main-slider:hover > .main-slider__item_active {
   transition-delay: 0.1s;
-  width: 123px;
-  height: 123px;
+  width: 124px;
+  height: 124px;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 .main-slider:hover > .main-slider__item_active > .main-slider__image {
   width: 108px;
   height: 108px;
   border-width: 5px;
-  transition-delay: 0.1s;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 }
 
 .main-slider:hover > .main-slider__item_active:hover {
   width: 157px;
   height: 157px;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
 }
 .main-slider:hover > .main-slider__item_active:hover > .main-slider__image {
   width: 137px;
   height: 137px;
   border-width: 7px;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .map {
@@ -512,7 +535,7 @@ input[type=range]::-ms-track {
   background-color: #4bd8b5;
   mask-image: url("../../assets/images/pointer_bg.png");
   -webkit-mask-image: url("../../assets/images/pointer_bg.png");
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
 }
 .map__pointer:hover .map__pointer_bg, .map__pointer_active .map__pointer_bg {
   background-color: #eb5757;

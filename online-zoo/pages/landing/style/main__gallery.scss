@@ -113,10 +113,14 @@
       // CONTENT
 
       &__content-wrapper {
+        height: 100%;
         position: relative;
         top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
 
-        background: $img-active-gradient, $img-hover-gallery-gradient;
+        background: $img-hover-gallery-gradient;
         opacity: 0;
 
         border-radius: 6px;
@@ -125,7 +129,6 @@
       }
 
       &:hover > &__content-wrapper {
-        display: block;
         top: 0;
         opacity: 1;
       }
