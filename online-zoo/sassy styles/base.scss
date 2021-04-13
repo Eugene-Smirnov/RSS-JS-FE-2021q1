@@ -67,3 +67,10 @@ input[type=range]::-ms-track {
   overflow: hidden;
 }
 
+@media screen and (max-width: 1680px) {
+  
+  .wrapper {
+    max-width: 1200px;
+  }
+
+}
