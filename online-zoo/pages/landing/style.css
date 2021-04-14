@@ -342,7 +342,7 @@ input[type=range]::-ms-track {
 
   .header-nav {
     position: absolute;
-    top: 93.5px;
+    top: 94px;
     right: 0;
     box-shadow: 0px 15px 15px 0px rgba(6, 12, 70, 0.15);
     display: none;
@@ -376,6 +376,7 @@ input[type=range]::-ms-track {
     padding: 15px 60px;
     font-size: 21px;
     background-color: transparent;
+    border-top: 1px solid #f2f2f2;
     transition: background-color 0.2s ease-in-out;
   }
   .header-nav__li:hover {
@@ -386,6 +387,31 @@ input[type=range]::-ms-track {
     display: block;
     position: relative;
     left: 46%;
+  }
+}
+/* HEADER 610px*/
+@media screen and (max-width: 610px) {
+  .header__wrapper {
+    height: 92px;
+  }
+  .header-nav {
+    width: 100%;
+    top: 92px;
+  }
+  .header-nav__ul {
+    width: 100%;
+  }
+  .header-nav__li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .switch {
+    right: 21.5%;
+  }
+
+  .burger-menu {
+    left: 42%;
   }
 }
 /* MAIN */
@@ -1843,6 +1869,10 @@ input[type=range]::-ms-track {
   .map-block__button {
     margin-top: 67px;
   }
+}
+/* MAX WIDTH 610px */
+@media screen and (max-width: 610px) {
+  /* First screen 610*/
 }
 /* MAX WIDTH 1024px */
 @media screen and (max-width: 1024px) {

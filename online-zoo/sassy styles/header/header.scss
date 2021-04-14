@@ -71,7 +71,7 @@
 
     &-nav {
       position: absolute;
-      top: 93.5px;
+      top: 94px;
       right: 0;
       box-shadow: $burger-menu-nav__shadow;
       display: none;
@@ -113,6 +113,7 @@
         padding: 15px 60px;
         font-size: 21px;
         background-color: transparent;
+        border-top: 1px solid $additional-color_theme-light;
         transition: background-color 0.2s ease-in-out;
 
         &:hover {
@@ -129,6 +130,43 @@
     display: block;
     position: relative;
     left: 46%;
+  }
+
+}
+
+/* HEADER 610px*/
+
+@media screen and (max-width: 610px) {
+
+  .header {
+    
+    &__wrapper {
+      height: 92px;
+    }
+
+    &-nav {
+      width: 100%;
+      top: 92px;
+
+      &__ul {
+        width: 100%;
+      }
+
+      &__li {
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+
+  }
+
+  .switch {
+    right: 21.5%;
+  }
+
+  .burger-menu {
+    left: 42%;
   }
 
 }
