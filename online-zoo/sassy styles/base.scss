@@ -82,3 +82,11 @@ input[type=range]::-ms-track {
   }
 
 }
+
+@media screen and (max-width: 1024px) {
+
+  .wrapper {
+    max-width: 93.75%;
+  }
+
+}

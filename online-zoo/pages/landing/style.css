@@ -74,6 +74,11 @@ input[type=range]::-ms-track {
     max-width: 900px;
   }
 }
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 93.75%;
+  }
+}
 /* LOGO */
 .logo {
   display: inline-block;
@@ -329,6 +334,46 @@ input[type=range]::-ms-track {
   pointer-events: none;
 }
 
+/* HEADER MAX WIDTH 1024px */
+@media screen and (max-width: 1024px) {
+  .switch {
+    right: 12.5%;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 93.5px;
+    right: -37%;
+    box-shadow: 0px 15px 15px 0px rgba(6, 12, 70, 0.15);
+    opacity: 0;
+    transition: right 0.3s ease-in-out, opacity 0.15s ease-in-out;
+  }
+  .burger-menu__checkbox:checked ~ .header-nav {
+    opacity: 1;
+    right: 0;
+    transition: right 0.1s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  .header-nav__ul {
+    flex-direction: column;
+    background-color: #fefefe;
+  }
+  .header-nav__li {
+    box-sizing: border-box;
+    padding: 15px 60px;
+    font-size: 21px;
+    background-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+  }
+  .header-nav__li:hover {
+    background-color: #f2f2f2;
+  }
+
+  .burger-menu {
+    display: block;
+    position: relative;
+    left: 46%;
+  }
+}
 /* MAIN */
 /* MAIN__FIRST-SCREEN */
 .first-screen {
@@ -1712,49 +1757,5 @@ input[type=range]::-ms-track {
   }
 }
 /* MAX WIDTH 1024px */
-@media screen and (max-width: 1024px) {
-  .wrapper {
-    max-width: 93.75%;
-  }
-
-  /* HEADER */
-  .switch {
-    right: 12.5%;
-  }
-
-  .header-nav {
-    position: fixed;
-    top: 93.5px;
-    right: -37%;
-    box-shadow: 0px 15px 15px 0px rgba(6, 12, 70, 0.15);
-    opacity: 0;
-    transition: right 0.3s ease-in-out, opacity 0.15s ease-in-out;
-  }
-  .burger-menu__checkbox:checked ~ .header-nav {
-    opacity: 1;
-    right: 0;
-    transition: right 0.1s ease-in-out, opacity 0.3s ease-in-out;
-  }
-  .header-nav__ul {
-    flex-direction: column;
-    background-color: #fefefe;
-  }
-  .header-nav__li {
-    box-sizing: border-box;
-    padding: 15px 60px;
-    font-size: 21px;
-    background-color: transparent;
-    transition: background-color 0.2s ease-in-out;
-  }
-  .header-nav__li:hover {
-    background-color: #f2f2f2;
-  }
-
-  .burger-menu {
-    display: block;
-    position: relative;
-    left: 46%;
-  }
-}
 
 /*# sourceMappingURL=style.css.map */
