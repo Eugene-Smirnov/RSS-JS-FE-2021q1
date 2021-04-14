@@ -139,6 +139,7 @@
 
       &-label {
         margin: 26px 1px 0;
+        width: fit-content;
 
         font-size: 12px;
         font-weight: 400;
@@ -481,7 +482,7 @@
     }
 
     &__button {
-      left: 325px;
+      left: 54%;
       top: -798px;
     }
 

@@ -70,23 +70,42 @@
   .header {
 
     &-nav {
-      position: fixed;
+      position: absolute;
       top: 93.5px;
-      right: -37%;
+      right: 0;
       box-shadow: $burger-menu-nav__shadow;
+      display: none;
       opacity: 0;
 
-      transition: right 0.3s ease-in-out, opacity 0.15s ease-in-out;
+      animation: rotateMenu 400ms ease-in-out forwards;
+      transform-origin: top center;
+      transition: opacity 0.15s ease-in-out;
+
+      @keyframes rotateMenu {
+
+          0% {
+              transform: rotateX(-90deg)
+          }
+
+          70% {
+              transform: rotateX(20deg) 
+          }
+          
+          100% {
+              transform: rotateX(0deg) 
+          }
+
+      }
 
       .burger-menu__checkbox:checked ~ & {
+        display: flex;
         opacity: 1;
-        right: 0;
-        transition: right 0.1s ease-in-out, opacity 0.3s ease-in-out;
+        transition: opacity 0.3s ease-in-out;
       }
 
       &__ul {
         flex-direction: column;
-        background-color: $base-color_theme_light
+        background-color: $base-color_theme_light;
       }
 
       &__li {
