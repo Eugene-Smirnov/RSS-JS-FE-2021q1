@@ -315,3 +315,98 @@
   }
 
 }
+
+/* Adaptive footer */
+
+@media screen and (max-width: 1680px) {
+
+  .footer {
+
+    &-nav {
+
+      position: relative;
+      left: 3px;
+
+      &__li {
+        margin-top: 17px;
+        margin-left: 5px;
+        margin-right: 60px;
+      }
+
+    }
+
+    &-form {
+
+      &__heading {
+        margin-top: 5px;
+        margin-bottom: 15px;
+      }
+
+      &__text-input, 
+      &__text-input::placeholder {
+        width: 85%;
+        padding: 8px 0;
+        margin-top: 13px;
+      }
+
+      &__legend {
+        padding: 1px 6px;
+        margin: 0 -10px;
+      }
+
+      &__fieldset {
+        width: 79.5%;
+      }
+
+      &__checkbox-label {
+        margin: 21px 0 0;
+      }
+
+      &__submit {
+        margin-top: 6px;
+        left: 248px;
+      }
+
+    }
+
+    &-adress {
+
+      margin: 33px 10px 14px;
+      line-height: 19.5px;
+
+      &__heading {
+        margin-top: -7px;
+        margin-left: 10px;
+      }
+
+    }
+
+    &-socials {
+      margin-left: 10px;
+    }
+
+    &__button {
+      top: -147px;
+      left: 610px;
+    }
+
+    &__hr {
+      margin-top: -6px;
+      margin-bottom: 29px;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+
+  .footer {
+
+    &__button {
+      left: 460px;
+    }
+
+  }
+
+}

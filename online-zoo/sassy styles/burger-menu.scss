@@ -1,0 +1,23 @@
+/* Burger-menu style */
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  
+  &__checkbox {
+    visibility: hidden;
+    position: absolute;
+    top: -50px;
+  }
+
+  &__icon {
+    margin-top: 4px;
+    display: inline-block;
+    height: 21px;
+    width: 40px;
+    background-color: $base-color_theme_dark;
+    mask-image: url('../../assets/icons/menu.svg');
+    -webkit-mask-image: url('../../assets/icons/menu.svg');  
+  }
+
+}
