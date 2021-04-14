@@ -90,3 +90,11 @@ input[type=range]::-ms-track {
   }
 
 }
+
+@media screen and (max-width: 610px) {
+
+  .heading {
+    font-size: 36px;
+  }
+
+}

@@ -495,3 +495,58 @@
   }
 
 }
+
+/* MAX WIDTH 610px */
+@media screen and (max-width: 610px) {
+
+  .footer {
+
+    &__wrapper {
+      margin-top: 49px;
+      height: 980px;
+    }
+
+    &-nav__ul {
+      margin-top: 38px;
+    }
+
+    &-form {
+
+      &__text-input,
+      &__text-input::placeholder {
+        width: 100%;
+      }
+
+      &__fieldset {
+        width: 91.25%;
+      }
+
+      &__submit {
+        left: 180px;
+      }
+
+    }
+
+    &-adress {
+      margin-bottom: 15px;
+      
+      &__heading {
+        margin-top: 39px;
+      }
+
+    }
+
+    &__button {
+      left: 4%;
+      top: 0;
+      margin: 40px 0;
+    }
+
+    &__hr {
+      margin-top: 79px;
+      margin-bottom: 25px;
+    }
+
+  }
+
+}
