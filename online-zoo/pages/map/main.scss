@@ -183,11 +183,14 @@
 
     &__range-input-wrapper {
       width: 245px;
-      margin-top: 32px;
+      margin-top: 31px;
 
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      position: relative;
+      left: -17px;
     }
 
     &__range-input {
