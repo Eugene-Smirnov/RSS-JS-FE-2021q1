@@ -577,6 +577,7 @@ input[type=range]::-ms-track {
   align-items: center;
   position: relative;
   left: -17px;
+  z-index: 1;
 }
 .main-slider__range-input {
   margin-top: 14px;
@@ -1321,7 +1322,7 @@ input[type=range]::-ms-track {
   }
   .main__button {
     margin-top: 10px;
-    margin-bottom: 60x;
+    margin-bottom: 60px;
   }
 
   .map {

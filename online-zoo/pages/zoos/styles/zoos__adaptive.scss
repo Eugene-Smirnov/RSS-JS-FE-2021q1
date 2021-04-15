@@ -1,0 +1,172 @@
+/* ZOOS-PAGE ADAPTIVE */
+
+/* ZOOS 1680px */
+
+@media screen and (max-width: 1680px) {
+
+  .main__wrapper {
+
+    width: 70%;
+
+  }
+
+}
+
+
+/* ZOOS 1400px */
+
+@media screen and (max-width: 1400px) {
+
+  .main {
+
+    &__wrapper {
+      width: 66.5%;
+    }
+
+    &__box {
+      margin-top: 41px;
+    }
+
+    &-content {
+      width: 270px;
+      margin-left: 19px;
+
+      &__text {
+        margin: 7px 0px 15px;
+      }
+
+    }
+
+    &__button {
+      margin-top: 19px;
+      width: 186px;
+    }
+
+  }
+
+  .aside {
+    height: 510px;
+    margin-left: -62px;
+
+    left: 16px;
+
+    &__arrow {
+
+      &_up {
+        left: 51px;
+      }
+
+      &_down {
+        left: 51px;
+        bottom: -5px;
+      }
+
+    }
+
+    &__ul {
+      width: 120px;
+      height: 456px;
+    }
+
+    &__image {
+      width: 96px;
+      height: 96px;
+      border-width: 4px;
+    }
+
+    &__item {
+      width: 112px;
+      height: 112px;
+
+      &::before {
+        width: 129px;
+        height: 129px;
+      }
+
+      &:hover {
+        width: 120px;
+        height: 120px;
+
+        & > .aside__image {
+          width: 104px;
+          height: 104px;
+          border-width: 5px;
+        }
+
+      }
+
+    }
+
+    &__item_active {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__item_active > &__image {
+      width: 104px;
+      height: 104px;
+      border-width: 5px;
+    }
+  }
+
+  .aside__ul:hover > .aside__item_active {
+    width: 112px;
+    height: 112px;
+  
+    &>.aside__image {
+      width: 96px;
+      height: 96px;
+      border-width: 4px;
+    }
+  
+  }
+  
+  .aside__ul:hover > .aside__item_active:hover {
+    width: 120px;
+    height: 120px;
+  
+    &>.aside__image {
+      width: 104px;
+      height: 104px;
+      border-width: 5px;
+    }
+  
+  }
+
+  .video {
+
+    &__stream {
+      width: 527px;
+      height: 297px;
+    }
+
+    &__preview {
+      width: 164px;
+      height: 94px;
+
+      &-box {
+        margin-top: 22px;
+      }
+
+      &_1,
+      &_2,
+      &_3 {
+        height: 94px;
+      }
+
+    }
+
+    &-selection {
+
+      &__wrapper {
+        margin-top: 31px;
+
+        position: relative;
+        left: -11px;
+      }
+
+    }
+
+  } 
+
+}
