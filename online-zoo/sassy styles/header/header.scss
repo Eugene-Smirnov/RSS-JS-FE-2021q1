@@ -81,6 +81,8 @@
       transform-origin: top center;
       transition: opacity 0.15s ease-in-out;
 
+      z-index: 1;
+
       @keyframes rotateMenu {
 
           0% {

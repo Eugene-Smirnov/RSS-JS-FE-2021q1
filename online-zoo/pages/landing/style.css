@@ -355,6 +355,7 @@ input[type=range]::-ms-track {
     animation: rotateMenu 400ms ease-in-out forwards;
     transform-origin: top center;
     transition: opacity 0.15s ease-in-out;
+    z-index: 1;
   }
   @keyframes rotateMenu {
     0% {

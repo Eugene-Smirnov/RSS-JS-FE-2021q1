@@ -3,3 +3,13 @@
 .header-nav__li {
   padding: 7px 40px 0px 36px;
 }
+
+/* HEADER MAX WIDTH 1024px */
+
+@media screen and (max-width: 1024px) {
+
+  .header-nav__li {
+    padding: 15px 60px;
+  }
+
+}
