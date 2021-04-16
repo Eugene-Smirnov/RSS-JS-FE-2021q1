@@ -1329,5 +1329,143 @@ input[type=range]::-ms-track {
     left: 0;
   }
 }
+/* ZOOS 610px */
+@media screen and (max-width: 610px) {
+  .aside {
+    height: 233px;
+    margin-left: 0px;
+    top: 30px;
+    left: 5px;
+  }
+  .aside__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .aside__arrow_up, .aside__arrow_down {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 13px;
+    height: 23px;
+  }
+  .aside__arrow_up {
+    top: -5px;
+    left: 0;
+  }
+  .aside__arrow_down {
+    bottom: 5px;
+    left: 0;
+  }
+  .aside__wrapper {
+    margin: 10px 0;
+  }
+  .aside__ul {
+    width: 20vw;
+    height: 210px;
+  }
+  .aside__image {
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+  }
+  .aside__item {
+    width: 47px;
+    height: 47px;
+  }
+  .aside__item::before {
+    width: 70px;
+    height: 70px;
+  }
+  .aside__item:hover {
+    width: 65px;
+    height: 65px;
+  }
+  .aside__item:hover > .aside__image {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+  .aside__item_active {
+    width: 65px;
+    height: 65px;
+  }
+  .aside__item_active > .aside__image {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+
+  .aside__ul:hover > .aside__item_active {
+    width: 47px;
+    height: 47px;
+  }
+  .aside__ul:hover > .aside__item_active > .aside__image {
+    width: 40px;
+    height: 40px;
+    border-width: 1px;
+  }
+
+  .aside__ul:hover > .aside__item_active:hover {
+    width: 65px;
+    height: 65px;
+  }
+  .aside__ul:hover > .aside__item_active:hover > .aside__image {
+    width: 55px;
+    height: 55px;
+    border-width: 2px;
+  }
+
+  .main {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .main__heading {
+    margin-top: -5px;
+    margin-left: 6px;
+    font-size: 24px;
+  }
+  .main__wrapper {
+    width: 64%;
+    left: 5px;
+  }
+  .main__box {
+    margin-top: 21px;
+  }
+  .main-content {
+    margin-top: 31px;
+  }
+  .main-content__heading {
+    font-size: 14px;
+  }
+  .main-content__text {
+    margin-top: 7px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .main__button {
+    margin-top: 17px;
+  }
+
+  .video__stream {
+    height: 36vw;
+  }
+  .video__preview {
+    height: 17.5vw;
+  }
+  .video__preview-box {
+    margin-top: 7px;
+  }
+  .video__preview_1, .video__preview_2 {
+    width: 47.75%;
+    height: 17.5vw;
+  }
+  .video__preview_3 {
+    display: none;
+  }
+  .video-selection__wrapper {
+    margin-top: 20px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
