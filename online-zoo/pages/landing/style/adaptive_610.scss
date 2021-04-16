@@ -156,7 +156,7 @@
     }
 
     &-item {
-      width: 100%;
+      width: 298px;
       margin-top: 29px;
     }
 
@@ -195,7 +195,7 @@
   .donate {
 
     &__wrapper {
-      height: 1202px;
+      height: auto;
     }
 
     &__heading {
@@ -217,6 +217,7 @@
 
     &__button {
       margin-top: 41px;
+      margin-bottom: 50px;
     }
 
   }
@@ -272,103 +273,117 @@
 
   /* MAP 610px */
 
+  .map__image {
+    width: 63%;
+    height: 45%;
+    top: 12%;
+    left: 20%;
+  }
+
   .map {
+    background-position: top;
     width: 100%;
-    height: 130px;
+    height: 41vw;
 
     &-block {
-      height: 413px;
+      height: auto;
 
       &__heading {
         margin-top: 50px;
       }
 
       &__button {
-        margin-top: 39px;
+        margin-top: 5px;
+        margin-bottom: 59px;
       }
 
     }
 
     &__wrapper {
-      margin-top: 38px;
+      height: 50vw;
       width: 100%;
+      margin-top: 42px;
     }
 
     &__pointer {
-      width: 34px;
-      height: 48px;
+      width: 11%;
+      height: 30%;
 
-      &_bg {
-        mask-size: contain;
-        -webkit-mask-size: contain;
+      &s-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
       }
 
-      .map__image {
-        height: 22px;
-        width: 22px;
-        top: 6px;
-        left: 6px;
+      &_bg {
+        mask-position: center;
+        -webkit-mask-position: center;
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        mask-repeat: no-repeat;
+        -webkit-mask-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
       }
 
       &_eagle {
-        top: -5px;
-        left: 25px;
+        top: -6.5%;
+        left: 8.5%;
 
-        & > .map-tooltip {
-          top: 33px;
-          left: 5px;
+        &>.map-tooltip {
+          top: 72%;
+          left: 14%;
         }
 
       }
 
       &_alligator {
-        top: 3px;
-        left: 52px;
-
-        & > .map-tooltip {
-          left: -22px;
-          top: 25px;
+        top: -1%;
+        left: 17.5%;
+        
+        &>.map-tooltip {
+          top: 53%;
+          left: -69%;
         }
 
       }
 
       &_gorilla {
-        top: 28px;
-        left: 134px;
+        top: 15%;
+        left: 44.5%;
 
-        & > .map-tooltip {
-          left: -104px;
-          top: 0px;
+        &>.map-tooltip {
+          top: 0%;
+          left: -315%;
         }
 
       }
 
       &_panda {
-        top: 1px;
-        left: 216px;
+        top: -3%;
+        left: 72%;
 
-        & > .map-tooltip {
-          left: -186px;
-          top: 27px;
+        &>.map-tooltip {
+          top: 60%;
+          left: -563%;
         }
-        
+
       }
 
     }
 
     &-tooltip {
-      width: 238px;
-      height: 113px;
-
-      top: 33px;
-      left: 5px;
+      width: 721%;
+      height: auto;
+      z-index: 1;
 
       align-items: initial;
 
       &__description {
-        width: 150px;
+        width: 65%;
+        margin-bottom: 19px;
       }
 
       &__heading {
