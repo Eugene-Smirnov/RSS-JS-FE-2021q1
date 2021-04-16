@@ -349,7 +349,7 @@ select {
 .popup-form__fieldset_date .popup-form__select_card-year {
   width: 45%;
 }
-.popup-form__box_top > * {
+.popup-form__box_top > .popup-form__fieldset {
   margin-top: 0;
 }
 .popup-form__legend {
@@ -373,6 +373,67 @@ select {
   font-weight: 500;
   color: #828282;
   text-align: center;
+}
+
+/* POP-UP 640px*/
+@media screen and (max-width: 1199px) {
+  .popup__wrapper {
+    width: auto;
+    margin: 20px 24px;
+  }
+  .popup__close {
+    width: 4%;
+    height: 2%;
+    top: 2%;
+    right: 3%;
+  }
+  .popup__sidepic {
+    width: 32%;
+    height: 1243px;
+    background-position: left;
+    background-size: cover;
+  }
+  .popup__heading {
+    margin-bottom: 20px;
+  }
+  .popup__content {
+    width: auto;
+    /*PP*/
+    position: relative;
+    left: -10px;
+  }
+  .popup__content-wrapper {
+    width: 92%;
+    margin-top: 106px;
+  }
+  .popup-form {
+    width: 100%;
+  }
+  .popup-form__inputs-wrapper {
+    width: auto;
+  }
+  .popup-form__box {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .popup-form__box_top > .popup-form__fieldset {
+    margin-top: 21px;
+  }
+  .popup-form__box_bottom {
+    margin-top: 36px;
+  }
+  .popup-form__submit {
+    margin-top: 37px;
+    margin-bottom: 128px;
+  }
+  .popup__box_checkout {
+    margin-top: 36px;
+  }
+  .popup__agree-message {
+    width: 70%;
+    margin-top: 37px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

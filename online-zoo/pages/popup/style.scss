@@ -167,7 +167,7 @@ select {
 
     &__box_top {
 
-      & > * {
+      & > .popup-form__fieldset {
         margin-top: 0;
       }
 
@@ -204,3 +204,93 @@ select {
 
 }
 
+
+/* POP-UP 640px*/
+
+@media screen and (max-width: 1199px) {
+
+  .popup {
+
+    &__wrapper {
+      width: auto;
+      margin: 20px 24px;
+    }
+
+    &__close {
+      width: 4%;
+      height: 2%;
+
+      top: 2%;
+      right: 3%;
+    }
+
+    &__sidepic {
+      width: 32%;
+      height: 1243px;
+      background-position: left;
+      background-size: cover;
+    }
+
+    &__heading {
+      margin-bottom: 20px;
+    }
+
+    &__content {
+      width: auto;
+
+      /*PP*/
+      position: relative;
+      left: -10px;
+
+      &-wrapper {
+        width: 92%;
+        margin-top: 106px;
+      }
+
+    }
+
+    &-form {
+      width: 100%;
+
+      &__inputs-wrapper {
+        width: auto;
+      }
+
+      &__box {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+
+        &_top > .popup-form__fieldset {
+          margin-top: 21px
+        }
+
+        &_bottom {
+          margin-top: 36px;
+        }
+        
+      }
+
+      &__submit {
+        margin-top: 37px;
+        margin-bottom: 128px;
+      }
+
+    }
+
+    &__box {
+
+      &_checkout {
+        margin-top: 36px;
+      }
+
+    }
+
+    &__agree-message {
+      width: 70%;
+      margin-top: 37px;
+    }
+
+  }
+  
+}
