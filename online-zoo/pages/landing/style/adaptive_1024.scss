@@ -124,7 +124,7 @@
   .donate {
 
     &__wrapper {
-      height: 1393px;
+      height: auto;
     }
 
     &__heading {
@@ -146,6 +146,10 @@
         transform: rotate(90deg);
       }
 
+    }
+
+    &__button {
+      margin-bottom: 100px;
     }
 
   }

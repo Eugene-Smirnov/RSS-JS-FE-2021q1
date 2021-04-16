@@ -71,6 +71,10 @@
 
     &__range-input {
 
+      &-wrapper {
+        margin-top: 30px;
+      }
+
       &::-webkit-slider-thumb {
         width: 80px;
       }
@@ -96,10 +100,14 @@
   /* Gallery */
 
   .gallery {
-    height: 752px;
+    height: auto;
 
     &__heading {
       margin-bottom: 33px;
+    }
+
+    &__button {
+      margin-bottom: 99px;
     }
 
   }
