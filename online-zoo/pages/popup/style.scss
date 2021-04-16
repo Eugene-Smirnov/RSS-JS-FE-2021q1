@@ -19,13 +19,47 @@ select {
 
 .popup {
   display: flex;
+  position: relative;
 
   &__wrapper {
+    margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
     width: 1200px;
     box-shadow: $testimonials-slider-item__shadow;
     background-color: $base-color_theme_light;
+  }
+
+  &__close {
+    width: 3%;
+    height: 5%;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: $base-color_theme_dark;
+    mask-image: url('../../assets/icons/close-cross.png');
+    -webkit-mask-image: url('../../assets/icons/close-cross.png');
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $popup-base-grey;
+    }
+
+    &:active {
+      background-color: $additional-color_theme-dark;
+    }
+
   }
 
   &__sidepic {
@@ -169,3 +203,4 @@ select {
   }
 
 }
+

@@ -65,6 +65,26 @@ input[type=range]::-ms-track {
   overflow: hidden;
 }
 
+@media screen and (max-width: 1680px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 93.75%;
+  }
+}
+@media screen and (max-width: 610px) {
+  .heading {
+    font-size: 36px;
+  }
+}
 /* LOGO */
 .logo {
   display: inline-block;
@@ -215,13 +235,41 @@ select {
 
 .popup {
   display: flex;
+  position: relative;
 }
 .popup__wrapper {
+  margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
   width: 1200px;
   box-shadow: 2px 4px 15px 0px rgba(6, 12, 70, 0.15);
   background-color: #fefefe;
+}
+.popup__close {
+  width: 3%;
+  height: 5%;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #333;
+  mask-image: url("../../assets/icons/close-cross.png");
+  -webkit-mask-image: url("../../assets/icons/close-cross.png");
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  transition: background-color 0.2s ease-in-out;
+}
+.popup__close:hover {
+  background-color: #828282;
+}
+.popup__close:active {
+  background-color: #4f4f4f;
 }
 .popup__sidepic {
   width: 197px;
