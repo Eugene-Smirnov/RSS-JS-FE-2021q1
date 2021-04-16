@@ -1336,8 +1336,15 @@ input[type=range]::-ms-track {
     margin-top: 49px;
   }
   .map__pointer {
-    width: 33px;
-    height: 46px;
+    width: 11%;
+    height: 30%;
+  }
+  .map__pointers-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   .map__pointer_bg {
     mask-position: center;
@@ -1350,116 +1357,26 @@ input[type=range]::-ms-track {
     height: 100%;
   }
   .map__pointer_eagle {
-    top: 8%;
-    left: 10%;
-  }
-  .map__pointer_alligator {
-    top: 11%;
-    left: 20%;
-  }
-  .map__pointer_gorilla {
-    top: 30%;
-    left: 48%;
-  }
-  .map__pointer_panda {
-    top: 10%;
-    left: 75%;
-  }
-  .map__image {
-    width: 21px;
-    height: 21px;
-    top: 6px;
-    left: 6px;
-  }
-}
-/* Map-pointers positioning*/
-@media screen and (max-width: 560px) {
-  .map__pointer_eagle {
-    top: 6%;
-    left: 9.5%;
-  }
-  .map__pointer_alligator {
-    top: 10%;
-    left: 19.5%;
-  }
-  .map__pointer_gorilla {
-    top: 28%;
-    left: 47.5%;
-  }
-  .map__pointer_panda {
-    top: 9%;
-    left: 74%;
-  }
-}
-@media screen and (max-width: 510px) {
-  .map__pointer_eagle {
-    top: 6%;
-  }
-  .map__pointer_alligator {
-    top: 8%;
-    left: 19%;
-  }
-  .map__pointer_gorilla {
-    top: 26%;
-    left: 47%;
-  }
-  .map__pointer_panda {
-    top: 7.5%;
-    left: 74%;
-  }
-}
-@media screen and (max-width: 460px) {
-  .map__pointer_eagle {
-    top: 3%;
-    left: 9%;
-  }
-  .map__pointer_alligator {
-    top: 6%;
-    left: 18.75%;
-  }
-  .map__pointer_gorilla {
-    top: 24%;
-    left: 46.5%;
-  }
-  .map__pointer_panda {
-    top: 6%;
-    left: 74%;
-  }
-}
-@media screen and (max-width: 410px) {
-  .map__pointer_eagle {
-    top: 0%;
-    left: 9%;
-  }
-  .map__pointer_alligator {
-    top: 3%;
-    left: 18%;
-  }
-  .map__pointer_gorilla {
-    top: 21%;
-    left: 45%;
-  }
-  .map__pointer_panda {
-    top: 0%;
-    left: 73%;
-  }
-}
-@media screen and (max-width: 360px) {
-  .map__pointer_eagle {
-    top: -5.5%;
+    top: -6.5%;
     left: 8.5%;
   }
   .map__pointer_alligator {
-    top: 0%;
+    top: -1%;
     left: 17.5%;
   }
   .map__pointer_gorilla {
-    top: 16%;
+    top: 15%;
     left: 44.5%;
   }
   .map__pointer_panda {
-    top: -2%;
+    top: -3%;
     left: 72%;
+  }
+  .map__image {
+    width: 63%;
+    height: 45%;
+    top: 12%;
+    left: 20%;
   }
 }
 
