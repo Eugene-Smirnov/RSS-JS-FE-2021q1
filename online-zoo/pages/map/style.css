@@ -1192,7 +1192,7 @@ input[type=range]::-ms-track {
 /* MAP-PAGE 880px*/
 @media screen and (max-width: 880px) {
   .main {
-    height: 1009px;
+    height: auto;
   }
   .main__paragraph {
     width: 100%;
@@ -1212,6 +1212,7 @@ input[type=range]::-ms-track {
   }
   .main__button {
     margin-top: 13px;
+    margin-bottom: 80px;
   }
 
   .map__wrapper {

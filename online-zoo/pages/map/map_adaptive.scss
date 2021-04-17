@@ -122,7 +122,7 @@
 @media screen and (max-width: 880px) {
 
   .main {
-    height: 1009px;
+    height: auto;
 
     &__paragraph {
       width: 100%;
@@ -151,6 +151,7 @@
     &__button {
       
       margin-top: 13px;
+      margin-bottom: 80px;
 
     }
 
