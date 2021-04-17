@@ -8,3 +8,13 @@
   mask-image: url('../../../assets/icons/logo.svg');
   -webkit-mask-image: url('../../../assets/icons/logo.svg');
 }
+
+/* HEADER MAX WIDTH 1024px */
+
+@media screen and (max-width: 1024px) {
+
+  .header-nav__li {
+    padding: 15px 60px;
+  }
+
+}

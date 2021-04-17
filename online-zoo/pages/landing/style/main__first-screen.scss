@@ -73,9 +73,9 @@
   }
 
   &__heading {
-      font-weight: 900;
-      font-size: 89px;
-      line-height: 104px;
+    font-weight: 900;
+    font-size: 89px;
+    line-height: 104px;
   }
 
   &__button {
@@ -111,7 +111,7 @@
       top: 191px;
       left: 9px;
       height: 1px;
-      width: 60vw;
+      width: 100vw;
       background-color: $base-color_theme_light;
     }
 

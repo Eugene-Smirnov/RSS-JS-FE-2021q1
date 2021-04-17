@@ -67,3 +67,34 @@ input[type=range]::-ms-track {
   overflow: hidden;
 }
 
+@media screen and (max-width: 1680px) {
+  
+  .wrapper {
+    max-width: 1200px;
+  }
+
+}
+
+@media screen and (max-width: 1400px) {
+  
+  .wrapper {
+    max-width: 900px;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+  .wrapper {
+    max-width: 93.75%;
+  }
+
+}
+
+@media screen and (max-width: 610px) {
+
+  .heading {
+    font-size: 36px;
+  }
+
+}

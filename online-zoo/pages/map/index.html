@@ -16,6 +16,10 @@
         <div class="wrapper header__wrapper">
             <a href="../landing/" class="logo
                                header__logo"></a>
+            <input id="burger-menu" class="burger-menu__checkbox" type="checkbox">
+            <label for="burger-menu" class="burger-menu">
+                <span class="burger-menu__icon"></span>
+            </label>
             <nav class="nav header-nav">
                 <ul class="header-nav__ul">
                     <li class="header-nav__li">
@@ -48,7 +52,8 @@
         </div>
     </header>
     <main class="main">
-        <div class="main__wrapper">
+        <div class="main__wrapper
+                    wrapper">
         <h2 class="heading
                    main__heading">Choose your favorite</h2>
         <p class="main__paragraph">As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat, and we are determined to assist in all aspects, including providing veterinary support and raising much-needed emergency funds. Zoo Online saves wildlife and inspires everyone to make conservation a priority in their lives. Animals have the right to a pain-free and happy life. They have equal claim to the resources of this planet, and deserve a life of dignity and compassion.As a voice for wildlife, we are devastated by the impact of the 2020 Australian bushfires on precious species and their habitat.</p>
@@ -111,74 +116,75 @@
         </div>
         <div class="map__wrapper">
             <div class="map"></div>
-
-            <div title="eagle"
-                class="map__pointer
-                        map__pointer_eagle">
-                <div class="map__pointer_bg"></div>
-                <img src="../../assets/images/pointer_eagle.png" alt="eagle" class="map__image map__image_eagle">
+            <div class="map__pointers-wrapper">
+                <div title="eagle"
+                    class="map__pointer
+                            map__pointer_eagle">
+                    <div class="map__pointer_bg"></div>
+                    <img src="../../assets/images/pointer_eagle.png" alt="eagle" class="map__image map__image_eagle">
+                    
+                    <!-- <div class="map-tooltip">
+                        <img src="../../assets/images/tooltip__image_eagle.png" alt="eagle" class="map-tooltip__image">
+                        <div class="map-tooltip__description">
+                            <h3 class="map-tooltip__heading">west end bald eagle</h3>
+                            <p class="map-tooltip__content">
+                                <b class="bold">Region: </b>on an island near Los Angeles <b class="bold">Population: </b>more than 270 pairs in 2013
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
                 
-                <!-- <div class="map-tooltip">
-                    <img src="../../assets/images/tooltip__image_eagle.png" alt="eagle" class="map-tooltip__image">
-                    <div class="map-tooltip__description">
-                        <h3 class="map-tooltip__heading">west end bald eagle</h3>
-                        <p class="map-tooltip__content">
-                            <b class="bold">Region: </b>on an island near Los Angeles <b class="bold">Population: </b>more than 270 pairs in 2013
-                        </p>
-                    </div>
-                </div> -->
-            </div>
-            
-            <div title="alligator" 
-                class="map__pointer
-                        map__pointer_alligator">
-                <div class="map__pointer_bg"></div>
-                <img src="../../assets/images/pointer_alligator.png" alt="alligator"  class="map__image map__image_alligator">
+                <div title="alligator" 
+                    class="map__pointer
+                            map__pointer_alligator">
+                    <div class="map__pointer_bg"></div>
+                    <img src="../../assets/images/pointer_alligator.png" alt="alligator"  class="map__image map__image_alligator">
+                    
+                    <!-- <div class="map-tooltip">
+                        <img src="../../assets/images/pointer_alligator.png" alt="alligator" class="map-tooltip__image">
+                        <div class="map-tooltip__description">
+                            <h3 class="map-tooltip__heading">american alligator</h3>
+                            <p class="map-tooltip__content">
+                                <b class="bold">Region: </b>on east-side of united states <b class="bold">Population: </b>approximatly 12'000 pairs in 2015
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
                 
-                <!-- <div class="map-tooltip">
-                    <img src="../../assets/images/pointer_alligator.png" alt="alligator" class="map-tooltip__image">
-                    <div class="map-tooltip__description">
-                        <h3 class="map-tooltip__heading">american alligator</h3>
-                        <p class="map-tooltip__content">
-                            <b class="bold">Region: </b>on east-side of united states <b class="bold">Population: </b>approximatly 12'000 pairs in 2015
-                        </p>
-                    </div>
-                </div> -->
-            </div>
-            
-            <div title="gorilla"
-                class="map__pointer
-                        map__pointer_gorilla">
-                <div class="map__pointer_bg"></div>
-                <img src="../../assets/images/pointer_gorilla.png" alt="gorilla"  class="map__image map__image_gorilla">
+                <div title="gorilla"
+                    class="map__pointer
+                            map__pointer_gorilla">
+                    <div class="map__pointer_bg"></div>
+                    <img src="../../assets/images/pointer_gorilla.png" alt="gorilla"  class="map__image map__image_gorilla">
+                    
+                    <!-- <div class="map-tooltip">
+                        <img src="../../assets/images/pointer_gorilla.png" alt="gorilla" class="map-tooltip__image">
+                        <div class="map-tooltip__description">
+                            <h3 class="map-tooltip__heading">african gorilla</h3>
+                            <p class="map-tooltip__content">
+                                <b class="bold">Region: </b>in forests of continental africa <b class="bold">Population: </b>over 100'000 western lowland gorillas
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
                 
-                <!-- <div class="map-tooltip">
-                    <img src="../../assets/images/pointer_gorilla.png" alt="gorilla" class="map-tooltip__image">
-                    <div class="map-tooltip__description">
-                        <h3 class="map-tooltip__heading">african gorilla</h3>
-                        <p class="map-tooltip__content">
-                            <b class="bold">Region: </b>in forests of continental africa <b class="bold">Population: </b>over 100'000 western lowland gorillas
-                        </p>
-                    </div>
-                </div> -->
-            </div>
-            
-            <div title="panda"
-                 class="map__pointer
-                        map__pointer_panda
-                        map__pointer_active">
-                <div class="map__pointer_bg"></div>
-                <img src="../../assets/images/pointer_panda.png" alt="panda"  class="map__image map__image_panda">
-            
-                <!-- <div class="map-tooltip">
-                    <img src="../../assets/images/pointer_panda.png" alt="panda" class="map-tooltip__image">
-                    <div class="map-tooltip__description">
-                        <h3 class="map-tooltip__heading">panda</h3>
-                        <p class="map-tooltip__content">
-                            <b class="bold">Region: </b>middle of china tropical forests <b class="bold">Population: </b>approximatly 1'590 pairs in 2016
-                        </p>
-                    </div>
-                </div> -->
+                <div title="panda"
+                    class="map__pointer
+                            map__pointer_panda
+                            map__pointer_active">
+                    <div class="map__pointer_bg"></div>
+                    <img src="../../assets/images/pointer_panda.png" alt="panda"  class="map__image map__image_panda">
+                
+                    <!-- <div class="map-tooltip">
+                        <img src="../../assets/images/pointer_panda.png" alt="panda" class="map-tooltip__image">
+                        <div class="map-tooltip__description">
+                            <h3 class="map-tooltip__heading">panda</h3>
+                            <p class="map-tooltip__content">
+                                <b class="bold">Region: </b>middle of china tropical forests <b class="bold">Population: </b>approximatly 1'590 pairs in 2016
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
             </div>
         </div>
         <div onclick="window.location.href='../zoos/panda/'"

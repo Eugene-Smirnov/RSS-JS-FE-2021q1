@@ -4,6 +4,7 @@
 @import '../../sassy\ styles/base.scss';
 
 @import '../../sassy\ styles/logo.scss';
+@import '../../sassy\ styles/burger-menu.scss';
 @import '../../sassy\ styles/button.scss';
 @import '../../sassy\ styles/range-input.scss';
 @import '../../sassy\ styles/arrow.scss';
@@ -13,3 +14,5 @@
 @import './map__header.scss';
 @import './main.scss';
 @import '../../sassy\ styles/footer/footer.scss';
+
+@import './map_adaptive.scss';

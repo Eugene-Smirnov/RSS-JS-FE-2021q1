@@ -139,6 +139,7 @@
 
       &-label {
         margin: 26px 1px 0;
+        width: fit-content;
 
         font-size: 12px;
         font-weight: 400;
@@ -312,6 +313,240 @@
     font-weight: 400;
     line-height: 17px;
     color: $grey-color;
+  }
+
+}
+
+/* Adaptive footer */
+
+/* MAX WIDTH 1680px */
+
+@media screen and (max-width: 1680px) {
+
+  .footer {
+
+    &-nav {
+
+      position: relative;
+      left: 3px;
+
+      &__li {
+        margin-top: 17px;
+        margin-left: 5px;
+        margin-right: 60px;
+      }
+
+    }
+
+    &-form {
+
+      &__heading {
+        margin-top: 5px;
+        margin-bottom: 15px;
+      }
+
+      &__text-input, 
+      &__text-input::placeholder {
+        width: 85%;
+        padding: 8px 0;
+        margin-top: 13px;
+      }
+
+      &__legend {
+        padding: 1px 6px;
+        margin: 0 -10px;
+      }
+
+      &__fieldset {
+        width: 79.5%;
+      }
+
+      &__checkbox-label {
+        margin: 21px 0 0;
+      }
+
+      &__submit {
+        margin-top: 6px;
+        left: 248px;
+      }
+
+    }
+
+    &-adress {
+
+      margin: 33px 10px 14px;
+      line-height: 19.5px;
+
+      &__heading {
+        margin-top: -7px;
+        margin-left: 10px;
+      }
+
+    }
+
+    &-socials {
+      margin-left: 10px;
+    }
+
+    &__button {
+      top: -147px;
+      left: 610px;
+    }
+
+    &__hr {
+      margin-top: -6px;
+      margin-bottom: 29px;
+    }
+
+  }
+
+}
+
+/* MAX WIDTH 1400px */
+
+@media screen and (max-width: 1400px) {
+
+  .footer {
+
+    &__button {
+      left: 460px;
+    }
+
+  }
+
+}
+
+/* MAX WIDTH 1024px */
+@media screen and (max-width: 1024px) {
+
+  .footer {
+
+    &__wrapper {
+      margin-top: 96px;
+      height: 900px;
+    }
+
+    &__top-bar {
+      flex-direction: column;
+      align-items: baseline;
+    }
+
+    &-nav {
+      left: -3px;
+
+      &__ul {
+        margin-top: 26px;
+        flex-direction: column;
+      }
+
+      &__li {
+        margin: 6px 0 0 0;        
+      }
+
+    }
+
+    &__middle-box {
+      margin-top: 18px;
+      flex-direction: column;
+    }
+
+    &-form {
+
+      &__text-input, 
+      &__text-input::placeholder {
+        width: 64%;
+      }
+
+      &__fieldset {
+        width: 59.5%;
+      }
+
+      &__submit {
+        margin-top: 7px;
+      }
+
+    }
+
+    &-adress {
+      margin: 33px 0px 14px;
+
+      &__heading {
+        margin-top: 62px;
+        margin-left: 0;
+      }
+
+    }
+
+    &-socials {
+      margin-left: 0;
+    }
+
+    &__button {
+      left: 54%;
+      top: -798px;
+    }
+
+    &__hr {
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+
+
+  }
+
+}
+
+/* MAX WIDTH 610px */
+@media screen and (max-width: 610px) {
+
+  .footer {
+
+    &__wrapper {
+      margin-top: 49px;
+      height: 980px;
+    }
+
+    &-nav__ul {
+      margin-top: 38px;
+    }
+
+    &-form {
+
+      &__text-input,
+      &__text-input::placeholder {
+        width: 100%;
+      }
+
+      &__fieldset {
+        width: 91.25%;
+      }
+
+      &__submit {
+        left: 180px;
+      }
+
+    }
+
+    &-adress {
+      margin-bottom: 15px;
+      
+      &__heading {
+        margin-top: 39px;
+      }
+
+    }
+
+    &__button {
+      left: 4%;
+      top: 0;
+      margin: 40px 0;
+    }
+
+    &__hr {
+      margin-top: 79px;
+      margin-bottom: 25px;
+    }
+
   }
 
 }
