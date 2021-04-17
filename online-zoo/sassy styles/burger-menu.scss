@@ -18,6 +18,14 @@
     background-color: $base-color_theme_dark;
     mask-image: url('../../assets/icons/menu.svg');
     -webkit-mask-image: url('../../assets/icons/menu.svg');  
+
+    transition: background-color 0.2s ease-in-out;
   }
+
+}
+
+.burger-menu__checkbox:checked ~ .burger-menu > .burger-menu__icon {
+
+  background-color: $grey-color;
 
 }

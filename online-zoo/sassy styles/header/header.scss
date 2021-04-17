@@ -63,11 +63,18 @@
 
 @media screen and (max-width: 1024px) {
 
+  .main {
+    padding-top: 94px;
+  }
+
   .switch {
     right: 12.5%;
   }
 
   .header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
 
     &-nav {
       position: absolute;
@@ -139,6 +146,10 @@
 /* HEADER 610px*/
 
 @media screen and (max-width: 610px) {
+
+  .main {
+    padding-top: 92px;
+  }
 
   .header {
     

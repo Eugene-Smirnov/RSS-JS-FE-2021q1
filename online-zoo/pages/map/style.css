@@ -113,6 +113,11 @@ input[type=range]::-ms-track {
   background-color: #333;
   mask-image: url("../../assets/icons/menu.svg");
   -webkit-mask-image: url("../../assets/icons/menu.svg");
+  transition: background-color 0.2s ease-in-out;
+}
+
+.burger-menu__checkbox:checked ~ .burger-menu > .burger-menu__icon {
+  background-color: #bdbdbd;
 }
 
 /* BUTTON */
@@ -342,10 +347,19 @@ input[type=range]::-ms-track {
 
 /* HEADER MAX WIDTH 1024px */
 @media screen and (max-width: 1024px) {
+  .main {
+    padding-top: 94px;
+  }
+
   .switch {
     right: 12.5%;
   }
 
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
   .header-nav {
     position: absolute;
     top: 94px;
@@ -398,6 +412,10 @@ input[type=range]::-ms-track {
 }
 /* HEADER 610px*/
 @media screen and (max-width: 610px) {
+  .main {
+    padding-top: 92px;
+  }
+
   .header__wrapper {
     height: 92px;
   }
