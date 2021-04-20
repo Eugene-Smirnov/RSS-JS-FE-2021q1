@@ -1377,11 +1377,11 @@ input[type=range]::-ms-track {
     left: 0;
   }
   .aside__wrapper {
-    margin: 10px 0;
+    margin: 5px 0;
   }
   .aside__ul {
     width: 20vw;
-    height: 210px;
+    height: 207px;
   }
   .aside__image {
     width: 40px;
@@ -1391,6 +1391,7 @@ input[type=range]::-ms-track {
   .aside__item {
     width: 47px;
     height: 47px;
+    flex-shrink: 0;
   }
   .aside__item::before {
     width: 70px;
