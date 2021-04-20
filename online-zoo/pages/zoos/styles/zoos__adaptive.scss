@@ -386,12 +386,12 @@
     }
 
     &__wrapper {
-      margin: 10px 0;
+      margin: 5px 0;
     }
 
     &__ul {
       width: 20vw;
-      height: 210px;
+      height: 207px;
     }
 
     &__image {
@@ -403,6 +403,7 @@
     &__item {
       width: 47px;
       height: 47px;
+      flex-shrink: 0;
 
       &::before {
         width: 70px;
