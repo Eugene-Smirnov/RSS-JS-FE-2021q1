@@ -161,6 +161,7 @@ output {
   width: 100%;
   max-width: 60%;
 }
+/* ROOT */
 :root {
   --blur: 0px;
   --invert: 0%;
