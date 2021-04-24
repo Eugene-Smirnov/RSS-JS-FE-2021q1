@@ -60,3 +60,5 @@ function loadNextImage() {
   setTimeout(function() { buttonNext.disabled = false }, 500);
 }
 buttonNext.addEventListener('click', loadNextImage);
+// Load and Save buttons
+
