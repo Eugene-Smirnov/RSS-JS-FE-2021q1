@@ -10,7 +10,7 @@ a:focus {
 body {
   min-height: 100vh;
   background-color: #313940;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 .header {
@@ -78,6 +78,15 @@ input[type='range']::-webkit-slider-thumb {
 label:hover input[type='range']::-webkit-slider-thumb {
   background-color: #00c9b7;
 }
+label:active input[type='range'] {
+  background-color: #cbd5de;
+}
+label:active input[type='range']::-webkit-slider-thumb {
+  width: 22px;
+  border-radius: 30%;
+  border-color: #cbd5de;
+  background-color: #00b4a4;
+}
 output {
   position: absolute;
   width: 60px;
@@ -91,6 +100,9 @@ output {
   line-height: 40px;
   border-radius: 2px;
   transition: 0.3s;
+}
+label:active output {
+  background-color: #515961;
 }
 .btn-container {
   margin-bottom: 20px;
@@ -112,7 +124,7 @@ output {
   background-color: #454c53;
   border: 0;
   border-radius: 2px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: #fff;
@@ -216,7 +228,7 @@ img {
 }
 .github {
   display: block;
-  width: 120px;
+  width: 164px;
   height: 45px;
   padding-left: 45px;
   background-image: url('assets/svg/github.svg');
@@ -226,7 +238,7 @@ img {
   line-height: 45px;
   color: #cbd5de;
   font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   transition: 0.3s;
 }
 .github:hover {
@@ -235,7 +247,7 @@ img {
 .rss {
   display: block;
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   width: 86px;
   height: 32px;
   background-image: url('assets/svg/rss.svg');
