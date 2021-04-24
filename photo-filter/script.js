@@ -75,3 +75,14 @@ function uploadImage() {
   }
 }
 buttonLoad.addEventListener('change', uploadImage);
+
+// FULLSCREEN SWITCHER
+const fullscreenButton = document.querySelector('.fullscreen');
+function fullscreenSwitcher(event) {
+    if (document.fullscreen) {
+        document.exitFullscreen();
+        return;
+    };
+    document.documentElement.requestFullscreen();
+};
+fullscreenButton.addEventListener('click', fullscreenSwitcher);
