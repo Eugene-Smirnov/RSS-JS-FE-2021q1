@@ -26,3 +26,37 @@ function filterResetValue() {
   });
 }
 buttonReset.addEventListener('click', filterResetValue);
+// Next button
+const buttonNext = document.querySelector('.btn-next');
+const image = document.querySelector('img');
+let _imageIndexCounter = 1;
+
+function timeDeterminator() {
+  const hours = (new Date).getHours();
+  let result;
+  if (hours >= 0 && hours < 6) {
+    result = 'night';
+  } else if (hours >= 6 && hours < 12) {
+    result = 'morning';
+  } else if (hours >= 12 && hours < 18) {
+    result = 'day';
+  } else if (hours >= 18 && hours < 24) {
+    result = 'evening';
+  }
+  return result;
+}
+
+function loadNextImage() {
+  const img = new Image();
+  const currentIndex = (_imageIndexCounter < 10) ? '0' + _imageIndexCounter : _imageIndexCounter;
+  const source = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeDeterminator()}/${currentIndex}.jpg`;
+  _imageIndexCounter++;
+  if (_imageIndexCounter > 20) _imageIndexCounter = 1;
+  img.src = source;
+  img.onload = () => {      
+    image.src = `${source}`;
+  }; 
+  buttonNext.disabled = true;
+  setTimeout(function() { buttonNext.disabled = false }, 500);
+}
+buttonNext.addEventListener('click', loadNextImage);
