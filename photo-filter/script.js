@@ -54,11 +54,24 @@ function loadNextImage() {
   if (_imageIndexCounter > 20) _imageIndexCounter = 1;
   img.src = source;
   img.onload = () => {      
-    image.src = `${source}`;
+    image.src = source;
   }; 
   buttonNext.disabled = true;
   setTimeout(function() { buttonNext.disabled = false }, 500);
+  buttonLoad.value = null;
 }
 buttonNext.addEventListener('click', loadNextImage);
-// Load and Save buttons
-
+// Load button
+const buttonLoad = document.getElementById('btnInput');
+    // const image was declared above
+function uploadImage() {
+  const file = buttonLoad.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+    const img = new Image();
+    img.src = reader.result
+    image.src = img.src;
+  }
+}
+buttonLoad.addEventListener('change', uploadImage);
