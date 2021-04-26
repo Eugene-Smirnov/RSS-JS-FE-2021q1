@@ -92,7 +92,9 @@ function saveImage() {
     canvas.width = img.width;
     canvas.height = img.height;
     const ctx = canvas.getContext("2d");
-    ctx.filter = `blur(${filterValues.blur}px) hue-rotate(${filterValues.hue}deg) invert(${filterValues.invert}%) saturate(${filterValues.saturate}%) sepia(${filterValues.sepia}%)`;
+    const blur = Math.floor(((filterValues.blur * canvas.width)/image.width)*10) / 10;
+    ctx.filter = `blur(${blur}px) invert(${filterValues.invert}%) sepia(${filterValues.sepia}%) saturate(${filterValues.saturate}%) hue-rotate(${filterValues.hue}deg)`;
+    console.log(ctx.filter);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     const link = document.createElement('a');
     link.download = 'filtered_image.png';
