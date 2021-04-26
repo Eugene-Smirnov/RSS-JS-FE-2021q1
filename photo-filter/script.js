@@ -75,6 +75,33 @@ function uploadImage() {
   }
 }
 buttonLoad.addEventListener('change', uploadImage);
+// Save button
+const buttonSave = document.querySelector('.btn-save');
+
+function saveImage() {
+  const img = new Image();
+  img.setAttribute('crossOrigin', 'anonymous');
+  img.src = image.src;
+  const canvas = document.querySelector('.canvas');
+  const inputs = filters.querySelectorAll('input');
+  const filterValues = {};
+  inputs.forEach(item => {
+    filterValues[`${item.name}`] = item.value;
+  });
+  img.onload = function() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.filter = `blur(${filterValues.blur}px) hue-rotate(${filterValues.hue}deg) invert(${filterValues.invert}%) saturate(${filterValues.saturate}%) sepia(${filterValues.sepia}%)`;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const link = document.createElement('a');
+    link.download = 'filtered_image.png';
+    link.href = canvas.toDataURL();
+    link.click();
+    link.delete;
+  };
+}
+buttonSave.addEventListener('click', saveImage);
 
 // FULLSCREEN SWITCHER
 const fullscreenButton = document.querySelector('.fullscreen');
