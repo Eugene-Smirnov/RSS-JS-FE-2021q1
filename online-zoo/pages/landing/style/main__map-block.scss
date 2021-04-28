@@ -2,7 +2,7 @@
 
 .map-block {
   height: 904px;
-  background-color: $additional-color_theme-light;
+  background-color: var(--additional-color);
   overflow: hidden;
 
   &__wrapper {
@@ -40,6 +40,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  &_dark {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/map_dark.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
 
   &__wrapper {
     width: 1199px;
@@ -118,7 +128,7 @@
     top: 75px;
     left: -399px;
 
-    background-color: $base-color_theme_light;
+    background-color: var(--base-color);
     border-radius: 8px;
     box-shadow: $testimonials-slider-item__shadow;
 
@@ -148,14 +158,14 @@
       font-size: 18px;
       font-weight: 900;
       text-transform: capitalize;
-      color: $base-color_theme_dark;
+      color: var(--contrast-base-color);
     }
 
     &__content {
       font-size: 14px;
       font-weight: 400;
       line-height: 21px;
-      color: $additional-color_theme-dark;
+      color: var(--contrast-additional-color);
     }
 
   }

@@ -25,7 +25,7 @@
 
     font-size: 14px;
     font-weight: 400;
-    color: $additional-color_theme-dark;
+    color: var(--contrast-additional-color);
   }
 
   &-slider {
@@ -88,20 +88,20 @@
 
     &::-webkit-slider-thumb {
       width: 62px;
-      background: $base-color_theme_dark;
+      background: var(--contrast-base-color);
       cursor: pointer;
       margin-top: -3px; 
     }
     
     &::-moz-range-thumb {
       width: 62px;
-      background: $base-color_theme_dark;
+      background: var(--contrast-base-color);
       cursor: pointer;
     }
   }
 
   &__current-value {
-    color: $base-color_theme_dark;
+    color: var(--contrast-base-color);
     font-weight: 900;
     font-size: 24px;
   }

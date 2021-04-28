@@ -44,12 +44,12 @@
 
     &__arrow_left:hover,
     &__arrow_right:hover {
-      background-color: $base-color_theme_dark;
+      background-color: var(--contrast-base-color);
     }
 
     &__arrow_left:active,
     &__arrow_right:active {
-      background-color: $additional-color_theme-dark;
+      background-color: var(--contrast-additional-color);
     }
 
     &__wrapper {
@@ -72,10 +72,11 @@
       align-items: center;
       overflow: hidden;
 
+      background-color: var(--testimonials-item-bg-color);
       border-radius: 5px;
       box-shadow: $testimonials-slider-item__shadow;
       
-      color: $additional-color_theme-dark;
+      color: var(--contrast-additional-color);
 
       &__avatar {
         height: 66px;
@@ -91,7 +92,7 @@
         margin-top: 15px;
         font-size: 20px;
         font-weight: 900;
-        color: $base-color_theme_dark;
+        color: var(--contrast-base-color);
       }
 
       &__content {
@@ -101,7 +102,7 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 16.41px;
-        color: $additional-color_theme-dark;
+        color: var(--contrast-additional-color);
       }
 
     }
@@ -119,17 +120,17 @@
       margin-top: 14px;
 
       &::-webkit-slider-thumb {
-        background: $base-color_theme_dark;
+        background: var(--contrast-base-color);
       }
       
       &::-moz-range-thumb,
       &::-ms-thumb {
-        background: $base-color_theme_dark;
+        background: var(--contrast-base-color);
       }
     }
 
     &__current-value {
-      color: $base-color_theme_dark;
+      color: var(--contrast-base-color);
       font-weight: 900;
       font-size: 24px;
     }

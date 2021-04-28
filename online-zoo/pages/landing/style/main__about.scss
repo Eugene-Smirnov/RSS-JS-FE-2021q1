@@ -2,7 +2,7 @@
 
 .about {
   height: 413px;
-  background-color: $additional-color_theme-light;
+  background-color: var(--additional-color);
 
   overflow: hidden;
   text-shadow: 2px 4px 15px rgb(6 12 70 / 15%);
@@ -35,7 +35,7 @@
 
       font-size: 20px;
       font-weight: 900;
-      color: $base-color_theme_dark;
+      color: var(--contrast-base-color);
     }
 
     &__content {
@@ -43,7 +43,7 @@
 
       font-size: 14px;
       font-weight: 400;
-      color: $additional-color_theme-dark;
+      color: var(--contrast-additional-color)
     }
 
   }

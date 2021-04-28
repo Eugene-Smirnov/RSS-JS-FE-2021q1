@@ -285,6 +285,11 @@
     width: 100%;
     height: 41vw;
 
+    &_dark {
+      background-position: top;
+      background-size: contain;
+    }
+
     &-block {
       height: auto;
 
