@@ -4,6 +4,7 @@
   --additional-color: #f2f2f2;
   --contrast-additional-color: #4f4f4f;
   --testimonials-item-bg-color: #fefefe;
+  --map-bg-color: #fefefe;
   --dark-color: #1b1b1b;
   --grey-color: #bdbdbd;
   --grey-color-form: #e0e0e0;
@@ -1528,11 +1529,12 @@ input[type=range]::-ms-track {
   background-position: center center;
   background-size: 50% 50%;
   text-align: center;
-  color: #333;
+  color: transparent;
   user-select: none;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .footer-form__checkbox:checked + .footer-form__checkbox-pseudo {
+  color: #333;
   background-color: #bdbdbd;
 }
 .footer-form__submit {

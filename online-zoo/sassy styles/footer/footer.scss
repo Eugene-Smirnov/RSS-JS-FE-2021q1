@@ -161,13 +161,14 @@
         background-size: 50% 50%;
 
         text-align: center;
-        color: $base-color_theme_dark;
+        color: transparent;
         user-select: none;
 
-        transition: background-color 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
 
       &:checked + &-pseudo {
+        color: $base-color_theme_dark;
         background-color: $grey-color;
       }
 

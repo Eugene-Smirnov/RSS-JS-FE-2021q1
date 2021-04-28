@@ -838,11 +838,12 @@ body {
   background-position: center center;
   background-size: 50% 50%;
   text-align: center;
-  color: #333;
+  color: transparent;
   user-select: none;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .footer-form__checkbox:checked + .footer-form__checkbox-pseudo {
+  color: #333;
   background-color: #bdbdbd;
 }
 .footer-form__submit {
