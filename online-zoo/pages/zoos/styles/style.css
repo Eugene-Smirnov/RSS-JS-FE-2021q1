@@ -1,4 +1,17 @@
 /* ZOOS STYLE */
+:root {
+  --base-color: #fefefe;
+  --contrast-base-color: #333;
+  --additional-color: #f2f2f2;
+  --contrast-additional-color: #4f4f4f;
+  --testimonials-item-bg-color: #fefefe;
+  --map-bg-color: #fefefe;
+  --dark-color: #1b1b1b;
+  --grey-color: #bdbdbd;
+  --grey-color-form: #e0e0e0;
+  --popup-base-grey: #828282;
+}
+
 /* BASE */
 html {
   scroll-behavior: smooth;
@@ -10,7 +23,7 @@ html {
 }
 
 body {
-  background-color: #fefefe;
+  background-color: var(--base-color);
   font-family: "Roboto", sans-serif;
 }
 
@@ -46,7 +59,7 @@ input[type=range]::-ms-track {
 
 .bold {
   font-weight: 500;
-  color: #333;
+  color: var(--contrast-base-color);
 }
 
 .wrapper {
@@ -57,7 +70,7 @@ input[type=range]::-ms-track {
 .heading {
   font-size: 48px;
   font-weight: 900;
-  color: #333;
+  color: var(--contrast-base-color);
 }
 
 .main {
@@ -110,7 +123,7 @@ input[type=range]::-ms-track {
   display: inline-block;
   height: 21px;
   width: 40px;
-  background-color: #333;
+  background-color: var(--contrast-base-color);
   mask-image: url("../../assets/icons/menu.svg");
   -webkit-mask-image: url("../../assets/icons/menu.svg");
   transition: background-color 0.2s ease-in-out;
@@ -303,8 +316,8 @@ input[type=range]::-ms-track {
 }
 
 .header {
-  background-color: #fefefe;
-  color: #333;
+  background-color: var(--base-color);
+  color: var(--contrast-base-color);
   box-shadow: 0px 4px 8px 0px #2c654d0c;
 }
 .header__h1 {
@@ -343,6 +356,10 @@ input[type=range]::-ms-track {
   border-bottom: 1px solid;
   font-weight: 900;
   pointer-events: none;
+}
+
+.logo {
+  background-color: var(--contrast-base-color);
 }
 
 /* HEADER MAX WIDTH 1024px */
@@ -390,18 +407,18 @@ input[type=range]::-ms-track {
   }
   .header-nav__ul {
     flex-direction: column;
-    background-color: #fefefe;
+    background-color: var(--base-color);
   }
   .header-nav__li {
     box-sizing: border-box;
     padding: 15px 60px;
     font-size: 21px;
     background-color: transparent;
-    border-top: 1px solid #f2f2f2;
+    border-top: 1px solid var(--additional-color);
     transition: background-color 0.2s ease-in-out;
   }
   .header-nav__li:hover {
-    background-color: #f2f2f2;
+    background-color: var(--additional-color);
   }
 
   .burger-menu {
@@ -456,6 +473,10 @@ input[type=range]::-ms-track {
   }
 }
 /* ZOOS MAIN (based on panda) */
+body {
+  background-color: var(--map-bg-color);
+}
+
 .main {
   margin: 67px 0;
   display: flex;
@@ -483,11 +504,13 @@ input[type=range]::-ms-track {
 .main-content__heading {
   font-size: 20px;
   font-weight: 900;
+  color: var(--contrast-base-color);
 }
 .main-content__text {
   margin: 7px 0px 12px;
   font-size: 14px;
   font-weight: 400;
+  color: var(--contrast-additional-color);
 }
 .main__button {
   margin-top: 34px;
@@ -537,7 +560,7 @@ input[type=range]::-ms-track {
   background-color: #49d6df;
 }
 .video-selection__button:active {
-  background-color: #4f4f4f;
+  background-color: var(--contrast-additional-color);
 }
 .video-selection__button_active {
   height: 11px;
@@ -576,10 +599,10 @@ input[type=range]::-ms-track {
   transform: rotate(-90deg);
 }
 .aside__arrow_left:hover, .aside__arrow_right:hover {
-  background-color: #333;
+  background-color: var(--contrast-base-color);
 }
 .aside__arrow_left:active, .aside__arrow_right:active {
-  background-color: #4f4f4f;
+  background-color: var(--contrast-additional-color);
 }
 .aside__ul {
   width: 158px;
@@ -608,7 +631,7 @@ input[type=range]::-ms-track {
   height: 165px;
   width: 165px;
   border-radius: 50%;
-  background-color: #fefefe;
+  background-color: var(--map-bg-color);
   pointer-events: none;
   transition: opacity 0.25s ease-in-out;
 }
@@ -644,7 +667,7 @@ input[type=range]::-ms-track {
   height: 108px;
   background-size: cover;
   background-position: center;
-  border: 5px solid #fefefe;
+  border: 5px solid var(--map-bg-color);
   border-radius: 50%;
   z-index: 1;
   transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;

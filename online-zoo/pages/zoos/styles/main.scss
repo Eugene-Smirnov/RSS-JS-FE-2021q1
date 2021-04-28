@@ -1,4 +1,7 @@
 /* ZOOS MAIN (based on panda) */
+body {
+  background-color: var(--map-bg-color);
+}
 
 .main {
   margin: 67px 0;
@@ -30,12 +33,14 @@
     &__heading {
       font-size: 20px;
       font-weight: 900;
+      color: var(--contrast-base-color);
     }
 
     &__text {
       margin: 7px 0px 12px;
       font-size: 14px;
       font-weight: 400;
+      color: var(--contrast-additional-color);
     }
 
   }
@@ -103,7 +108,7 @@
       }
 
       &:active {
-        background-color: $additional-color_theme-dark;
+        background-color: var(--contrast-additional-color);
       }
 
       &_active {
@@ -166,12 +171,12 @@
 
   &__arrow_left:hover,
   &__arrow_right:hover {
-    background-color: $base-color_theme_dark;
+    background-color: var(--contrast-base-color);
   }
 
   &__arrow_left:active,
   &__arrow_right:active {
-    background-color: $additional-color_theme-dark;
+    background-color: var(--contrast-additional-color);
   }
 
   &__wrapper {
@@ -212,7 +217,7 @@
       height: 165px;
       width: 165px;
       border-radius: 50%;
-      background-color: #fefefe;
+      background-color: var(--map-bg-color);
       pointer-events: none;
       transition: opacity 0.25s ease-in-out;
     }
@@ -267,7 +272,7 @@
     height: 108px;
     background-size: cover;
     background-position: center;
-    border: 5px solid $base-color_theme_light;
+    border: 5px solid var(--map-bg-color);
     border-radius: 50%;
     z-index: 1;
     transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
