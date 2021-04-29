@@ -40,6 +40,67 @@ function themeSwith() {
 }
 themeSwitcher.addEventListener('click', themeSwith);
 
+/* First-scren slider (FS) */
+const FSSlider = document.querySelector('.first-screen-slider');
+const FSInput = document.getElementById('first-sсreen-slider__range-input');
+const FSOutput = document.querySelector('.first-screen-slider__current-value');
+
+const FSSliderState = {
+  _value: {
+    activeIndex: 2,
+  },
+
+  _subscribers: [],
+
+  subscribe(subscriber) {
+    this._subscribers.push(subscriber);
+  },
+
+  update(value) {
+    this._value = { ...this._value, ...value };
+    this._subscribers.forEach(subscriber => subscriber(this._value));
+  },
+
+  getValue() {
+    return this._value;
+  },
+
+}
+//// First-screen Slider Subscribes
+// FS Input value
+FSSliderState.subscribe(({activeIndex}) => {
+  FSInput.value = activeIndex;
+});
+// FS Output value
+FSSliderState.subscribe(({activeIndex}) => {
+  FSOutput.textContent = `0${activeIndex}/`;
+});
+// FS Active item
+FSSliderState.subscribe(({activeIndex}) => {
+  const currentActive = FSSlider.querySelector('.first-screen-slider-item_active');
+  currentActive.classList.remove('first-screen-slider-item_active');
+  const activeItem = FSSlider.querySelector(`.first-screen-slider-item_${activeIndex}`);
+  activeItem.classList.add('first-screen-slider-item_active');
+});
+// FS Slider position
+FSSliderState.subscribe(({activeIndex}) => {
+  FSSlider.style.setProperty('--FSSliderItem-currentActive', `${4 - +activeIndex}`);
+});
+
+//// FS updaters
+// FS Input
+FSInput.addEventListener('input', () => {
+  FSSliderState.update({activeIndex: FSInput.value});
+});
+// FS MouseClick
+FSSlider.addEventListener('click', (event) => {
+  if (!event.target.closest('.first-screen-slider-item')) return;
+  const value = event.target.closest('.first-screen-slider-item').dataset.index;
+  FSSliderState.update({activeIndex: value});
+});
+
+
+
 /* How it works slider (HIW)*/
 const HIWInput = document.getElementById('how-it-works__range-input');
 const HIWOutput = document.querySelector('.how-it-works__current-value');
@@ -87,22 +148,22 @@ const gallerySliderState = {
 
 }
 //// Gallery Subscribes
-// Input value
+// Gallery Input value
 gallerySliderState.subscribe(({activeIndex}) => {
   galleryInput.value = activeIndex;
 });
-// Output value
+// Gallery Output value
 gallerySliderState.subscribe(({activeIndex}) => {
   galleryOutput.textContent = `0${activeIndex}/`;
 });
-// Active item
+// Gallery Active item
 gallerySliderState.subscribe(({activeIndex}) => {
   const currentActive = gallerySlider.querySelector('.gallery-slider-item_active');
   currentActive.classList.remove('gallery-slider-item_active');
   const activeItem = gallerySlider.querySelector(`.gallery-slider-item_${activeIndex}`);
   activeItem.classList.add('gallery-slider-item_active');
 });
-// Show hidden
+// Gallery Show hidden
 gallerySliderState.subscribe(({activeIndex}) => {
   const currentValue = getComputedStyle(gallerySlider).getPropertyValue('--gallery-slider-hidden-count');
 
@@ -118,23 +179,23 @@ gallerySliderState.subscribe(({activeIndex}) => {
 
 });
 //// Gallery updaters
-// Input
+// Gallery Input
 galleryInput.addEventListener('input', () => {
   gallerySliderState.update({activeIndex: galleryInput.value});
 });
-// LeftArrowClick
+// Gallery LeftArrowClick
 galleryArrowLeft.addEventListener('click', () => {
   let value = +(gallerySliderState.getValue().activeIndex) - 1;
   value = gallerySliderState.validate(value);
   gallerySliderState.update({activeIndex: value});
 })
-// RightArrowClick
+// Gallery RightArrowClick
 galleryArrowRight.addEventListener('click', () => {
   let value = +(gallerySliderState.getValue().activeIndex) + 1;
   value = gallerySliderState.validate(value);
   gallerySliderState.update({activeIndex: value});
 })
-// MouseClick
+// Gallery MouseClick
 gallerySlider.addEventListener('click', (event) => {
   if (!event.target.closest('.gallery-slider-item')) return;
   const value = event.target.closest('.gallery-slider-item').dataset.index;
