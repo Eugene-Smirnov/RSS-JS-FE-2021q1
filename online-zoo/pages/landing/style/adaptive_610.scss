@@ -27,6 +27,8 @@
     }
 
     &-slider {
+      --FSSliderItem-margin: 5px;
+      --FSSliderItem-width: 113px;
 
       &__box {
         left: 0;
@@ -38,9 +40,7 @@
       }
 
       &-item {
-        margin: 0 5px;
         top: 0;
-        width: 113px;
         height: 164px;
 
         &_active {

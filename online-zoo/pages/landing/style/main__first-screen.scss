@@ -94,6 +94,9 @@
   }
 
   &-slider {
+    --FSSliderItem-margin: 23px;
+    --FSSliderItem-width: 140px;
+    --FSSliderItem-currentActive: 2;
 
     display: flex;
     flex-direction: column;
@@ -151,14 +154,17 @@
       height: 385px;
       align-items: center;
       flex-shrink: 0;
+
+      position: relative;
+      left: calc((-1 * var(--FSSliderItem-width) - 2 * var(--FSSliderItem-margin)) * (2 - var(--FSSliderItem-currentActive)));
     }
 
     &-item {
       position: relative;
-      width: 140px;
+      width: var(--FSSliderItem-width);
       height: 203px;
 
-      margin: 0 23px;
+      margin: 0 var(--FSSliderItem-margin);
       box-sizing: border-box;
 
       display: flex;

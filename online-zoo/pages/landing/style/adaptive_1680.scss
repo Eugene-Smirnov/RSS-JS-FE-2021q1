@@ -18,6 +18,8 @@
     }
 
     &-slider {
+      --FSSliderItem-margin: 14px;
+      --FSSliderItem-width: 180px;
 
       &__box {
         left: 325px;
@@ -30,9 +32,7 @@
 
       &-item {
         top: -15px;
-        width: 180px;
         height: 260px;
-        margin: 0px 14px;
 
         &_active {
           top: -15px;
@@ -43,7 +43,7 @@
       }
 
       &__range-input-wrapper {
-        margin-left: 356px;
+        margin-left: 352px;
         margin-top: -5px;
       }
 
