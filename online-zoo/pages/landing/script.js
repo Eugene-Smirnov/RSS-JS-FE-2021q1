@@ -89,7 +89,6 @@ const gallerySliderState = {
 //// Gallery Subscribes
 // Input value
 gallerySliderState.subscribe(({activeIndex}) => {
-  console.log(activeIndex);
   galleryInput.value = activeIndex;
 });
 // Output value
@@ -135,6 +134,12 @@ galleryArrowRight.addEventListener('click', () => {
   value = gallerySliderState.validate(value);
   gallerySliderState.update({activeIndex: value});
 })
+// MouseClick
+gallerySlider.addEventListener('click', (event) => {
+  if (!event.target.closest('.gallery-slider-item')) return;
+  const value = event.target.closest('.gallery-slider-item').dataset.index;
+  gallerySliderState.update({activeIndex: value});
+});
 
 
 
