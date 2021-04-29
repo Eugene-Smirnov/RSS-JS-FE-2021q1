@@ -40,3 +40,14 @@ function themeSwith() {
   }
 }
 themeSwitcher.addEventListener('click', themeSwith);
+
+/* How it works slider (HIW)*/
+const HIWInput = document.getElementById('how-it-works__range-input');
+const HIWOutput = document.querySelector('.how-it-works__current-value');
+const HIWItems = document.querySelectorAll('.how-it-works-slider__item');
+function HIWInputHandler() {
+  const value = HIWInput.value;
+  HIWOutput.textContent = `0${value}/`;
+  HIWItems.forEach(item => item.style.setProperty('--HIW-slide-number', `${value - 1}`));
+}
+HIWInput.addEventListener('input', HIWInputHandler);

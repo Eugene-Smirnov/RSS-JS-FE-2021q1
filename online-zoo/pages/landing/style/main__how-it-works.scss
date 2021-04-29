@@ -37,11 +37,13 @@
     overflow: hidden;
 
     &__item {
+      --HIW-slide-number: 0;
       min-width: 100%;
       position: relative;
       margin: 0 5px;
-      left: -5px;
+      left: calc(((-100% - 10px) * var(--HIW-slide-number) - 5px));
       cursor: pointer;
+      transition: left 0.3s ease-in-out;
     }
 
     &__image {
