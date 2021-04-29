@@ -1,5 +1,4 @@
 /* THEME SWITHCER */
-
 const themeSwitcher = document.querySelector('.switch__checkbox');
 const map = document.querySelector('.map_dark');
 function setTheme() {
@@ -51,3 +50,104 @@ function HIWInputHandler() {
   HIWItems.forEach(item => item.style.setProperty('--HIW-slide-number', `${value - 1}`));
 }
 HIWInput.addEventListener('input', HIWInputHandler);
+
+/* Gallery slider */
+const gallerySlider = document.querySelector('.gallery-slider');
+const galleryArrowLeft = document.querySelector('.gallery-slider__arrow_left');
+const galleryArrowRight = document.querySelector('.gallery-slider__arrow_right');
+
+const galleryInput = document.getElementById('gallery-slider__range-input');
+const galleryOutput = document.querySelector('.gallery-slider__current-value');
+
+const gallerySliderState = {
+  _value: {
+    activeIndex: 1,
+  },
+
+  _subscribers: [],
+
+  subscribe(subscriber) {
+    this._subscribers.push(subscriber);
+  },
+
+  update(value) {
+    this._value = { ...this._value, ...value };
+    this._subscribers.forEach(subscriber => subscriber(this._value));
+  },
+
+  getValue() {
+    return this._value;
+  },
+
+  validate(value) {
+    if (value < 1) return 8;
+    if (value > 8) return 1;
+    return value;
+  },
+
+}
+//// Gallery Subscribes
+// Input value
+gallerySliderState.subscribe(({activeIndex}) => {
+  console.log(activeIndex);
+  galleryInput.value = activeIndex;
+});
+// Output value
+gallerySliderState.subscribe(({activeIndex}) => {
+  galleryOutput.textContent = `0${activeIndex}/`;
+});
+// Active item
+gallerySliderState.subscribe(({activeIndex}) => {
+  const currentActive = gallerySlider.querySelector('.gallery-slider-item_active');
+  currentActive.classList.remove('gallery-slider-item_active');
+  const activeItem = gallerySlider.querySelector(`.gallery-slider-item_${activeIndex}`);
+  activeItem.classList.add('gallery-slider-item_active');
+});
+// Show hidden
+gallerySliderState.subscribe(({activeIndex}) => {
+  const currentValue = getComputedStyle(gallerySlider).getPropertyValue('--gallery-slider-hidden-count');
+
+  let value;
+  if (+activeIndex > +currentValue + 4) {
+    value = +activeIndex - 4;
+  } else if (+activeIndex - +currentValue <= 0) {
+    value = +activeIndex - 1;
+  } else {
+    value = currentValue;
+  }
+  gallerySlider.style.setProperty('--gallery-slider-hidden-count', value);
+
+});
+//// Gallery updaters
+// Input
+galleryInput.addEventListener('input', () => {
+  gallerySliderState.update({activeIndex: galleryInput.value});
+});
+// LeftArrowClick
+galleryArrowLeft.addEventListener('click', () => {
+  let value = +(gallerySliderState.getValue().activeIndex) - 1;
+  value = gallerySliderState.validate(value);
+  gallerySliderState.update({activeIndex: value});
+})
+// RightArrowClick
+galleryArrowRight.addEventListener('click', () => {
+  let value = +(gallerySliderState.getValue().activeIndex) + 1;
+  value = gallerySliderState.validate(value);
+  gallerySliderState.update({activeIndex: value});
+})
+
+
+
+
+
+
+
+
+// gallerySliderState.subscribe(({activeIndex}) => {});
+
+
+
+
+
+
+

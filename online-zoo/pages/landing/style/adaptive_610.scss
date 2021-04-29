@@ -172,7 +172,7 @@
     }
     
     &-slider {
-      left: -8px;
+      left: calc(((-1 * var(--gallery-slider-item-width) - 16px) * var(--gallery-slider-hidden-count)) - 8px);
 
       &-item {
         margin: 0 8px;

@@ -18,12 +18,16 @@
   }
 
   &-slider {
+    --gallery-slider-item-width: 278px;
+    --gallery-slider-hidden-count: 0;
     width: max-content;
     position: relative;
-    left: -14px;
+    left: calc(((-1 * var(--gallery-slider-item-width) - 28px) * var(--gallery-slider-hidden-count)) - 14px);
 
     display: inline-flex;
     justify-content: flex-start;
+
+    transition: left 0.3s ease-in-out;
 
     &__box {
       display: flex;
@@ -128,6 +132,7 @@
         transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out;
       }
 
+      &_active > &__content-wrapper,
       &:hover > &__content-wrapper {
         top: 0;
         opacity: 1;
