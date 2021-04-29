@@ -111,6 +111,15 @@ function HIWInputHandler() {
   HIWItems.forEach(item => item.style.setProperty('--HIW-slide-number', `${value - 1}`));
 }
 HIWInput.addEventListener('input', HIWInputHandler);
+function HIWAutoScroller() {
+  if (HIWInput.value == 4) {
+    HIWInput.value = 1;
+  } else {
+    HIWInput.value++;
+  }
+  HIWInputHandler();
+}
+setInterval(HIWAutoScroller, 5000);
 
 /* Gallery slider */
 const gallerySlider = document.querySelector('.gallery-slider');
