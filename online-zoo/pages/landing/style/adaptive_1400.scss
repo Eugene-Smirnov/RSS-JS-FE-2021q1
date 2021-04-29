@@ -37,6 +37,7 @@
   /* Testimonials */
 
   .testimonials-slider {
+    left: calc(-460px * (var(--testimonials-current-slide) - 1));
 
     &__wrapper {
       width: 920px;

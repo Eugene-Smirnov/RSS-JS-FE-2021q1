@@ -253,6 +253,7 @@
     }
 
     &-slider {
+      left: calc(-320px * (var(--testimonials-current-slide) - 1));
 
       &__box {
         margin-top: 18px;

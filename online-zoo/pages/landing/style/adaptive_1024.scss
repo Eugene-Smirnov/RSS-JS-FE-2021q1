@@ -165,6 +165,7 @@
     height: 795px;
     
     &-slider {
+      left: calc(-605px * (var(--testimonials-current-slide) - 1));
 
       &__arrow_left,
       &__arrow_right {

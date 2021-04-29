@@ -18,11 +18,15 @@
   }
 
   &-slider {
+    --testimonials-current-slide: 1;
     width: max-content;
     position: relative;
+    left: calc(-615px * (var(--testimonials-current-slide) - 1));
 
     display: inline-flex;
     justify-content: flex-start;
+
+    transition: left 0.3s ease-in-out;
 
     &__box {
       margin-top: 48px;
