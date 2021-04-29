@@ -21,6 +21,22 @@
       --FSSliderItem-margin: 14px;
       --FSSliderItem-width: 180px;
 
+      &__background-dot {
+        margin-right: 216px;
+
+        &_pre {
+          margin-right: 235px;
+        }
+  
+        &_active {
+          margin-right: 235px;
+        }
+
+        &_else {
+          margin-right: 205px;
+        }
+      }
+
       &__box {
         left: 325px;
         top: 3px;
