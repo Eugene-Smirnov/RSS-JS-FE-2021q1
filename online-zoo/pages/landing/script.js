@@ -41,32 +41,45 @@ function themeSwith() {
 themeSwitcher.addEventListener('click', themeSwith);
 
 /* ------------------- */
+class SliderStateObserver {
+
+  constructor(activeIndex, maxLength) {
+    this._value = {
+      activeIndex: activeIndex,
+      maxLength: maxLength,
+    };
+    this._subscribers = [];
+  }
+
+  subscribe(subscriber) {
+    this._subscribers.push(subscriber);
+  }
+
+  update(value) {
+    this._value = { ...this._value, ...value };
+    this._subscribers.forEach(subscriber => subscriber(this._value));
+  }
+
+  getValue() {
+    return this._value;
+  }
+
+  validate(value) {
+    if (value < 1) return this._value.maxLength;
+    if (value > this._value.maxLength) return 1;
+    return value;
+  }
+
+}
+
+/* ------------------- */
 /* First-scren slider (FS) */
 const FSSlider = document.querySelector('.first-screen-slider');
 const FSInput = document.getElementById('first-sсreen-slider__range-input');
 const FSOutput = document.querySelector('.first-screen-slider__current-value');
 
-const FSSliderState = {
-  _value: {
-    activeIndex: 2,
-  },
+const FSSliderState = new SliderStateObserver(2, 8);
 
-  _subscribers: [],
-
-  subscribe(subscriber) {
-    this._subscribers.push(subscriber);
-  },
-
-  update(value) {
-    this._value = { ...this._value, ...value };
-    this._subscribers.forEach(subscriber => subscriber(this._value));
-  },
-
-  getValue() {
-    return this._value;
-  },
-
-}
 //// First-screen Slider Subscribes
 // FS Input value
 FSSliderState.subscribe(({activeIndex}) => {
@@ -101,7 +114,7 @@ FSSlider.addEventListener('click', (event) => {
 });
 
 /* ------------------- */
-/* How it works slider (HIW)*/
+/* How it works slider (HIW) */
 const HIWInput = document.getElementById('how-it-works__range-input');
 const HIWOutput = document.querySelector('.how-it-works__current-value');
 const HIWItems = document.querySelectorAll('.how-it-works-slider__item');
@@ -130,33 +143,8 @@ const galleryArrowRight = document.querySelector('.gallery-slider__arrow_right')
 const galleryInput = document.getElementById('gallery-slider__range-input');
 const galleryOutput = document.querySelector('.gallery-slider__current-value');
 
-const gallerySliderState = {
-  _value: {
-    activeIndex: 1,
-  },
+const gallerySliderState = new SliderStateObserver(1, 8);
 
-  _subscribers: [],
-
-  subscribe(subscriber) {
-    this._subscribers.push(subscriber);
-  },
-
-  update(value) {
-    this._value = { ...this._value, ...value };
-    this._subscribers.forEach(subscriber => subscriber(this._value));
-  },
-
-  getValue() {
-    return this._value;
-  },
-
-  validate(value) {
-    if (value < 1) return 8;
-    if (value > 8) return 1;
-    return value;
-  },
-
-}
 //// Gallery Subscribes
 // Gallery Input value
 gallerySliderState.subscribe(({activeIndex}) => {
@@ -221,33 +209,8 @@ const testimonialsOutput = document.querySelector('.testimonials-slider__current
 const testimonialsLeft = document.querySelector('.testimonials-slider__arrow_left');
 const testimonialsRight = document.querySelector('.testimonials-slider__arrow_right');
 
-const testimonialsSliderState = {
-  _value: {
-    activeIndex: 1,
-  },
+const testimonialsSliderState = new SliderStateObserver(1, 8);
 
-  _subscribers: [],
-
-  subscribe(subscriber) {
-    this._subscribers.push(subscriber);
-  },
-
-  update(value) {
-    this._value = { ...this._value, ...value };
-    this._subscribers.forEach(subscriber => subscriber(this._value));
-  },
-
-  getValue() {
-    return this._value;
-  },
-
-  validate(value) {
-    if (value < 1) return 8;
-    if (value > 8) return 1;
-    return value;
-  },
-
-}
 //// Testimonails subscribers
 // Testimonials Input value
 testimonialsSliderState.subscribe(({activeIndex}) => {
@@ -285,10 +248,3 @@ function testimonialsAutoScroll() {
   testimonialsSliderState.update({activeIndex: value});
 }
 setInterval(testimonialsAutoScroll, 7500);
-
-
-
-
-
-
-
