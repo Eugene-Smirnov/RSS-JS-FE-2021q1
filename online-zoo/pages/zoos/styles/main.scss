@@ -112,14 +112,19 @@ body {
       border-radius: 50%;
 
       cursor: pointer;
-      transition: height 0.3s ease-in-out, width  0.3s ease-in-out, background-color  0.3s ease-in-out;
+      transition: height 0.3s ease-in-out, 
+                  width  0.3s ease-in-out, 
+                  background-color  0.3s ease-in-out,
+                  opacity 0.3s ease-in-out;
 
       &:hover {
-        background-color: $base-gradient__blue;
+        background-color: var(--contrast-additional-color);
+        opacity: 0.5;
       }
 
       &:active {
         background-color: var(--contrast-additional-color);
+        opacity: 1;
       }
 
       &_active {

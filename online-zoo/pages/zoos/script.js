@@ -37,3 +37,18 @@ function themeSwith() {
   }
 }
 themeSwitcher.addEventListener('click', themeSwith);
+
+/* Video preview switcher */
+const video = document.querySelector('.video');
+const videoSelectors = document.querySelector('.video-selection__wrapper');
+function videoSlider(event) {
+  if (event.target.closest('.video-selection__button').classList.contains('video-selection__button_active')) return;
+  const currentActive = videoSelectors.querySelector('.video-selection__button_active');
+  currentActive.classList.remove('video-selection__button_active');
+  const value = event.target.closest('.video-selection__button').dataset.index;
+  console.log(value, videoSelectors[0]);
+  const newActive = videoSelectors.querySelectorAll('.video-selection__button')[value - 1];
+  newActive.classList.add('video-selection__button_active');
+  video.style.setProperty('--active-dot-number', value);
+}
+videoSelectors.addEventListener('click', videoSlider);

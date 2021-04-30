@@ -565,13 +565,15 @@ body {
   background-color: #c4c4c4;
   border-radius: 50%;
   cursor: pointer;
-  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .video-selection__button:hover {
-  background-color: #49d6df;
+  background-color: var(--contrast-additional-color);
+  opacity: 0.5;
 }
 .video-selection__button:active {
   background-color: var(--contrast-additional-color);
+  opacity: 1;
 }
 .video-selection__button_active {
   height: 11px;
