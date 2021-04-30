@@ -46,9 +46,17 @@ function videoSlider(event) {
   const currentActive = videoSelectors.querySelector('.video-selection__button_active');
   currentActive.classList.remove('video-selection__button_active');
   const value = event.target.closest('.video-selection__button').dataset.index;
-  console.log(value, videoSelectors[0]);
   const newActive = videoSelectors.querySelectorAll('.video-selection__button')[value - 1];
   newActive.classList.add('video-selection__button_active');
   video.style.setProperty('--active-dot-number', value);
 }
 videoSelectors.addEventListener('click', videoSlider);
+/* Stream switcher */
+function streamSwithcer(event) {
+  const stream = video.querySelector('.video__stream');
+  let chosen = event.target.closest('.video__preview_w').querySelector('.video__preview');
+  const newUrl = chosen.src;
+  chosen.src = stream.src;
+  stream.src = newUrl;
+}
+video.addEventListener('click', streamSwithcer)

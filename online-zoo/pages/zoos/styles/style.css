@@ -543,7 +543,7 @@ body {
   pointer-events: none;
   border: none;
 }
-.video__preview_1, .video__preview_2, .video__preview_3 {
+.video__preview_w {
   border-radius: 5px;
   overflow: hidden;
   height: 141px;
@@ -1253,7 +1253,7 @@ body {
   .video__preview-box {
     margin-top: 22px;
   }
-  .video__preview_1, .video__preview_2, .video__preview_3 {
+  .video__preview_w {
     height: 94px;
   }
   .video-selection__wrapper {
@@ -1385,7 +1385,7 @@ body {
   .video__preview-box {
     margin-top: 11px;
   }
-  .video__preview_1, .video__preview_2, .video__preview_3 {
+  .video__preview_w {
     width: auto;
     height: 14vw;
     aspect-ratio: 16/9;
@@ -1523,7 +1523,7 @@ body {
   .video__preview-box {
     margin-top: 7px;
   }
-  .video__preview_1, .video__preview_2, .video__preview_3 {
+  .video__preview_w {
     height: 17.5vw;
   }
   .video-selection__wrapper {
