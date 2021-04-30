@@ -54,6 +54,9 @@ body {
 }
 
 .video {
+  --stream-video-width: 790px;
+  --preview-margin: 26px;
+  --active-dot-number: 1;
 
   &__stream {
     border-radius: 5px;
@@ -62,10 +65,17 @@ body {
 
   &__preview-box {
     margin-top: 26px;
-    width: 100%;
+    width: max-content;
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+    position: relative;
+    left: calc((-1 * var(--stream-video-width) - var(--preview-margin)) * (var(--active-dot-number) - 1));
+    transition: left 0.5s ease-in-out;
+
+    &-wrapper {
+      overflow: hidden;
+      width: var(--stream-video-width);
+    }
+
   }
 
   &__preview {
@@ -77,6 +87,7 @@ body {
       overflow: hidden;
       height: 141px;
       cursor: pointer;
+      margin-right: var(--preview-margin);
     }
     
   }
