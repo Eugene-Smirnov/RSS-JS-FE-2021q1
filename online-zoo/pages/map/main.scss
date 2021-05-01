@@ -28,6 +28,7 @@ body {
   }
 
   &-slider {
+    --active-index: 2;
     height: 158px;
     width: 95%;
     display: flex;
@@ -81,6 +82,7 @@ body {
       // for outline gradient delays 0.1s needed
       -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
       transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
+      transition-delay: 0.1s;
       cursor: pointer;
 
       &::before {
@@ -91,7 +93,7 @@ body {
         border-radius: 50%;
         background-color: var(--map-bg-color);
         pointer-events: none;
-        transition: opacity 0.25s ease-in-out;
+        transition: opacity 0.1s ease-in-out;
       }
 
       &_active {
@@ -103,18 +105,22 @@ body {
         -webkit-transition-delay: 0s;
         transition-delay: 0s;
 
+        cursor: default;
+
         &>.main-slider__image {
           width: 136px;
           height: 136px;
           border-width: 7px;
 
-          
           -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
         }
 
+        --slider-active-before-opacity: 0;
+        
         &::before {
-          opacity: 0;
+          opacity: var(--slider-active-before-opacity);          
+          transition: opacity 0.1s ease-in-out;
         }
 
       }
@@ -312,6 +318,10 @@ body {
     position: absolute;
     cursor: pointer;
 
+    &_active {
+      cursor: default;
+    }
+
     &_bg {
       width: 67px;
       height: 95px;
@@ -323,8 +333,13 @@ body {
       transition: background-color 0.25s ease-in-out;
     }
 
-    &:hover &_bg,
-    &_active &_bg {
+    &:hover &_bg {
+      background-color: rgba($pointer-color_red, 85%);
+    }
+
+    &:active &_bg,
+    &_active &_bg,
+    &_active:hover &_bg {
       background-color: $pointer-color_red;
     }
 
