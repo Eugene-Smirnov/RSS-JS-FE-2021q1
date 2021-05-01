@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: $base-color_theme_light;
+  background-color: var(--base-color);
   font-family: 'Roboto', sans-serif;
 }
 
@@ -47,7 +47,7 @@ input[type=range]::-ms-track {
 
 .bold {
   font-weight: 500;
-  color: $base-color_theme_dark;
+  color: var(--contrast-base-color);
 }
 
 .wrapper {
@@ -59,7 +59,7 @@ input[type=range]::-ms-track {
   font-size: 48px;
   font-weight: 900;
 
-  color: $base-color_theme_dark;
+  color: var(--contrast-base-color);
 }
 
 .main {

@@ -7,7 +7,8 @@
   .gallery {
 
     &-slider {
-      left: -10px;
+      --gallery-slider-item-width: 210px;
+      left: calc(((-1 * var(--gallery-slider-item-width) - 20px) * var(--gallery-slider-hidden-count)) - 10px);
 
       &__wrapper {
         width: 900px;
@@ -36,6 +37,7 @@
   /* Testimonials */
 
   .testimonials-slider {
+    left: calc(-460px * (var(--testimonials-current-slide) - 1));
 
     &__wrapper {
       width: 920px;

@@ -27,6 +27,10 @@
 
     &-slider {
 
+      &__background-dot_first {
+        margin-right: 153px;
+      }
+
       &__box {
         left: 27px;
         top: 48px;
@@ -161,6 +165,7 @@
     height: 795px;
     
     &-slider {
+      left: calc(-605px * (var(--testimonials-current-slide) - 1));
 
       &__arrow_left,
       &__arrow_right {
@@ -246,4 +251,18 @@
 
   }
 
+}
+
+/* MAX WIDTH 960px */
+@media screen and (max-width: 960px) {
+  .gallery-slider {
+    --gallery-slider-visible-count: 3;
+  }
+}
+
+/* MAX WIDTH 715px */
+@media screen and (max-width: 715px) {
+  .gallery-slider {
+    --gallery-slider-visible-count: 2;
+  }
 }

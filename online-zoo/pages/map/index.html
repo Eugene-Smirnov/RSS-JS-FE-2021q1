@@ -62,36 +62,68 @@
                            main-slider__arrow_left"></button>
             <div class="main-slider__wrapper">
                 <ul class="main-slider">
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_1"
+                        data-index="1"
+                        data-url="../zoos/gorilla/"
+                        data-animal="gorilla">
                         <div class="main-slider__image
                                     main-slider__image_gorilla"></div>
                     </li>
                     <li class="main-slider__item
-                               main-slider__item_active">
+                               main-slider__item_2
+                               main-slider__item_active"
+                        data-index="2"
+                        data-url="../zoos/panda/"
+                        data-animal="panda">
                         <div class="main-slider__image
                                     main-slider__image_panda"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_3"
+                        data-index="3"
+                        data-url="../zoos/alligator/"
+                        data-animal="alligator">
                         <div class="main-slider__image
                                     main-slider__image_alligator"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_4"
+                        data-index="4"
+                        data-url="../zoos/eagle/"
+                        data-animal="eagle">
                         <div class="main-slider__image
                                     main-slider__image_eagle"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_5"
+                        data-index="5"
+                        data-url="#"
+                        data-animal="#">
                         <div class="main-slider__image
                                     main-slider__image_tiger"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_6"
+                        data-index="6"
+                        data-url="#"
+                        data-animal="#">
                         <div class="main-slider__image
                                     main-slider__image_elephant"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_7"
+                        data-index="7"
+                        data-url="#"
+                        data-animal="#">
                         <div class="main-slider__image
                                     main-slider__image_lion"></div>
                     </li>
-                    <li class="main-slider__item">
+                    <li class="main-slider__item
+                               main-slider__item_8"
+                        data-index="8"
+                        data-url="#"
+                        data-animal="#">
                         <div class="main-slider__image
                                     main-slider__image_zebra"></div>
                     </li>
@@ -115,81 +147,46 @@
 
         </div>
         <div class="map__wrapper">
-            <div class="map"></div>
+            <div class="map">
+                <div class="map_dark"></div>
+            </div>
             <div class="map__pointers-wrapper">
                 <div title="eagle"
                     class="map__pointer
-                            map__pointer_eagle">
+                            map__pointer_eagle"
+                    data-index="4">
                     <div class="map__pointer_bg"></div>
                     <img src="../../assets/images/pointer_eagle.png" alt="eagle" class="map__image map__image_eagle">
-                    
-                    <!-- <div class="map-tooltip">
-                        <img src="../../assets/images/tooltip__image_eagle.png" alt="eagle" class="map-tooltip__image">
-                        <div class="map-tooltip__description">
-                            <h3 class="map-tooltip__heading">west end bald eagle</h3>
-                            <p class="map-tooltip__content">
-                                <b class="bold">Region: </b>on an island near Los Angeles <b class="bold">Population: </b>more than 270 pairs in 2013
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
                 
                 <div title="alligator" 
                     class="map__pointer
-                            map__pointer_alligator">
+                            map__pointer_alligator"
+                    data-index="3">
                     <div class="map__pointer_bg"></div>
                     <img src="../../assets/images/pointer_alligator.png" alt="alligator"  class="map__image map__image_alligator">
-                    
-                    <!-- <div class="map-tooltip">
-                        <img src="../../assets/images/pointer_alligator.png" alt="alligator" class="map-tooltip__image">
-                        <div class="map-tooltip__description">
-                            <h3 class="map-tooltip__heading">american alligator</h3>
-                            <p class="map-tooltip__content">
-                                <b class="bold">Region: </b>on east-side of united states <b class="bold">Population: </b>approximatly 12'000 pairs in 2015
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
                 
                 <div title="gorilla"
                     class="map__pointer
-                            map__pointer_gorilla">
+                            map__pointer_gorilla"
+                    data-index="1">
                     <div class="map__pointer_bg"></div>
                     <img src="../../assets/images/pointer_gorilla.png" alt="gorilla"  class="map__image map__image_gorilla">
-                    
-                    <!-- <div class="map-tooltip">
-                        <img src="../../assets/images/pointer_gorilla.png" alt="gorilla" class="map-tooltip__image">
-                        <div class="map-tooltip__description">
-                            <h3 class="map-tooltip__heading">african gorilla</h3>
-                            <p class="map-tooltip__content">
-                                <b class="bold">Region: </b>in forests of continental africa <b class="bold">Population: </b>over 100'000 western lowland gorillas
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
                 
                 <div title="panda"
                     class="map__pointer
                             map__pointer_panda
-                            map__pointer_active">
+                            map__pointer_active"
+                    data-index="2">
                     <div class="map__pointer_bg"></div>
                     <img src="../../assets/images/pointer_panda.png" alt="panda"  class="map__image map__image_panda">
-                
-                    <!-- <div class="map-tooltip">
-                        <img src="../../assets/images/pointer_panda.png" alt="panda" class="map-tooltip__image">
-                        <div class="map-tooltip__description">
-                            <h3 class="map-tooltip__heading">panda</h3>
-                            <p class="map-tooltip__content">
-                                <b class="bold">Region: </b>middle of china tropical forests <b class="bold">Population: </b>approximatly 1'590 pairs in 2016
-                            </p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
-        <div onclick="window.location.href='../zoos/panda/'"
-             class="button main__button"> watch online</div>
-         </div>
+        <a href="../zoos/panda/" 
+           class="button main__button"> watch online</a>
     </main>
     <footer class="footer">
         <div class="wrapper
@@ -297,5 +294,6 @@
             </small>
         </div>
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>

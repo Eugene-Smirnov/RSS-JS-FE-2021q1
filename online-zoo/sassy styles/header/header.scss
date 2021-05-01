@@ -3,8 +3,8 @@
 @import './swithcer.scss';
 
 .header {
-  background-color: $base-color_theme_light;
-  color: $base-color_theme_dark;
+  background-color: var(--base-color);
+  color: var(--contrast-base-color);
   box-shadow: 0px 4px 8px 0px #2c654d0c;
 
   &__h1 {
@@ -57,6 +57,10 @@
     }
   }
 
+}
+
+.logo {
+  background-color: var(--contrast-base-color);
 }
 
 /* HEADER MAX WIDTH 1024px */
@@ -114,7 +118,7 @@
 
       &__ul {
         flex-direction: column;
-        background-color: $base-color_theme_light;
+        background-color: var(--base-color);
       }
 
       &__li {
@@ -122,11 +126,11 @@
         padding: 15px 60px;
         font-size: 21px;
         background-color: transparent;
-        border-top: 1px solid $additional-color_theme-light;
+        border-top: 1px solid var(--additional-color);
         transition: background-color 0.2s ease-in-out;
 
         &:hover {
-          background-color: $additional-color_theme-light;
+          background-color: var(--additional-color);
         }
 
       }

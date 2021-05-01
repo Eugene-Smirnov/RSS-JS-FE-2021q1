@@ -1,4 +1,7 @@
 /* MAIN */
+body {
+  background-color: var(--map-bg-color);
+}
 
 .main {
   height: 1287px;
@@ -21,10 +24,15 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;
-    color: $additional-color_theme-dark;
+    color: var(--contrast-additional-color);
   }
 
   &-slider {
+    --slider-item-width: 126px;
+    --slider-active-index: 2;
+    --slider-hidden-count: 0;
+    --slider-visible-count: 5;
+
     height: 158px;
     width: 95%;
     display: flex;
@@ -49,12 +57,12 @@
 
     &__arrow_left:hover,
     &__arrow_right:hover {
-      background-color: $base-color_theme_dark;
+      background-color: var(--contrast-base-color);
     }
 
     &__arrow_left:active,
     &__arrow_right:active {
-      background-color: $additional-color_theme-dark;
+      background-color: var(--contrast-additional-color);
     }
 
     &__wrapper {
@@ -72,46 +80,51 @@
       align-items: center;
       overflow: hidden;
             
-      background: $image-border-gradient;
+      background: var(--map-bg-color);
       border-radius: 50%;
 
       // for outline gradient delays 0.1s needed
       -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
       transition: height 0.25s ease-in-out, width 0.25s ease-in-out;
+      transition-delay: 0.1s;
       cursor: pointer;
 
+      --before-opacity: 0;
+      --before-size: 126px;
+
       &::before {
-        position: absolute;
         content: "";
-        height: 165px;
-        width: 165px;
+        display: block;
+        position: absolute;
+        width: var(--before-size);
+        height: var(--before-size);
         border-radius: 50%;
-        background-color: #fefefe;
-        pointer-events: none;
+        z-index: -1;
+        background: $image-border-gradient;
+        opacity: var(--before-opacity);
         transition: opacity 0.25s ease-in-out;
       }
 
       &_active {
         width: 158px;
         height: 158px;
+        background: none;
 
-        z-index: 1;  
-        
         -webkit-transition-delay: 0s;
         transition-delay: 0s;
+
+        cursor: default;
+        position: relative;
+        --before-opacity: 1;
+        --before-size: 158px;
 
         &>.main-slider__image {
           width: 136px;
           height: 136px;
           border-width: 7px;
 
-          
           -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
-        }
-
-        &::before {
-          opacity: 0;
         }
 
       }
@@ -141,11 +154,11 @@
       height: 108px;
       background-size: cover;
       background-position: center;
-      border: 5px solid $base-color_theme_light;
+      border: 5px solid var(--map-bg-color);
       border-radius: 50%;
-      z-index: 1;
       transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
       -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
+      z-index: 1;
 
       &_gorilla {
         background-image: url(../../assets/images/map-slider/map-slider__gorilla.png)
@@ -191,25 +204,23 @@
 
       position: relative;
       left: -17px;
-
-      z-index: 1;
     }
 
     &__range-input {
       margin-top: 14px;
 
       &::-webkit-slider-thumb {
-        background: $base-color_theme_dark;
+        background: var(--contrast-base-color);
       }
       
       &::-moz-range-thumb,
       &::-ms-thumb {
-        background: $base-color_theme_dark;
+        background: var(--contrast-base-color);
       }
     }
 
     &__current-value {
-      color: $base-color_theme_dark;
+      color: var(--contrast-base-color);
       font-weight: 900;
       font-size: 24px;
     }
@@ -285,6 +296,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  &_dark {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/map_dark.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
 
   &__wrapper {
     width: 1199px;
@@ -299,6 +320,10 @@
     position: absolute;
     cursor: pointer;
 
+    &_active {
+      cursor: default;
+    }
+
     &_bg {
       width: 67px;
       height: 95px;
@@ -310,8 +335,13 @@
       transition: background-color 0.25s ease-in-out;
     }
 
-    &:hover &_bg,
-    &_active &_bg {
+    &:hover &_bg {
+      background-color: rgba($pointer-color_red, 85%);
+    }
+
+    &:active &_bg,
+    &_active &_bg,
+    &_active:hover &_bg {
       background-color: $pointer-color_red;
     }
 
@@ -349,9 +379,6 @@
 
     top: 16px;
     left: 14px;
-    
   }
-
-
 
 }

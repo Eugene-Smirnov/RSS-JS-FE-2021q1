@@ -1,6 +1,22 @@
 // colors
+:root {
+  --base-color: #fefefe;
+  --contrast-base-color: #333;
 
-$base-color_theme_light: #fefefe;
+  --additional-color: #f2f2f2;
+  --contrast-additional-color: #4f4f4f;
+
+  --testimonials-item-bg-color: #fefefe;
+  --map-bg-color: #fefefe;
+
+  --dark-color: #1b1b1b;
+  --grey-color: #bdbdbd;
+  --grey-color-form: #e0e0e0;
+  --popup-base-grey: #828282;
+
+}
+
+$base-color_theme_light: #fefefe;;
 $base-color_theme_dark: #333;
 
 $additional-color_theme-light: #f2f2f2;

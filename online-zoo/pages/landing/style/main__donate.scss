@@ -1,7 +1,7 @@
 /* DONATE-BOX */
 
 .donate {
-  background-color: $additional-color_theme-light;
+  background-color: var(--additional-color);
   overflow: hidden;
 
   &__wrapper {
@@ -23,7 +23,7 @@
 
     font-size: 14px;
     font-weight: 400;
-    color: $additional-color_theme-dark;
+    color: var(--contrast-additional-color);
   }
 
   &-description {
@@ -74,7 +74,7 @@
       font-weight: 900;
       line-height: 23.44px;
       text-align: center;
-      color: $additional-color_theme-dark;
+      color: var(--contrast-additional-color);
     }
 
   }
