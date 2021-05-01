@@ -174,7 +174,6 @@ gallerySliderState.subscribe(({activeIndex}) => {
     value = currentValue;
   }
   gallerySlider.style.setProperty('--gallery-slider-hidden-count', value);
-
 });
 //// Gallery updaters
 // Gallery Input

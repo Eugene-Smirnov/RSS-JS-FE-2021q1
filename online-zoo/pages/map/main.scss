@@ -28,7 +28,11 @@ body {
   }
 
   &-slider {
-    --active-index: 2;
+    --slider-item-width: 126px;
+    --slider-active-index: 2;
+    --slider-hidden-count: 0;
+    --slider-visible-count: 5;
+
     height: 158px;
     width: 95%;
     display: flex;
@@ -76,7 +80,7 @@ body {
       align-items: center;
       overflow: hidden;
             
-      background: $image-border-gradient;
+      background: var(--map-bg-color);
       border-radius: 50%;
 
       // for outline gradient delays 0.1s needed
@@ -85,27 +89,34 @@ body {
       transition-delay: 0.1s;
       cursor: pointer;
 
+      --before-opacity: 0;
+      --before-size: 126px;
+
       &::before {
-        position: absolute;
         content: "";
-        height: 165px;
-        width: 165px;
+        display: block;
+        position: absolute;
+        width: var(--before-size);
+        height: var(--before-size);
         border-radius: 50%;
-        background-color: var(--map-bg-color);
-        pointer-events: none;
-        transition: opacity 0.1s ease-in-out;
+        z-index: -1;
+        background: $image-border-gradient;
+        opacity: var(--before-opacity);
+        transition: opacity 0.25s ease-in-out;
       }
 
       &_active {
         width: 158px;
         height: 158px;
+        background: none;
 
-        z-index: 1;  
-        
         -webkit-transition-delay: 0s;
         transition-delay: 0s;
 
         cursor: default;
+        position: relative;
+        --before-opacity: 1;
+        --before-size: 158px;
 
         &>.main-slider__image {
           width: 136px;
@@ -114,13 +125,6 @@ body {
 
           -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
-        }
-
-        --slider-active-before-opacity: 0;
-        
-        &::before {
-          opacity: var(--slider-active-before-opacity);          
-          transition: opacity 0.1s ease-in-out;
         }
 
       }
@@ -152,9 +156,9 @@ body {
       background-position: center;
       border: 5px solid var(--map-bg-color);
       border-radius: 50%;
-      z-index: 1;
       transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
       -webkit-transition: height 0.25s ease-in-out, width 0.25s ease-in-out, border-width 0.25s ease-in-out;
+      z-index: 1;
 
       &_gorilla {
         background-image: url(../../assets/images/map-slider/map-slider__gorilla.png)
@@ -200,8 +204,6 @@ body {
 
       position: relative;
       left: -17px;
-
-      z-index: 1;
     }
 
     &__range-input {
