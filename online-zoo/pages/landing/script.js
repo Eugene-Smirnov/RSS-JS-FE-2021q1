@@ -163,12 +163,12 @@ gallerySliderState.subscribe(({activeIndex}) => {
 });
 // Gallery Show hidden
 gallerySliderState.subscribe(({activeIndex}) => {
-  const currentValue = getComputedStyle(gallerySlider).getPropertyValue('--gallery-slider-hidden-count');
-
+  const currentValue = +getComputedStyle(gallerySlider).getPropertyValue('--gallery-slider-hidden-count');
+  const visibleCount = +getComputedStyle(gallerySlider).getPropertyValue('--gallery-slider-visible-count');
   let value;
-  if (+activeIndex > +currentValue + 4) {
-    value = +activeIndex - 4;
-  } else if (+activeIndex - +currentValue <= 0) {
+  if (+activeIndex > currentValue + visibleCount) {
+    value = +activeIndex - visibleCount;
+  } else if (+activeIndex - currentValue <= 0) {
     value = +activeIndex - 1;
   } else {
     value = currentValue;

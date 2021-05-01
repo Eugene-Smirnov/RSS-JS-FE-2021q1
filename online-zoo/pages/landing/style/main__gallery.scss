@@ -20,6 +20,8 @@
   &-slider {
     --gallery-slider-item-width: 278px;
     --gallery-slider-hidden-count: 0;
+    --gallery-slider-visible-count: 4;
+    
     width: max-content;
     position: relative;
     left: calc(((-1 * var(--gallery-slider-item-width) - 28px) * var(--gallery-slider-hidden-count)) - 14px);

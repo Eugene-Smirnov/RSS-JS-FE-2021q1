@@ -436,3 +436,10 @@
   }
 
 }
+
+/* MAX WIDTH 465px */
+@media screen and (max-width: 465px) {
+  .gallery-slider {
+    --gallery-slider-visible-count: 1;
+  }
+}

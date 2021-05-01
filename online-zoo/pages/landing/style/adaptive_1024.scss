@@ -252,3 +252,17 @@
   }
 
 }
+
+/* MAX WIDTH 960px */
+@media screen and (max-width: 960px) {
+  .gallery-slider {
+    --gallery-slider-visible-count: 3;
+  }
+}
+
+/* MAX WIDTH 715px */
+@media screen and (max-width: 715px) {
+  .gallery-slider {
+    --gallery-slider-visible-count: 2;
+  }
+}
