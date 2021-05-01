@@ -54,7 +54,8 @@ videoSelectors.addEventListener('click', videoSlider);
 /* Stream switcher */
 function streamSwithcer(event) {
   const stream = video.querySelector('.video__stream');
-  let chosen = event.target.closest('.video__preview_w').querySelector('.video__preview');
+  const chosenWrapper = event.target.closest('.video__preview_w');
+  let chosen = chosenWrapper.querySelector('.video__preview');
   const newUrl = chosen.src;
   chosen.src = stream.src;
   stream.src = newUrl;

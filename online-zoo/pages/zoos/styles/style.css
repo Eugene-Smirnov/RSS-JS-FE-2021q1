@@ -1240,7 +1240,7 @@ body {
 
   .video {
     --stream-video-width: 527px;
-    --preview-margin: 18px;
+    --preview-margin: 17.5px;
   }
   .video__stream {
     width: var(--stream-video-width);
