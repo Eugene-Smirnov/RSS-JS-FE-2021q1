@@ -11,6 +11,176 @@
     <title>Online-zoo | Map</title>
 </head>
 <body>
+    <!-- POPUP -->
+    <div class="popup__wrapper">
+        <div class="popup">
+            <button class="popup__close"></button>
+            <div class="popup__sidepic"></div>
+            <div class="popup__content-wrapper">
+                <div class="popup__content">
+                    <h2 class="heading 
+                               popup__heading">donate for your animal</h2>
+                    <form action="post" 
+                          class="popup-form" 
+                          id="popup-form">
+                        <div class="popup-form__inputs-wrapper">
+                            <div class="popup-form__box 
+                                        popup-form__box_top">
+                                <fieldset class="popup-form__fieldset">
+                                    <legend class="popup-form__legend">Сhoose an animal</legend>
+                                    <select name="select-animal" 
+                                            id="select-animal" 
+                                            class="popup-form__select 
+                                                popup-form__select_animal"
+                                            required>
+                                        <option value="panda" class="popup-form__animal-option">panda</option>    
+                                        <option value="eagle" class="popup-form__animal-option">eagle</option>    
+                                        <option value="alligator" class="popup-form__animal-option">alligator</option>    
+                                        <option value="gorilla" class="popup-form__animal-option">gorilla</option>    
+                                    </select>
+                                </fieldset>
+                                <fieldset class="popup-form__fieldset">
+                                    <legend class="popup-form__legend">To donate</legend>
+                                    <input type="number" 
+                                        name="count" 
+                                        id="donate-count"
+                                        class="popup-form__input"
+                                        min="0" 
+                                        max="1000000" 
+                                        step="10"
+                                        required>
+                                </fieldset>
+                            </div>
+                            <div class="popup-form__box 
+                                        popup-form__box_bottom">
+                                <div class="popup__box_userinfo">
+                                    <h3 class="popup-form__input-heading">About you</h3>
+                                    <fieldset class="popup-form__fieldset">
+                                        <legend class="popup-form__legend">Name</legend>
+                                        <input type="text" 
+                                            name="username" 
+                                            id="username"
+                                            class="popup-form__input"
+                                            maxlength="20"
+                                            required>
+                                    </fieldset>
+                                    <fieldset class="popup-form__fieldset">
+                                        <legend class="popup-form__legend">Email</legend>
+                                        <input type="email" 
+                                            name="usermail" 
+                                            id="usermail"
+                                            class="popup-form__input" 
+                                            maxlength="25" 
+                                            required>
+                                    </fieldset>
+                                    <fieldset class="popup-form__fieldset
+                                                     popup-form__fieldset_phone">
+                                        <legend class="popup-form__legend">Phone</legend>
+                                        <input type="text"
+                                            name="phone-code" 
+                                            id="phone-code" 
+                                            class="popup-form__input 
+                                                   popup-form__input_phone-code"
+                                            minlength="2" 
+                                            maxlength="4" 
+                                            placeholder="+7"
+                                            required
+                                            list="defaultCodes">
+                                            <datalist id="defaultCodes">
+                                                <option value="+7">+7</option>    
+                                                <option value="+1">+1</option>    
+                                                <option value="+375">+375</option>    
+                                                <option value="+380">+380</option>
+                                            </datalist>
+                                        </input>
+                                        <div class="popup-form__fieldset_border"></div>
+                                        <input type="tel" 
+                                                name="usertel" 
+                                                id="usertel"
+                                                class="popup-form__input
+                                                       popup-form__input_tel" 
+                                                maxlength="9" 
+                                                required>
+                                    </fieldset>
+                                </div>    
+                                <div class="popup__box_checkout">
+                                    <h3 class="popup-form__input-heading">Checkout</h3>
+                                    <fieldset class="popup-form__fieldset">
+                                        <legend class="popup-form__legend">Card number</legend>
+                                        <input type="tel" 
+                                            name="card-number" 
+                                            id="card-number"
+                                            class="popup-form__input" 
+                                            maxlength="16" 
+                                            required>
+                                    </fieldset>
+                                    <fieldset class="popup-form__fieldset
+                                                     popup-form__fieldset_date">
+                                        <legend class="popup-form__legend">Expiry date</legend>
+                                        <select id="expiry-month"
+                                                class="popup-form__select
+                                                    popup-form__select_card-month"
+                                                required>
+                                            <option value="01" class="popup-form__month-option">01</option>    
+                                            <option value="02" class="popup-form__month-option">02</option>    
+                                            <option value="03" class="popup-form__month-option">03</option>    
+                                            <option value="04" class="popup-form__month-option">04</option>    
+                                            <option value="05" class="popup-form__month-option">05</option>    
+                                            <option value="06" class="popup-form__month-option">06</option>    
+                                            <option value="07" class="popup-form__month-option">07</option>    
+                                            <option value="08" class="popup-form__month-option">08</option>    
+                                            <option value="09" class="popup-form__month-option">09</option>    
+                                            <option value="10" class="popup-form__month-option">10</option>    
+                                            <option value="11" class="popup-form__month-option">11</option>    
+                                            <option value="12" class="popup-form__month-option">12</option>    
+                                        </select>
+                                        <div class="popup-form__fieldset_border"></div>
+                                        <select id="expiry-year"
+                                                class="popup-form__select
+                                                    popup-form__select_card-year"
+                                                required>
+                                            <option value="21" class="popup-form__year-option">21</option>
+                                            <option value="20" class="popup-form__year-option">20</option>
+                                            <option value="19" class="popup-form__year-option">19</option>
+                                            <option value="18" class="popup-form__year-option">18</option>
+                                            <option value="17" class="popup-form__year-option">17</option>
+                                            <option value="16" class="popup-form__year-option">16</option>
+                                            <option value="15" class="popup-form__year-option">15</option>
+                                            <option value="14" class="popup-form__year-option">14</option>
+                                            <option value="13" class="popup-form__year-option">13</option>
+                                            <option value="12" class="popup-form__year-option">12</option>
+                                            <option value="11" class="popup-form__year-option">11</option>
+                                            <option value="10" class="popup-form__year-option">10</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="popup-form__fieldset">
+                                        <legend class="popup-form__legend">CVC</legend>
+                                        <input type="text" 
+                                            name="cvc" 
+                                            id="cvc"
+                                            class="popup-form__input" 
+                                            minlength="3"
+                                            maxlength="3" 
+                                            required>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="popup__agree-message">
+                            If don’t cancel your subscription before the trial ends on May 15, 2021, you agree that you will automatically be charged
+                        </p>
+                        <button type="submit"
+                                id="popup-form__submit"
+                                name="submit"
+                                class="button 
+                                       popup-form__submit">
+                            donate
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <h1 class="header__h1">online zoo</h1>
         <div class="wrapper header__wrapper">
@@ -287,7 +457,8 @@
                 </div>
             </div>
             <button class="button 
-                           footer__button">donate for volunteers</button>
+                           footer__button
+                           donate-btn">donate for volunteers</button>
             <hr class="footer__hr">
             <small class="footer__copyrights">
                 ©Noora Sagnayeva<br>©RSSchool and ©Yem Digital - 2021

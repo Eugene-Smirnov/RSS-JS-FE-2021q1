@@ -60,4 +60,38 @@ function streamSwithcer(event) {
   chosen.src = stream.src;
   stream.src = newUrl;
 }
-video.addEventListener('click', streamSwithcer)
+video.addEventListener('click', streamSwithcer);
+
+/* --------------- */
+// DONATE FEED MODAL POP UP
+const donateButtons = document.querySelectorAll('.donate-btn');
+donateButtons.forEach(item => item.addEventListener('click', (event) => {
+  const popup = document.querySelector('.popup__wrapper');
+  popup.style.setProperty('display', 'flex');
+  setTimeout(() => {
+    document.body.style.setProperty('--popup-bg-blur', '3px');
+    popup.style.setProperty('--popup-opacity', '1');
+  }, 0);
+}));
+
+const popupCloseBtn = document.querySelector('.popup__close');
+function popupClose(event) {
+  document.body.style.setProperty('--popup-bg-blur', '0px');
+  const popup = document.querySelector('.popup__wrapper');
+  popup.style.setProperty('--popup-opacity', '0');
+  setTimeout(() => {popup.style.setProperty('display', 'none')}, 300);
+}
+
+popupCloseBtn.addEventListener('click', popupClose);
+
+const popupWrapper = document.querySelector('.popup__wrapper');
+popupWrapper.addEventListener('click', (event) => {
+  if (event.target.closest('.popup') != null) return;
+  popupClose(event);
+});
+
+const popupSubmitBtn = document.getElementById('popup-form__submit');
+popupSubmitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  popupClose(event);
+});
