@@ -1,0 +1,13 @@
+/* ZOOS Popup images rooting */
+.popup {
+  
+  &__close {
+    mask-image: url('../../../assets/icons/close-cross.png');
+    -webkit-mask-image: url('../../../assets/icons/close-cross.png');
+  }
+
+  &__sidepic {
+    background-image: url('../../../assets/images/popup__image.png');
+  }
+
+}

@@ -1,4 +1,17 @@
 /* POPUP STYLE */
+:root {
+  --base-color: #fefefe;
+  --contrast-base-color: #333;
+  --additional-color: #f2f2f2;
+  --contrast-additional-color: #4f4f4f;
+  --testimonials-item-bg-color: #fefefe;
+  --map-bg-color: #fefefe;
+  --dark-color: #1b1b1b;
+  --grey-color: #bdbdbd;
+  --grey-color-form: #e0e0e0;
+  --popup-base-grey: #828282;
+}
+
 /* BASE */
 html {
   scroll-behavior: smooth;
@@ -10,7 +23,7 @@ html {
 }
 
 body {
-  background-color: #fefefe;
+  background-color: var(--base-color);
   font-family: "Roboto", sans-serif;
 }
 
@@ -46,7 +59,7 @@ input[type=range]::-ms-track {
 
 .bold {
   font-weight: 500;
-  color: #333;
+  color: var(--contrast-base-color);
 }
 
 .wrapper {
@@ -57,7 +70,7 @@ input[type=range]::-ms-track {
 .heading {
   font-size: 48px;
   font-weight: 900;
-  color: #333;
+  color: var(--contrast-base-color);
 }
 
 .main {
@@ -226,24 +239,40 @@ input[type=range]::-ms-track {
 }
 
 /* POPUP MAIN */
+body {
+  background-color: white;
+}
+
 input,
 select {
   outline: none;
   border: none;
   width: 100%;
+  background-color: var(--base-color);
+  color: var(--contrast-additional-color);
 }
 
 .popup {
   display: flex;
   position: relative;
-}
-.popup__wrapper {
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   width: 1200px;
   box-shadow: 2px 4px 15px 0px rgba(6, 12, 70, 0.15);
-  background-color: #fefefe;
+  background-color: var(--base-color);
+}
+.popup__wrapper {
+  width: 100%;
+  position: fixed;
+}
+.popup__wrapper::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-color);
+  opacity: 20%;
 }
 .popup__close {
   width: 3%;
@@ -254,7 +283,7 @@ select {
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #333;
+  background-color: var(--contrast-base-color);
   mask-image: url("../../assets/icons/close-cross.png");
   -webkit-mask-image: url("../../assets/icons/close-cross.png");
   mask-repeat: no-repeat;
@@ -269,7 +298,7 @@ select {
   background-color: #828282;
 }
 .popup__close:active {
-  background-color: #4f4f4f;
+  background-color: var(--contrast-additional-color);
 }
 .popup__sidepic {
   width: 197px;
@@ -301,7 +330,7 @@ select {
 .popup-form__input-heading {
   font-size: 18px;
   font-weight: 700;
-  color: #4f4f4f;
+  color: var(--contrast-additional-color);
 }
 .popup-form__box {
   display: flex;
@@ -379,7 +408,7 @@ select {
 @media screen and (max-width: 1199px) {
   .popup__wrapper {
     width: auto;
-    margin: 20px 24px;
+    margin: 24px;
   }
   .popup__close {
     width: 4%;
@@ -398,9 +427,6 @@ select {
   }
   .popup__content {
     width: auto;
-    /*PP*/
-    position: relative;
-    left: -10px;
   }
   .popup__content-wrapper {
     width: 92%;
@@ -433,6 +459,18 @@ select {
   .popup__agree-message {
     width: 70%;
     margin-top: 37px;
+  }
+}
+/* POP-UP 320px*/
+@media screen and (max-width: 580px) {
+  .popup__sidepic {
+    display: none;
+  }
+  .popup-form__box {
+    display: block;
+  }
+  .popup-form__fieldset {
+    width: 100%;
   }
 }
 
