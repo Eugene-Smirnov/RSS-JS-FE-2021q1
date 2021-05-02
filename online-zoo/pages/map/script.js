@@ -160,7 +160,7 @@ slider.addEventListener('click', (event) => {
 pointers.addEventListener('click', (event) => {
   if (!event.target.closest('.map__pointer')) return;
   const currentActive = pointers.querySelector('.map__pointer_active');
-  currentActive.classList.remove('map__pointer_active');
+  if (currentActive != null) currentActive.classList.remove('map__pointer_active');
   const newActive = event.target.closest('.map__pointer');
   newActive.classList.add('map__pointer_active');
   const value = newActive.dataset.index;
