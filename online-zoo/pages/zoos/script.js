@@ -25,8 +25,7 @@ function streamSwithcer(event) {
 }
 video.addEventListener('click', streamSwithcer);
 
-/* --------------- */
-// DONATE FEED MODAL POP UP
+/* DONATE FEED MODAL POP UP */
 const donateButtons = document.querySelectorAll('.donate-btn');
 donateButtons.forEach(item => item.addEventListener('click', (event) => {
   const popup = document.querySelector('.popup__wrapper');

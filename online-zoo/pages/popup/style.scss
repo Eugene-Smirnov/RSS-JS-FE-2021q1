@@ -37,19 +37,10 @@ body {
 
     display: none; /* flex */
     z-index: 4;
+    
+    background: rgba(254, 254, 254, 0.4);
     opacity: var(--popup-opacity);
     transition: opacity 0.3s ease-in-out;
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background-color: var(--contrast-base-color);
-      opacity: 0.4;
-    }
-
   }
 
   &__close {
