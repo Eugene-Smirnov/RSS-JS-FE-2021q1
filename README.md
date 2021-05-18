@@ -1,2 +1,3 @@
-# eugene-smirnov-JSFE2021Q1
-Private repository for @eugene-smirnov
+## Match-match game task
+Rolling scopes school JS\FE 2021q1 
+Implement by Eugene-Smirnov
