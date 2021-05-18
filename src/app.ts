@@ -1,19 +1,54 @@
 import { Game } from './components/game/game';
+import { Header } from './components/header/header';
 import { ImageCategoryModel } from './models/image-category-models';
+import { router } from './router';
+
+const routerConfig: Map<string, () => HTMLElement> = new Map([
+  ['/', () => new Game().element],
+  [
+    '/about',
+    () => {
+      const aboutPage = document.createElement('h1');
+      aboutPage.innerText = 'About Page';
+      return aboutPage;
+    },
+  ],
+  [
+    '/score',
+    () => {
+      const scorePage = document.createElement('h1');
+      scorePage.innerText = 'Score Page';
+      return scorePage;
+    },
+  ],
+  [
+    '/settings',
+    () => {
+      const settingsPage = document.createElement('h1');
+      settingsPage.innerText = 'Settings Page';
+      return settingsPage;
+    },
+  ],
+]);
 
 export class App {
-  private readonly game: Game;
+  private readonly pageOutlet: HTMLDivElement;
 
   constructor(private readonly rootElement: HTMLElement) {
-    this.game = new Game();
-    this.rootElement.appendChild(this.game.element);
+    const header = new Header();
+    this.pageOutlet = document.createElement('div');
+    this.rootElement.appendChild(header.element);
+    this.rootElement.appendChild(this.pageOutlet);
   }
 
-  async start() {
-    const res = await fetch('./images.json');
-    const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
-    const images = cat.images.map((name) => `${cat.category}/${name}`);
-    this.game.newGame(images);
+  start(): void {
+    router.subscribe((path) => {
+      const componentFactory = routerConfig.get(path);
+      if (componentFactory) {
+        const component = componentFactory();
+        this.pageOutlet.innerHTML = '';
+        this.pageOutlet.append(component);
+      }
+    });
   }
 }
