@@ -1,3 +1,9 @@
 import './styles.scss';
+import { App } from './app';
 
-console.log('Hello world');
+window.onload = () => {
+  const appElement = document.getElementById('app');
+  if (!appElement) throw Error('App root element not found');
+
+  const app = new App(appElement).start();
+};
