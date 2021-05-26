@@ -1,0 +1,51 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &:hover &__text {
+    background-color: white;
+    color: #2196f3;
+    &.transparent {
+      background-color: transparent;
+      color: white;
+    }
+  }
+
+  &:active &__text {
+    opacity: 0.8;
+  }
+
+  &__text {
+    width: 80px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    color: white;
+    transition: all ease-in-out 0.2s, background-color ease-in-out 0.3s;
+
+    &.transparent {
+      color: #2196f3;
+      background-color: white;
+    }
+  }
+}

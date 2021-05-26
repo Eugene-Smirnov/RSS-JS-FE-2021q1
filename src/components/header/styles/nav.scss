@@ -1,0 +1,65 @@
+.nav {
+  position: absolute;
+  left: 20%;
+
+  display: flex;
+  align-items: center;
+
+  &__link {
+    width: 96px;
+    height: 64px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    opacity: 0.8;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: white;
+
+    transition: background-color ease-in-out 0.2s, opacity ease-in-out 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.active,
+    &:active {
+      background-color: #1e88e5;
+    }
+
+    &.active {
+      cursor: default;
+    }
+  }
+}
+
+.nav__icon {
+  width: 25px;
+  height: 25px;
+
+  margin-bottom: 7px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.about {
+    background-image: url("../../../assets/icons/aboutIcon.svg");
+  }
+
+  &.score {
+    background-image: url("../../../assets/icons/scoreIcon.svg");
+  }
+
+  &.settings {
+    background-image: url("../../../assets/icons/settingsIcon.svg");
+  }
+}

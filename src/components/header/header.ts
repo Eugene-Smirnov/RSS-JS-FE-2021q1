@@ -1,25 +1,30 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
 import { router } from '../../router';
+import { HeaderLogo } from './logo';
+import { HeaderNav } from './nav/nav';
+import { HeaderButton } from './button';
 
 export class Header extends BaseComponent {
+  private readonly logo = new HeaderLogo();
+
+  private readonly nav = new HeaderNav();
+
+  private readonly button = new HeaderButton();
+
   constructor() {
     super('header', ['header']);
-    this.element.innerHTML = `
-      <h1 style="display: none">Match-match game</h1>
-      <div class="logo">
-        <p class="logo__text">match</p>
-        <p class="logo__text transparent">match</p>
-      </div>
-      <nav class="nav">
-        <div class="nav__link" data-route="/about"><span class="nav__icon info"></span>About Game</div>
-        <div class="nav__link" data-route="/score"><span class="nav__icon scores"></span>Best Score</div>
-        <div class="nav__link" data-route="/settings"><span class="nav__icon settings"></span>Game Settings</div>
-      </nav>
-      <div>
-        <button class="register-btn">register new player</button>
-      </div>
-    `;
+    this.logo = new HeaderLogo();
+    this.element.append(this.logo.element);
+    this.nav = new HeaderNav();
+    this.element.append(this.nav.element);
+    this.button = new HeaderButton();
+    this.element.append(this.button.element);
+    // this.element.innerHTML = `
+    //   <div>
+    //     <button class="register-btn">register new player</button>
+    //   </div>
+    // `;
 
     this.handleNavigation();
   }

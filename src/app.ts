@@ -37,8 +37,8 @@ export class App {
   constructor(private readonly rootElement: HTMLElement) {
     const header = new Header();
     this.pageOutlet = document.createElement('div');
-    this.rootElement.appendChild(header.element);
-    this.rootElement.appendChild(this.pageOutlet);
+    this.rootElement.append(header.element);
+    this.rootElement.append(this.pageOutlet);
   }
 
   start(): void {
