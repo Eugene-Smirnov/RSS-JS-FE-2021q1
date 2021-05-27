@@ -22,14 +22,14 @@
 
 .card {
   position: relative;
-  width: 10rem;
-  height: 12rem;
-  border-radius: .5rem;
-  box-shadow: 0 0 .25rem rgba($color: #000000, $alpha: 0.5);
+  width: 7rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.25rem rgba($color: #000000, $alpha: 0.5);
 
   transform-style: preserve-3d;
   transform-origin: right;
-  transition: all .5s;
+  transition: all 0.5s;
 
   &__front,
   &__back {
@@ -39,7 +39,7 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     background-position: center;
     background-size: cover;
   }
@@ -50,7 +50,7 @@
 
   &__back {
     background-color: grey;
-    background-image: url('../../assets/card-back.png');
+    background-image: url("../../assets/card-back.png");
     transform: rotateY(180deg);
   }
 }

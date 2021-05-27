@@ -1,18 +1,11 @@
+import { About } from './components/about/about';
 import { Game } from './components/game/game';
 import { Header } from './components/header/header';
-import { ImageCategoryModel } from './models/image-category-models';
 import { router } from './router';
 
 const routerConfig: Map<string, () => HTMLElement> = new Map([
   ['/', () => new Game().element],
-  [
-    '/about',
-    () => {
-      const aboutPage = document.createElement('h1');
-      aboutPage.innerText = 'About Page';
-      return aboutPage;
-    },
-  ],
+  ['/about', () => new About().element],
   [
     '/score',
     () => {
@@ -37,6 +30,7 @@ export class App {
   constructor(private readonly rootElement: HTMLElement) {
     const header = new Header();
     this.pageOutlet = document.createElement('div');
+    this.pageOutlet.classList.add('page-outlet');
     this.rootElement.append(header.element);
     this.rootElement.append(this.pageOutlet);
   }

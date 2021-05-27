@@ -9,8 +9,8 @@ html {
 
 body {
   min-height: 100vh;
-  color: white;
-  background-color: darkslategrey;
+  color: #2196f3;
+  background-color: white;
 }
 
 main {
@@ -19,8 +19,7 @@ main {
   flex-direction: column;
 }
 
-footer {
-  height: 2rem;
+.page-outlet {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,10 +1,11 @@
+import './game.scss';
 import { BaseComponent } from '../base-component';
 import { CardsField } from '../cards-field/cards-field';
 import { Card } from '../card/card';
 import { delay } from '../../shared';
 import { ImageCategoryModel } from '../../models/image-category-models';
 
-const FLIP_DELAY = 3000;
+const FLIP_DELAY = 5000;
 
 export class Game extends BaseComponent {
   private readonly cardsField = new CardsField();
@@ -14,7 +15,7 @@ export class Game extends BaseComponent {
   private isAnimation = false;
 
   constructor() {
-    super();
+    super('div', ['game']);
     this.cardsField = new CardsField();
     this.element.appendChild(this.cardsField.element);
     Game.loadImages().then((images) => this.startGame(images));
@@ -27,7 +28,7 @@ export class Game extends BaseComponent {
     return cat.images.map((name) => `${cat.category}/${name}`);
   }
 
-  startGame(images: string[]) {
+  startGame(images: string[]): void {
     this.cardsField.clear();
     const cards = images
       .concat(images)
