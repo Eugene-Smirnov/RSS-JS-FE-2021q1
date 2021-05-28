@@ -30,13 +30,14 @@
       opacity: 1;
     }
 
-    &.active,
+    &_active,
     &:active {
       background-color: #1e88e5;
     }
 
-    &.active {
+    &_active {
       cursor: default;
+      opacity: 1;
     }
   }
 }

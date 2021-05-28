@@ -11,6 +11,11 @@ body {
   min-height: 100vh;
   color: #2196f3;
   background-color: white;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 main {
@@ -23,4 +28,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }

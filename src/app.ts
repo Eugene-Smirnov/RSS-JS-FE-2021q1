@@ -25,13 +25,15 @@ const routerConfig: Map<string, () => HTMLElement> = new Map([
 ]);
 
 export class App {
+  private header: Header;
+
   private readonly pageOutlet: HTMLDivElement;
 
   constructor(private readonly rootElement: HTMLElement) {
-    const header = new Header();
+    this.header = new Header();
     this.pageOutlet = document.createElement('div');
     this.pageOutlet.classList.add('page-outlet');
-    this.rootElement.append(header.element);
+    this.rootElement.append(this.header.element);
     this.rootElement.append(this.pageOutlet);
   }
 
