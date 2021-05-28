@@ -1,6 +1,7 @@
 import { About } from './components/about/about';
 import { Game } from './components/game/game';
 import { Header } from './components/header/header';
+import { Settings } from './components/settings/settings';
 import { router } from './router';
 
 const routerConfig: Map<string, () => HTMLElement> = new Map([
@@ -14,14 +15,7 @@ const routerConfig: Map<string, () => HTMLElement> = new Map([
       return scorePage;
     },
   ],
-  [
-    '/settings',
-    () => {
-      const settingsPage = document.createElement('h1');
-      settingsPage.innerText = 'Settings Page';
-      return settingsPage;
-    },
-  ],
+  ['/settings', () => new Settings().element],
 ]);
 
 export class App {
