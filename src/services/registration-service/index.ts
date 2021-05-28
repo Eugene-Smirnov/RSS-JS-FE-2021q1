@@ -1,1 +1,3 @@
-export const registrationService = new registrationService();
+import { RegistrationService } from './registration-service';
+
+export const registrationService = new RegistrationService();

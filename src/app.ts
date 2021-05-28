@@ -46,5 +46,6 @@ export class App {
         this.pageOutlet.append(component);
       }
     });
+    router.subscribe((path) => this.header.selectActiveNavElement(path));
   }
 }

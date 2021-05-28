@@ -1,3 +1,3 @@
-export class registrationService {
+export class RegistrationService {
   constructor() {}
 }

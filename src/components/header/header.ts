@@ -31,14 +31,25 @@ export class Header extends BaseComponent {
     this.handleRegistrationButton();
   }
 
+  public selectActiveNavElement(state: string): void {
+    const navLinks = Array.from(this.element.querySelectorAll('.nav__link'));
+    navLinks.forEach((elem) => elem.classList.remove('nav__link_active'));
+
+    function isCurrentState(link: Element): boolean {
+      return link.getAttribute('data-route') === state;
+    }
+    const currentElement = navLinks.find((link) => isCurrentState(link));
+
+    if (currentElement) {
+      currentElement.classList.add('nav__link_active');
+    }
+  }
+
   private handleNavigation(): void {
     this.nav.element.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const currentElement = target.closest('.nav__link');
       if (currentElement) {
-        const navLinks = this.element.querySelectorAll('.nav__link');
-        navLinks.forEach((elem) => elem.classList.remove('nav__link_active'));
-        currentElement.classList.add('nav__link_active');
         const selectedRoute = currentElement.getAttribute('data-route') || '';
         router.navigate(selectedRoute);
       }
@@ -46,7 +57,7 @@ export class Header extends BaseComponent {
   }
 
   private handleRegistrationButton(): void {
-    this.button.element.addEventListener('click', (event) => {
+    this.button.element.addEventListener('click', () => {
       if (this.popupIsHidden) {
         document.body.classList.add('no-scroll');
         this.registerPopUp.element.style.setProperty('display', 'flex');
