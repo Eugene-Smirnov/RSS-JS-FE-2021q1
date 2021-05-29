@@ -34,4 +34,18 @@ export class Card extends BaseComponent {
       });
     });
   }
+
+  showSuccess(): void {
+    this.element.style.setProperty(
+      '--pseudo-color',
+      'var(--pseudo-color_green)',
+    );
+  }
+
+  showError(): void {
+    this.element.style.setProperty('--pseudo-color', 'var(--pseudo-color_red)');
+    setTimeout(() => {
+      this.element.style.setProperty('--pseudo-color', 'transparent');
+    }, 500);
+  }
 }

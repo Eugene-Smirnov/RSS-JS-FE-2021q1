@@ -57,11 +57,13 @@ export class Game extends BaseComponent {
     }
 
     if (this.activeCard.image !== card.image) {
-      // this.activeCard.showError();
+      this.activeCard.showError();
+      card.showError();
       await delay(FLIP_DELAY);
       await Promise.all([this.activeCard.flipToBack(), card.flipToBack()]);
     } else {
-      // this.activeCard.showSuccess();
+      this.activeCard.showSuccess();
+      card.showSuccess();
     }
 
     this.activeCard = undefined;

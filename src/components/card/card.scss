@@ -1,4 +1,7 @@
 .card-container {
+  --pseudo-color_green: rgb(80, 225, 20);
+  --pseudo-color_red: rgb(225, 25, 20);
+  --pseudo-color: transparent;
   margin: 1%;
   flex: 1 0 20%;
   display: flex;
@@ -46,6 +49,18 @@
 
   &__front {
     background-color: crimson;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      background-color: var(--pseudo-color);
+      opacity: 0.3;
+
+      transition: background-color 0.5s ease-in-out;
+    }
   }
 
   &__back {
