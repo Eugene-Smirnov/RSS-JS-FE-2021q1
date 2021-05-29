@@ -5,7 +5,7 @@ import { Card } from '../card/card';
 import { delay } from '../../shared';
 import { ImageCategoryModel } from '../../models/image-category-models';
 
-const FLIP_DELAY = 5000;
+const FLIP_DELAY = 1000;
 
 export class Game extends BaseComponent {
   private readonly cardsField = new CardsField();
@@ -44,6 +44,8 @@ export class Game extends BaseComponent {
 
   private async cardHandler(card: Card) {
     if (this.isAnimation) return;
+    if (card.isFlipped === false) return;
+
     this.isAnimation = true;
 
     await card.flipToFront();
