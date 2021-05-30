@@ -84,6 +84,20 @@
       }
     }
 
+    &_denied {
+      color: white;
+      background-color: rgba(225, 75, 75, 0.9);
+
+      &:hover {
+        color: white;
+        background-color: rgba(225, 75, 75, 0.9);
+      }
+
+      &:active {
+        background-color: rgba(225, 75, 75, 0.9);
+      }
+    }
+
     &_cancel {
       color: white;
       background-color: #2196f3;

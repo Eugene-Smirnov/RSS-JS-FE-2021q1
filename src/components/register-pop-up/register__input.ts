@@ -7,6 +7,8 @@ const requiredField = {
 export class RegisterInput {
   readonly element: HTMLInputElement;
 
+  isValid = false;
+
   constructor(name: keyof typeof requiredField) {
     this.element = document.createElement('input');
     this.element.classList.add(...['register-input', `register-input_${name}`]);
@@ -21,6 +23,7 @@ export class RegisterInput {
   }
 
   validation(bool: boolean): void {
+    this.isValid = bool;
     if (bool) {
       this.showValid();
     } else {

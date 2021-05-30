@@ -6,15 +6,14 @@ import { RegisterInput } from './register__input';
 import { isValidFirstname } from '../../services/registration-service/firstname-validation';
 import { isValidLastname } from '../../services/registration-service/lastname-validation';
 import { isValidEmail } from '../../services/registration-service/email-validation';
+import { userService } from '../../services/user-service';
 
 export class RegisterPopUp extends PopUp {
-  firstNameInput: RegisterInput;
+  firstNameInput = new RegisterInput('firstName');
 
-  lastNameInput: RegisterInput;
+  lastNameInput = new RegisterInput('lastName');
 
-  emailInput: RegisterInput;
-
-  buttons: BaseComponent;
+  emailInput = new RegisterInput('email');
 
   addButton: RegisterButton;
 
@@ -28,33 +27,30 @@ export class RegisterPopUp extends PopUp {
     registerHeading.element.innerText = 'Register new Player';
     this.popUp.element.append(registerHeading.element);
 
-    this.firstNameInput = new RegisterInput('firstName');
     this.firstNameInput.element.addEventListener('input', () => {
       const firstName = this.firstNameInput.element.value;
       this.firstNameInput.validation(isValidFirstname(firstName));
     });
     this.popUp.element.append(this.firstNameInput.element);
 
-    this.lastNameInput = new RegisterInput('lastName');
     this.lastNameInput.element.addEventListener('input', () => {
       const lastName = this.lastNameInput.element.value;
       this.lastNameInput.validation(isValidLastname(lastName));
     });
     this.popUp.element.append(this.lastNameInput.element);
 
-    this.emailInput = new RegisterInput('email');
     this.emailInput.element.addEventListener('input', () => {
       const email = this.emailInput.element.value;
       this.emailInput.validation(isValidEmail(email));
     });
     this.popUp.element.append(this.emailInput.element);
 
-    this.buttons = new BaseComponent('div', ['register__buttons']);
+    const buttons = new BaseComponent('div', ['register__buttons']);
     this.addButton = new RegisterButton('addUser');
-    this.buttons.element.append(this.addButton.element);
+    buttons.element.append(this.addButton.element);
     this.cancelButton = new RegisterButton('cancel');
-    this.buttons.element.append(this.cancelButton.element);
-    this.popUp.element.append(this.buttons.element);
+    buttons.element.append(this.cancelButton.element);
+    this.popUp.element.append(buttons.element);
 
     this.handleAddButton();
     this.handleCancelButton();
@@ -76,9 +72,22 @@ export class RegisterPopUp extends PopUp {
   }
 
   private handleAddButton(): void {
-    this.addButton.element.addEventListener('click', () => {
-      // validation and creating user
-      this.popUpHide();
+    this.addButton.element.addEventListener('mousedown', () => {
+      const isFNValid = this.firstNameInput.isValid;
+      const isLNValid = this.lastNameInput.isValid;
+      const isEMValid = this.emailInput.isValid;
+      if (isFNValid && isLNValid && isEMValid) {
+        const firstName = this.firstNameInput.element.value;
+        const lastName = this.lastNameInput.element.value;
+        const email = this.emailInput.element.value;
+        userService.createUser(firstName, lastName, email);
+        this.popUpHide();
+      } else {
+        this.addButton.element.classList.add('register-button_denied');
+        setTimeout(() => {
+          this.addButton.element.classList.remove('register-button_denied');
+        }, 750);
+      }
     });
   }
 
