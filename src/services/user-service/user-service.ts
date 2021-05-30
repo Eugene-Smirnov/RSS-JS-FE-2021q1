@@ -22,4 +22,8 @@ export class UserService {
       this.userRepo.updateUserScore(this.loggedUser);
     }
   }
+
+  getTopPlayers(): User[] {
+    return this.userRepo.getTopPlayers();
+  }
 }

@@ -3,6 +3,9 @@ import { BaseComponent } from '../base-component';
 import { PopUp } from '../pop-up/pop-up';
 import { RegisterButton } from './button';
 import { RegisterInput } from './register__input';
+import { isValidFirstname } from '../../services/registration-service/firstname-validation';
+import { isValidLastname } from '../../services/registration-service/lastname-validation';
+import { isValidEmail } from '../../services/registration-service/email-validation';
 
 export class RegisterPopUp extends PopUp {
   firstNameInput: RegisterInput;
@@ -26,12 +29,24 @@ export class RegisterPopUp extends PopUp {
     this.popUp.element.append(registerHeading.element);
 
     this.firstNameInput = new RegisterInput('firstName');
+    this.firstNameInput.element.addEventListener('input', () => {
+      const firstName = this.firstNameInput.element.value;
+      this.firstNameInput.validation(isValidFirstname(firstName));
+    });
     this.popUp.element.append(this.firstNameInput.element);
 
     this.lastNameInput = new RegisterInput('lastName');
+    this.lastNameInput.element.addEventListener('input', () => {
+      const lastName = this.lastNameInput.element.value;
+      this.lastNameInput.validation(isValidLastname(lastName));
+    });
     this.popUp.element.append(this.lastNameInput.element);
 
     this.emailInput = new RegisterInput('email');
+    this.emailInput.element.addEventListener('input', () => {
+      const email = this.emailInput.element.value;
+      this.emailInput.validation(isValidEmail(email));
+    });
     this.popUp.element.append(this.emailInput.element);
 
     this.buttons = new BaseComponent('div', ['register__buttons']);

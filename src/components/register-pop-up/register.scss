@@ -1,9 +1,4 @@
 .pop-up_register-form {
-  --validation-color-empty: transparent;
-  --validation-color-accept: rgba(80, 225, 75, 0.35);
-  --validation-color-reject: rgba(225, 75, 75, 0.35);
-  --validation-color: var(--validation-color-empty);
-
   display: flex;
   flex-direction: column;
 }
@@ -19,6 +14,11 @@
   }
 
   &-input {
+    --validation-color-empty: transparent;
+    --validation-color-accept: rgba(80, 225, 75, 0.35);
+    --validation-color-reject: rgba(225, 75, 75, 0.35);
+    --validation-color: var(--validation-color-empty);
+
     width: 40vw;
     height: 2rem;
     margin: 0.5rem 2rem;
