@@ -31,5 +31,9 @@ export class GameDifficultyInput extends SettingsInput {
   public setValue(): void {
     const { value } = this.element;
     if (value) settingsSingleton.difficulty = value;
+    document.body.style.setProperty(
+      '--cards-multiplier',
+      `var(--game-difficulty__${value})`,
+    );
   }
 }

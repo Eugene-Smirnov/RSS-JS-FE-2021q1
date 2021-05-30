@@ -51,39 +51,11 @@ export class UserRepository {
     });
   }
 
-  // async getTopPlayers(): Promise<User[]> {
-  //   return new Promise((res, rej) => {
-  //     const transaction = this.db?.transaction(this.storeName, 'readwrite');
-  //     const users = transaction?.objectStore(this.storeName);
-  //     // const scoreIndex = users?.createIndex('score_idx', 'score');
-  //     const result: User[] = [];
-  //     if (users) {
-  //       const userArrReq = users.getAll();
-  //       userArrReq.onsuccess = () => {
-  //         const userArr = userArrReq.result;
-  //         for (let i = 0; i < 10; i++) {
-  //           if (Array.isArray(userArr[i])) {
-  //             result.push(...userArr[i]);
-  //           } else {
-  //             result.push(userArr[i]);
-  //           }
-  //         }
-  //       };
-  //     } else {
-  //       rej();
-  //     }
-  //     if (result.length > 10) {
-  //       result.slice(9);
-  //     }
-  //     res(result);
-  //   });
-  // }
-
   updateUserScore(user: User): void {
     const transaction = this.db?.transaction(this.storeName, 'readwrite');
     const users = transaction?.objectStore(this.storeName);
     if (users) {
-      users.put(user);
+      users.put(user, user.id);
     }
   }
 }

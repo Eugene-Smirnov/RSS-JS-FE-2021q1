@@ -7,6 +7,7 @@ import { isValidFirstname } from '../../services/registration-service/firstname-
 import { isValidLastname } from '../../services/registration-service/lastname-validation';
 import { isValidEmail } from '../../services/registration-service/email-validation';
 import { userService } from '../../services/user-service';
+import { registrationEvent } from './registrationevent';
 
 export class RegisterPopUp extends PopUp {
   firstNameInput = new RegisterInput('firstName');
@@ -81,6 +82,7 @@ export class RegisterPopUp extends PopUp {
         const lastName = this.lastNameInput.element.value;
         const email = this.emailInput.element.value;
         userService.createUser(firstName, lastName, email);
+        this.element.dispatchEvent(registrationEvent);
         this.popUpHide();
       } else {
         this.addButton.element.classList.add('register-button_denied');

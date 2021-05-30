@@ -5,13 +5,14 @@ import { HeaderLogo } from './logo';
 import { HeaderNav } from './nav/nav';
 import { HeaderButton } from './button';
 import { RegisterPopUp } from '../register-pop-up';
+import { registrationEvent } from '../register-pop-up/registrationevent';
 
 export class Header extends BaseComponent {
   private readonly logo = new HeaderLogo();
 
   private readonly nav = new HeaderNav();
 
-  private readonly button = new HeaderButton();
+  private button = new HeaderButton();
 
   registerPopUp = new RegisterPopUp();
 
@@ -53,6 +54,10 @@ export class Header extends BaseComponent {
   private handleRegistrationButton(): void {
     this.button.element.addEventListener('click', () => {
       this.registerPopUp = new RegisterPopUp();
+      this.registerPopUp.element.addEventListener('successRegistration', () => {
+        this.buttonExchange();
+      });
+
       const rootElement = document.getElementById('app');
       if (rootElement) rootElement.append(this.registerPopUp.element);
 
@@ -64,6 +69,18 @@ export class Header extends BaseComponent {
           '1',
         );
       }, 0);
+    });
+  }
+
+  private buttonExchange(): void {
+    this.button = new HeaderButton();
+    this.button.element.innerText = 'Start Game';
+    this.handleStartGameButton();
+  }
+
+  private handleStartGameButton(): void {
+    this.button.element.addEventListener('click', () => {
+      router.navigate('/');
     });
   }
 }

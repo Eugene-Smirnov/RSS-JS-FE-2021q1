@@ -2,8 +2,10 @@
   --pseudo-color_green: rgb(80, 225, 20);
   --pseudo-color_red: rgb(225, 25, 20);
   --pseudo-color: transparent;
+
+  --flex-multiplier: calc(20% * var(--cards-multiplier));
   margin: 1%;
-  flex: 1 0 20%;
+  flex: 1 0 var(--flex-multiplier);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -25,8 +27,8 @@
 
 .card {
   position: relative;
-  width: 7rem;
-  height: 7rem;
+  width: calc(7rem * var(--cards-multiplier));
+  height: calc(7rem * var(--cards-multiplier));
   border-radius: 0.5rem;
   box-shadow: 0 0 0.25rem rgba($color: #000000, $alpha: 0.5);
 

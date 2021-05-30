@@ -1,0 +1,13 @@
+.timer {
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8f8ff;
+
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--base-color-blue);
+
+  border: 1px dashed var(--base-color-blue);
+  border-radius: 0.25rem;
+}

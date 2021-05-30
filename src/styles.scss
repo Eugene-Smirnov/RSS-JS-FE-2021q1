@@ -9,6 +9,11 @@ html {
 
 body {
   --base-color-blue: #2196f3;
+  --game-difficulty__4x4: 1;
+  --game-difficulty__6x6: 0.7;
+  --game-difficulty__8x8: 0.5;
+  --cards-multiplier: var(--game-difficulty__4x4);
+
   min-height: 100vh;
   color: var(--base-color-blue);
   background-color: white;

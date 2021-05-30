@@ -11,6 +11,7 @@ export class Settings extends BaseComponent {
 
   constructor() {
     super('div', ['settings-board']);
+
     // ****
     const cardsType = new BaseComponent('div', ['settings__cards-type']);
     cardsType.element.innerHTML = `
@@ -21,6 +22,7 @@ export class Settings extends BaseComponent {
     });
     cardsType.element.append(this.cardsTypeInput.element);
     this.element.append(cardsType.element);
+
     // ****
     const gameDifficulty = new BaseComponent('div', [
       'settings__game-difficulty',

@@ -35,5 +35,6 @@ export class App {
       }
     });
     router.subscribe((path) => this.header.selectActiveNavElement(path));
+    router.navigate('/about');
   }
 }
