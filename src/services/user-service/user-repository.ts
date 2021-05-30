@@ -36,25 +36,48 @@ export class UserRepository {
     });
   }
 
-  getTopPlayers(): User[] {
-    const transaction = this.db?.transaction(this.storeName, 'readonly');
-    const users = transaction?.objectStore(this.storeName);
-    const scoreIndex = users?.createIndex('score_idx', 'score');
-    const result: User[] = [];
-    if (scoreIndex) {
-      const userArrReq = scoreIndex.getAll();
-      userArrReq.onsuccess = () => {
-        const userArr = userArrReq.result;
-        for (let i = 0; i < 10; i++) {
-          result.push(...userArr[i]);
-        }
-      };
-    }
-    if (result.length > 10) {
-      result.splice(9);
-    }
-    return result;
+  async getAllUsers(): Promise<User[]> {
+    return new Promise((res, rej) => {
+      const transaction = this.db?.transaction(this.storeName, 'readwrite');
+      const users = transaction?.objectStore(this.storeName);
+      if (users) {
+        const usersArrReq = users.getAll();
+        usersArrReq.onsuccess = () => {
+          res(usersArrReq.result);
+        };
+      } else {
+        rej();
+      }
+    });
   }
+
+  // async getTopPlayers(): Promise<User[]> {
+  //   return new Promise((res, rej) => {
+  //     const transaction = this.db?.transaction(this.storeName, 'readwrite');
+  //     const users = transaction?.objectStore(this.storeName);
+  //     // const scoreIndex = users?.createIndex('score_idx', 'score');
+  //     const result: User[] = [];
+  //     if (users) {
+  //       const userArrReq = users.getAll();
+  //       userArrReq.onsuccess = () => {
+  //         const userArr = userArrReq.result;
+  //         for (let i = 0; i < 10; i++) {
+  //           if (Array.isArray(userArr[i])) {
+  //             result.push(...userArr[i]);
+  //           } else {
+  //             result.push(userArr[i]);
+  //           }
+  //         }
+  //       };
+  //     } else {
+  //       rej();
+  //     }
+  //     if (result.length > 10) {
+  //       result.slice(9);
+  //     }
+  //     res(result);
+  //   });
+  // }
 
   updateUserScore(user: User): void {
     const transaction = this.db?.transaction(this.storeName, 'readwrite');

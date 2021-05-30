@@ -1,0 +1,41 @@
+.score-board {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.score {
+  &__heading {
+    margin-bottom: 0.5rem;
+  }
+
+  &-element {
+    margin-top: 0.5rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    border-bottom: 1px dashed var(--base-color-blue);
+  }
+
+  &__info {
+    width: fit-content;
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+  }
+
+  &__userscore {
+    display: flex;
+    width: 4rem;
+    align-items: center;
+  }
+
+  &__username,
+  &__email {
+    margin: 0.25rem;
+  }
+}

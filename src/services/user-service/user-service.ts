@@ -23,7 +23,10 @@ export class UserService {
     }
   }
 
-  getTopPlayers(): User[] {
-    return this.userRepo.getTopPlayers();
+  async getTopPlayers(): Promise<User[]> {
+    const allUsers = await this.userRepo.getAllUsers();
+    return allUsers
+      .sort((a, b) => Number(a.score) - Number(b.score))
+      .slice(0, 10);
   }
 }

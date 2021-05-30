@@ -8,8 +8,9 @@ html {
 }
 
 body {
+  --base-color-blue: #2196f3;
   min-height: 100vh;
-  color: #2196f3;
+  color: var(--base-color-blue);
   background-color: white;
 
   font-family: Roboto;

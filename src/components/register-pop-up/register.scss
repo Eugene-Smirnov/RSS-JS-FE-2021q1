@@ -6,7 +6,7 @@
 .register {
   &__heading {
     font-size: 20px;
-    color: black;
+    color: var(--base-color-blue);
     font-weight: normal;
     margin: 1rem;
 
@@ -15,8 +15,8 @@
 
   &-input {
     --validation-color-empty: transparent;
-    --validation-color-accept: rgba(80, 225, 75, 0.35);
-    --validation-color-reject: rgba(225, 75, 75, 0.35);
+    --validation-color-accept: rgba(80, 225, 75, 0.25);
+    --validation-color-reject: rgba(225, 75, 75, 0.25);
     --validation-color: var(--validation-color-empty);
 
     width: 40vw;
@@ -25,14 +25,14 @@
     padding: 0 1rem;
 
     font-size: 16px;
-    color: black;
+    color: var(--base-color-blue);
 
     outline: none;
     border: none;
     border-radius: 5px 5px 0 0;
 
     background: var(--validation-color);
-    border-bottom: 1px solid rgb(90, 90, 90);
+    border-bottom: 1px dashed var(--base-color-blue);
   }
 
   &__buttons {
@@ -71,12 +71,12 @@
     }
 
     &_addUser {
-      color: #2196f3;
+      color: var(--base-color-blue);
       background-color: white;
 
       &:hover {
         color: white;
-        background-color: #2196f3;
+        background-color: var(--base-color-blue);
       }
 
       &:active {
@@ -100,7 +100,7 @@
 
     &_cancel {
       color: white;
-      background-color: #2196f3;
+      background-color: var(--base-color-blue);
 
       &:hover {
         color: white;

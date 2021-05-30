@@ -1,20 +1,14 @@
 import { About } from './components/about/about';
 import { Game } from './components/game/game';
 import { Header } from './components/header/header';
+import { Score } from './components/score/score';
 import { Settings } from './components/settings/settings';
 import { router } from './router';
 
 const routerConfig: Map<string, () => HTMLElement> = new Map([
   ['/', () => new Game().element],
   ['/about', () => new About().element],
-  [
-    '/score',
-    () => {
-      const scorePage = document.createElement('h1');
-      scorePage.innerText = 'Score Page';
-      return scorePage;
-    },
-  ],
+  ['/score', () => new Score().element],
   ['/settings', () => new Settings().element],
 ]);
 
