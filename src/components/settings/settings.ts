@@ -1,3 +1,5 @@
+import './settings.scss';
+
 import { BaseComponent } from '../base-component';
 import { CardsTypeInput } from './cards-type-input';
 import { GameDifficultyInput } from './difficulty-input';
@@ -8,7 +10,7 @@ export class Settings extends BaseComponent {
   public readonly gameDifficultyInput = new GameDifficultyInput();
 
   constructor() {
-    super('div', ['settings']);
+    super('div', ['settings-board']);
     // ****
     const cardsType = new BaseComponent('div', ['settings__cards-type']);
     cardsType.element.innerHTML = `

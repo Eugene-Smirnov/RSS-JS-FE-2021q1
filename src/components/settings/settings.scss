@@ -1,0 +1,32 @@
+.settings-board {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.settings {
+  &__cards-type,
+  &__game-difficulty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    margin: 1rem;
+    padding: 0.25rem;
+    box-sizing: border-box;
+
+    border: 1px dashed var(--base-color-blue);
+    border-radius: 0.25rem;
+  }
+
+  &__cards-type {
+    &.settings__input {
+      text-transform: uppercase;
+    }
+  }
+
+  &__input {
+    margin-top: 0.25rem;
+  }
+}
