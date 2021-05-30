@@ -1,7 +1,8 @@
-import { BaseComponent } from '../base-component';
+export class SettingsInput {
+  readonly element: HTMLSelectElement;
 
-export class SettingsInput extends BaseComponent {
   constructor() {
-    super('select', ['settings__input']);
+    this.element = document.createElement('select');
+    this.element.classList.add('settings__input');
   }
 }

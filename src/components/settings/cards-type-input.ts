@@ -1,4 +1,5 @@
 import { ImageCategoryModel } from '../../models/image-category-models';
+import { settingsSingleton } from '../../services/settings-service/settings-service';
 import { SettingsInput } from './settings-input';
 
 // <select name="select-animal" id="select-animal" class="popup-form__select
@@ -23,6 +24,8 @@ export class CardsTypeInput extends SettingsInput {
         this.element.append(option);
       });
     });
+
+    this.getValue();
   }
 
   private static async getTypes(): Promise<string[]> {
@@ -31,5 +34,16 @@ export class CardsTypeInput extends SettingsInput {
     const categoriesList: string[] = [];
     categories.forEach((elem) => categoriesList.push(elem.category));
     return categoriesList;
+  }
+
+  public getValue(): void {
+    if (settingsSingleton.cardsType) {
+      this.element.value = settingsSingleton.cardsType;
+    }
+  }
+
+  public setValue(): void {
+    const { value } = this.element;
+    if (value) settingsSingleton.cardsType = value;
   }
 }

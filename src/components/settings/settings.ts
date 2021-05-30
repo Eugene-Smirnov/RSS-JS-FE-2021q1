@@ -14,6 +14,9 @@ export class Settings extends BaseComponent {
     cardsType.element.innerHTML = `
       <h3 class="settings__input-heading">Game cards type:</h3>
     `;
+    this.cardsTypeInput.element.addEventListener('change', () => {
+      this.cardsTypeInput.setValue();
+    });
     cardsType.element.append(this.cardsTypeInput.element);
     this.element.append(cardsType.element);
     // ****
@@ -23,6 +26,9 @@ export class Settings extends BaseComponent {
     gameDifficulty.element.innerHTML = `
       <h3 class="settings__input-heading">Difficulty:</h3>
     `;
+    this.gameDifficultyInput.element.addEventListener('change', () => {
+      this.gameDifficultyInput.setValue();
+    });
     gameDifficulty.element.append(this.gameDifficultyInput.element);
     this.element.append(gameDifficulty.element);
   }

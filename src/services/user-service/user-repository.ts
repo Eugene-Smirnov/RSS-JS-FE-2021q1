@@ -1,11 +1,9 @@
 import { User } from '../../models/user';
 
 export class UserRepository {
-  private readonly dbName = 'match-match';
+  private readonly dbName = 'Eugene-Smirnov';
 
   private readonly storeName = 'users';
-
-  private loggedUser: User | null = null;
 
   private db?: IDBDatabase;
 
@@ -22,10 +20,9 @@ export class UserRepository {
     };
   }
 
-  create(firstName = '', lastName = '', email = ''): Promise<User> {
+  create(user: User): Promise<User> {
     return new Promise((res, rej) => {
       const transaction = this.db?.transaction(this.storeName, 'readwrite');
-      const user = new User(firstName, lastName, email);
       const users = transaction?.objectStore(this.storeName);
       if (users) {
         users.add(user).onsuccess = () => {
@@ -45,15 +42,11 @@ export class UserRepository {
     }
   } */
 
-  updateUserScore(score: number): void {
+  updateUserScore(user: User): void {
     const transaction = this.db?.transaction(this.storeName, 'readwrite');
     const users = transaction?.objectStore(this.storeName);
-
-    if (this.loggedUser) {
-      this.loggedUser.score = score;
-    }
     if (users) {
-      users.put(this.loggedUser);
+      users.put(user);
     }
   }
 }
