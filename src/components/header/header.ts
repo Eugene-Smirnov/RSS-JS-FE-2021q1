@@ -15,17 +15,11 @@ export class Header extends BaseComponent {
 
   registerPopUp = new RegisterPopUp();
 
-  private popupIsHidden = true;
-
   constructor() {
     super('header', ['header']);
     this.element.append(this.logo.element);
     this.element.append(this.nav.element);
     this.element.append(this.button.element);
-
-    this.registerPopUp = new RegisterPopUp();
-    const rootElement = document.getElementById('app');
-    if (rootElement) rootElement.append(this.registerPopUp.element);
 
     this.handleNavigation();
     this.handleRegistrationButton();
@@ -58,16 +52,18 @@ export class Header extends BaseComponent {
 
   private handleRegistrationButton(): void {
     this.button.element.addEventListener('click', () => {
-      if (this.popupIsHidden) {
-        document.body.classList.add('no-scroll');
-        this.registerPopUp.element.style.setProperty('display', 'flex');
-        setTimeout(() => {
-          this.registerPopUp.element.style.setProperty(
-            '--registration-popup-opacity',
-            '1',
-          );
-        }, 0);
-      }
+      this.registerPopUp = new RegisterPopUp();
+      const rootElement = document.getElementById('app');
+      if (rootElement) rootElement.append(this.registerPopUp.element);
+
+      document.body.classList.add('no-scroll');
+      this.registerPopUp.element.style.setProperty('display', 'flex');
+      setTimeout(() => {
+        this.registerPopUp.element.style.setProperty(
+          '--registration-popup-opacity',
+          '1',
+        );
+      }, 0);
     });
   }
 }
