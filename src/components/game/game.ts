@@ -11,7 +11,7 @@ import { appendCongratPopUp } from '../congratulations-pop-up/append-congrat-pop
 import { scoreCount } from './scoreCount';
 
 const FLIP_DELAY = 1000;
-const FIRST_LOOK_DELAY = 30;
+const FIRST_LOOK_DELAY = 29;
 
 export class Game extends BaseComponent {
   private readonly cardsField = new CardsField();
@@ -36,7 +36,10 @@ export class Game extends BaseComponent {
     super('div', ['game']);
     this.element.append(this.timer.element);
     this.element.append(this.cardsField.element);
-    Game.loadImages().then((images) => this.startGame(images));
+    Game.loadImages().then((images) => {
+      this.startTimer();
+      this.startGame(images);
+    });
   }
 
   private static async loadImages(): Promise<string[]> {
@@ -66,7 +69,6 @@ export class Game extends BaseComponent {
       card.element.addEventListener('click', () => this.cardHandler(card));
     });
     this.cardsField.addCards(cards);
-    this.startTimer();
   }
 
   private startTimer(): void {

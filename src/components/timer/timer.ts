@@ -10,6 +10,7 @@ function toTwoSym(num: number): string {
 export class Timer extends BaseComponent {
   constructor() {
     super('div', ['timer']);
+    this.setTime(30);
   }
 
   setTime(num: number): void {
