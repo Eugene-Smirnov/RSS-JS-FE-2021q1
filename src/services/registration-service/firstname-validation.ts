@@ -1,5 +1,7 @@
+import { regExp } from './base-validation';
+
 export function isValidFirstname(firstname: string): boolean {
-  if (firstname) {
+  if (regExp.test(firstname)) {
     return true;
   }
   return false;

@@ -14,8 +14,23 @@ export class RegisterInput {
     this.element.classList.add(...['register-input', `register-input_${name}`]);
 
     this.element.setAttribute('type', 'text');
+    this.element.setAttribute(
+      'title',
+      `
+      - Field couldn't be empty.
+      - Field couldn't contain only numbers.
+      - Field couldn't contain next symbols (~ ! @ # $ % * () _ — + = | : ; " ' \` < > , . ? / ^).
+      `,
+    );
     if (name === 'email') {
       this.element.setAttribute('type', 'email');
+      this.element.setAttribute(
+        'title',
+        `
+        - Field couldn't be empty.
+        - Email should be valid by terms of RFC
+        `,
+      );
     }
     this.element.setAttribute('id', `register-input_${name}`);
     this.element.setAttribute('name', `${name}`);
