@@ -7,6 +7,8 @@ import { ImageCategoryModel } from '../../models/image-category-models';
 import { Timer } from '../timer/timer';
 import { settingsSingleton } from '../../services/settings-service/settings-service';
 import { userService } from '../../services/user-service';
+import { appendCongratPopUp } from '../congratulations-pop-up/append-congrat-pop-up';
+import { scoreCount } from './scoreCount';
 
 const FLIP_DELAY = 1000;
 const FIRST_LOOK_DELAY = 30;
@@ -25,8 +27,6 @@ export class Game extends BaseComponent {
   private currentInterval?: NodeJS.Timeout;
 
   private cardsAmount = 0;
-
-  private checkCounter = 0;
 
   private rightCheckCounter = 0;
 
@@ -92,8 +92,6 @@ export class Game extends BaseComponent {
     if (this.isAnimation) return;
     if (card.isFlipped === false) return;
 
-    this.checkCounter++;
-
     this.isAnimation = true;
 
     await card.flipToFront();
@@ -124,10 +122,16 @@ export class Game extends BaseComponent {
   gameEnd(): void {
     if (this.rightCheckCounter === this.cardsAmount) {
       const endTime = new Date();
-      let score = (this.checkCounter - this.wrongCheckCounter) * 100 - (this.gameStartTime.getSeconds() - endTime.getSeconds()) * 10;
-      if (score < 0) score = 0;
+      const checkSum = this.wrongCheckCounter + this.rightCheckCounter;
+      const score = scoreCount(
+        checkSum,
+        this.wrongCheckCounter,
+        endTime,
+        this.gameStartTime,
+      );
       userService.updateUserScore(score);
       if (this.currentInterval) clearInterval(this.currentInterval);
+      appendCongratPopUp();
     }
   }
 }

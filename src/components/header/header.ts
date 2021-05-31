@@ -63,10 +63,7 @@ export class Header extends BaseComponent {
       document.body.classList.add('no-scroll');
       this.registerPopUp.element.style.setProperty('display', 'flex');
       setTimeout(() => {
-        this.registerPopUp.element.style.setProperty(
-          '--registration-popup-opacity',
-          '1',
-        );
+        this.registerPopUp.element.style.setProperty('--popup-opacity', '1');
       }, 0);
     });
   }

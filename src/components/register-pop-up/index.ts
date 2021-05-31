@@ -59,7 +59,7 @@ export class RegisterPopUp extends PopUp {
   }
 
   private popUpHide(): void {
-    this.element.style.setProperty('--registration-popup-opacity', '0');
+    this.element.style.setProperty('--popup-opacity', '0');
     setTimeout(() => {
       document.body.classList.remove('no-scroll');
       this.element.remove();

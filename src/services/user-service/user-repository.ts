@@ -55,7 +55,22 @@ export class UserRepository {
     const transaction = this.db?.transaction(this.storeName, 'readwrite');
     const users = transaction?.objectStore(this.storeName);
     if (users) {
-      users.put(user, user.id);
+      const request = users.openCursor();
+      request.onsuccess = () => {
+        const cursor = request.result;
+        if (cursor) {
+          const { key } = cursor;
+          if (key === user.id) {
+            const { value } = cursor;
+            value.score = user.score;
+            const reqUpdate = cursor.update(value);
+            reqUpdate.onsuccess = () => {
+              console.log(`${user.firstName} ${user.lastName} updated with score: ${user.score}`);
+            };
+          }
+          cursor.continue();
+        }
+      };
     }
   }
 }

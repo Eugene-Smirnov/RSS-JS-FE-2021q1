@@ -1,5 +1,5 @@
 .pop-up__wrapper {
-  --registration-popup-opacity: 1;
+  --popup-opacity: 1;
   display: none;
 
   position: fixed;
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
 
-  opacity: var(--registration-popup-opacity);
+  opacity: var(--popup-opacity);
   background: rgba(75, 75, 75, 0.4);
 
   transition: opacity 0.3s;

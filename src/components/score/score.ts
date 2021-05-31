@@ -13,6 +13,7 @@ export class Score extends BaseComponent {
     <h2 class="score__heading">Best players</h2>
     `;
     userService.getTopPlayers().then((users) => {
+      console.log(users);
       users.forEach((user) => {
         const row = new ScoreElement(user);
         this.element.append(row.element);

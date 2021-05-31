@@ -25,8 +25,6 @@ export class UserService {
 
   async getTopPlayers(): Promise<User[]> {
     const allUsers = await this.userRepo.getAllUsers();
-    return allUsers
-      .sort((a, b) => Number(a.score) - Number(b.score))
-      .slice(0, 10);
+    return allUsers.sort((a, b) => b.score - a.score).slice(0, 10);
   }
 }
