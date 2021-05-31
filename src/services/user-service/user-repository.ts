@@ -65,7 +65,9 @@ export class UserRepository {
             value.score = user.score;
             const reqUpdate = cursor.update(value);
             reqUpdate.onsuccess = () => {
-              console.log(`${user.firstName} ${user.lastName} updated with score: ${user.score}`);
+              console.log(
+                `${user.firstName} ${user.lastName} updated with score: ${user.score}`,
+              );
             };
           }
           cursor.continue();

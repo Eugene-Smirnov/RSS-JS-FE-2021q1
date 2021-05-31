@@ -4,7 +4,7 @@ import { UserRepository } from './user-repository';
 export class UserService {
   private loggedUser: User | null = null;
 
-  private userRepo: UserRepository;
+  userRepo: UserRepository;
 
   constructor() {
     this.userRepo = new UserRepository();
