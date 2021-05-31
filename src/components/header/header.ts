@@ -5,7 +5,6 @@ import { HeaderLogo } from './logo';
 import { HeaderNav } from './nav/nav';
 import { HeaderButton } from './button';
 import { RegisterPopUp } from '../register-pop-up';
-import { registrationEvent } from '../register-pop-up/registrationevent';
 
 export class Header extends BaseComponent {
   private readonly logo = new HeaderLogo();
@@ -73,9 +72,11 @@ export class Header extends BaseComponent {
   }
 
   private buttonExchange(): void {
+    this.button.element.remove();
     this.button = new HeaderButton();
     this.button.element.innerText = 'Start Game';
     this.handleStartGameButton();
+    this.element.append(this.button.element);
   }
 
   private handleStartGameButton(): void {
