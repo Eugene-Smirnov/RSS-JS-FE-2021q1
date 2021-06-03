@@ -10,8 +10,8 @@ export class UserService {
     this.userRepo = new UserRepository();
   }
 
-  createUser(firstName = '', lastName = '', email = ''): void {
-    const user = new User(firstName, lastName, email);
+  createUser(firstName = '', lastName = '', email = '', avatarData = ''): void {
+    const user = new User(firstName, lastName, email, avatarData);
     this.loggedUser = user;
     this.userRepo.create(user);
   }
@@ -26,5 +26,9 @@ export class UserService {
   async getTopPlayers(): Promise<User[]> {
     const allUsers = await this.userRepo.getAllUsers();
     return allUsers.sort((a, b) => b.score - a.score).slice(0, 10);
+  }
+
+  getLoggedUser(): User | null {
+    return this.loggedUser;
   }
 }

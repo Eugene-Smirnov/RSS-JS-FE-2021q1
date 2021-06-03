@@ -10,4 +10,25 @@
   box-sizing: border-box;
   padding: 0 30px;
   margin-bottom: 20px;
+
+  &__button-ava-box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__useravatar {
+    height: 101%;
+    object-fit: contain;
+    &-wrapper {
+      height: 50px;
+      width: 50px;
+      margin-left: 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }

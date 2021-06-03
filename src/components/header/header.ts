@@ -5,6 +5,7 @@ import { HeaderLogo } from './logo';
 import { HeaderNav } from './nav/nav';
 import { HeaderButton } from './button';
 import { RegisterPopUp } from '../register-pop-up';
+import { HeaderAvatar } from './avatar';
 
 export class Header extends BaseComponent {
   private readonly logo = new HeaderLogo();
@@ -17,9 +18,11 @@ export class Header extends BaseComponent {
 
   constructor() {
     super('header', ['header']);
-    this.element.append(this.logo.element);
-    this.element.append(this.nav.element);
-    this.element.append(this.button.element);
+    this.element.append(
+      this.logo.element,
+      this.nav.element,
+      this.button.element,
+    );
 
     this.handleNavigation();
     this.handleRegistrationButton();
@@ -70,15 +73,18 @@ export class Header extends BaseComponent {
 
   private buttonExchange(): void {
     this.button.element.remove();
-    this.button = new HeaderButton();
-    this.button.element.innerText = 'Start Game';
-    this.handleStartGameButton();
-    this.element.append(this.button.element);
-  }
+    this.button = new BaseComponent('div', ['header__button-ava-box']);
 
-  private handleStartGameButton(): void {
-    this.button.element.addEventListener('click', () => {
+    const button = new HeaderButton();
+    button.element.innerText = 'Start Game';
+    button.element.addEventListener('click', () => {
       router.navigate('/');
     });
+
+    const avatar = new HeaderAvatar();
+
+    this.button.element.append(button.element, avatar.element);
+
+    this.element.append(this.button.element);
   }
 }

@@ -11,8 +11,24 @@
     color: var(--base-color-blue);
     font-weight: normal;
     margin: 1rem;
+    padding: 0.5rem;
+
+    text-align: center;
+
+    background-color: #f8f8ff;
 
     cursor: default;
+    border: 1px dashed var(--base-color-blue);
+    border-radius: 0.25rem;
+  }
+
+  &__inputs-wrapper {
+    display: flex;
+  }
+
+  &__text-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 
   &-input {
@@ -51,7 +67,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px 16px;
-    margin: 0.5rem 1rem 1rem 0;
+    margin: 1rem;
 
     font-weight: 600;
     letter-spacing: 1px;

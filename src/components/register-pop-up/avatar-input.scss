@@ -1,0 +1,51 @@
+.avatar-input__wrapper {
+  --avatar-input-opacity: 0;
+  --avatar-image-opacity: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::before {
+    content: "+";
+    position: absolute;
+    font-size: 5rem;
+    font-weight: 400;
+    opacity: var(--avatar-input-opacity);
+
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover {
+    --avatar-input-opacity: 1;
+    --avatar-image-opacity: 0.2;
+  }
+}
+
+.avatar-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 0%;
+
+  opacity: 0;
+  cursor: pointer;
+
+  &__wrapper {
+    width: 180px;
+    margin-right: 2rem;
+    aspect-ratio: 1/1;
+  }
+}
+
+.register-avatar-image {
+  height: 101%;
+  object-fit: contain;
+  opacity: (var(--avatar-image-opacity));
+
+  transition: opacity 0.2s ease-in-out;
+}

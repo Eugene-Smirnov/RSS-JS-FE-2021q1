@@ -20,6 +20,23 @@
 
   &__info {
     width: fit-content;
+    display: flex;
+  }
+
+  &__avatar {
+    height: 101%;
+    object-fit: contain;
+
+    &-wrapper {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__user {
