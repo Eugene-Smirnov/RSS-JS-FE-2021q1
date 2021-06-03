@@ -13,20 +13,37 @@
     align-items: center;
     width: 45%;
     margin: 1rem;
-    padding: 0.25rem;
+    padding: 0.5rem;
     box-sizing: border-box;
+    background-color: #f8f8ff;
 
     border: 1px dashed var(--base-color-blue);
     border-radius: 0.25rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+    .settings__input {
+      outline: none;
+    }
   }
 
   &__cards-type {
-    &.settings__input {
-      text-transform: uppercase;
+    .settings__input {
+      text-transform: capitalize;
     }
   }
 
   &__input {
     margin-top: 0.25rem;
+    padding: 0.25rem;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    background-color: white;
+    border: 1px dashed var(--base-color-blue);
+
+    &-heading {
+      font-size: 20px;
+    }
   }
 }
