@@ -21,6 +21,7 @@
   &__info {
     width: fit-content;
     display: flex;
+    align-items: center;
   }
 
   &__avatar {
@@ -28,14 +29,19 @@
     object-fit: contain;
 
     &-wrapper {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      overflow: hidden;
+      height: 48px;
+      width: 48px;
+      margin: 0.5rem;
 
       display: flex;
       align-items: center;
       justify-content: center;
+
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2),
+        0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14);
+
+      border-radius: 50%;
+      overflow: hidden;
     }
   }
 
