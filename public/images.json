@@ -35,5 +35,42 @@
       "chair.jpg",
       "tyan.jpg"
     ]
+  },
+  {
+    "category": "icons",
+    "images": [
+      "batman.png",
+      "bell.png",
+      "build.png",
+      "cam.png",
+      "cap.png",
+      "console.png",
+      "cs-burn.png",
+      "cup.png",
+      "docs.png",
+      "eye.png",
+      "fish.png",
+      "ghost.png",
+      "globe.png",
+      "hand.png",
+      "hourglass.png",
+      "joystick.png",
+      "keyboard.png",
+      "lamp.png",
+      "mount.png",
+      "mushroom.png",
+      "notify.png",
+      "pallette.png",
+      "player.png",
+      "pokeball.png",
+      "r2d2.png",
+      "red.png",
+      "sb.png",
+      "tetris.png",
+      "trumpet.png",
+      "tv.png",
+      "vader.png",
+      "wall-e.png"
+    ]
   }
 ]
