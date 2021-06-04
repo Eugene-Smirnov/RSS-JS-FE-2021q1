@@ -1,9 +1,11 @@
 import { router } from './router';
 import { Header } from './components/header/header';
+import { About } from './components/about/about';
 import { Garage } from './components/garage/garage';
 
 const routerConfig: Map<string, () => HTMLElement> = new Map([
-  ['/', () => new Garage().element],
+  ['/', () => new About().element],
+  ['/garage', () => new Garage().element],
   [
     '/winners',
     () => {

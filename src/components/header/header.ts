@@ -17,16 +17,27 @@ export class Header extends BaseComponent {
     this.element.append(nav.element);
 
     this.handleNavigation();
+    this.handleLogo();
   }
 
   private handleNavigation(): void {
     this.element.addEventListener('click', (event) => {
-      const selectedRoute = (event.target as HTMLDListElement).getAttribute(
-        'data-route'
-      );
-      if (selectedRoute) {
-        router.navigate(selectedRoute);
+      const link = (event.target as HTMLElement).closest('.header__link');
+      if (link) {
+        const route = link.getAttribute('data-route');
+        if (route) {
+          router.navigate(route);
+        }
       }
     });
+  }
+
+  private handleLogo(): void {
+    const logo = this.element.querySelector('.logo');
+    if (logo) {
+      logo.addEventListener('click', () => {
+        router.navigate('/');
+      });
+    }
   }
 }

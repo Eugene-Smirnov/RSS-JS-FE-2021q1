@@ -16,17 +16,13 @@ export class HeaderNavLink extends BaseComponent {
 
   handleActive(): void {
     router.subscribe(() => {
-      const navLinks = document.querySelectorAll('header__link');
-      if (navLinks)
-        navLinks.forEach((link) =>
-          link.classList.remove('header__link_active')
-        );
+      this.element.classList.remove('header__link_active');
+
       const state = router.getState();
-      if (state === '/winners') {
-        if (this.name === 'winners') {
-          this.element.classList.add('header__link_active');
-        }
-        if (this.name === 'garage') {
+      const { route } = this.element.dataset;
+
+      if (route) {
+        if (route === state) {
           this.element.classList.add('header__link_active');
         }
       }
