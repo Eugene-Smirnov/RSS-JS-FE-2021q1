@@ -2,22 +2,22 @@ import { router } from './router';
 import { Header } from './components/header/header';
 import { About } from './components/about/about';
 import { Garage } from './components/garage/garage';
-
-const routerConfig: Map<string, () => HTMLElement> = new Map([
-  ['/', () => new About().element],
-  ['/garage', () => new Garage().element],
-  [
-    '/winners',
-    () => {
-      const aboutPage = document.createElement('h1');
-      aboutPage.innerText = 'Winners';
-      return aboutPage;
-    },
-  ],
-]);
+import { Winners } from './components/winners/winners';
 
 export class App {
   private readonly pageOutlet: HTMLDivElement;
+
+  routerConfig: Map<string, () => HTMLElement> = new Map([
+    ['/', () => this.about.element],
+    ['/garage', () => this.garage.element],
+    ['/winners', () => this.winners.element],
+  ]);
+
+  private about = new About();
+
+  private garage = new Garage();
+
+  private winners = new Winners();
 
   constructor(private readonly rootElement: HTMLElement) {
     const header = new Header();
@@ -28,7 +28,7 @@ export class App {
 
   start(): void {
     router.subscribe((path) => {
-      const componentFactory = routerConfig.get(path);
+      const componentFactory = this.routerConfig.get(path);
       if (componentFactory) {
         const component = componentFactory();
         this.pageOutlet.innerHTML = '';
