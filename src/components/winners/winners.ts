@@ -1,6 +1,6 @@
 import { BaseComponent } from '../base-component';
 
-export class Winners extends BaseComponent {
+export class WinnersUI extends BaseComponent {
   constructor() {
     super('div', ['garage__wrapper']);
   }

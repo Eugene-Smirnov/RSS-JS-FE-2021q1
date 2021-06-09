@@ -1,8 +1,8 @@
 import { router } from './router';
 import { Header } from './components/header/header';
-import { About } from './components/about/about';
-import { Garage } from './components/garage/garage';
-import { Winners } from './components/winners/winners';
+import { AboutUI } from './components/about/about';
+import { GarageUI } from './components/garage/garage';
+import { WinnersUI } from './components/winners/winners';
 
 export class App {
   private readonly pageOutlet: HTMLDivElement;
@@ -13,11 +13,11 @@ export class App {
     ['/winners', () => this.winners.element],
   ]);
 
-  private about = new About();
+  private about = new AboutUI();
 
-  private garage = new Garage();
+  private garage = new GarageUI();
 
-  private winners = new Winners();
+  private winners = new WinnersUI();
 
   constructor(private readonly rootElement: HTMLElement) {
     const header = new Header();

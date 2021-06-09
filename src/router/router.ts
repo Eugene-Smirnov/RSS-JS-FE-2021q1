@@ -1,4 +1,4 @@
-import { Subscriber } from '../models/subscriber';
+import { Subscriber } from '../models/subscribers';
 
 export class Router {
   private state: string = document.location.pathname;
