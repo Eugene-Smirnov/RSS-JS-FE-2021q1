@@ -9,7 +9,7 @@ export function generateQueryString(
 ): string {
   let result;
   const arr = Object.entries(queryParams);
-  const stringArr = arr.map((item) => `${item[0]}=${item[1]}`);
+  const stringArr = arr.map((item) => `_${item[0]}=${item[1]}`);
   result = `?${stringArr.join('&')}`;
   if (!result) result = '';
   return result;

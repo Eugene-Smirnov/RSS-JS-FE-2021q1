@@ -73,7 +73,7 @@
       width: 2.5rem;
       height: 2.5rem;
 
-      background-image: url(../../assets/finish.png);
+      background-image: url(../../../assets/finish.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -83,6 +83,7 @@
 .car {
   &__name {
     margin: 0.25rem;
+    cursor: default;
   }
 
   &__button {
@@ -142,8 +143,8 @@
     left: calc(var(--distance) - 7rem);
     background-color: white;
 
-    mask-image: url(../../assets/car.svg);
-    -webkit-mask-image: url(../../assets/car.svg);
+    mask-image: url(../../../assets/car.svg);
+    -webkit-mask-image: url(../../../assets/car.svg);
     mask-repeat: no-repeat;
     z-index: 1;
     transform: scaleX(-1);

@@ -9,13 +9,14 @@ class GarageStateObservable {
 
   private state: GarageState = {
     total: 0,
-    _limit: CARS_PER_GARAGE_PAGE,
-    _page: 1
+    limit: CARS_PER_GARAGE_PAGE,
+    page: 1
   };
 
   constructor() {
     garageService.getTotal().then((total) => {
       this.state.total = total;
+      this.notify();
     });
   }
 

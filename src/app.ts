@@ -8,7 +8,7 @@ export class App {
   private readonly pageOutlet: HTMLDivElement;
 
   routerConfig: Map<string, () => HTMLElement> = new Map([
-    ['/', () => this.about.element],
+    ['/', () => this.garage.element],
     ['/garage', () => this.garage.element],
     ['/winners', () => this.winners.element]
   ]);
