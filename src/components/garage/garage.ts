@@ -8,13 +8,18 @@ import './styles/garage.scss';
 import { CarForm } from './car-form';
 import { GarageControl } from './garage-control';
 import { GarageNav } from './garage-nav';
+import { currentCarObservable } from '../../services/garage/current-car-observable';
 
 export class Garage extends BaseComponent {
   service = garageService;
 
   state = garageStateObservable;
 
+  currentCar = currentCarObservable;
+
   cars?: Car[];
+
+  carsOutlet = new BaseComponent('div', ['cars-outlet']).element;
 
   createForm = new CarForm('create');
 
@@ -37,12 +42,21 @@ export class Garage extends BaseComponent {
       this.upperGarageNav.element
     );
 
+    this.updateCarsOutlet();
+  }
+
+  updateCarsOutlet(): void {
+    this.carsOutlet = new BaseComponent('div', ['cars-outlet']).element;
     garageService.getCars(this.state.getState()).then((cars) => {
       this.cars = cars;
       this.cars.forEach((car) => {
-        this.element.append(new GarageRow(car).element);
+        const row = new GarageRow(car).element;
+        row.addEventListener('garageUpdate', () => {
+          this.updateCarsOutlet();
+        });
+        this.carsOutlet.append(row);
       });
-      this.element.append(this.lowerGarageNav.element);
+      this.element.append(this.carsOutlet, this.lowerGarageNav.element);
     });
   }
 }

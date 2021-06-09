@@ -1,5 +1,6 @@
 import { Car } from '../../models/car';
 import { BaseComponent } from '../base-component';
+import * as garageService from '../../services/garage/garage-service';
 
 export class GarageRow extends BaseComponent {
   car: Car;
@@ -26,5 +27,17 @@ export class GarageRow extends BaseComponent {
       </div>
     </div>
     `;
+    this.handleRemoveBtn();
+  }
+
+  handleRemoveBtn(): void {
+    const btn = this.element.querySelector('.garage-row__button_remove');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        console.log(this.car.id);
+        if (this.car.id) garageService.deleteCar(this.car.id);
+        this.element.dispatchEvent(new Event('garageUpdate'));
+      });
+    }
   }
 }
