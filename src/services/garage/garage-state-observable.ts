@@ -37,5 +37,4 @@ class GarageStateObservable {
   }
 }
 
-const garageStateObservable = new GarageStateObservable();
-export default garageStateObservable;
+export const garageStateObservable = new GarageStateObservable();

@@ -4,7 +4,9 @@ export function delay(timeout: number): Promise<void> {
   });
 }
 
-export function generateQueryString(queryParams: Record<string, string | number | boolean>): string {
+export function generateQueryString(
+  queryParams: Record<string, string | number | boolean>
+): string {
   let result;
   const arr = Object.entries(queryParams);
   const stringArr = arr.map((item) => `${item[0]}=${item[1]}`);

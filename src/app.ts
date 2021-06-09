@@ -1,7 +1,7 @@
 import { router } from './router';
 import { Header } from './components/header/header';
 import { AboutUI } from './components/about/about';
-import { GarageUI } from './components/garage/garage';
+import { Garage } from './components/garage/garage';
 import { WinnersUI } from './components/winners/winners';
 
 export class App {
@@ -10,12 +10,12 @@ export class App {
   routerConfig: Map<string, () => HTMLElement> = new Map([
     ['/', () => this.about.element],
     ['/garage', () => this.garage.element],
-    ['/winners', () => this.winners.element],
+    ['/winners', () => this.winners.element]
   ]);
 
   private about = new AboutUI();
 
-  private garage = new GarageUI();
+  private garage = new Garage();
 
   private winners = new WinnersUI();
 
