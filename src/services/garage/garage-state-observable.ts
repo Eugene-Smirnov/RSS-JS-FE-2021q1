@@ -31,6 +31,18 @@ class GarageStateObservable {
   updateTotal(total: number): void {
     this.updateState(Object.assign(this.state, { total }));
   }
+
+  nextPage() {
+    let page = this.state.page + 1;
+    if (Math.ceil(this.state.total / this.state.limit) < page) page = 1;
+    this.updateState(Object.assign(this.state, { page }));
+  }
+
+  prevPage() {
+    let page = this.state.page - 1;
+    if (page < 1) page = Math.ceil(this.state.total / this.state.limit);
+    this.updateState(Object.assign(this.state, { page }));
+  }
 }
 
 export const garageStateObservable = new GarageStateObservable();

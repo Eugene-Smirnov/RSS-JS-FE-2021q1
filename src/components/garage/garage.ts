@@ -1,7 +1,6 @@
 import { BaseComponent } from '../base-component';
 import * as garageService from '../../services/garage/garage-service';
 import { garageStateObservable } from '../../services/garage/garage-state-observable';
-import { Car } from '../../models/car';
 import { GarageRow } from './garage-row';
 
 import './styles/garage.scss';
@@ -45,8 +44,8 @@ export class Garage extends BaseComponent {
   }
 
   updateCarsOutlet(): void {
-    this.carsOutlet.innerHTML = '';
     garageService.getCars(this.state.getState()).then((cars) => {
+      this.carsOutlet.innerHTML = '';
       cars.forEach((car) => {
         const row = new GarageRow(car).element;
         this.carsOutlet.append(row);
@@ -65,6 +64,14 @@ export class Garage extends BaseComponent {
     });
 
     this.updateForm.element.addEventListener('garageUpdate', () => {
+      this.updateCarsOutlet();
+    });
+
+    this.upperGarageNav.element.addEventListener('garageUpdate', () => {
+      this.updateCarsOutlet();
+    });
+
+    this.lowerGarageNav.element.addEventListener('garageUpdate', () => {
       this.updateCarsOutlet();
     });
   }

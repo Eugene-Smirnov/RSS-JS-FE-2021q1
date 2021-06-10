@@ -20,9 +20,25 @@ export class GarageNav extends BaseComponent {
     garageStateObservable.subscribe((state) => {
       this.setPageNum(state.page);
     });
+    this.handleNextBtn();
+    this.handlePrevBtn();
   }
 
   private setPageNum(number: number): void {
     this.page.innerText = `Page #${number}`;
+  }
+
+  private handleNextBtn(): void {
+    this.next.addEventListener('click', () => {
+      garageStateObservable.nextPage();
+      this.element.dispatchEvent(new Event('garageUpdate', { bubbles: true }));
+    });
+  }
+
+  private handlePrevBtn(): void {
+    this.prev.addEventListener('click', () => {
+      garageStateObservable.prevPage();
+      this.element.dispatchEvent(new Event('garageUpdate', { bubbles: true }));
+    });
   }
 }
