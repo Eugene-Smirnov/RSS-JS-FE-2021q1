@@ -2,8 +2,6 @@ import { GarageState } from '../../models/garage-state';
 import { GarageSubscriber } from '../../models/subscribers';
 import { CARS_PER_GARAGE_PAGE } from '../services-base';
 
-import * as garageService from './garage-service';
-
 class GarageStateObservable {
   private subscribers: GarageSubscriber[] = [];
 
@@ -12,13 +10,6 @@ class GarageStateObservable {
     limit: CARS_PER_GARAGE_PAGE,
     page: 1
   };
-
-  constructor() {
-    garageService.getTotal().then((total) => {
-      this.state.total = total;
-      this.notify();
-    });
-  }
 
   subscribe(subscriber: GarageSubscriber): void {
     this.subscribers.push(subscriber);
@@ -35,6 +26,10 @@ class GarageStateObservable {
 
   getState(): GarageState {
     return this.state;
+  }
+
+  updateTotal(total: number): void {
+    this.updateState(Object.assign(this.state, { total }));
   }
 }
 

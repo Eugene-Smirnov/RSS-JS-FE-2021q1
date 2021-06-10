@@ -3,8 +3,6 @@ import { GarageState } from '../../models/garage-state';
 
 import * as garageRepo from './garage-repo';
 
-export const getTotal = async (): Promise<number> => garageRepo.getTotal();
-
 export const getCars = async (garageState: GarageState): Promise<Car[]> => garageRepo.getAll(garageState);
 
 export const getCar = async (carId: number): Promise<Car> => garageRepo.get(carId);

@@ -1,10 +1,10 @@
 import { Car } from '../../models/car';
 import { CarSubscriber } from '../../models/subscribers';
 
-const clearCar = new Car('', 'black');
+const BLACK = '#000000';
 
 class CarObservable {
-  car: Car = clearCar;
+  car: Car = new Car(' ', BLACK);
 
   subscribers: CarSubscriber[] = [];
 
@@ -25,9 +25,13 @@ class CarObservable {
   }
 
   clear(): void {
-    this.car = clearCar;
+    this.car = new Car(' ', BLACK);
     this.selected = false;
     this.notify();
+  }
+
+  getId(): number | null {
+    return this.car.id || null;
   }
 }
 

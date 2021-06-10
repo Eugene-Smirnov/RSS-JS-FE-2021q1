@@ -16,7 +16,7 @@ export class GarageNav extends BaseComponent {
     this.setPageNum(pageNum);
     this.next.innerText = 'next';
     this.prev.innerText = 'prev';
-    this.element.append(this.next, this.prev, this.page);
+    this.element.append(this.prev, this.next, this.page);
     garageStateObservable.subscribe((state) => {
       this.setPageNum(state.page);
     });
