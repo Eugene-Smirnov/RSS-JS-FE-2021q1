@@ -18,6 +18,8 @@ export class Garage extends BaseComponent {
 
   carsOutlet = new BaseComponent('div', ['cars-outlet']).element;
 
+  carRows: GarageRow[] = [];
+
   createForm = new CarForm('create');
 
   updateForm = new CarForm('update');
@@ -41,22 +43,56 @@ export class Garage extends BaseComponent {
 
     this.updateCarsOutlet();
     this.handleOutletChanging();
+    this.handleRaceStarting();
+    this.handleCarsReloading();
   }
 
   updateCarsOutlet(): void {
     garageService.getCars().then((cars) => {
       this.carsOutlet.innerHTML = '';
+      this.carRows = [];
       cars.forEach((car) => {
-        const row = new GarageRow(car).element;
-        this.carsOutlet.append(row);
+        const row = new GarageRow(car);
+        this.carRows.push(row);
+        this.carsOutlet.append(row.element);
       });
       this.element.append(this.carsOutlet, this.lowerGarageNav.element);
     });
   }
 
-  handleOutletChanging(): void {
+  private handleOutletChanging(): void {
     this.element.addEventListener('garageUpdate', () => {
       this.updateCarsOutlet();
     });
+  }
+
+  private handleRaceStarting(): void {
+    this.element.addEventListener('raceStart', () => this.race());
+  }
+
+  private handleCarsReloading(): void {
+    this.element.addEventListener('reloadCars', () => this.reload());
+  }
+
+  private async race(): Promise<void> {
+    const startTime = Date.now();
+
+    this.element.addEventListener('raceWinner', async (e: CustomEventInit) => {
+      const id = e.detail.winner;
+      const time = Date.now() - startTime;
+      const car = await garageService.getCar(id);
+      console.log(`${car.name} won in ${time / 1000}s`);
+    }, { once: true });
+
+    await this.reload();
+
+    await Promise.all(this.carRows.map((garageRow) => garageRow.startEngine()))
+      .then(() => {
+        this.carRows.forEach((garageRow) => garageRow.drive());
+      });
+  }
+
+  private async reload(): Promise<void> {
+    await Promise.all(this.carRows.map((garageRow) => garageRow.stopBtn?.click()));
   }
 }

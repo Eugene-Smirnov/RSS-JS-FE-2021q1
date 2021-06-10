@@ -10,6 +10,10 @@ export class GarageRow extends BaseComponent {
 
   carStatus: 'started' | 'stopped' | 'drive' = 'stopped';
 
+  startBtn: HTMLElement | null = null;
+
+  stopBtn: HTMLElement | null = null;
+
   engineButtons?: HTMLButtonElement[];
 
   animationTime = 0;
@@ -71,22 +75,20 @@ export class GarageRow extends BaseComponent {
   }
 
   handleStartButton(): void {
-    const btn = this.element.querySelector('.car__button_start');
-    if (btn) {
-      btn.addEventListener('click', async () => {
-        this.switchActiveEngineButtons();
-        await this.startEngine().catch(() => this.switchActiveEngineButtons());
-        await this.drive().catch(() => this.switchActiveEngineButtons());
+    this.startBtn = this.element.querySelector('.car__button_start');
+    if (this.startBtn) {
+      this.startBtn.addEventListener('click', async () => {
+        await this.startEngine();
+        await this.drive();
       });
     }
   }
 
   handleStopButton(): void {
-    const btn = this.element.querySelector('.car__button_stop');
-    if (btn) {
-      btn.addEventListener('click', async () => {
-        this.switchActiveEngineButtons();
-        await this.stopEngine().catch(() => this.switchActiveEngineButtons());
+    this.stopBtn = this.element.querySelector('.car__button_stop');
+    if (this.stopBtn) {
+      this.stopBtn.addEventListener('click', async () => {
+        await this.stopEngine();
       });
     }
   }
@@ -106,13 +108,13 @@ export class GarageRow extends BaseComponent {
 
   async startEngine(): Promise<void> {
     if (this.car.id) {
+      this.switchActiveEngineButtons();
       this.carStatus = 'started';
       await engineService
         .start(this.car.id, this.carStatus)
         .then((engineResponce) => {
           if (engineResponce) {
             this.animationTime = Math.round((engineResponce.distance / engineResponce.velocity) * 10) / 10;
-            this.animationId = animation(this.element, this.animationTime);
           }
         });
     }
@@ -120,6 +122,7 @@ export class GarageRow extends BaseComponent {
 
   async stopEngine(): Promise<void> {
     if (this.car.id) {
+      this.switchActiveEngineButtons();
       this.carStatus = 'stopped';
       this.cancelAnimation();
 
@@ -131,6 +134,7 @@ export class GarageRow extends BaseComponent {
 
   async drive(): Promise<void> {
     if (this.car.id) {
+      this.animationId = animation(this.element, this.animationTime);
       this.carStatus = 'drive';
       await engineService
         .drive(this.car.id, this.carStatus)
@@ -157,7 +161,8 @@ export class GarageRow extends BaseComponent {
         new CustomEvent('raceWinner', {
           detail: {
             winner: this.car.id
-          }
+          },
+          bubbles: true
         })
       );
     }
