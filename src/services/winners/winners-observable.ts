@@ -11,7 +11,7 @@ class WinnersStateObservable {
     limit: ITEMS_PER_WINNERS_PAGE,
     page: 1,
     sort: 'id',
-    order: 'DESC'
+    order: 'ASC'
   };
 
   subscribe(subscriber: WinnersSubscriber): void {

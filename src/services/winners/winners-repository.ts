@@ -33,10 +33,9 @@ export const create = async (winner: Winner): Promise<Winner> => {
 };
 
 export const update = async (
-  winnerId: number,
   updatedWinner: Winner
 ): Promise<Winner> => {
-  const response = await fetch(`${url}/${winnerId}`, {
+  const response = await fetch(`${url}/${updatedWinner.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

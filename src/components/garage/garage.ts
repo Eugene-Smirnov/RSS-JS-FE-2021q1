@@ -1,5 +1,6 @@
 import { BaseComponent } from '../base-component';
 import * as garageService from '../../services/garage/garage-service';
+import * as winnersService from '../../services/winners/winners-service';
 import { garageStateObservable } from '../../services/garage/garage-state-observable';
 import { GarageRow } from './garage-row';
 import './styles/garage.scss';
@@ -7,6 +8,7 @@ import { CarForm } from './car-form';
 import { GarageControl } from './garage-control';
 import { GarageNav } from './garage-nav';
 import { currentCarObservable } from '../../services/garage/current-car-observable';
+import { Winner } from '../../models/winner';
 
 export class Garage extends BaseComponent {
   service = garageService;
@@ -76,22 +78,41 @@ export class Garage extends BaseComponent {
   private async race(): Promise<void> {
     const startTime = Date.now();
 
-    this.element.addEventListener('raceWinner', async (e: CustomEventInit) => {
-      const id = e.detail.winner;
-      const time = Date.now() - startTime;
-      const car = await garageService.getCar(id);
-      console.log(`${car.name} won in ${time / 1000}s`);
-    }, { once: true });
+    this.element.addEventListener(
+      'raceWinner',
+      async (e: CustomEventInit) => {
+        const id = e.detail.winner;
+        const time = (Date.now() - startTime) / 1000;
+        const car = await garageService.getCar(id);
+        const winner = new Winner(1, time, id);
+
+        console.log(`${car.name} won in ${time}s`);
+
+        const isAlreadyWinner = !!(await winnersService.getWinner(id)).id;
+        if (isAlreadyWinner) {
+          winnersService.updateWinner(winner);
+        } else {
+          winnersService.createWinner(winner);
+        }
+        this.element.dispatchEvent(
+          new Event('winnersUpdate', { bubbles: true })
+        );
+      },
+      { once: true }
+    );
 
     await this.reload();
 
-    await Promise.all(this.carRows.map((garageRow) => garageRow.startEngine()))
-      .then(() => {
-        this.carRows.forEach((garageRow) => garageRow.drive());
-      });
+    await Promise.all(
+      this.carRows.map((garageRow) => garageRow.startEngine())
+    ).then(() => {
+      this.carRows.forEach((garageRow) => garageRow.drive());
+    });
   }
 
   private async reload(): Promise<void> {
-    await Promise.all(this.carRows.map((garageRow) => garageRow.stopBtn?.click()));
+    await Promise.all(
+      this.carRows.map((garageRow) => garageRow.stopBtn?.click())
+    );
   }
 }

@@ -25,6 +25,9 @@ export class Winners extends BaseComponent {
       this.outlet
     );
     this.updateOutlet();
+    document.body.addEventListener('winnersUpdate', () => {
+      this.updateOutlet();
+    });
   }
 
   updateOutlet(): void {
