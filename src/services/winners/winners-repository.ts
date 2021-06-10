@@ -2,7 +2,7 @@ import { Winner } from '../../models/winner';
 import { SERVER_ROUTES, SERVER_URL } from '../services-base';
 import { winnersStateObservable } from './winners-observable';
 
-const url = `${SERVER_URL}${SERVER_ROUTES.garage}`;
+const url = `${SERVER_URL}${SERVER_ROUTES.winners}`;
 
 export const getAll = async (queryString: string): Promise<Winner[]> => {
   const response = await fetch(`${url}${queryString}`);

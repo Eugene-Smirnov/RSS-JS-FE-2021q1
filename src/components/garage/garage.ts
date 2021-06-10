@@ -2,7 +2,6 @@ import { BaseComponent } from '../base-component';
 import * as garageService from '../../services/garage/garage-service';
 import { garageStateObservable } from '../../services/garage/garage-state-observable';
 import { GarageRow } from './garage-row';
-
 import './styles/garage.scss';
 import { CarForm } from './car-form';
 import { GarageControl } from './garage-control';
