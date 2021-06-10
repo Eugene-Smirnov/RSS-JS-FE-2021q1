@@ -1,5 +1,6 @@
 import { GarageState } from '../../models/garage-state';
 import { GarageSubscriber } from '../../models/subscribers';
+import { generateQueryString } from '../../shared';
 import { CARS_PER_GARAGE_PAGE } from '../services-base';
 
 class GarageStateObservable {
@@ -26,6 +27,14 @@ class GarageStateObservable {
 
   getState(): GarageState {
     return this.state;
+  }
+
+  getQueryString(): string {
+    const queryParams = {
+      limit: this.state.limit,
+      page: this.state.page
+    };
+    return generateQueryString(queryParams);
   }
 
   updateTotal(total: number): void {

@@ -44,7 +44,7 @@ export class Garage extends BaseComponent {
   }
 
   updateCarsOutlet(): void {
-    garageService.getCars(this.state.getState()).then((cars) => {
+    garageService.getCars().then((cars) => {
       this.carsOutlet.innerHTML = '';
       cars.forEach((car) => {
         const row = new GarageRow(car).element;
@@ -55,23 +55,7 @@ export class Garage extends BaseComponent {
   }
 
   handleOutletChanging(): void {
-    this.carsOutlet.addEventListener('garageUpdate', () => {
-      this.updateCarsOutlet();
-    });
-
-    this.createForm.element.addEventListener('garageUpdate', () => {
-      this.updateCarsOutlet();
-    });
-
-    this.updateForm.element.addEventListener('garageUpdate', () => {
-      this.updateCarsOutlet();
-    });
-
-    this.upperGarageNav.element.addEventListener('garageUpdate', () => {
-      this.updateCarsOutlet();
-    });
-
-    this.lowerGarageNav.element.addEventListener('garageUpdate', () => {
+    this.element.addEventListener('garageUpdate', () => {
       this.updateCarsOutlet();
     });
   }

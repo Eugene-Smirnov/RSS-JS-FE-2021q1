@@ -1,7 +1,9 @@
 import { garageStateObservable } from '../../services/garage/garage-state-observable';
 import { BaseComponent } from '../base-component';
 import './styles/garage-controls.scss';
+import * as garageService from '../../services/garage/garage-service';
 
+const CARS_PER_GEN = 100;
 export class GarageControl extends BaseComponent {
   state = garageStateObservable.getState();
 
@@ -31,9 +33,17 @@ export class GarageControl extends BaseComponent {
       this.state = state;
       this.setTotal();
     });
+    this.handleGen();
   }
 
   private setTotal() {
     this.total.innerText = `cars total: ${this.state.total}`;
+  }
+
+  private handleGen() {
+    this.generate.addEventListener('click', () => {
+      garageService.genRandomCars(CARS_PER_GEN);
+      this.element.dispatchEvent(new Event('garageUpdate', { bubbles: true }));
+    });
   }
 }

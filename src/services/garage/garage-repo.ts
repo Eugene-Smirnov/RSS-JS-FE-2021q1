@@ -1,13 +1,12 @@
 import { Car } from '../../models/car';
-import { GarageState } from '../../models/garage-state';
-import { generateQueryString } from '../../shared';
+import { RandomCar } from '../../models/random-car';
 import { SERVER_ROUTES, SERVER_URL } from '../services-base';
 import { garageStateObservable } from './garage-state-observable';
 
 const url = `${SERVER_URL}${SERVER_ROUTES.garage}`;
 
-export const getAll = async (garageState: GarageState): Promise<Car[]> => {
-  const queryString = generateQueryString(garageState);
+export const getAll = async (): Promise<Car[]> => {
+  const queryString = garageStateObservable.getQueryString();
   const response = await fetch(`${url}${queryString}`);
   const data: Car[] = await response.json();
   const total = await response.headers.get('X-Total-Count');
@@ -33,6 +32,15 @@ export const create = async (car: Car): Promise<Car> => {
   const total = response.headers.get('X-Total-Count');
   if (total) garageStateObservable.updateTotal(Number(total));
   return newCar;
+};
+
+export const genRandom = async (amount: number): Promise<void> => {
+  const cars = [];
+  for (let i = 0; i < amount; i++) {
+    cars.push(new RandomCar());
+  }
+
+  cars.forEach((car) => create(car));
 };
 
 export const update = async (carId: number, updatedCar: Car): Promise<Car> => {
