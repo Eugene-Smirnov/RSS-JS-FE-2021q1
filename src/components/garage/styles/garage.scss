@@ -148,5 +148,7 @@
     mask-repeat: no-repeat;
     z-index: 1;
     transform: scaleX(-1);
+
+    transition: left 0.1s linear;
   }
 }

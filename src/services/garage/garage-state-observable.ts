@@ -31,8 +31,8 @@ class GarageStateObservable {
 
   getQueryString(): string {
     const queryParams = {
-      limit: this.state.limit,
-      page: this.state.page
+      _limit: this.state.limit,
+      _page: this.state.page
     };
     return generateQueryString(queryParams);
   }

@@ -12,7 +12,7 @@ export function generateQueryString(
 ): string {
   let result;
   const arr = Object.entries(queryParams);
-  const stringArr = arr.map((item) => `_${item[0]}=${item[1]}`);
+  const stringArr = arr.map((item) => `${item[0]}=${item[1]}`);
   result = `?${stringArr.join('&')}`;
   if (!result) result = '';
   return result;
@@ -26,4 +26,28 @@ export function genRandomCarName(): string {
 
 export function genRandomColor(): string {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
+const TRACK_DISTANCE = 100;
+
+export function animation(element: HTMLElement, animationTime: number) : { id?: number } {
+  let start = 0;
+  const state: { id?: number } = {};
+
+  function step(timestamp: number) {
+    if (!start) start = timestamp;
+    const time = timestamp - start;
+    const passed = Math.round(time * (TRACK_DISTANCE / animationTime));
+
+    element.style.setProperty('--distance', `${Math.min(passed, TRACK_DISTANCE)}%`);
+
+    if (passed < TRACK_DISTANCE) {
+      state.id = window.requestAnimationFrame(step);
+    }
+  }
+
+  state.id = window.requestAnimationFrame(step);
+  console.log(state);
+
+  return state;
 }

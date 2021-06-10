@@ -1,10 +1,20 @@
 import { Car } from '../../models/car';
 import { BaseComponent } from '../base-component';
 import * as garageService from '../../services/garage/garage-service';
+import * as engineService from '../../services/engine/engine-service';
 import { currentCarObservable } from '../../services/garage/current-car-observable';
+import { animation } from '../../shared';
 
 export class GarageRow extends BaseComponent {
   car: Car;
+
+  carStatus: 'started' | 'stopped' | 'drive' = 'stopped';
+
+  engineButtons?: HTMLButtonElement[];
+
+  animationTime = 0;
+
+  animationId?: { id?:number };
 
   constructor(car: Car) {
     super('div', ['garage-row']);
@@ -28,8 +38,15 @@ export class GarageRow extends BaseComponent {
       </div>
     </div>
     `;
+
+    this.engineButtons = Array.from(
+      this.element.querySelectorAll('.car__button')
+    );
+
     this.handleSelectBtn();
     this.handleRemoveBtn();
+    this.handleStartButton();
+    this.handleStopButton();
   }
 
   handleSelectBtn(): void {
@@ -50,6 +67,81 @@ export class GarageRow extends BaseComponent {
           new Event('garageUpdate', { bubbles: true })
         );
       });
+    }
+  }
+
+  handleStartButton(): void {
+    const btn = this.element.querySelector('.car__button_start');
+    if (btn) {
+      btn.addEventListener('click', async () => {
+        this.switchActiveEngineButtons();
+        await this.startEngine().catch(() => this.switchActiveEngineButtons());
+        await this.drive().catch(() => this.switchActiveEngineButtons());
+      });
+    }
+  }
+
+  handleStopButton(): void {
+    const btn = this.element.querySelector('.car__button_stop');
+    if (btn) {
+      btn.addEventListener('click', async () => {
+        this.switchActiveEngineButtons();
+        await this.stopEngine().catch(() => this.switchActiveEngineButtons());
+      });
+    }
+  }
+
+  switchActiveEngineButtons(): void {
+    if (this.engineButtons) {
+      this.engineButtons.forEach((btn) => {
+        btn.classList.toggle('car__button_active');
+      });
+    }
+  }
+
+  async startEngine(): Promise<void> {
+    if (this.car.id) {
+      this.carStatus = 'started';
+      await engineService
+        .start(this.car.id, this.carStatus)
+        .then((engineResponce) => {
+          if (engineResponce) {
+            this.animationTime = engineResponce.distance / engineResponce.velocity;
+            console.log(this.animationTime);
+            this.animationId = animation(this.element, this.animationTime);
+          }
+        });
+    }
+  }
+
+  async stopEngine(): Promise<void> {
+    if (this.car.id) {
+      this.carStatus = 'stopped';
+      await engineService
+        .stop(this.car.id, this.carStatus)
+        .then((engineResponce) => {
+          if (engineResponce) {
+            console.log(engineResponce);
+
+            // stop animation, return car to start position
+          }
+        });
+    }
+  }
+
+  async drive(): Promise<void> {
+    if (this.car.id) {
+      this.carStatus = 'drive';
+      await engineService
+        .drive(this.car.id, this.carStatus)
+        .catch(() => {
+          if (this.animationId) {
+            if (this.animationId.id) window.cancelAnimationFrame(this.animationId.id);
+          }
+        })
+        .then((success) => {
+          if (success) console.log('Car has arrived without excesses');
+        });
     }
   }
 }
