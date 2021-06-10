@@ -14,7 +14,7 @@ export class GarageRow extends BaseComponent {
 
   animationTime = 0;
 
-  animationId?: { id?:number };
+  animationId?: { id?: number };
 
   constructor(car: Car) {
     super('div', ['garage-row']);
@@ -27,8 +27,8 @@ export class GarageRow extends BaseComponent {
     </div>
     <div class='garage-row__track-wrapper'>
       <div class='car__buttons'>
-        <span class='car__button car__button_start'>A</span>
-        <span class='car__button car__button_stop car__button_active'>B</span>
+        <button class='car__button car__button_start'>A</button>
+        <button class='car__button car__button_stop car__button_active' disabled>B</button>
       </div>
       <div class='garage-row__track'>
         <div class='car__image' style='background-color: ${car.color}'>
@@ -95,6 +95,11 @@ export class GarageRow extends BaseComponent {
     if (this.engineButtons) {
       this.engineButtons.forEach((btn) => {
         btn.classList.toggle('car__button_active');
+        if (btn.classList.contains('car__button_active')) {
+          btn.setAttribute('disabled', '');
+        } else {
+          btn.removeAttribute('disabled');
+        }
       });
     }
   }
@@ -106,8 +111,7 @@ export class GarageRow extends BaseComponent {
         .start(this.car.id, this.carStatus)
         .then((engineResponce) => {
           if (engineResponce) {
-            this.animationTime = engineResponce.distance / engineResponce.velocity;
-            console.log(this.animationTime);
+            this.animationTime = Math.round((engineResponce.distance / engineResponce.velocity) * 10) / 10;
             this.animationId = animation(this.element, this.animationTime);
           }
         });
@@ -117,15 +121,11 @@ export class GarageRow extends BaseComponent {
   async stopEngine(): Promise<void> {
     if (this.car.id) {
       this.carStatus = 'stopped';
-      await engineService
-        .stop(this.car.id, this.carStatus)
-        .then((engineResponce) => {
-          if (engineResponce) {
-            console.log(engineResponce);
+      this.cancelAnimation();
 
-            // stop animation, return car to start position
-          }
-        });
+      await engineService.stop(this.car.id, this.carStatus).then(() => {
+        this.element.style.setProperty('--distance', '0%');
+      });
     }
   }
 
@@ -135,13 +135,31 @@ export class GarageRow extends BaseComponent {
       await engineService
         .drive(this.car.id, this.carStatus)
         .catch(() => {
-          if (this.animationId) {
-            if (this.animationId.id) window.cancelAnimationFrame(this.animationId.id);
-          }
+          this.cancelAnimation();
         })
         .then((success) => {
-          if (success) console.log('Car has arrived without excesses');
+          if (success) {
+            this.dispatchWinnerEvent();
+          }
         });
+    }
+  }
+
+  cancelAnimation(): void {
+    if (this.animationId) {
+      if (this.animationId.id) window.cancelAnimationFrame(this.animationId.id);
+    }
+  }
+
+  dispatchWinnerEvent() :void {
+    if (this.car.id) {
+      this.element.dispatchEvent(
+        new CustomEvent('raceWinner', {
+          detail: {
+            winner: this.car.id
+          }
+        })
+      );
     }
   }
 }

@@ -8,11 +8,14 @@ html {
 }
 
 body {
-  --base-color-green: #6abc68;
-  --base-color-red: #d33737;
+  --base-color-green-code: 106, 188, 104;
+  --base-color-green: rgb(var(--base-color-green-code));
+  --base-color-red-code: 211, 55, 55;
+  --base-color-red: rgb(var(--base-color-red-code));
   --base-color-light-red: #e87f7f;
   --base-color-blue: #726ead;
-  --base-color-grey: #555;
+  --base-color-grey-code: 85, 85, 85;
+  --base-color-grey: rgb(var(--base-color-grey-code));
   --base-color-dark: #1f191b;
   min-height: 100vh;
   background-color: var(--base-color-dark);

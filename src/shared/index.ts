@@ -30,7 +30,10 @@ export function genRandomColor(): string {
 
 const TRACK_DISTANCE = 100;
 
-export function animation(element: HTMLElement, animationTime: number) : { id?: number } {
+export function animation(
+  element: HTMLElement,
+  animationTime: number
+): { id?: number } {
   let start = 0;
   const state: { id?: number } = {};
 
@@ -39,7 +42,10 @@ export function animation(element: HTMLElement, animationTime: number) : { id?: 
     const time = timestamp - start;
     const passed = Math.round(time * (TRACK_DISTANCE / animationTime));
 
-    element.style.setProperty('--distance', `${Math.min(passed, TRACK_DISTANCE)}%`);
+    element.style.setProperty(
+      '--distance',
+      `${Math.min(passed, TRACK_DISTANCE)}%`
+    );
 
     if (passed < TRACK_DISTANCE) {
       state.id = window.requestAnimationFrame(step);
@@ -47,7 +53,6 @@ export function animation(element: HTMLElement, animationTime: number) : { id?: 
   }
 
   state.id = window.requestAnimationFrame(step);
-  console.log(state);
 
   return state;
 }
