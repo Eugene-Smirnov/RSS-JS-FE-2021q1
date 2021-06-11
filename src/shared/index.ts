@@ -7,6 +7,11 @@ export function delay(timeout: number): Promise<void> {
   });
 }
 
+export function indexCalc(page:number, limit:number, index:number): number {
+  const result = page * limit - (limit - 1) + index;
+  return result;
+}
+
 export function generateQueryString(
   queryParams: Record<string, string | number | boolean>
 ): string {

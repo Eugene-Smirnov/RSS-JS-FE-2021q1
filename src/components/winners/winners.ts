@@ -29,13 +29,17 @@ export class Winners extends BaseComponent {
 
   updateOutlet(): void {
     winnersService.getWinners().then((winners) => {
-      this.outlet.innerHTML = '';
-      winners.forEach((winner, index) => {
-        const ind = this.state.getState().page * 10 - 9 + index;
-        const row = new WinnersRow(winner, ind);
-        this.outlet.append(row.element);
+      const rows: WinnersRow[] = [];
+      Promise.all(winners.map(async (winner, index) => {
+        const ind = this.state.getIndex(index);
+        const row = await new WinnersRow(winner, ind);
+        rows.push(row);
+      })).then(() => {
+        this.outlet.innerHTML = '';
+        rows.forEach((row) => {
+          this.outlet.append(row.element);
+        });
       });
-      this.element.append(this.outlet);
     });
   }
 

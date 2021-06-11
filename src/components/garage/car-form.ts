@@ -64,6 +64,7 @@ export class CarForm {
         this.element.dispatchEvent(
           new Event('garageUpdate', { bubbles: true })
         );
+        this.element.dispatchEvent(new Event('winnersUpdate', { bubbles: true }));
       });
     }
 

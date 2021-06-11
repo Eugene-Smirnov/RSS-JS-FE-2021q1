@@ -1,6 +1,6 @@
 import { WinnersSubscriber } from '../../models/subscribers';
 import { WinnersState } from '../../models/winners-state';
-import { generateQueryString } from '../../shared';
+import { generateQueryString, indexCalc } from '../../shared';
 import { ITEMS_PER_WINNERS_PAGE } from '../services-base';
 
 class WinnersStateObservable {
@@ -29,6 +29,10 @@ class WinnersStateObservable {
 
   getState(): WinnersState {
     return this.state;
+  }
+
+  getIndex(i: number): number {
+    return indexCalc(this.state.page, this.state.limit, i);
   }
 
   getQueryString(): string {

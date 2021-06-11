@@ -87,22 +87,12 @@ export class Garage extends BaseComponent {
         const winner = new Winner(1, time, id);
 
         console.log(`${car.name} won in ${time}s`);
-
-        const isAlreadyWinner = !!(await winnersService.getWinner(id)).id;
-        if (isAlreadyWinner) {
-          winnersService.updateWinner(winner);
-        } else {
-          winnersService.createWinner(winner);
-        }
-        this.element.dispatchEvent(
-          new Event('winnersUpdate', { bubbles: true })
-        );
+        this.addWinner(winner);
       },
       { once: true }
     );
 
     await this.reload();
-
     await Promise.all(
       this.carRows.map((garageRow) => garageRow.startEngine())
     ).then(() => {
@@ -110,9 +100,18 @@ export class Garage extends BaseComponent {
     });
   }
 
+  private async addWinner(winner: Winner): Promise<void> {
+    const { id } = winner;
+    const isAlreadyWinner = !!(await winnersService.getWinner(id)).id;
+    if (isAlreadyWinner) {
+      winnersService.updateWinner(winner);
+    } else {
+      winnersService.createWinner(winner);
+    }
+    this.element.dispatchEvent(new Event('winnersUpdate', { bubbles: true }));
+  }
+
   private async reload(): Promise<void> {
-    await Promise.all(
-      this.carRows.map((garageRow) => garageRow.stopBtn?.click())
-    );
+    Promise.all(this.carRows.map((garageRow) => garageRow.stopBtn?.click()));
   }
 }
