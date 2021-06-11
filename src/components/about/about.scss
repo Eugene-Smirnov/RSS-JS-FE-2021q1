@@ -1,0 +1,52 @@
+.about {
+  &__wrapper {
+    margin: 1rem;
+  }
+
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 24px;
+
+  background-color: var(--base-color-grey);
+  border: 3px solid white;
+  border-radius: 0.5rem;
+
+  &__heading {
+    font-family: "Squada One", cursive;
+    font-size: 48px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2),
+      0px 1px 18px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.14);
+    text-transform: uppercase;
+    cursor: default;
+  }
+
+  &__content {
+    font-family: "Squada One", cursive;
+    color: white;
+  }
+
+  h3 {
+    color: var(--base-color-light-red);
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--base-color-green);
+  }
+
+  a {
+    color: var(--base-color-blue);
+  }
+
+  li {
+    list-style-position: inside;
+  }
+}
