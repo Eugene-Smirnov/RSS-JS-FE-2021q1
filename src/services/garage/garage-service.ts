@@ -1,6 +1,6 @@
 import { Car } from '../../models/car';
-
 import * as garageRepo from './garage-repo';
+import * as winnersService from '../winners/winners-service';
 
 export const getCars = async (): Promise<Car[]> => garageRepo.getAll();
 
@@ -12,4 +12,7 @@ export const genRandomCars = async (amount: number): Promise<void> => garageRepo
 
 export const updateCar = async (carId:number, updatedCar: Car): Promise<Car> => garageRepo.update(carId, updatedCar);
 
-export const deleteCar = async (carId: number): Promise<void> => garageRepo.remove(carId);
+export const deleteCar = async (carId: number): Promise<void> => {
+  winnersService.deleteWinner(carId);
+  garageRepo.remove(carId);
+};

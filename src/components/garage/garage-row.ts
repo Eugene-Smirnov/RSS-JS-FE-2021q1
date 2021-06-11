@@ -70,6 +70,9 @@ export class GarageRow extends BaseComponent {
         this.element.dispatchEvent(
           new Event('garageUpdate', { bubbles: true })
         );
+        this.element.dispatchEvent(
+          new Event('winnersUpdate', { bubbles: true })
+        );
       });
     }
   }
@@ -155,7 +158,7 @@ export class GarageRow extends BaseComponent {
     }
   }
 
-  dispatchWinnerEvent() :void {
+  dispatchWinnerEvent(): void {
     if (this.car.id) {
       this.element.dispatchEvent(
         new CustomEvent('raceWinner', {
