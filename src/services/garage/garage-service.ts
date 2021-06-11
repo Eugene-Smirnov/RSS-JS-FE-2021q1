@@ -6,6 +6,8 @@ export const getCars = async (): Promise<Car[]> => garageRepo.getAll();
 
 export const getCar = async (carId: number): Promise<Car> => garageRepo.get(carId);
 
+export const getCarsByIds = async (ids: number[]): Promise<Car[]> => Promise.all(ids.map(getCar));
+
 export const createCar = async (car: Car): Promise<Car> => garageRepo.create(car);
 
 export const genRandomCars = async (amount: number): Promise<void> => garageRepo.genRandom(amount);

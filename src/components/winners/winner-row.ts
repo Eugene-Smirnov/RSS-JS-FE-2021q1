@@ -1,6 +1,6 @@
 import { Winner } from '../../models/winner';
 import { BaseComponent } from '../base-component';
-import * as garageService from '../../services/garage/garage-service';
+import { Car } from '../../models/car';
 
 export class WinnersRow extends BaseComponent {
   winner: Winner;
@@ -9,33 +9,31 @@ export class WinnersRow extends BaseComponent {
 
   carName = '';
 
-  constructor(winner: Winner, index: number) {
+  constructor(winner: Winner, index: number, car: Car) {
     super('div', ['winners-row']);
     this.winner = winner;
     if (this.winner.id) {
-      garageService.getCar(this.winner.id).then((car) => {
-        this.color = car.color;
-        this.carName = car.name;
+      this.color = car.color;
+      this.carName = car.name;
 
-        const ind = new BaseComponent('div', ['winners-row__index']).element;
-        ind.innerText = `${index}`;
+      const ind = new BaseComponent('div', ['winners-row__index']).element;
+      ind.innerText = `${index}`;
 
-        const img = new BaseComponent('div', ['winners-row__image']).element;
-        img.innerHTML = `
-          <div class='winners-row__car' style='background-color: ${this.color}'>
-        `;
+      const img = new BaseComponent('div', ['winners-row__image']).element;
+      img.innerHTML = `
+        <div class='winners-row__car' style='background-color: ${this.color}'>
+      `;
 
-        const name = new BaseComponent('div', ['winners-row__name']).element;
-        name.innerText = this.carName;
+      const name = new BaseComponent('div', ['winners-row__name']).element;
+      name.innerText = this.carName;
 
-        const wins = new BaseComponent('div', ['winners-row__wins']).element;
-        wins.innerText = `${this.winner.wins}`;
+      const wins = new BaseComponent('div', ['winners-row__wins']).element;
+      wins.innerText = `${this.winner.wins}`;
 
-        const time = new BaseComponent('div', ['winners-row__time']).element;
-        time.innerText = `${this.winner.time}`;
+      const time = new BaseComponent('div', ['winners-row__time']).element;
+      time.innerText = `${this.winner.time}`;
 
-        this.element.append(ind, img, name, wins, time);
-      });
+      this.element.append(ind, img, name, wins, time);
     }
   }
 }

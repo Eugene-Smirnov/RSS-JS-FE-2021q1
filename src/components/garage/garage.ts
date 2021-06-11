@@ -32,6 +32,8 @@ export class Garage extends BaseComponent {
 
   lowerGarageNav = new GarageNav('lower');
 
+  private removeRaceListener: () => void = () => {};
+
   constructor() {
     super('div', ['garage__wrapper']);
 
@@ -77,29 +79,31 @@ export class Garage extends BaseComponent {
   }
 
   private async race(): Promise<void> {
+    this.removeRaceListener();
     const startTime = Date.now();
+
+    const onRaceWinner = async (e: CustomEventInit): Promise<void> => {
+      const id = e.detail.winner;
+      const time = (Date.now() - startTime) / 1000;
+      const car = await garageService.getCar(id);
+      const winner = new Winner(1, time, id);
+
+      const winnerMsg = `${car.name} won in ${time}s`;
+      showCongratPopUp(winnerMsg);
+      this.addWinner(winner);
+    };
+
+    this.removeRaceListener = () => this.element.removeEventListener('raceWinner', onRaceWinner);
 
     this.element.addEventListener(
       'raceWinner',
-      async (e: CustomEventInit) => {
-        const id = e.detail.winner;
-        const time = (Date.now() - startTime) / 1000;
-        const car = await garageService.getCar(id);
-        const winner = new Winner(1, time, id);
-
-        const winnerMsg = `${car.name} won in ${time}s`;
-        showCongratPopUp(winnerMsg);
-        this.addWinner(winner);
-      },
+      onRaceWinner,
       { once: true }
     );
 
     await this.reload();
-    await Promise.all(
-      this.carRows.map((garageRow) => garageRow.startEngine())
-    ).then(() => {
-      this.carRows.forEach((garageRow) => garageRow.drive());
-    });
+    await Promise.all(this.carRows.map((garageRow) => garageRow.startEngine()));
+    this.carRows.forEach((garageRow) => garageRow.drive());
   }
 
   private async addWinner(winner: Winner): Promise<void> {

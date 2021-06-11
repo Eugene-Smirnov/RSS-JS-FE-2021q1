@@ -1,3 +1,4 @@
+import { AbortableRequest } from '../../models/abortable-request';
 import { EngineResponse } from '../../models/engine-response';
 import { generateQueryString } from '../../shared';
 import { SERVER_URL, SERVER_ROUTES } from '../services-base';
@@ -18,16 +19,26 @@ export const changeStatus = async (
   return engineRes;
 };
 
-export const drive = async (
+export const drive = (
   carId: number,
   status: 'drive'
-): Promise<{ success: true }> => {
+): AbortableRequest<{ success: true }> => {
   const queryParams = {
     id: carId,
     status
   };
-  const queryString = generateQueryString(queryParams);
-  const response = await fetch(`${url}${queryString}`);
-  const engineRes = await response.json();
-  return engineRes;
+
+  const abortController = new AbortController();
+
+  const request: AbortableRequest<{ success: true }> = {
+    async request() {
+      const queryString = generateQueryString(queryParams);
+      const response = await fetch(`${url}${queryString}`, { signal: abortController.signal });
+      return response.json();
+    },
+    abort() {
+      abortController.abort();
+    }
+  };
+  return request;
 };

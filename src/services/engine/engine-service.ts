@@ -1,3 +1,4 @@
+import { AbortableRequest } from '../../models/abortable-request';
 import { EngineResponse } from '../../models/engine-response';
 import * as engineRepo from './engine-repo';
 
@@ -11,8 +12,7 @@ export const stop = async (
   status: 'stopped'
 ): Promise<EngineResponse> => engineRepo.changeStatus(carId, status);
 
-export const drive = async (
+export const drive = (
   carId: number,
   status: 'drive'
-): Promise<{ success: true }> => engineRepo
-  .drive(carId, status);
+): AbortableRequest<{ success: true }> => engineRepo.drive(carId, status);

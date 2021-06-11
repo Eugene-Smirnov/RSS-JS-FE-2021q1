@@ -2,6 +2,7 @@ import { winnersStateObservable } from '../../services/winners/winners-observabl
 import { BaseComponent } from '../base-component';
 import { WinnersHeader } from './winners-header';
 import * as winnersService from '../../services/winners/winners-service';
+import * as garageService from '../../services/garage/garage-service';
 import { WinnersRow } from './winner-row';
 import { WinnersOutletHeader } from './winners-outlet-header';
 import './winners.scss';
@@ -23,31 +24,26 @@ export class Winners extends BaseComponent {
       this.outletHeader.element,
       this.outlet
     );
-    this.updateOutlet();
+    this.updateWinners();
     this.handleOutletChanging();
   }
 
-  updateOutlet(): void {
-    winnersService.getWinners().then((winners) => {
-      const rows: WinnersRow[] = [];
-      Promise.all(
-        winners.map(async (winner, index) => {
-          const ind = this.state.getIndex(index);
-          const row = await new WinnersRow(winner, ind);
-          rows.push(row);
-        })
-      ).then(() => {
-        this.outlet.innerHTML = '';
-        rows.forEach((row) => {
-          this.outlet.append(row.element);
-        });
-      });
+  async updateWinners(): Promise<void> {
+    const winners = await winnersService.getWinners();
+    const cars = await garageService.getCarsByIds(winners.map(({ id }) => id));
+
+    const components = winners.map((winner, index) => {
+      const ind = this.state.getIndex(index);
+      return new WinnersRow(winner, ind, cars[index]).element;
     });
+
+    this.outlet.innerHTML = '';
+    this.outlet.append(...components);
   }
 
   private handleOutletChanging(): void {
     document.body.addEventListener('winnersUpdate', () => {
-      this.updateOutlet();
+      this.updateWinners();
     });
   }
 }

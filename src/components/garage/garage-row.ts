@@ -20,6 +20,8 @@ export class GarageRow extends BaseComponent {
 
   animationId?: { id?: number };
 
+  private abortDriveRequest: () => void = () => {};
+
   constructor(car: Car) {
     super('div', ['garage-row']);
     this.car = car;
@@ -110,19 +112,13 @@ export class GarageRow extends BaseComponent {
   }
 
   async startEngine(): Promise<void> {
-    if (this.car.id) {
-      if (this.carStatus === 'stopped') {
-        this.switchActiveEngineButtons();
-        this.carStatus = 'started';
-        await engineService
-          .start(this.car.id, this.carStatus)
-          .then((engineResponce) => {
-            if (engineResponce) {
-              this.animationTime = Math.round((engineResponce.distance / engineResponce.velocity) * 10) / 10;
-            }
-          });
-      }
-    }
+    if (!this.car.id || this.carStatus !== 'stopped') return;
+
+    this.switchActiveEngineButtons();
+    this.carStatus = 'started';
+
+    const engineStats = await engineService.start(this.car.id, this.carStatus);
+    this.animationTime = Math.round((engineStats.distance / engineStats.velocity) * 10) / 10;
   }
 
   async stopEngine(): Promise<void> {
@@ -132,6 +128,8 @@ export class GarageRow extends BaseComponent {
         this.carStatus = 'stopped';
         this.cancelAnimation();
 
+        this.abortDriveRequest();
+
         await engineService.stop(this.car.id, this.carStatus).then(() => {
           this.element.style.setProperty('--distance', '0%');
         });
@@ -140,21 +138,20 @@ export class GarageRow extends BaseComponent {
   }
 
   async drive(): Promise<void> {
-    if (this.car.id) {
-      if (this.carStatus === 'started') {
-        this.animationId = animation(this.element, this.animationTime);
-        this.carStatus = 'drive';
-        await engineService
-          .drive(this.car.id, this.carStatus)
-          .catch(() => {
-            this.cancelAnimation();
-          })
-          .then((success) => {
-            if (success) {
-              this.dispatchWinnerEvent();
-            }
-          });
-      }
+    if (!this.car.id || this.carStatus !== 'started') return;
+
+    this.abortDriveRequest();
+
+    this.animationId = animation(this.element, this.animationTime);
+    this.carStatus = 'drive';
+    const { request, abort } = engineService.drive(this.car.id, this.carStatus);
+    this.abortDriveRequest = abort;
+
+    try {
+      await request();
+      this.dispatchWinnerEvent();
+    } catch (e) {
+      this.cancelAnimation();
     }
   }
 
