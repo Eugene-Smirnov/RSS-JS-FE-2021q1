@@ -5,6 +5,7 @@ import * as winnersService from '../../services/winners/winners-service';
 import { WinnersRow } from './winner-row';
 import { WinnersOutletHeader } from './winners-outlet-header';
 import './winners.scss';
+import { PopUp } from '../pop-up/pop-up';
 
 export class Winners extends BaseComponent {
   state = winnersStateObservable;
@@ -22,7 +23,6 @@ export class Winners extends BaseComponent {
       this.outletHeader.element,
       this.outlet
     );
-
     this.updateOutlet();
     this.handleOutletChanging();
   }
@@ -30,11 +30,13 @@ export class Winners extends BaseComponent {
   updateOutlet(): void {
     winnersService.getWinners().then((winners) => {
       const rows: WinnersRow[] = [];
-      Promise.all(winners.map(async (winner, index) => {
-        const ind = this.state.getIndex(index);
-        const row = await new WinnersRow(winner, ind);
-        rows.push(row);
-      })).then(() => {
+      Promise.all(
+        winners.map(async (winner, index) => {
+          const ind = this.state.getIndex(index);
+          const row = await new WinnersRow(winner, ind);
+          rows.push(row);
+        })
+      ).then(() => {
         this.outlet.innerHTML = '';
         rows.forEach((row) => {
           this.outlet.append(row.element);

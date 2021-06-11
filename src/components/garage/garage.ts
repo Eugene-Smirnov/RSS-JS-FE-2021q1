@@ -9,6 +9,7 @@ import { GarageControl } from './garage-control';
 import { GarageNav } from './garage-nav';
 import { currentCarObservable } from '../../services/garage/current-car-observable';
 import { Winner } from '../../models/winner';
+import { showCongratPopUp } from '../../shared';
 
 export class Garage extends BaseComponent {
   service = garageService;
@@ -86,7 +87,8 @@ export class Garage extends BaseComponent {
         const car = await garageService.getCar(id);
         const winner = new Winner(1, time, id);
 
-        console.log(`${car.name} won in ${time}s`);
+        const winnerMsg = `${car.name} won in ${time}s`;
+        showCongratPopUp(winnerMsg);
         this.addWinner(winner);
       },
       { once: true }

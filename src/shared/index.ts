@@ -1,3 +1,4 @@
+import { PopUp } from '../components/pop-up/pop-up';
 import { CAR_MODELS } from './car-models';
 import { CAR_NAMES } from './car-names';
 
@@ -7,7 +8,7 @@ export function delay(timeout: number): Promise<void> {
   });
 }
 
-export function indexCalc(page:number, limit:number, index:number): number {
+export function indexCalc(page: number, limit: number, index: number): number {
   const result = page * limit - (limit - 1) + index;
   return result;
 }
@@ -60,4 +61,10 @@ export function animation(
   state.id = window.requestAnimationFrame(step);
 
   return state;
+}
+
+export function showCongratPopUp(message: string): void {
+  const CONGRAT_HEADING = 'Congratulations!';
+  const popup = new PopUp(CONGRAT_HEADING, message);
+  document.body.append(popup.element);
 }
