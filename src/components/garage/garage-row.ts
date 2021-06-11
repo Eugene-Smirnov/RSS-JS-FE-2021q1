@@ -111,44 +111,50 @@ export class GarageRow extends BaseComponent {
 
   async startEngine(): Promise<void> {
     if (this.car.id) {
-      this.switchActiveEngineButtons();
-      this.carStatus = 'started';
-      await engineService
-        .start(this.car.id, this.carStatus)
-        .then((engineResponce) => {
-          if (engineResponce) {
-            this.animationTime = Math.round((engineResponce.distance / engineResponce.velocity) * 10) / 10;
-          }
-        });
+      if (this.carStatus === 'stopped') {
+        this.switchActiveEngineButtons();
+        this.carStatus = 'started';
+        await engineService
+          .start(this.car.id, this.carStatus)
+          .then((engineResponce) => {
+            if (engineResponce) {
+              this.animationTime = Math.round((engineResponce.distance / engineResponce.velocity) * 10) / 10;
+            }
+          });
+      }
     }
   }
 
   async stopEngine(): Promise<void> {
     if (this.car.id) {
-      this.switchActiveEngineButtons();
-      this.carStatus = 'stopped';
-      this.cancelAnimation();
+      if (this.carStatus === 'drive' || this.carStatus === 'started') {
+        this.switchActiveEngineButtons();
+        this.carStatus = 'stopped';
+        this.cancelAnimation();
 
-      await engineService.stop(this.car.id, this.carStatus).then(() => {
-        this.element.style.setProperty('--distance', '0%');
-      });
+        await engineService.stop(this.car.id, this.carStatus).then(() => {
+          this.element.style.setProperty('--distance', '0%');
+        });
+      }
     }
   }
 
   async drive(): Promise<void> {
     if (this.car.id) {
-      this.animationId = animation(this.element, this.animationTime);
-      this.carStatus = 'drive';
-      await engineService
-        .drive(this.car.id, this.carStatus)
-        .catch(() => {
-          this.cancelAnimation();
-        })
-        .then((success) => {
-          if (success) {
-            this.dispatchWinnerEvent();
-          }
-        });
+      if (this.carStatus === 'started') {
+        this.animationId = animation(this.element, this.animationTime);
+        this.carStatus = 'drive';
+        await engineService
+          .drive(this.car.id, this.carStatus)
+          .catch(() => {
+            this.cancelAnimation();
+          })
+          .then((success) => {
+            if (success) {
+              this.dispatchWinnerEvent();
+            }
+          });
+      }
     }
   }
 
