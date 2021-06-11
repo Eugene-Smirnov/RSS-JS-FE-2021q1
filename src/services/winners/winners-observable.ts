@@ -56,6 +56,15 @@ class WinnersStateObservable {
     if (page < 1) page = Math.ceil(this.state.total / this.state.limit);
     this.updateState(Object.assign(this.state, { page }));
   }
+
+  toggleOrder() {
+    const currentOrder = this.state.order;
+    let order = 'ASC';
+    if (currentOrder === order) {
+      order = 'DESC';
+    }
+    this.updateState(Object.assign(this.state, { order }));
+  }
 }
 
 export const winnersStateObservable = new WinnersStateObservable();

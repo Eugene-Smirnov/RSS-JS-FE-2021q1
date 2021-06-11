@@ -13,9 +13,7 @@ export class Winners extends BaseComponent {
 
   outletHeader = new WinnersOutletHeader();
 
-  outlet: HTMLElement = new BaseComponent('div', ['winners-outlet']).element;
-
-  winnersRows: WinnersRow[] = [];
+  outlet = new BaseComponent('div', ['winners-outlet']).element;
 
   constructor() {
     super('div', ['winners__wrapper']);
@@ -24,22 +22,26 @@ export class Winners extends BaseComponent {
       this.outletHeader.element,
       this.outlet
     );
+
     this.updateOutlet();
-    document.body.addEventListener('winnersUpdate', () => {
-      this.updateOutlet();
-    });
+    this.handleOutletChanging();
   }
 
   updateOutlet(): void {
     winnersService.getWinners().then((winners) => {
       this.outlet.innerHTML = '';
-      this.winnersRows = [];
       winners.forEach((winner, index) => {
         const ind = this.state.getState().page * 10 - 9 + index;
         const row = new WinnersRow(winner, ind);
-        this.winnersRows.push(row);
         this.outlet.append(row.element);
       });
+      this.element.append(this.outlet);
+    });
+  }
+
+  private handleOutletChanging(): void {
+    document.body.addEventListener('winnersUpdate', () => {
+      this.updateOutlet();
     });
   }
 }

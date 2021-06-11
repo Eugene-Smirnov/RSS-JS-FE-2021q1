@@ -4,7 +4,6 @@ import * as winnersRepo from './winners-repository';
 
 export const getWinners = async (): Promise<Winner[]> => {
   const queryString = winnersStateObservable.getQueryString();
-  console.log(queryString);
   return winnersRepo.getAll(queryString);
 };
 

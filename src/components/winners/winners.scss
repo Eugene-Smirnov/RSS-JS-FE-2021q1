@@ -73,6 +73,8 @@
     margin-bottom: 1rem;
 
     &-header {
+      --arrow-up: "↑";
+      --arrow-down: "↓";
       display: flex;
       justify-content: center;
       width: 90%;
@@ -114,17 +116,27 @@
       }
 
       &__wins {
+        --arrow: "";
         width: 10%;
         cursor: pointer;
+
+        &::after {
+          content: var(--arrow);
+        }
       }
 
       &__time {
+        --arrow: "";
         height: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 20%;
         cursor: pointer;
+
+        &::after {
+          content: var(--arrow);
+        }
       }
     }
   }
