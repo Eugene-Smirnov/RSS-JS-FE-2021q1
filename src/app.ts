@@ -35,5 +35,6 @@ export class App {
         this.pageOutlet.append(component);
       }
     });
+    router.navigate('/');
   }
 }
