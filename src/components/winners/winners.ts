@@ -6,7 +6,6 @@ import * as garageService from '../../services/garage/garage-service';
 import { WinnersRow } from './winner-row';
 import { WinnersOutletHeader } from './winners-outlet-header';
 import './winners.scss';
-import { PopUp } from '../pop-up/pop-up';
 
 export class Winners extends BaseComponent {
   state = winnersStateObservable;

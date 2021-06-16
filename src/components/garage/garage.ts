@@ -110,9 +110,9 @@ export class Garage extends BaseComponent {
     const { id } = winner;
     const isAlreadyWinner = !!(await winnersService.getWinner(id)).id;
     if (isAlreadyWinner) {
-      winnersService.updateWinner(winner);
+      await winnersService.updateWinner(winner);
     } else {
-      winnersService.createWinner(winner);
+      await winnersService.createWinner(winner);
     }
     this.element.dispatchEvent(new Event('winnersUpdate', { bubbles: true }));
   }
