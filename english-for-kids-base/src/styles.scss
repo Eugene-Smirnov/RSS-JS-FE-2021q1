@@ -10,17 +10,27 @@ li {
   list-style: none;
 }
 :root {
-  --base-color-1: rgb(225, 225, 225);
-  --contrast-color-1: rgb(50, 50, 50);
+  --white-color-data: 250, 250, 250;
+  --white-color: rgb(var(--white-color-data));
+  --black-color-data: 50, 50, 50;
+  --black-color: rgb(var(--black-color-data));
+  --grey-color-data: 130, 130, 130;
+  --grey-color: rgb(var(--grey-color-data));
+  --red-data: 223, 73, 109;
+  --red-color: rgb(var(--red-data));
+  --green-data: 75, 216, 181;
+  --green-color: rgb(var(--green-data));
+  --blue-data: 7, 238, 224;
+  --blue-color: rgb(var(--blue-data));
 }
 body {
   position: relative;
-  font-family: Roboto;
+  font-family: 'Alfa Slab One', cursive;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
-  color: var(--contrast-color-1);
-  background-color: var(--base-color-1);
+  color: var(--black-color);
+  background-color: var(--white-color);
   height: 100%;
 }
 #root {

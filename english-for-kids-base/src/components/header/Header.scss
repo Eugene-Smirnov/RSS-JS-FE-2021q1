@@ -1,0 +1,38 @@
+.header {
+  --game-color-data: var(--green-data);
+  --game-mode-color: rgb(var(--game-color-data));
+  display: flex;
+  height: 4rem;
+
+  align-items: center;
+
+  border-bottom: 2px dashed var(--game-mode-color);
+  background: rgba(var(--game-color-data), $alpha: 0.1);
+}
+
+.game-mode {
+  --game-color-data: var(--red-data);
+}
+
+.heading {
+  margin: 0 auto;
+  font-size: 32px;
+  text-transform: uppercase;
+
+  background: url(../../assets/images/britain-flag.jpg);
+  background-size: cover;
+
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  text-shadow: 0 0 3px rgba(var(--black-color-data), 0.3);
+
+  cursor: default;
+}
+
+@media screen and (max-width: 640px) {
+  .heading {
+    font-size: 18px;
+  }
+}

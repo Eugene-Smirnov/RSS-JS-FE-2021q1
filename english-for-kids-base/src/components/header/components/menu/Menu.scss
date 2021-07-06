@@ -1,0 +1,34 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+
+  width: fit-content;
+  height: 100%;
+  padding-top: 4rem;
+
+  border-right: 2px solid var(--white-color);
+  background: linear-gradient(160deg, var(--game-mode-color), var(--blue-color));
+
+  transform: translateX(0);
+  transition: all 0.2s ease-in-out;
+
+  &_wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(var(--white-color-data), 0.2);
+    transform: translateX(0);
+    transition: all 0s ease-in-out;
+  }
+
+  &__hidden {
+    transform: translateX(-100%);
+    transition-delay: 0.2s;
+  }
+
+  &__hidden > & {
+    transform: translateX(-100%);
+  }
+}

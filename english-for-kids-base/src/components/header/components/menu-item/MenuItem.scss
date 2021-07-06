@@ -1,0 +1,27 @@
+.menu-item {
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  border-bottom: 2px dashed var(--white-color);
+  color: var(--white-color);
+  font-weight: 500;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  text-shadow: 0 0 3px rgba(150, 150, 150, 1);
+
+  &:first-child {
+    border-top: 2px dashed var(--white-color);
+  }
+
+  &:hover {
+    background: rgba(var(--white-color-data), 0.3);
+  }
+
+  &__active {
+    text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
+    background: rgba(var(--blue-data), 0.5);
+    cursor: default;
+    &:hover {
+      background: rgba(var(--blue-data), 0.5);
+    }
+  }
+}
