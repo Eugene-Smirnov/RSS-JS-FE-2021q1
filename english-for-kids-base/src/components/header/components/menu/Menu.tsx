@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, SyntheticEvent, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../../../models/category-model';
@@ -7,9 +7,12 @@ import { AppState } from '../../../../store/reducer';
 import { MenuItem } from '../menu-item/MenuItem';
 import './Menu.scss';
 
-type MenuProps = { isMenuOpen: boolean };
+type MenuProps = {
+  isMenuOpen: boolean;
+  outClick: (e: SyntheticEvent) => void;
+};
 
-export const Menu: FC<MenuProps> = ({ isMenuOpen }: MenuProps) => {
+export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const categories = useSelector<AppState, CategoryModel[]>(({ categories }) => {
@@ -36,7 +39,7 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen }: MenuProps) => {
   );
 
   return (
-    <div className={`menu_wrapper${isMenuOpen ? '' : ' menu__hidden'}`}>
+    <div className={`menu_wrapper${isMenuOpen ? '' : ' menu__hidden'}`} onClick={outClick}>
       <div className="menu">
         {categories.map(category => (
           <MenuItem key={category.name} category={category} onSelect={onSelect} isActive={category.isActive} />

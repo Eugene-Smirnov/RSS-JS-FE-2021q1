@@ -31,7 +31,7 @@
     &:after {
       border: solid 8px var(--game-mode-color);
       content: ' ';
-      z-index: 10;
+      z-index: 2;
       height: 1.5rem;
       width: 3rem;
       position: absolute;
@@ -56,22 +56,39 @@
   margin: 1rem;
   color: var(--green-color);
   transition: all 0.5s ease;
+  cursor: default;
+  text-shadow: 2px 2px 0px var(--white-color);
 }
 
 .mode-switch__active .mode-switch_train {
   color: var(--grey-color);
+  text-shadow: none;
 }
 
 .mode-switch_game {
   margin: 1rem;
   color: var(--grey-color);
   transition: all 0.5s ease;
+  cursor: default;
+  text-shadow: none;
 }
 
 .mode-switch__active .mode-switch_game {
   color: var(--red-color);
+  text-shadow: 2px 2px 0px var(--white-color);
 }
 
 input:checked + .mode-switch_toggle:before {
   left: 2.5rem;
+}
+
+@media screen and (max-width: 670px) {
+  .mode-switch {
+    margin: 1rem;
+  }
+
+  .mode-switch_train,
+  .mode-switch_game {
+    display: none;
+  }
 }

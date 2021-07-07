@@ -14,7 +14,12 @@ export const Header: FC = () => {
 
   return (
     <header className={`header${isGameMode ? ' game-mode' : ''}`}>
-      <Menu isMenuOpen={isMenuOpen} />
+      <Menu
+        isMenuOpen={isMenuOpen}
+        outClick={() => {
+          dispatch(toggleMenu(false));
+        }}
+      />
       <MenuButton
         isMenuOpen={isMenuOpen}
         onClick={() => {
