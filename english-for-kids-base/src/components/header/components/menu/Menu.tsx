@@ -39,12 +39,13 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
   );
 
   return (
-    <div className={`menu_wrapper${isMenuOpen ? '' : ' menu__hidden'}`} onClick={outClick}>
+    <div className={`menu__wrapper${isMenuOpen ? '' : ' menu_hidden'}`}>
       <div className="menu">
         {categories.map(category => (
           <MenuItem key={category.name} category={category} onSelect={onSelect} isActive={category.isActive} />
         ))}
       </div>
+      <div className="menu__out" onClick={outClick} />
     </div>
   );
 };

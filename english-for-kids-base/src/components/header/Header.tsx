@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeGameMode, toggleMenu } from '../../store/actions';
 import { AppState } from '../../store/reducer';
@@ -16,7 +16,8 @@ export const Header: FC = () => {
     <header className={`header${isGameMode ? ' game-mode' : ''}`}>
       <Menu
         isMenuOpen={isMenuOpen}
-        outClick={() => {
+        outClick={(e: SyntheticEvent) => {
+          console.log(e.currentTarget.className);
           dispatch(toggleMenu(false));
         }}
       />
