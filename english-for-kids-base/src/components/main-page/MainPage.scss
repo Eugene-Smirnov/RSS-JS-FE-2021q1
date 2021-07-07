@@ -1,0 +1,19 @@
+.main {
+  --game-color-data: var(--green-data);
+  --game-mode-color: rgb(var(--game-color-data));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-mode {
+  --game-color-data: var(--red-data);
+}
+
+.categories__wrapper {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

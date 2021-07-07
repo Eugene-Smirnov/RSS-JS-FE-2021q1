@@ -1,9 +1,11 @@
 .menu {
+  --menu-width: 12rem;
+
   display: flex;
   flex-direction: column;
   z-index: 3;
 
-  width: 20%;
+  width: 12rem;
   height: 100%;
   padding-top: 4rem;
 
@@ -20,15 +22,14 @@
     width: 100%;
     height: 100vh;
     z-index: 3;
-    background-color: rgba(var(--white-color-data), 0.2);
     transform: translateX(0);
     transition: all 0s ease-in-out;
   }
 
   &__out {
-    width: 80%;
+    width: calc(100% - 12rem);
     height: 100vh;
-    background: rgba(var(--white-color-data), 0.2);
+    background-color: rgba(var(--white-color-data), 0.4);
     filter: blur(5px);
   }
 

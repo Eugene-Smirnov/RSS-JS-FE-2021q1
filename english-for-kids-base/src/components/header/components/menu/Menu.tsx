@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../../../models/category-model';
@@ -9,7 +9,7 @@ import './Menu.scss';
 
 type MenuProps = {
   isMenuOpen: boolean;
-  outClick: (e: SyntheticEvent) => void;
+  outClick: () => void;
 };
 
 export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
@@ -28,6 +28,12 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
       ...categories,
     ];
   });
+
+  // console.log(
+  //   categories.find(cat => {
+  //     return cat.isActive;
+  //   }),
+  // );
 
   const onSelect = useCallback(
     (category: CategoryModel) => {
