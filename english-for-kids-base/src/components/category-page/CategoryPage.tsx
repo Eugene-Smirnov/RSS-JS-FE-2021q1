@@ -6,6 +6,7 @@ import { cardsService } from '../../services/cards-service';
 import { setActiveCategory } from '../../store/actions';
 import { AppState } from '../../store/reducer';
 import { Card } from '../card/card';
+import { ScoreBar } from '../score-bar/ScoreBar';
 import './CategoryPage.scss';
 
 export const CategoryPage: FC = () => {
@@ -23,6 +24,7 @@ export const CategoryPage: FC = () => {
 
   return (
     <main className={`main${isGameMode ? ' game-mode' : ''}`}>
+      <ScoreBar isGameMode={isGameMode} />
       <div className="categories__wrapper">
         {cards.map(card => {
           return <Card key={card.name} card={card} />;

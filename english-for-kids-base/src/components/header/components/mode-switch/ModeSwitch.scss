@@ -14,6 +14,7 @@
   &_wrapper {
     display: flex;
     align-items: center;
+    margin-left: auto;
   }
 
   input {
@@ -82,7 +83,7 @@ input:checked + .mode-switch_toggle:before {
   left: 2.5rem;
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 764px) {
   .mode-switch {
     margin: 1rem;
   }

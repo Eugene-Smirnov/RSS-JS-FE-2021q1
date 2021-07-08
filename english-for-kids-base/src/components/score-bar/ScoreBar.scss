@@ -1,0 +1,127 @@
+.score-bar {
+  --game-color: rgb(var(--game-color-data));
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  top: 0;
+  width: 100%;
+  background-color: rgba(var(--game-color-data), 0.2);
+  border-bottom: 2px dashed var(--game-color);
+
+  transition: 0.1s top 0.3s ease-in-out;
+
+  &__wrapper {
+    position: relative;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    transition: top 0.3s ease-in-out;
+  }
+
+  &_hidden {
+    top: -4rem;
+    transition: 0.1s top 0.3s ease-in-out;
+  }
+
+  &_hidden & {
+    top: -5rem;
+    transition: top 0.3s ease-in-out;
+  }
+
+  &__title,
+  &__button {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    color: var(--game-color);
+    text-shadow: 2px 2px 0 var(--white-color);
+    font-size: 24px;
+  }
+
+  &__title {
+    cursor: default;
+  }
+
+  .score {
+    height: 4rem;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: rgba(var(--game-color-data), 0.2);
+    border-left: 2px dashed var(--game-color);
+    border-right: 2px dashed var(--game-color);
+  }
+}
+
+.game-button {
+  position: relative;
+  top: 0;
+  left: 0;
+  border: 2px solid var(--game-color);
+  border-radius: 5px;
+  background-color: var(--white-color);
+  padding: 0.5rem 1rem;
+
+  font-family: 'Alfa Slab One', cursive;
+  text-transform: capitalize;
+  font-size: 21px;
+  color: var(--game-color);
+
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    top: -2px;
+    left: -2px;
+    box-shadow: 2px 2px 0 var(--grey-color);
+  }
+
+  &:active {
+    top: 0;
+    left: 0;
+    box-shadow: none;
+  }
+
+  &_repeat {
+    display: flex;
+    align-items: center;
+    border-radius: 40%;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+  }
+}
+
+.rotate-icon {
+  width: 2rem;
+  height: 2rem;
+  -webkit-filter: drop-shadow(2px 2px 0px rgba(var(--game-color-data), 0.3));
+  filter: drop-shadow(2px 2px 0px rgba(var(--game-color-data), 0.3));
+}
+
+@media screen and (max-width: 560px) {
+  .score-bar {
+    &__title {
+      display: none;
+    }
+
+    .score {
+      width: 100%;
+      border-left: none;
+    }
+
+    &__button {
+      width: fit-content;
+    }
+  }
+
+  .game-button {
+    margin: 0 1rem;
+  }
+}

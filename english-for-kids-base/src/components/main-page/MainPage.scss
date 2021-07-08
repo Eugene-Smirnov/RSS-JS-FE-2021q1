@@ -5,6 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  min-height: calc(100vh - 4rem - 63px);
+  background: linear-gradient(150deg, rgba(var(--game-color-data), 0.2), rgba(var(--blue-data), 0.2));
 }
 
 .game-mode {

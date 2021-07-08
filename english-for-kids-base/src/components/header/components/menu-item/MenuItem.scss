@@ -18,10 +18,10 @@
 
   &__active {
     text-shadow: 2px 2px 3px rgba(150, 150, 150, 1);
-    background: rgba(var(--blue-data), 0.5);
+    background: rgba(var(--black-color-data), 0.4);
     cursor: default;
     &:hover {
-      background: rgba(var(--blue-data), 0.5);
+      background: rgba(var(--black-color-data), 0.4);
     }
   }
 }

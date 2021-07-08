@@ -435,7 +435,7 @@ export const mockedCards: Map<string, CardModel[]> = new Map([
         name: 'carrot',
         image: '../images/food/carrot.jpg',
         audio: '../audio/food/carrot.mp3',
-        title: 'Сarrot',
+        title: 'Carrot',
         translation: 'Морковь',
       },
       {

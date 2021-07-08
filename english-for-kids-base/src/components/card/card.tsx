@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { CardModel } from '../../models/card-model';
+import { AppState } from '../../store/reducer';
 import './card.scss';
 
 type CardProps = {
@@ -9,6 +11,7 @@ type CardProps = {
 export const Card: FC<CardProps> = ({ card }: CardProps) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
+  const isGameMode = useSelector<AppState, boolean>(({ isGameMode }) => isGameMode);
   const playTitle = () => {
     if (isAudioPlaying) return;
     setIsAudioPlaying(true);
@@ -23,7 +26,11 @@ export const Card: FC<CardProps> = ({ card }: CardProps) => {
   };
 
   return (
-    <div className={`card__wrapper${isFlipped ? ' card__wrapper_flipped' : ''}`} onMouseLeave={onMouseLeave} onClick={playTitle}>
+    <div
+      className={`card__wrapper${isFlipped ? ' card__wrapper_flipped' : ''}`}
+      onMouseLeave={onMouseLeave}
+      onClick={isGameMode ? () => {} : playTitle}
+    >
       <div className="card">
         <div className="card__front">
           <div className="card-image__wrapper">
@@ -31,7 +38,7 @@ export const Card: FC<CardProps> = ({ card }: CardProps) => {
           </div>
           <div className="card__title">
             {card.title}
-            <button className="card__button" onClick={toggleFlip}>
+            <button className="card__button" onClick={isGameMode ? () => {} : toggleFlip}>
               <img className="rotate-icon" src="../icons/rotate.svg" alt="rotate" />
             </button>
           </div>

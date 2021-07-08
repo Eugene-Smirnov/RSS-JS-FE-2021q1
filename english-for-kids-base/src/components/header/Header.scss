@@ -3,8 +3,10 @@
   --game-mode-color: rgb(var(--game-color-data));
   display: flex;
   height: 4rem;
+  position: relative;
 
   align-items: center;
+  justify-content: center;
 
   border-bottom: 2px dashed var(--game-mode-color);
   background: rgba(var(--game-color-data), $alpha: 0.1);
@@ -15,6 +17,7 @@
 }
 
 .heading {
+  position: absolute;
   margin: 0 auto;
   font-size: 32px;
   text-transform: uppercase;
@@ -34,5 +37,11 @@
 @media screen and (max-width: 640px) {
   .heading {
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heading {
+    width: 6rem;
   }
 }
