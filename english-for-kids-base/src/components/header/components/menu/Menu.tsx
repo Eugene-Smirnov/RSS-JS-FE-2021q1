@@ -29,12 +29,6 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
     ];
   });
 
-  // console.log(
-  //   categories.find(cat => {
-  //     return cat.isActive;
-  //   }),
-  // );
-
   const onSelect = useCallback(
     (category: CategoryModel) => {
       history.push(category.name ? `/category/${category.name}` : '/');

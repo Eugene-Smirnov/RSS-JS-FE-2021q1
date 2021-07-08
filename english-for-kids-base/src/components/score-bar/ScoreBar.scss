@@ -51,11 +51,16 @@
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: flex-end;
+    overflow: hidden;
     background-color: rgba(var(--game-color-data), 0.2);
     border-left: 2px dashed var(--game-color);
     border-right: 2px dashed var(--game-color);
   }
+}
+
+.score-points {
+  display: flex;
 }
 
 .game-button {

@@ -5,6 +5,7 @@ import { CategoryModel } from '../models/category-model';
 import {
   addCardIndex,
   addMistake,
+  addScore,
   changeGameMode,
   resetGame,
   setActiveCategory,
@@ -20,10 +21,11 @@ export interface AppState {
   categories: CategoryModel[];
   game: {
     isStarted: boolean;
-    mistakes: number;
     category: CategoryDTO | null;
     cards: CardModel[];
     currentIndex: number;
+    mistakes: number;
+    score: boolean[];
   };
 }
 
@@ -33,10 +35,11 @@ const DEFAULT_STATE: AppState = {
   categories: [],
   game: {
     isStarted: false,
-    mistakes: 0,
     category: null,
     cards: [],
     currentIndex: 0,
+    mistakes: 0,
+    score: [],
   },
 };
 
@@ -93,6 +96,14 @@ export const reducer: Reducer<AppState> = (state = DEFAULT_STATE, action): AppSt
         game: {
           ...state.game,
           currentIndex: state.game.currentIndex + 1,
+        },
+      };
+    case addScore.type:
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          score: [...state.game.score, action.payload as boolean],
         },
       };
     case resetGame.type:

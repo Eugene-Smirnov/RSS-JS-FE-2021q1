@@ -1,8 +1,8 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../models/category-model';
-import { setActiveCategory } from '../../store/actions';
+import { resetGame, setActiveCategory } from '../../store/actions';
 import { AppState } from '../../store/reducer';
 import { Category } from '../category/category';
 import './MainPage.scss';
@@ -19,6 +19,12 @@ export const MainPage: FC = () => {
     },
     [history, dispatch],
   );
+  useEffect(() => {
+    dispatch(() => {
+      setActiveCategory();
+      dispatch(resetGame());
+    });
+  }, [dispatch]);
   return (
     <main className={`main${isGameMode ? ' game-mode' : ''}`}>
       <div className="categories__wrapper">

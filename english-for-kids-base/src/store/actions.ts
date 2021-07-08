@@ -15,10 +15,13 @@ function createAction<T = never>(type: string) {
 
 export const changeGameMode = createAction<boolean>('[HEADER] Change Game Mode');
 export const toggleMenu = createAction<boolean>('[MENU] Toggle Menu');
+
 export const setActiveCategory = createAction<string>('[CATEGORY] Set Active Category');
 export const setCategories = createAction<CategoryDTO[]>('[CATEGORY] Set Categories');
+
 export const setCards = createAction<[CategoryDTO, CardModel[]]>('[GAME] Set Cards');
 export const setIsGameStarted = createAction<boolean>('[GAME] Set isGameStarted');
 export const addMistake = createAction<void>('[GAME] Increment Mistake');
+export const addScore = createAction<boolean>('[GAME] Add boolean score');
 export const addCardIndex = createAction<void>('[GAME] Increment Current Card Index');
 export const resetGame = createAction<void>('[GAME] Reset Game State');

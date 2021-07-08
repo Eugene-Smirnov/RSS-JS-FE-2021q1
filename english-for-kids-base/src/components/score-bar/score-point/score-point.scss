@@ -1,0 +1,17 @@
+.score-point {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5rem;
+}
+
+.score-point__image {
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: drop-shadow(2px 2px 0px rgba(var(--grey-color-data), 0.8));
+  filter: drop-shadow(2px 2px 0px rgba(var(--grey-color-data), 0.8));
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

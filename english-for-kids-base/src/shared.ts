@@ -5,3 +5,11 @@ export function mixArray<T>(arr: T[]): T[] {
   });
   return mixedArr;
 }
+
+export function sumNumbers(...nums: number[]): number {
+  let result = 0;
+  for (let i = 0; i < nums.length; i += 1) {
+    result += nums[i];
+  }
+  return result;
+}
