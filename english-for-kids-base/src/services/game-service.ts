@@ -24,7 +24,7 @@ export class GameService {
   }
 
   static async lose(redirectToMain: () => void): Promise<void> {
-    await GameAudioService.playSuccess();
+    await GameAudioService.playFailure();
     // draw losers pop-up
     setTimeout(redirectToMain, 7000);
   }
