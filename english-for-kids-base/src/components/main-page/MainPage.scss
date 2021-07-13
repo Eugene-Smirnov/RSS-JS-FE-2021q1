@@ -29,3 +29,13 @@
 .scroll-y-none .score-bar__wrapper {
   overflow: initial;
 }
+
+.popup_place {
+  position: absolute;
+}
+
+.scroll-y-none .popup_place {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+}

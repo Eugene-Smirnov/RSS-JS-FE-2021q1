@@ -34,6 +34,7 @@ export const CategoryPage: FC = () => {
           return <Card key={card.name} card={card} />;
         })}
       </div>
+      <div id="popup_place" className="popup_place"></div>
     </main>
   );
 };

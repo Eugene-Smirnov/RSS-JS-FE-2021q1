@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../../../models/category-model';
 import { setActiveCategory, toggleMenu } from '../../../../store/actions';
 import { AppState } from '../../../../store/reducer';
+import { renderLoginPopUp } from '../../../login-pop-up/login-pop-up';
 import { MenuItem } from '../menu-item/MenuItem';
 import './Menu.scss';
 
@@ -38,13 +39,20 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
     [history, dispatch],
   );
 
+  const onSelectLogin = useCallback(() => {
+    renderLoginPopUp();
+    dispatch(toggleMenu(false));
+  }, [dispatch]);
+
   return (
     <div className={`menu__wrapper${isMenuOpen ? '' : ' menu_hidden'}`}>
       <div className="menu">
         {categories.map(category => (
           <MenuItem key={category.name} category={category} onSelect={onSelect} isActive={category.isActive} />
         ))}
-        <a className="menu-item menu-item_admin">Admin panel</a>
+        <a className="menu-item menu-item_admin" onClick={onSelectLogin}>
+          Admin panel
+        </a>
       </div>
       <div className="menu__out" onClick={outClick} />
     </div>

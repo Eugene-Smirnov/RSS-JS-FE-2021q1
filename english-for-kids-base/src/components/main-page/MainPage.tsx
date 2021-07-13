@@ -27,12 +27,13 @@ export const MainPage: FC = () => {
     });
   }, [dispatch]);
   return (
-    <main className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
+    <main id="main" className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
       <div className="categories__wrapper">
         {categories.map(cat => {
           return <Category key={cat.name} category={cat} onSelect={onSelect} />;
         })}
       </div>
+      <div id="popup_place" className="popup_place"></div>
     </main>
   );
 };

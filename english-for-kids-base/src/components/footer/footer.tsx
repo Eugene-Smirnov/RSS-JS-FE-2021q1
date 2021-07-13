@@ -7,7 +7,7 @@ export const Footer: FC = () => {
   const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
 
   return (
-    <footer className={`footer${isMenuOpen ? ' scroll-y-none' : ''}`}>
+    <footer id="footer" className={`footer${isMenuOpen ? ' scroll-y-none' : ''}`}>
       <div className="footer__content">
         <a className="github" href="https://github.com/Eugene-Smirnov" style={{ backgroundImage: 'url(../icons/github.svg)' }}>
           Eugene-Smirnov
