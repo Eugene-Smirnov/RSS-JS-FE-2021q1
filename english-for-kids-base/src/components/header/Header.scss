@@ -3,6 +3,7 @@
   --game-mode-color: rgb(var(--game-color-data));
   display: flex;
   height: 4rem;
+  box-sizing: border-box;
   position: relative;
 
   align-items: center;

@@ -11,6 +11,7 @@ export const MainPage: FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const isGameMode = useSelector<AppState, boolean>(({ isGameMode }) => isGameMode);
+  const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
   const categories = useSelector<AppState, CategoryModel[]>(({ categories }) => categories);
   const onSelect = useCallback(
     (category: CategoryModel) => {
@@ -26,7 +27,7 @@ export const MainPage: FC = () => {
     });
   }, [dispatch]);
   return (
-    <main className={`main${isGameMode ? ' game-mode' : ''}`}>
+    <main className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
       <div className="categories__wrapper">
         {categories.map(cat => {
           return <Category key={cat.name} category={cat} onSelect={onSelect} />;

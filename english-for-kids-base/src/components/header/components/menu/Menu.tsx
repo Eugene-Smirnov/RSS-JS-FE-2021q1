@@ -44,6 +44,7 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
         {categories.map(category => (
           <MenuItem key={category.name} category={category} onSelect={onSelect} isActive={category.isActive} />
         ))}
+        <a className="menu-item menu-item_admin">Admin panel</a>
       </div>
       <div className="menu__out" onClick={outClick} />
     </div>

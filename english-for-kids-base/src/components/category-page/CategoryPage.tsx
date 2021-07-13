@@ -13,6 +13,7 @@ import './CategoryPage.scss';
 export const CategoryPage: FC = () => {
   const dispatch = useDispatch();
   const isGameMode = useSelector<AppState, boolean>(({ isGameMode }) => isGameMode);
+  const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
   const categoryName = useParams<{ name: string }>().name;
   const [cards, setCards] = useState<CardModel[]>([]);
 
@@ -26,7 +27,7 @@ export const CategoryPage: FC = () => {
   });
 
   return (
-    <main id="main" className={`main${isGameMode ? ' game-mode' : ''}`}>
+    <main id="main" className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
       <ScoreBar isGameMode={isGameMode} categoryName={categoryName} />
       <div className="categories__wrapper">
         {cards.map(card => {

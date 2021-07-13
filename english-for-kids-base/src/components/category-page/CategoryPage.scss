@@ -20,3 +20,8 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.scroll-y-none {
+  overflow: hidden;
+  height: calc(100vh - 4rem);
+}

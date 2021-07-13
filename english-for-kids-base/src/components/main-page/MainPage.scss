@@ -4,7 +4,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   min-height: calc(100vh - 4rem - 63px);
   background: linear-gradient(150deg, rgba(var(--game-color-data), 0.2), rgba(var(--blue-data), 0.2));
@@ -19,4 +19,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.scroll-y-none {
+  overflow: hidden;
+  height: calc(100vh - 4rem);
+}
+
+.scroll-y-none .score-bar__wrapper {
+  overflow: initial;
 }

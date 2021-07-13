@@ -6,8 +6,9 @@
   z-index: 3;
 
   width: 12rem;
-  height: 100%;
-  padding-top: 4rem;
+  min-height: fit-content;
+  overflow-y: scroll;
+  padding-top: calc(4rem - 2px);
 
   border-right: 2px solid var(--white-color);
   background: linear-gradient(160deg, var(--game-mode-color), var(--blue-color));
@@ -15,8 +16,19 @@
   transform: translateX(0);
   transition: all 0.2s ease-in-out;
 
+  // hide scroll bar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  //
+
   &__wrapper {
-    position: fixed;
+    position: absolute;
     display: flex;
     top: 0;
     width: 100%;
@@ -24,13 +36,12 @@
     z-index: 3;
     transform: translateX(0);
     transition: all 0s ease-in-out;
+    background-color: rgba(var(--white-color-data), 0.4);
   }
 
   &__out {
     width: calc(100% - 12rem);
     height: 100vh;
-    background-color: rgba(var(--white-color-data), 0.4);
-    filter: blur(5px);
   }
 
   &_hidden {
@@ -40,5 +51,17 @@
 
   &_hidden > & {
     transform: translateX(-100%);
+  }
+}
+
+.menu-item_admin {
+  color: var(--black-color);
+  margin-top: auto;
+  background-color: rgba(var(--white-color-data), 1);
+  border-bottom: none;
+  text-shadow: 2px 2px 3px rgba(var(--game-color-data), 1);
+
+  &:hover {
+    background-color: rgba(var(--white-color-data), 0.8);
   }
 }
