@@ -23,6 +23,38 @@
 
     cursor: default;
   }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid var(--red-color);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    margin: 1rem;
+    padding: 0.25rem 0.5rem;
+
+    font-family: 'Alfa Slab One', cursive;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: var(--red-color);
+
+    cursor: pointer;
+
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      top: -2px;
+      right: 2px;
+      box-shadow: 2px 2px 0 var(--grey-color);
+    }
+
+    &:active {
+      top: 0;
+      right: 0;
+      box-shadow: none;
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {
