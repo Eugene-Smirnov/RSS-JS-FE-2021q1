@@ -1,10 +1,12 @@
 import { FC, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
+import { authService } from '../../../services/auth-service';
 import './admin-header.scss';
 
 export const AdminHeader: FC = () => {
   const history = useHistory();
   const onLogOut = useCallback(() => {
+    authService.logout();
     history.push('/');
   }, [history]);
   return (

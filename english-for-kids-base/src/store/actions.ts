@@ -26,4 +26,6 @@ export const addScore = createAction<boolean>('[GAME] Add boolean score');
 export const addCardIndex = createAction<void>('[GAME] Increment Current Card Index');
 export const resetGame = createAction<void>('[GAME] Reset Game State');
 
+export const toggleIsLoginPopupDisplayed = createAction<void>('[MENU] Toggle Login PopUp Dispaying');
+
 export const setAdminActiveCategory = createAction<CategoryDTO | null>('[ADMIN] Set Active Admin Category');

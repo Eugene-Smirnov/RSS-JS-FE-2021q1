@@ -13,6 +13,7 @@ import {
   setCards,
   setCategories,
   setIsGameStarted,
+  toggleIsLoginPopupDisplayed,
   toggleMenu,
 } from './actions';
 
@@ -28,6 +29,7 @@ export interface AppState {
     mistakes: number;
     score: boolean[];
   };
+  isLoginPopupDisplayed: boolean;
   admin: {
     updatingCategory: CategoryDTO | null;
   };
@@ -45,6 +47,7 @@ const DEFAULT_STATE: AppState = {
     mistakes: 0,
     score: [],
   },
+  isLoginPopupDisplayed: false,
   admin: {
     updatingCategory: null,
   },
@@ -117,6 +120,11 @@ export const reducer: Reducer<AppState> = (state = DEFAULT_STATE, action): AppSt
       return {
         ...state,
         game: { ...DEFAULT_STATE.game },
+      };
+    case toggleIsLoginPopupDisplayed.type:
+      return {
+        ...state,
+        isLoginPopupDisplayed: !state.isLoginPopupDisplayed,
       };
     case setAdminActiveCategory.type:
       return {

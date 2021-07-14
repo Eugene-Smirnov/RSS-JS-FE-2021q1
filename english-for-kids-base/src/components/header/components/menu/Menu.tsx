@@ -2,9 +2,8 @@ import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../../../models/category-model';
-import { setActiveCategory, toggleMenu } from '../../../../store/actions';
+import { setActiveCategory, toggleIsLoginPopupDisplayed, toggleMenu } from '../../../../store/actions';
 import { AppState } from '../../../../store/reducer';
-import { renderLoginPopUp } from '../../../login-pop-up/login-pop-up';
 import { MenuItem } from '../menu-item/MenuItem';
 import './Menu.scss';
 
@@ -40,7 +39,7 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
   );
 
   const onSelectLogin = useCallback(() => {
-    renderLoginPopUp();
+    dispatch(toggleIsLoginPopupDisplayed());
     dispatch(toggleMenu(false));
   }, [dispatch]);
 

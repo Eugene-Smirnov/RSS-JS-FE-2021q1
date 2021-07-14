@@ -1,9 +1,13 @@
 import { FC, SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { useHistory } from 'react-router-dom';
 import { authService } from '../../services/auth-service';
 import './login-pop-up.scss';
 
 export const LoginPopUp: FC = () => {
+  const history = useHistory();
+  const [isErrorCaught, setIsErrorCaught] = useState(false);
+
   const outClick = (e: SyntheticEvent<HTMLDivElement>): void => {
     const target = e.target as HTMLDivElement;
     if (target.closest('.login-form__wrapper')) return;
@@ -26,9 +30,15 @@ export const LoginPopUp: FC = () => {
     setPassword(e.currentTarget.value);
   }, []);
 
-  const onSubmit = useCallback(() => {
-    authService.login(login, password);
-  }, [login, password]);
+  const onSubmit = useCallback(async () => {
+    const response = await authService.login(login, password);
+    if (!response?.token) {
+      setIsErrorCaught(true);
+      return;
+    }
+    history.push('/admin');
+    setIsErrorCaught(false);
+  }, [login, password, history]);
 
   // TODO: replace without using classList
 
@@ -61,16 +71,11 @@ export const LoginPopUp: FC = () => {
           value={password}
           onChange={onPasswordChange}
         />
+        {isErrorCaught ? <p className="login-form__error-message">Incorrect login or password</p> : ''}
         <button className="login-form__button" onClick={onSubmit}>
           log in
         </button>
       </div>
     </div>
   );
-};
-
-export const renderLoginPopUp = (): void => {
-  setTimeout(() => {
-    ReactDOM.render(<LoginPopUp />, document.getElementById('popup_place'));
-  }, 0);
 };

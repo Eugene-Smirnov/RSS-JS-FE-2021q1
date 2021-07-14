@@ -78,6 +78,11 @@
       box-shadow: none;
     }
   }
+  &__error-message {
+    width: 15rem;
+    height: 2.5rem;
+    color: var(--red-color);
+  }
 }
 
 .scroll-y-none {

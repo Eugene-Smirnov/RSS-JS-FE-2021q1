@@ -5,6 +5,7 @@ import { CategoryModel } from '../../models/category-model';
 import { resetGame, setActiveCategory } from '../../store/actions';
 import { AppState } from '../../store/reducer';
 import { Category } from '../category/category';
+import { LoginPopUp } from '../login-pop-up/login-pop-up';
 import './MainPage.scss';
 
 export const MainPage: FC = () => {
@@ -12,7 +13,9 @@ export const MainPage: FC = () => {
   const dispatch = useDispatch();
   const isGameMode = useSelector<AppState, boolean>(({ isGameMode }) => isGameMode);
   const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
+  const isLoginPopupDisplayed = useSelector<AppState, boolean>(({ isLoginPopupDisplayed }) => isLoginPopupDisplayed);
   const categories = useSelector<AppState, CategoryModel[]>(({ categories }) => categories);
+
   const onSelect = useCallback(
     (category: CategoryModel) => {
       history.push(category.name ? `/category/${category.name}` : '/');
@@ -20,12 +23,14 @@ export const MainPage: FC = () => {
     },
     [history, dispatch],
   );
+
   useEffect(() => {
     dispatch(() => {
       setActiveCategory();
       dispatch(resetGame());
     });
   }, [dispatch]);
+
   return (
     <main id="main" className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
       <div className="categories__wrapper">
@@ -33,7 +38,9 @@ export const MainPage: FC = () => {
           return <Category key={cat.name} category={cat} onSelect={onSelect} />;
         })}
       </div>
-      <div id="popup_place" className="popup_place"></div>
+      <div id="popup_place" className="popup_place">
+        {isLoginPopupDisplayed ? <LoginPopUp /> : ''}
+      </div>
     </main>
   );
 };
