@@ -14,3 +14,23 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.admin-category {
+  &-add {
+    color: var(--yellow-color);
+    justify-content: center;
+    text-transform: capitalize;
+    font-size: 24px;
+    text-shadow: 2px 2px 0 var(--black-color);
+    transition: text-shadow 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+
+    &__plus {
+      font-size: 140px;
+    }
+
+    &:hover {
+      text-shadow: none;
+    }
+  }
+}

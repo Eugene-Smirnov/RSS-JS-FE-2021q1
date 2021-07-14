@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CategoryDTO } from '../../../dto/category';
+import { CategoryDTO, emptyCategory } from '../../../dto/category';
 import { categoryService } from '../../../services/category-service';
 import { setAdminActiveCategory } from '../../../store/actions';
 import { AppState } from '../../../store/reducer';
@@ -29,6 +29,12 @@ export const AdminMainPage: FC = () => {
     [dispatch],
   );
 
+  const onCreate = useCallback(async () => {
+    const newCategory = await categoryService.create(emptyCategory);
+    dispatch(loadCategories());
+    dispatch(setAdminActiveCategory(newCategory));
+  }, [dispatch]);
+
   return (
     <main id="main" className="admin-main">
       <div className="admin-categories__wrapper">
@@ -37,6 +43,10 @@ export const AdminMainPage: FC = () => {
             return <AdminCategoryEdit key={cat.name} category={cat} onSelect={() => {}} onDelete={onDelete} />;
           return <AdminCategory key={cat.name} category={cat} onSelect={onSelect} onDelete={onDelete} />;
         })}
+        <div className="admin-category admin-category-add" onClick={onCreate}>
+          <p className="admin-category-add__plus">+</p>
+          <p>add new category</p>
+        </div>
       </div>
     </main>
   );

@@ -6,7 +6,7 @@ export interface CategoryDTO {
 }
 
 export const emptyCategory: CategoryDTO = {
-  name: '',
+  name: Date.now().toString(),
   image: '',
   title: Date.now().toString(),
 };

@@ -9,6 +9,19 @@ export const categoryService = {
     return data;
   },
 
+  async create({ name, title, image }: CategoryDTO): Promise<CategoryDTO> {
+    const response = await fetch(CATEGORIES_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem(LOCALSTORAGE_TOKEN_NAME)}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, title, image }),
+    });
+    const category: CategoryDTO = await response.json();
+    return category;
+  },
+
   async update(updatedCategory: CategoryDTO): Promise<CategoryDTO> {
     const response = await fetch(`${CATEGORIES_URL}/${updatedCategory.id}`, {
       method: 'PUT',

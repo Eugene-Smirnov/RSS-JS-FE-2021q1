@@ -22,7 +22,10 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
   const [cards, setCards] = useState<CardModel[]>([]);
 
   useEffect(() => {
-    cardsService.getCards(category.name).then(categoryCards => setCards(categoryCards));
+    cardsService
+      .getCards(category.name)
+      .then(categoryCards => setCards(categoryCards))
+      .catch(() => {});
   });
 
   const onClick = useCallback(() => {

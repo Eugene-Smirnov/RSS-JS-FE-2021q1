@@ -13,7 +13,10 @@ type AdminCategoryProps = {
 export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onDelete }: AdminCategoryProps) => {
   const [cards, setCards] = useState<CardModel[]>([]);
   useEffect(() => {
-    cardsService.getCards(category.name).then(categoryCards => setCards(categoryCards));
+    cardsService
+      .getCards(category.name)
+      .then(categoryCards => setCards(categoryCards))
+      .catch(() => {});
   });
 
   const onUpdateClick = useCallback(() => {
