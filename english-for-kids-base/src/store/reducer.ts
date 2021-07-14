@@ -9,6 +9,7 @@ import {
   changeGameMode,
   resetGame,
   setActiveCategory,
+  setAdminActiveCategory,
   setCards,
   setCategories,
   setIsGameStarted,
@@ -27,6 +28,9 @@ export interface AppState {
     mistakes: number;
     score: boolean[];
   };
+  admin: {
+    updatingCategory: CategoryDTO | null;
+  };
 }
 
 const DEFAULT_STATE: AppState = {
@@ -40,6 +44,9 @@ const DEFAULT_STATE: AppState = {
     currentIndex: 0,
     mistakes: 0,
     score: [],
+  },
+  admin: {
+    updatingCategory: null,
   },
 };
 
@@ -110,6 +117,14 @@ export const reducer: Reducer<AppState> = (state = DEFAULT_STATE, action): AppSt
       return {
         ...state,
         game: { ...DEFAULT_STATE.game },
+      };
+    case setAdminActiveCategory.type:
+      return {
+        ...state,
+        admin: {
+          ...state.game,
+          updatingCategory: action.payload as CategoryDTO,
+        },
       };
     default:
       return state;

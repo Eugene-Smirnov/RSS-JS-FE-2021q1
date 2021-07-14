@@ -7,9 +7,10 @@ import './admin-category.scss';
 type AdminCategoryProps = {
   category: CategoryDTO;
   onSelect: (category: CategoryDTO) => void;
+  onDelete: (category: CategoryDTO) => void;
 };
 
-export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect }: AdminCategoryProps) => {
+export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onDelete }: AdminCategoryProps) => {
   const [cards, setCards] = useState<CardModel[]>([]);
   useEffect(() => {
     cardsService.getCards(category.name).then(categoryCards => setCards(categoryCards));
@@ -19,10 +20,14 @@ export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect }: Ad
     onSelect(category);
   }, [onSelect, category]);
 
+  const onDeleteClick = useCallback(() => {
+    onDelete(category);
+  }, [category, onDelete]);
+
   return (
     <div className="admin-category">
       <div className="admin-category-image__wrapper">
-        <div className="admin-category__delete">
+        <div className="admin-category__delete" onClick={onDeleteClick}>
           <span className="admin-category__delete-span" />
           <span className="admin-category__delete-span" />
         </div>

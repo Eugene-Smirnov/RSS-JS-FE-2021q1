@@ -1,19 +1,25 @@
 import { FC, SyntheticEvent, useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CategoryDTO } from '../../../dto/category';
 import { CardModel } from '../../../models/card-model';
 import { cardsService } from '../../../services/cards-service';
 import { categoryService } from '../../../services/category-service';
+import { setAdminActiveCategory } from '../../../store/actions';
+import { AppState } from '../../../store/reducer';
+import { loadCategories } from '../../../store/thunks';
 import './admin-category.scss';
 
 type AdminCategoryEditProps = {
   category: CategoryDTO;
   onSelect: (category: CategoryDTO) => void;
+  onDelete: (category: CategoryDTO) => void;
 };
 
-export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSelect }: AdminCategoryEditProps) => {
+export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSelect, onDelete }: AdminCategoryEditProps) => {
+  const dispatch = useDispatch();
+  const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
+
   const [cards, setCards] = useState<CardModel[]>([]);
-  const [nameInputValue, setNameInputValue] = useState<string>(category.title);
-  const [thisCategory, setThisCategory] = useState<CategoryDTO>(category);
 
   useEffect(() => {
     cardsService.getCards(category.name).then(categoryCards => setCards(categoryCards));
@@ -23,9 +29,16 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
     return onSelect(category);
   }, [onSelect, category]);
 
-  const onNameChange = (e: SyntheticEvent<HTMLInputElement>) => {
-    setNameInputValue(e.currentTarget.value);
-  };
+  const onTitleChange = useCallback(
+    (e: SyntheticEvent<HTMLInputElement>) => {
+      if (!updatingCategory) {
+        dispatch(setAdminActiveCategory(null));
+        return;
+      }
+      dispatch(setAdminActiveCategory({ ...updatingCategory, title: e.currentTarget.value }));
+    },
+    [updatingCategory, dispatch],
+  );
 
   const onImageChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const { files } = e.currentTarget;
@@ -34,27 +47,45 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
       const data = reader.result || '';
-      setThisCategory({ ...thisCategory, image: data.toString() });
+      if (!updatingCategory) {
+        dispatch(setAdminActiveCategory(null));
+        return;
+      }
+      dispatch(setAdminActiveCategory({ ...updatingCategory, image: data.toString() }));
     };
   };
 
-  const onSubmit = useCallback(() => {
-    categoryService.update(thisCategory);
-  }, [thisCategory]);
+  const onDeleteClick = useCallback(() => {
+    dispatch(setAdminActiveCategory(null));
+    onDelete(category);
+  }, [category, onDelete, dispatch]);
+
+  const onSubmit = useCallback(async () => {
+    if (!updatingCategory) return;
+    await categoryService.update(updatingCategory);
+    dispatch(loadCategories());
+    dispatch(setAdminActiveCategory(null));
+  }, [updatingCategory, dispatch]);
+
+  const onCancel = useCallback(async () => {
+    if (!updatingCategory) return;
+    dispatch(loadCategories());
+    dispatch(setAdminActiveCategory(null));
+  }, [updatingCategory, dispatch]);
 
   return (
     <div className="admin-category admin-category_edit" onClick={onClick}>
       <div className="admin-category-image__wrapper">
-        <div className="admin-category__delete">
+        <div className="admin-category__delete" onClick={onDeleteClick}>
           <span className="admin-category__delete-span" />
           <span className="admin-category__delete-span" />
         </div>
         <div className="admin-category__title">
-          <input type="text" placeholder="Category Name" value={nameInputValue} onChange={onNameChange}></input>
+          <input type="text" placeholder="Category Title" value={updatingCategory?.title} onChange={onTitleChange}></input>
           <p>{`Words: ${cards.length}`}</p>
         </div>
         <label className="admin-category-image-input__label" htmlFor="category-image-input">
-          <div className="admin-category-image" style={{ backgroundImage: `url(${thisCategory.image})` }} />
+          <div className="admin-category-image" style={{ backgroundImage: `url(${updatingCategory?.image})` }} />
         </label>
         <input
           className="admin-category-image-input"
@@ -65,7 +96,7 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
         />
       </div>
       <div className="admin-category__buttons">
-        <button className="admin-category__button admin-category__button_cancel" id="category-update-cancel">
+        <button className="admin-category__button admin-category__button_cancel" id="category-update-cancel" onClick={onCancel}>
           cancel
         </button>
         <button className="admin-category__button admin-category__button_submit" id="category-update-submit" onClick={onSubmit}>

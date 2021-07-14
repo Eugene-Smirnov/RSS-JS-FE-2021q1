@@ -25,3 +25,5 @@ export const addMistake = createAction<void>('[GAME] Increment Mistake');
 export const addScore = createAction<boolean>('[GAME] Add boolean score');
 export const addCardIndex = createAction<void>('[GAME] Increment Current Card Index');
 export const resetGame = createAction<void>('[GAME] Reset Game State');
+
+export const setAdminActiveCategory = createAction<CategoryDTO | null>('[ADMIN] Set Active Admin Category');
