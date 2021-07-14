@@ -12,9 +12,9 @@ type EndGamePopUpProps = {
 
 export const EndGamePopUp: FC<EndGamePopUpProps> = ({ win, mistakes }: EndGamePopUpProps) => {
   return (
-    <div className="pop-up__wrapper">
-      <div className="pop-up" style={{ backgroundImage: `url(${win ? WIN_IMAGE_PATH : LOSE_IMAGE_PATH})` }} />
-      <p className="pop-up__message">{`You ${win ? 'won' : 'played'} with ${mistakes} mistakes!`}</p>
+    <div className="endgame-pop-up__wrapper">
+      <div className="endgame-pop-up" style={{ backgroundImage: `url(${win ? WIN_IMAGE_PATH : LOSE_IMAGE_PATH})` }} />
+      <p className="endgame-pop-up__message">{`You ${win ? 'won' : 'played'} with ${mistakes} mistakes!`}</p>
     </div>
   );
 };

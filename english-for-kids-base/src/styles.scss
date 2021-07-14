@@ -22,6 +22,9 @@ li {
   --green-color: rgb(var(--green-data));
   --blue-data: 7, 238, 224;
   --blue-color: rgb(var(--blue-data));
+
+  --yellow-data: 220, 201, 75;
+  --yellow-color: rgb(var(--yellow-data));
 }
 body {
   position: relative;

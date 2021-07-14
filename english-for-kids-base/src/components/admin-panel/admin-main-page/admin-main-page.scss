@@ -1,0 +1,16 @@
+.admin-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  min-height: calc(100vh - 4rem);
+  background: linear-gradient(150deg, rgba(var(--yellow-data), 0.2), rgba(var(--red-data), 0.2));
+}
+
+.admin-categories__wrapper {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
