@@ -5,6 +5,7 @@ import { CategoryPage } from './components/category-page/CategoryPage';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/Header';
 import { MainPage } from './components/main-page/MainPage';
+import { RedirectionPage } from './components/redirection-page/redirection-page';
 import { loadCategories } from './store/thunks';
 
 export const BaseApp: FC = () => {
@@ -19,6 +20,7 @@ export const BaseApp: FC = () => {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/category/:name" component={CategoryPage} />
+        <Route path="/redirect" component={RedirectionPage} />
       </Switch>
       <Footer />
     </>

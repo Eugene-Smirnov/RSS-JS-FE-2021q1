@@ -28,4 +28,5 @@ export const resetGame = createAction<void>('[GAME] Reset Game State');
 
 export const toggleIsLoginPopupDisplayed = createAction<void>('[MENU] Toggle Login PopUp Dispaying');
 
+export const toggleIsAdminLogged = createAction<boolean>('[ADMIN] Toggle Is Admin Logged');
 export const setAdminActiveCategory = createAction<CategoryDTO | null>('[ADMIN] Set Active Admin Category');

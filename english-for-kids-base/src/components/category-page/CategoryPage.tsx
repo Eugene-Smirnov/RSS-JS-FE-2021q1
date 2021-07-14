@@ -6,6 +6,7 @@ import { cardsService } from '../../services/cards-service';
 import { resetGame, setActiveCategory } from '../../store/actions';
 import { AppState } from '../../store/reducer';
 import { Card } from '../card/card';
+import { LoginPopUp } from '../login-pop-up/login-pop-up';
 import { renderScorePoint } from '../score-bar/score-point/score-point';
 import { ScoreBar } from '../score-bar/ScoreBar';
 import './CategoryPage.scss';
@@ -14,6 +15,7 @@ export const CategoryPage: FC = () => {
   const dispatch = useDispatch();
   const isGameMode = useSelector<AppState, boolean>(({ isGameMode }) => isGameMode);
   const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
+  const isLoginPopupDisplayed = useSelector<AppState, boolean>(({ isLoginPopupDisplayed }) => isLoginPopupDisplayed);
   const categoryName = useParams<{ name: string }>().name;
   const [cards, setCards] = useState<CardModel[]>([]);
 
@@ -34,7 +36,9 @@ export const CategoryPage: FC = () => {
           return <Card key={card.name} card={card} />;
         })}
       </div>
-      <div id="popup_place" className="popup_place"></div>
+      <div id="popup_place" className="popup_place">
+        {isLoginPopupDisplayed ? <LoginPopUp /> : ''}
+      </div>
     </main>
   );
 };

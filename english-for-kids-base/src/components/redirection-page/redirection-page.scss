@@ -1,0 +1,17 @@
+.redirection-main {
+  justify-content: center;
+}
+
+.redirection-message {
+  &__wrapper {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  max-width: 300px;
+  text-align: center;
+  color: var(--game-mode-color);
+  text-shadow: 0 0 2px var(--white-color);
+}

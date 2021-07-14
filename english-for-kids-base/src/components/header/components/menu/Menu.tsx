@@ -2,6 +2,7 @@ import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CategoryModel } from '../../../../models/category-model';
+import { LOCALSTORAGE_TOKEN_NAME } from '../../../../services/auth-service';
 import { setActiveCategory, toggleIsLoginPopupDisplayed, toggleMenu } from '../../../../store/actions';
 import { AppState } from '../../../../store/reducer';
 import { MenuItem } from '../menu-item/MenuItem';
@@ -39,9 +40,13 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
   );
 
   const onSelectLogin = useCallback(() => {
+    if (window.localStorage.getItem(LOCALSTORAGE_TOKEN_NAME)) {
+      history.push('/admin');
+      return;
+    }
     dispatch(toggleIsLoginPopupDisplayed());
     dispatch(toggleMenu(false));
-  }, [dispatch]);
+  }, [dispatch, history]);
 
   return (
     <div className={`menu__wrapper${isMenuOpen ? '' : ' menu_hidden'}`}>

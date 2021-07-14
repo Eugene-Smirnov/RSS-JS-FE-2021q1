@@ -13,6 +13,7 @@ import {
   setCards,
   setCategories,
   setIsGameStarted,
+  toggleIsAdminLogged,
   toggleIsLoginPopupDisplayed,
   toggleMenu,
 } from './actions';
@@ -31,6 +32,7 @@ export interface AppState {
   };
   isLoginPopupDisplayed: boolean;
   admin: {
+    isLogged: boolean;
     updatingCategory: CategoryDTO | null;
   };
 }
@@ -49,6 +51,7 @@ const DEFAULT_STATE: AppState = {
   },
   isLoginPopupDisplayed: false,
   admin: {
+    isLogged: false,
     updatingCategory: null,
   },
 };
@@ -126,11 +129,19 @@ export const reducer: Reducer<AppState> = (state = DEFAULT_STATE, action): AppSt
         ...state,
         isLoginPopupDisplayed: !state.isLoginPopupDisplayed,
       };
+    case toggleIsAdminLogged.type:
+      return {
+        ...state,
+        admin: {
+          ...state.admin,
+          isLogged: action.payload as boolean,
+        },
+      };
     case setAdminActiveCategory.type:
       return {
         ...state,
         admin: {
-          ...state.game,
+          ...state.admin,
           updatingCategory: action.payload as CategoryDTO,
         },
       };

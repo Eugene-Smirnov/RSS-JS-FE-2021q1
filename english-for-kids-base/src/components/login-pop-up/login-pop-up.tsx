@@ -1,10 +1,12 @@
 import { FC, SyntheticEvent, useCallback, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { authService } from '../../services/auth-service';
+import { toggleIsAdminLogged, toggleIsLoginPopupDisplayed } from '../../store/actions';
 import './login-pop-up.scss';
 
 export const LoginPopUp: FC = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [isErrorCaught, setIsErrorCaught] = useState(false);
 
@@ -18,7 +20,7 @@ export const LoginPopUp: FC = () => {
     main?.classList.remove('scroll-y-none');
     footer?.classList.add('scroll-y-none');
 
-    ReactDOM.unmountComponentAtNode(popUp);
+    dispatch(toggleIsLoginPopupDisplayed());
   };
 
   const [login, setLogin] = useState('');
@@ -36,9 +38,11 @@ export const LoginPopUp: FC = () => {
       setIsErrorCaught(true);
       return;
     }
-    history.push('/admin');
+    dispatch(toggleIsAdminLogged(true));
     setIsErrorCaught(false);
-  }, [login, password, history]);
+    dispatch(toggleIsLoginPopupDisplayed());
+    history.push('/admin');
+  }, [login, password, history, dispatch]);
 
   // TODO: replace without using classList
 
