@@ -5,10 +5,12 @@ import { json } from 'body-parser';
 import { router } from './routes/router';
 import { BaseError } from './errors/base-error';
 import { strategy } from './auth/strategy';
+import cors from 'cors';
 
 const server = createServer();
 
 passport.use(strategy);
+server.use(cors());
 server.use(json());
 server.use('/api', router);
 
