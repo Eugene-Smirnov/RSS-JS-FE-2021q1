@@ -2,6 +2,7 @@ import { FC, SyntheticEvent, useCallback, useEffect, useState } from 'react';
 import { CategoryDTO } from '../../../dto/category';
 import { CardModel } from '../../../models/card-model';
 import { cardsService } from '../../../services/cards-service';
+import { categoryService } from '../../../services/category-service';
 import './admin-category.scss';
 
 type AdminCategoryEditProps = {
@@ -37,6 +38,10 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
     };
   };
 
+  const onSubmit = useCallback(() => {
+    categoryService.update(thisCategory);
+  }, [thisCategory]);
+
   return (
     <div className="admin-category admin-category_edit" onClick={onClick}>
       <div className="admin-category-image__wrapper">
@@ -63,7 +68,7 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
         <button className="admin-category__button admin-category__button_cancel" id="category-update-cancel">
           cancel
         </button>
-        <button className="admin-category__button admin-category__button_submit" id="category-update-submit">
+        <button className="admin-category__button admin-category__button_submit" id="category-update-submit" onClick={onSubmit}>
           submit
         </button>
       </div>

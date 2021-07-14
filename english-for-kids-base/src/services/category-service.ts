@@ -1,52 +1,30 @@
 import { CategoryDTO } from '../dto/category';
+import { CATEGORIES_URL } from './server-specs';
 
-class CategoryService {
-  private readonly mockedCategories: CategoryDTO[] = [
-    {
-      name: 'animal-a',
-      image: '../images/animal-a/cover.jpg',
-      title: 'Animal (set A)',
-    },
-    {
-      name: 'animal-b',
-      image: '../images/animal-b/cover.jpg',
-      title: 'Animal (set B)',
-    },
-    {
-      name: 'animal-c',
-      image: '../images/animal-c/cover.jpg',
-      title: 'Animal (set C)',
-    },
-    {
-      name: 'food',
-      image: '../images/food/cover.jpg',
-      title: 'Food',
-    },
-    {
-      name: 'action-a',
-      image: '../images/action-a/cover.jpg',
-      title: 'Action (set A)',
-    },
-    {
-      name: 'action-b',
-      image: '../images/action-b/cover.jpg',
-      title: 'Action (set B)',
-    },
-    {
-      name: 'clothes',
-      image: '../images/clothes/cover.jpg',
-      title: 'Clothes',
-    },
-    {
-      name: 'emotions',
-      image: '../images/emotions/cover.jpg',
-      title: 'Emotions',
-    },
-  ];
+export const categoryService = {
+  async getCategories(): Promise<CategoryDTO[]> {
+    const response = await fetch(CATEGORIES_URL);
+    const data: CategoryDTO[] = await response.json();
+    return data;
+  },
 
-  getCategories(): Promise<CategoryDTO[]> {
-    return Promise.resolve(this.mockedCategories);
-  }
-}
+  async update(updatedCategory: CategoryDTO): Promise<CategoryDTO> {
+    const response = await fetch(`${CATEGORIES_URL}/${updatedCategory.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedCategory),
+    });
+    const category: CategoryDTO = await response.json();
+    return category;
+  },
 
-export const categoryService = new CategoryService();
+  async remove(category: CategoryDTO): Promise<CategoryDTO> {
+    const response = await fetch(`${CATEGORIES_URL}/${category.id}`, {
+      method: 'DELETE',
+    });
+    const deletedCategory: CategoryDTO = await response.json();
+    return deletedCategory;
+  },
+};
