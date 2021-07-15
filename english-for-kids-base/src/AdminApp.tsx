@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { AdminCategoryPage } from './components/admin-panel/admin-category-page/admin-category-page';
 import { AdminHeader } from './components/admin-panel/admin-header/admin-header';
 import { AdminMainPage } from './components/admin-panel/admin-main-page/admin-main-page';
 import { loadCategories } from './store/thunks';
@@ -16,7 +17,7 @@ export const AdminApp: FC = () => {
       <AdminHeader />
       <Switch>
         <Route exact path="/admin" component={AdminMainPage} />
-        {/* <Route exact path="/admin/category/:name" component={AdminCategoryPage} /> */}
+        <Route exact path="/admin/category/:name" component={AdminCategoryPage} />
         <Redirect from="/admin/*" to="/admin" />
       </Switch>
     </>

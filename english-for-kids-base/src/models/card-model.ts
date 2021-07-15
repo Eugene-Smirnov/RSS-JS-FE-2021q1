@@ -1,7 +1,7 @@
 export interface CardModel {
   name: string;
-  audio: string;
-  image: string;
   title: string;
+  image: string;
+  audio: string;
   translation: string;
 }

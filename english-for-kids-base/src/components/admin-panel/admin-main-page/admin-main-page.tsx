@@ -1,5 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { CategoryDTO, emptyCategory } from '../../../dto/category';
 import { categoryService } from '../../../services/category-service';
 import { setAdminActiveCategory } from '../../../store/actions';
@@ -11,6 +12,7 @@ import './admin-main-page.scss';
 
 export const AdminMainPage: FC = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const categories = useSelector<AppState, CategoryDTO[]>(({ categories }) => categories);
   const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
 
@@ -19,6 +21,13 @@ export const AdminMainPage: FC = () => {
       dispatch(setAdminActiveCategory(category));
     },
     [dispatch],
+  );
+
+  const onChangeWords = useCallback(
+    (category: CategoryDTO) => {
+      history.push(category.name ? `/admin/category/${category.name}` : '/admin');
+    },
+    [history],
   );
 
   const onDelete = useCallback(
@@ -39,9 +48,8 @@ export const AdminMainPage: FC = () => {
     <main id="main" className="admin-main">
       <div className="admin-categories__wrapper">
         {categories.map(cat => {
-          if (cat.id === updatingCategory?.id)
-            return <AdminCategoryEdit key={cat.name} category={cat} onSelect={() => {}} onDelete={onDelete} />;
-          return <AdminCategory key={cat.name} category={cat} onSelect={onSelect} onDelete={onDelete} />;
+          if (cat.id === updatingCategory?.id) return <AdminCategoryEdit key={cat.name} category={cat} onDelete={onDelete} />;
+          return <AdminCategory key={cat.name} category={cat} onSelect={onSelect} onChangeWords={onChangeWords} onDelete={onDelete} />;
         })}
         <div className="admin-category admin-category-add" onClick={onCreate}>
           <p className="admin-category-add__plus">+</p>

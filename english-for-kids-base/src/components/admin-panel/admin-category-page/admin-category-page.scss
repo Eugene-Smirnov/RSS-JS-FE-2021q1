@@ -1,0 +1,64 @@
+.admin-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  min-height: calc(100vh - 4rem);
+  background: linear-gradient(150deg, rgba(var(--yellow-data), 0.2), rgba(var(--red-data), 0.2));
+}
+
+.admin-categories__wrapper {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin-category-top-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  top: 0;
+  width: 100%;
+  background-color: rgba(var(--yellow-data), 0.1);
+  border-bottom: 2px dashed var(--yellow-color);
+
+  &__button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid var(--yellow-color);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    margin: 1rem;
+    padding: 0.25rem 0.5rem;
+
+    font-family: 'Alfa Slab One', cursive;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: var(--yellow-color);
+
+    cursor: pointer;
+
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      top: -2px;
+      left: -2px;
+      box-shadow: 2px 2px 0 var(--grey-color);
+    }
+
+    &:active {
+      top: 0;
+      left: 0;
+      box-shadow: none;
+    }
+  }
+
+  &__heading {
+    text-shadow: 2px 2px 0 var(--white-color);
+  }
+}

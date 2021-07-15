@@ -11,11 +11,10 @@ import './admin-category.scss';
 
 type AdminCategoryEditProps = {
   category: CategoryDTO;
-  onSelect: (category: CategoryDTO) => void;
   onDelete: (category: CategoryDTO) => void;
 };
 
-export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSelect, onDelete }: AdminCategoryEditProps) => {
+export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDelete }: AdminCategoryEditProps) => {
   const dispatch = useDispatch();
   const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
 
@@ -27,10 +26,6 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
       .then(categoryCards => setCards(categoryCards))
       .catch(() => {});
   });
-
-  const onClick = useCallback(() => {
-    return onSelect(category);
-  }, [onSelect, category]);
 
   const onTitleChange = useCallback(
     (e: SyntheticEvent<HTMLInputElement>) => {
@@ -77,7 +72,7 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onSele
   }, [updatingCategory, dispatch]);
 
   return (
-    <div className="admin-category admin-category_edit" onClick={onClick}>
+    <div className="admin-category admin-category_edit">
       <div className="admin-category-image__wrapper">
         <div className="admin-category__delete" onClick={onDeleteClick}>
           <span className="admin-category__delete-span" />

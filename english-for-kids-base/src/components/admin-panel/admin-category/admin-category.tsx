@@ -7,10 +7,11 @@ import './admin-category.scss';
 type AdminCategoryProps = {
   category: CategoryDTO;
   onSelect: (category: CategoryDTO) => void;
+  onChangeWords: (category: CategoryDTO) => void;
   onDelete: (category: CategoryDTO) => void;
 };
 
-export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onDelete }: AdminCategoryProps) => {
+export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onChangeWords, onDelete }: AdminCategoryProps) => {
   const [cards, setCards] = useState<CardModel[]>([]);
   useEffect(() => {
     cardsService
@@ -22,6 +23,10 @@ export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onDe
   const onUpdateClick = useCallback(() => {
     onSelect(category);
   }, [onSelect, category]);
+
+  const onAddWordClick = useCallback(() => {
+    onChangeWords(category);
+  }, [onChangeWords, category]);
 
   const onDeleteClick = useCallback(() => {
     onDelete(category);
@@ -44,7 +49,9 @@ export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onDe
         <button className="admin-category__button" onClick={onUpdateClick}>
           update
         </button>
-        <button className="admin-category__button">add word</button>
+        <button className="admin-category__button" onClick={onAddWordClick}>
+          add word
+        </button>
       </div>
     </div>
   );
