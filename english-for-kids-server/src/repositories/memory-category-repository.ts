@@ -5,14 +5,14 @@ import { config } from '../config';
 
 export class MemoryCategoryRepository implements Repository<Category, CreateCategoryDto> {
   private readonly categories: Category[] = [
-    new Category('animal-a', 'Animal (set A)', `${config.host}/public/static/images/animal-a/cover.jpg`, '0'),
-    new Category('animal-b', 'Animal (set B)', `${config.host}/public/static/images/animal-b/cover.jpg`, '1'),
-    new Category('animal-c', 'Animal (set C)', `${config.host}/public/static/images/animal-c/cover.jpg`, '2'),
-    new Category('food', 'Food', `${config.host}/public/static/images/food/cover.jpg`, '3'),
-    new Category('action-a', 'Action (set A)', `${config.host}/public/static/images/action-a/cover.jpg`, '4'),
-    new Category('action-b', 'Action (set B)', `${config.host}/public/static/images/action-b/cover.jpg`, '5'),
-    new Category('clothes', 'Clothes', `${config.host}/public/static/images/clothes/cover.jpg`, '6'),
-    new Category('emotions', 'Emotions', `${config.host}/public/static/images/emotions/cover.jpg`, '7'),
+    new Category('animal-a', 'Animal (set A)', `${config.host}/public/static/images/animal-a/cover.jpg`, 'cat0'),
+    new Category('animal-b', 'Animal (set B)', `${config.host}/public/static/images/animal-b/cover.jpg`, 'cat1'),
+    new Category('animal-c', 'Animal (set C)', `${config.host}/public/static/images/animal-c/cover.jpg`, 'cat2'),
+    new Category('food', 'Food', `${config.host}/public/static/images/food/cover.jpg`, 'cat3'),
+    new Category('action-a', 'Action (set A)', `${config.host}/public/static/images/action-a/cover.jpg`, 'cat4'),
+    new Category('action-b', 'Action (set B)', `${config.host}/public/static/images/action-b/cover.jpg`, 'cat5'),
+    new Category('clothes', 'Clothes', `${config.host}/public/static/images/clothes/cover.jpg`, 'cat6'),
+    new Category('emotions', 'Emotions', `${config.host}/public/static/images/emotions/cover.jpg`, 'cat7'),
   ];
 
   async create({ name, title, image }: CreateCategoryDto): Promise<Category> {

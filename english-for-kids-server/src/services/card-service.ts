@@ -1,3 +1,4 @@
+import { config } from '../config';
 import { CreateCardDto } from '../dto/create-card';
 import { CardRepository } from '../interfaces/card-repository';
 import { Card } from '../models/card';
@@ -15,7 +16,7 @@ export class CardService {
   }
 
   async create(createCardDto: CreateCardDto, categoryId: string, imageName: string, audioName: string): Promise<Card> {
-    const image = this.filePathResolver.resolve(imageName);
+    const image = imageName ? this.filePathResolver.resolve(imageName) : `${config.host}/public/static/images/EFK-base-image.jpg`;
     const audio = this.filePathResolver.resolve(audioName);
     return this.cardRepository.create({ ...createCardDto, image, audio }, categoryId);
   }

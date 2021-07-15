@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import { auth } from '../auth/guard';
-import { config } from '../config';
 import { context } from '../context';
 import { CreateCategoryDto } from '../dto/create-category';
 import { NotFoundError } from '../errors/not-found-error';
@@ -28,7 +27,7 @@ categoryRouter.get('/:id', async (req, res, next) => {
 
 categoryRouter.post('/', auth, uploadCategory, async (req, res) => {
   const createCategoryDto: CreateCategoryDto = req.body;
-  const image: string = req.file?.filename ?? `${config.host}/public/static/images/EFK-base-image.jpg`;
+  const image: string = req.file?.filename ?? '';
   const category: Category = await context.categoryService.create(createCategoryDto, image);
   res.json(category);
 });

@@ -12,7 +12,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/bird.jpg`,
       `${config.host}/public/static/audio/animal-a/bird.mp3`,
       'Птица',
-      '0',
+      'cat0',
       '0',
     ),
     new Card(
@@ -21,7 +21,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/cat.jpg`,
       `${config.host}/public/static/audio/animal-a/cat.mp3`,
       'Кот',
-      '0',
+      'cat0',
       '1',
     ),
     new Card(
@@ -30,7 +30,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/chick.jpg`,
       `${config.host}/public/static/audio/animal-a/chick.mp3`,
       'Цыплёнок',
-      '0',
+      'cat0',
       '2',
     ),
     new Card(
@@ -39,7 +39,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/dog.jpg`,
       `${config.host}/public/static/audio/animal-a/dog.mp3`,
       'Собака',
-      '0',
+      'cat0',
       '3',
     ),
     new Card(
@@ -48,7 +48,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/dolphin.jpg`,
       `${config.host}/public/static/audio/animal-a/dolphin.mp3`,
       'Дельфин',
-      '0',
+      'cat0',
       '4',
     ),
     new Card(
@@ -57,7 +57,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/fish.jpg`,
       `${config.host}/public/static/audio/animal-a/fish.mp3`,
       'Рыба',
-      '0',
+      'cat0',
       '5',
     ),
     new Card(
@@ -66,7 +66,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/frog.jpg`,
       `${config.host}/public/static/audio/animal-a/frog.mp3`,
       'Лягушка',
-      '0',
+      'cat0',
       '6',
     ),
     new Card(
@@ -75,7 +75,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-a/giraffe.jpg`,
       `${config.host}/public/static/audio/animal-a/giraffe.mp3`,
       'Жираф',
-      '0',
+      'cat0',
       '7',
     ),
     // Animals set B #1
@@ -85,7 +85,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/chicken.jpg`,
       `${config.host}/public/static/audio/animal-b/chicken.mp3`,
       'Курица',
-      '1',
+      'cat1',
       '8',
     ),
     new Card(
@@ -94,7 +94,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/horse.jpg`,
       `${config.host}/public/static/audio/animal-b/horse.mp3`,
       'Лошадь',
-      '1',
+      'cat1',
       '9',
     ),
     new Card(
@@ -103,7 +103,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/lion.jpg`,
       `${config.host}/public/static/audio/animal-b/lion.mp3`,
       'Лев',
-      '1',
+      'cat1',
       '10',
     ),
     new Card(
@@ -112,7 +112,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/mouse.jpg`,
       `${config.host}/public/static/audio/animal-b/mouse.mp3`,
       'Мышь',
-      '1',
+      'cat1',
       '11',
     ),
     new Card(
@@ -121,7 +121,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/pig.jpg`,
       `${config.host}/public/static/audio/animal-b/pig.mp3`,
       'Свинья',
-      '1',
+      'cat1',
       '12',
     ),
     new Card(
@@ -130,7 +130,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/rabbit.jpg`,
       `${config.host}/public/static/audio/animal-b/rabbit.mp3`,
       'Кролик',
-      '1',
+      'cat1',
       '13',
     ),
     new Card(
@@ -139,7 +139,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/sheep.jpg`,
       `${config.host}/public/static/audio/animal-b/sheep.mp3`,
       'Овца',
-      '1',
+      'cat1',
       '14',
     ),
     new Card(
@@ -148,7 +148,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-b/turtle.jpg`,
       `${config.host}/public/static/audio/animal-b/turtle.mp3`,
       'Черепаха',
-      '1',
+      'cat1',
       '15',
     ),
     // Animals set C #2
@@ -158,7 +158,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/antelope.jpg`,
       `${config.host}/public/static/audio/animal-c/antelope.mp3`,
       'Антилопа',
-      '2',
+      'cat2',
       '16',
     ),
     new Card(
@@ -167,7 +167,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/bear.jpg`,
       `${config.host}/public/static/audio/animal-c/bear.mp3`,
       'Медведь',
-      '2',
+      'cat2',
       '17',
     ),
     new Card(
@@ -176,7 +176,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/buffalo.jpg`,
       `${config.host}/public/static/audio/animal-c/buffalo.mp3`,
       'Буйвол',
-      '2',
+      'cat2',
       '18',
     ),
     new Card(
@@ -185,7 +185,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/cow.jpg`,
       `${config.host}/public/static/audio/animal-c/cow.mp3`,
       'Корова',
-      '2',
+      'cat2',
       '19',
     ),
     new Card(
@@ -194,7 +194,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/flamingo.jpg`,
       `${config.host}/public/static/audio/animal-c/flamingo.mp3`,
       'Фламинго',
-      '2',
+      'cat2',
       '20',
     ),
     new Card(
@@ -203,7 +203,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/fox.jpg`,
       `${config.host}/public/static/audio/animal-c/fox.mp3`,
       'Лиса',
-      '2',
+      'cat2',
       '21',
     ),
     new Card(
@@ -212,7 +212,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/hedgehog.jpg`,
       `${config.host}/public/static/audio/animal-c/hedgehog.mp3`,
       'Ёж',
-      '2',
+      'cat2',
       '22',
     ),
     new Card(
@@ -221,7 +221,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/animal-c/squirrel.jpg`,
       `${config.host}/public/static/audio/animal-c/squirrel.mp3`,
       'Белка',
-      '2',
+      'cat2',
       '23',
     ),
     // Food #3
@@ -231,7 +231,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/carrot.jpg`,
       `${config.host}/public/static/audio/food/carrot.mp3`,
       'Морковь',
-      '3',
+      'cat3',
       '24',
     ),
     new Card(
@@ -240,7 +240,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/donut.jpg`,
       `${config.host}/public/static/audio/food/donut.mp3`,
       'Пончик',
-      '3',
+      'cat3',
       '25',
     ),
     new Card(
@@ -249,7 +249,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/pear.jpg`,
       `${config.host}/public/static/audio/food/pear.mp3`,
       'Груша',
-      '3',
+      'cat3',
       '26',
     ),
     new Card(
@@ -258,7 +258,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/pizza.jpg`,
       `${config.host}/public/static/audio/food/pizza.mp3`,
       'Пицца',
-      '3',
+      'cat3',
       '27',
     ),
     new Card(
@@ -267,7 +267,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/radish.jpg`,
       `${config.host}/public/static/audio/food/radish.mp3`,
       'Редис',
-      '3',
+      'cat3',
       '28',
     ),
     new Card(
@@ -276,7 +276,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/strawberry.jpg`,
       `${config.host}/public/static/audio/food/strawberry.mp3`,
       'Клубника',
-      '3',
+      'cat3',
       '29',
     ),
     new Card(
@@ -285,7 +285,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/tomatoes.jpg`,
       `${config.host}/public/static/audio/food/tomatoes.mp3`,
       'Помидоры',
-      '3',
+      'cat3',
       '30',
     ),
     new Card(
@@ -294,7 +294,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/food/watermelon.jpg`,
       `${config.host}/public/static/audio/food/watermelon.mp3`,
       'Арбуз',
-      '3',
+      'cat3',
       '31',
     ),
     // Action (set A) #4
@@ -304,7 +304,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/cry.jpg`,
       `${config.host}/public/static/audio/action-a/cry.mp3`,
       'Плакать',
-      '4',
+      'cat4',
       '32',
     ),
     new Card(
@@ -313,7 +313,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/dance.jpg`,
       `${config.host}/public/static/audio/action-a/dance.mp3`,
       'Танцевать',
-      '4',
+      'cat4',
       '33',
     ),
     new Card(
@@ -322,7 +322,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/dive.jpg`,
       `${config.host}/public/static/audio/action-a/dive.mp3`,
       'Нырять',
-      '4',
+      'cat4',
       '34',
     ),
     new Card(
@@ -331,7 +331,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/draw.jpg`,
       `${config.host}/public/static/audio/action-a/draw.mp3`,
       'Рисовать',
-      '4',
+      'cat4',
       '35',
     ),
     new Card(
@@ -340,7 +340,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/fish.jpg`,
       `${config.host}/public/static/audio/action-a/fish.mp3`,
       'Ловить рыбу',
-      '4',
+      'cat4',
       '36',
     ),
     new Card(
@@ -349,7 +349,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/hug.jpg`,
       `${config.host}/public/static/audio/action-a/hug.mp3`,
       'Обнимать',
-      '4',
+      'cat4',
       '37',
     ),
     new Card(
@@ -358,7 +358,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/jump.jpg`,
       `${config.host}/public/static/audio/action-a/jump.mp3`,
       'Прыгать',
-      '4',
+      'cat4',
       '38',
     ),
     new Card(
@@ -367,7 +367,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-a/open.jpg`,
       `${config.host}/public/static/audio/action-a/open.mp3`,
       'Открывать',
-      '4',
+      'cat4',
       '39',
     ),
     // Action (set B) #5
@@ -377,7 +377,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/fly.jpg`,
       `${config.host}/public/static/audio/action-b/fly.mp3`,
       'Летать',
-      '5',
+      'cat5',
       '40',
     ),
     new Card(
@@ -386,7 +386,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/play.jpg`,
       `${config.host}/public/static/audio/action-b/play.mp3`,
       'Играть',
-      '5',
+      'cat5',
       '41',
     ),
     new Card(
@@ -395,7 +395,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/point.jpg`,
       `${config.host}/public/static/audio/action-b/point.mp3`,
       'Указывать',
-      '5',
+      'cat5',
       '42',
     ),
     new Card(
@@ -404,7 +404,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/ride.jpg`,
       `${config.host}/public/static/audio/action-b/ride.mp3`,
       'Ездить',
-      '5',
+      'cat5',
       '43',
     ),
     new Card(
@@ -413,7 +413,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/run.jpg`,
       `${config.host}/public/static/audio/action-b/run.mp3`,
       'Бегать',
-      '5',
+      'cat5',
       '44',
     ),
     new Card(
@@ -422,7 +422,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/skip.jpg`,
       `${config.host}/public/static/audio/action-b/skip.mp3`,
       'Пропускать, прыгать',
-      '5',
+      'cat5',
       '45',
     ),
     new Card(
@@ -431,7 +431,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/sing.jpg`,
       `${config.host}/public/static/audio/action-b/sing.mp3`,
       'Петь',
-      '5',
+      'cat5',
       '46',
     ),
     new Card(
@@ -440,7 +440,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/action-b/swim.jpg`,
       `${config.host}/public/static/audio/action-b/swim.mp3`,
       'Плавать',
-      '5',
+      'cat5',
       '47',
     ),
     // Clothes #6
@@ -450,7 +450,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/blouse.jpg`,
       `${config.host}/public/static/audio/clothes/blouse.mp3`,
       'Блузка',
-      '6',
+      'cat6',
       '48',
     ),
     new Card(
@@ -459,7 +459,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/boot.jpg`,
       `${config.host}/public/static/audio/clothes/boot.mp3`,
       'Ботинок',
-      '6',
+      'cat6',
       '49',
     ),
     new Card(
@@ -468,7 +468,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/coat.jpg`,
       `${config.host}/public/static/audio/clothes/coat.mp3`,
       'Пальто',
-      '6',
+      'cat6',
       '50',
     ),
     new Card(
@@ -477,7 +477,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/dress.jpg`,
       `${config.host}/public/static/audio/clothes/dress.mp3`,
       'Платье',
-      '6',
+      'cat6',
       '51',
     ),
     new Card(
@@ -486,7 +486,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/pants.jpg`,
       `${config.host}/public/static/audio/clothes/pants.mp3`,
       'Брюки',
-      '6',
+      'cat6',
       '52',
     ),
     new Card(
@@ -495,7 +495,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/shirt.jpg`,
       `${config.host}/public/static/audio/clothes/shirt.mp3`,
       'Рубашка',
-      '6',
+      'cat6',
       '53',
     ),
     new Card(
@@ -504,7 +504,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/shoe.jpg`,
       `${config.host}/public/static/audio/clothes/shoe.mp3`,
       'Туфли',
-      '6',
+      'cat6',
       '54',
     ),
     new Card(
@@ -513,7 +513,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/clothes/skirt.jpg`,
       `${config.host}/public/static/audio/clothes/skirt.mp3`,
       'Юбка',
-      '6',
+      'cat6',
       '55',
     ),
     // Emotions #7
@@ -523,7 +523,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/angry.jpg`,
       `${config.host}/public/static/audio/emotions/angry.mp3`,
       'Сердитый',
-      '7',
+      'cat7',
       '56',
     ),
     new Card(
@@ -532,7 +532,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/happy.jpg`,
       `${config.host}/public/static/audio/emotions/happy.mp3`,
       'Счастливый',
-      '7',
+      'cat7',
       '57',
     ),
     new Card(
@@ -541,7 +541,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/laugh.jpg`,
       `${config.host}/public/static/audio/emotions/laugh.mp3`,
       'Смех',
-      '7',
+      'cat7',
       '58',
     ),
     new Card(
@@ -550,7 +550,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/sad.jpg`,
       `${config.host}/public/static/audio/emotions/sad.mp3`,
       'Грустный',
-      '7',
+      'cat7',
       '59',
     ),
     new Card(
@@ -559,7 +559,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/scared.jpg`,
       `${config.host}/public/static/audio/emotions/scared.mp3`,
       'Испуганный',
-      '7',
+      'cat7',
       '60',
     ),
     new Card(
@@ -568,7 +568,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/smile.jpg`,
       `${config.host}/public/static/audio/emotions/smile.mp3`,
       'Улыбка',
-      '7',
+      'cat7',
       '61',
     ),
     new Card(
@@ -577,7 +577,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/surprised.jpg`,
       `${config.host}/public/static/audio/emotions/surprised.mp3`,
       'Удивлённый',
-      '7',
+      'cat7',
       '62',
     ),
     new Card(
@@ -586,7 +586,7 @@ export class MemoryCardRepository implements CardRepository {
       `${config.host}/public/static/images/emotions/tired.jpg`,
       `${config.host}/public/static/audio/emotions/tired.mp3`,
       'Уставший',
-      '7',
+      'cat7',
       '63',
     ),
   ];

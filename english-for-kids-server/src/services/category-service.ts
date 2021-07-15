@@ -3,6 +3,7 @@ import { Category } from '../models/category';
 import { Repository } from '../interfaces/repository';
 import { CardService } from './card-service';
 import { FilePathResolver } from './file-path-resolver';
+import { config } from '../config';
 
 export class CategoryService {
   constructor(
@@ -12,7 +13,7 @@ export class CategoryService {
   ) {}
 
   async create(category: CreateCategoryDto, imageName: string): Promise<Category> {
-    const image = this.filePathResolver.resolve(imageName);
+    const image = imageName ? this.filePathResolver.resolve(imageName) : `${config.host}/public/static/images/EFK-base-image.jpg`;
     return this.categoryRepository.create({ ...category, image });
   }
 

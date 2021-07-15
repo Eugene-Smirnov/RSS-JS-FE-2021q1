@@ -1,7 +1,6 @@
 import { Router } from 'express';
 
 import { auth } from '../auth/guard';
-import { config } from '../config';
 import { context } from '../context';
 import { CreateCardDto } from '../dto/create-card';
 import { NotFoundError } from '../errors/not-found-error';
@@ -61,7 +60,7 @@ cardRouter.delete('/:id', auth, async (req, res, next) => {
 });
 
 const mapToFilenames = (files: any): { image: string; audio: string } => {
-  const image: string = files.image[0].filename ?? `${config.host}/public/static/images/EFK-base-image.jpg`;
+  const image: string = files.image[0].filename ?? '';
   const audio: string = files.audio[0].filename ?? '';
   return { image, audio };
 };
