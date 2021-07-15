@@ -60,7 +60,7 @@ cardRouter.delete('/:id', auth, async (req, res, next) => {
 });
 
 const mapToFilenames = (files: any): { image: string; audio: string } => {
-  const image: string = files.image[0].filename ?? '';
-  const audio: string = files.audio[0].filename ?? '';
+  const image: string = files?.image[0].filename ?? '';
+  const audio: string = files?.audio[0].filename ?? '';
   return { image, audio };
 };

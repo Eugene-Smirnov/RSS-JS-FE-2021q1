@@ -31,8 +31,9 @@ export class CategoryService {
     return category;
   }
 
-  async update(id: string, category: Partial<CreateCategoryDto>): Promise<Category | null> {
-    return this.categoryRepository.update!(id, category);
+  async update(id: string, category: Partial<CreateCategoryDto>, imageName: string): Promise<Category | null> {
+    const image = imageName ? this.filePathResolver.resolve(imageName) : category.image;
+    return this.categoryRepository.update!(id, { ...category, image });
   }
 
   async remove(id: string): Promise<Category | null> {
