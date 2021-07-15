@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { Repository } from '../interfaces/repository';
 
 export class MemoryUserRepository implements Repository<User, CreateUserDto> {
-  private readonly users: User[] = [];
+  private readonly users: User[] = [new User('admin', 'admin')];
 
   async create({ login, password }: CreateUserDto): Promise<User> {
     const user = new User(login, password);

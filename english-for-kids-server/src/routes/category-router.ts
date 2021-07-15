@@ -5,6 +5,7 @@ import { context } from '../context';
 import { CreateCategoryDto } from '../dto/create-category';
 import { NotFoundError } from '../errors/not-found-error';
 import { Category } from '../models/category';
+import { uploadCategory } from '../upload';
 
 export const categoryRouter = Router();
 
@@ -24,9 +25,10 @@ categoryRouter.get('/:id', async (req, res, next) => {
   res.json(category);
 });
 
-categoryRouter.post('/', auth, async (req, res) => {
+categoryRouter.post('/', auth, uploadCategory, async (req, res) => {
   const createCategoryDto: CreateCategoryDto = req.body;
-  const category: Category = await context.categoryService.create(createCategoryDto);
+  const image: string = req.file?.filename ?? '';
+  const category: Category = await context.categoryService.create(createCategoryDto, image);
   res.json(category);
 });
 

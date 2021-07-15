@@ -5,6 +5,7 @@ import { context } from '../context';
 import { CreateCardDto } from '../dto/create-card';
 import { NotFoundError } from '../errors/not-found-error';
 import { Card } from '../models/card';
+import { uploadCard } from '../upload';
 
 type CardRoutesParams = { categoryId: string };
 
@@ -27,10 +28,11 @@ cardRouter.get('/:id', async (req, res, next) => {
   res.json(card);
 });
 
-cardRouter.post('/', auth, async (req, res) => {
+cardRouter.post('/', auth, uploadCard, async (req, res) => {
   const { categoryId } = req.params as CardRoutesParams;
   const createCardDto: CreateCardDto = req.body;
-  const card: Card = await context.cardService.create(createCardDto, categoryId);
+  const { image, audio } = mapToFilenames(req.files);
+  const card: Card = await context.cardService.create(createCardDto, categoryId, image, audio);
   res.json(card);
 });
 
@@ -56,3 +58,9 @@ cardRouter.delete('/:id', auth, async (req, res, next) => {
 
   res.json(removedCard);
 });
+
+const mapToFilenames = (files: any): { image: string; audio: string } => {
+  const image: string = files.image[0].filename;
+  const audio: string = files.audio[0].filename;
+  return { image, audio };
+};

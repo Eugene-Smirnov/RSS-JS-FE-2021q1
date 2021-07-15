@@ -1,9 +1,10 @@
 import { CreateCardDto } from '../dto/create-card';
 import { CardRepository } from '../interfaces/card-repository';
 import { Card } from '../models/card';
+import { FilePathResolver } from './file-path-resolver';
 
 export class CardService {
-  constructor(private readonly cardRepository: CardRepository) {}
+  constructor(private readonly cardRepository: CardRepository, private readonly filePathResolver: FilePathResolver) {}
 
   async get(id: string): Promise<Card | null> {
     return this.cardRepository.get(id);
@@ -13,8 +14,10 @@ export class CardService {
     return this.cardRepository.getByCategory(id);
   }
 
-  async create(createCardDto: CreateCardDto, categoryId: string): Promise<Card> {
-    return this.cardRepository.create(createCardDto, categoryId);
+  async create(createCardDto: CreateCardDto, categoryId: string, imageName: string, audioName: string): Promise<Card> {
+    const image = this.filePathResolver.resolve(imageName);
+    const audio = this.filePathResolver.resolve(audioName);
+    return this.cardRepository.create({ ...createCardDto, image, audio }, categoryId);
   }
 
   async update(id: string, card: Partial<CreateCardDto>): Promise<Card | null> {

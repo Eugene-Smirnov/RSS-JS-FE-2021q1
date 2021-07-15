@@ -2,12 +2,18 @@ import { CreateCategoryDto } from '../dto/create-category';
 import { Category } from '../models/category';
 import { Repository } from '../interfaces/repository';
 import { CardService } from './card-service';
+import { FilePathResolver } from './file-path-resolver';
 
 export class CategoryService {
-  constructor(private readonly categoryRepository: Repository<Category, CreateCategoryDto>, private readonly cardService: CardService) {}
+  constructor(
+    private readonly categoryRepository: Repository<Category, CreateCategoryDto & { image: string }>,
+    private readonly cardService: CardService,
+    private readonly filePathResolver: FilePathResolver,
+  ) {}
 
-  async create(category: CreateCategoryDto): Promise<Category> {
-    return this.categoryRepository.create(category);
+  async create(category: CreateCategoryDto, imageName: string): Promise<Category> {
+    const image = this.filePathResolver.resolve(imageName);
+    return this.categoryRepository.create({ ...category, image });
   }
 
   async getAll(): Promise<Category[]> {
