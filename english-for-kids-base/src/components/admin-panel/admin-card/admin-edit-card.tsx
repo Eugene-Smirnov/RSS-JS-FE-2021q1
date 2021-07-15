@@ -1,15 +1,17 @@
 import { FC, SyntheticEvent, useCallback, useState } from 'react';
 import { CardModel } from '../../../models/card-model';
+import { cardsService } from '../../../services/cards-service';
 import './admin-card.scss';
 
 type AdminCardProps = {
   card: CardModel;
   setEditingCard: (card: CardModel | null) => void;
+  loadPage: () => void;
 };
 
 const DELETE_AFTER_EDITING_SERVER = '../';
 
-export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard }: AdminCardProps) => {
+export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
   const [thisCard, setThisCard] = useState<CardModel>({ ...card, image: `${DELETE_AFTER_EDITING_SERVER}${card.image}` });
 
   const onImageChange = useCallback(
@@ -51,6 +53,12 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard }: Admi
     setEditingCard(null);
   }, [setEditingCard]);
 
+  const onSubmitClick = useCallback(async () => {
+    await cardsService.update(thisCard);
+    setEditingCard(null);
+    loadPage();
+  }, [loadPage, setEditingCard, thisCard]);
+
   return (
     <div className="admin-card__wrapper">
       <div className="admin-card">
@@ -91,7 +99,9 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard }: Admi
           <button className="admin-card__button admin-card__button_cancel" onClick={onCancelClick}>
             cancel
           </button>
-          <button className="admin-card__button admin-card__button_edit">submit</button>
+          <button className="admin-card__button admin-card__button_edit" onClick={onSubmitClick}>
+            submit
+          </button>
         </div>
       </div>
     </div>

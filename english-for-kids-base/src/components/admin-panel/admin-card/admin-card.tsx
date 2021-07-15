@@ -1,15 +1,17 @@
 import { FC, useCallback, useState } from 'react';
 import { CardModel } from '../../../models/card-model';
+import { cardsService } from '../../../services/cards-service';
 import './admin-card.scss';
 
 type AdminCardProps = {
   card: CardModel;
   setEditingCard: (card: CardModel | null) => void;
+  loadPage: () => void;
 };
 
 const DELETE_AFTER_EDITING_SERVER = '../';
 
-export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard }: AdminCardProps) => {
+export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
   const playTitle = () => {
@@ -22,6 +24,11 @@ export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard }: AdminCar
   const onEditClick = useCallback(() => {
     setEditingCard(card);
   }, [card, setEditingCard]);
+
+  const onDeleteClick = useCallback(async () => {
+    await cardsService.remove(card);
+    loadPage();
+  }, [card, loadPage]);
 
   return (
     <div className="admin-card__wrapper">
@@ -46,7 +53,9 @@ export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard }: AdminCar
           </div>
         </div>
         <div className="admin-card__buttons">
-          <button className="admin-card__button admin-card__button_delete">delete</button>
+          <button className="admin-card__button admin-card__button_delete" onClick={onDeleteClick}>
+            delete
+          </button>
           <button className="admin-card__button admin-card__button_edit" onClick={onEditClick}>
             edit
           </button>

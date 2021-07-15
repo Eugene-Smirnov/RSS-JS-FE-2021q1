@@ -16,11 +16,22 @@ export const AdminCategoryPage: FC = () => {
   const [cards, setCards] = useState<CardModel[]>([]);
   const [editingCard, setEditingCard] = useState<CardModel | null>(null);
 
-  useEffect(() => {
+  const loadPage = (category: CategoryModel | undefined) => {
     if (!category) return;
     cardsService.getCards(category.id).then(cards => {
       setCards(cards);
     });
+  };
+
+  useEffect(() => {
+    loadPage(category);
+  }, [category]);
+
+  const onNewCardClick = useCallback(async () => {
+    if (!category) return;
+    const newCard = await cardsService.create(category.id);
+    setEditingCard(newCard);
+    loadPage(category);
   }, [category]);
 
   const redirectToAdminMain = useCallback(() => {
@@ -38,9 +49,29 @@ export const AdminCategoryPage: FC = () => {
       <div className="admin-categories__wrapper">
         {cards.map(card => {
           if (card.id === editingCard?.id)
-            return <AdminEditCard key={card.name} card={card} setEditingCard={(card: CardModel | null) => setEditingCard(card)} />;
-          return <AdminCard key={card.name} card={card} setEditingCard={(card: CardModel | null) => setEditingCard(card)} />;
+            return (
+              <AdminEditCard
+                key={card.name}
+                card={card}
+                setEditingCard={(card: CardModel | null) => setEditingCard(card)}
+                loadPage={() => loadPage(category)}
+              />
+            );
+          return (
+            <AdminCard
+              key={card.name}
+              card={card}
+              setEditingCard={(card: CardModel | null) => setEditingCard(card)}
+              loadPage={() => loadPage(category)}
+            />
+          );
         })}
+        <div className="admin-card__wrapper" onClick={onNewCardClick}>
+          <div className="admin-card admin-card_add">
+            <p className="admin-card__plus">+</p>
+            <p>add new card</p>
+          </div>
+        </div>
       </div>
     </main>
   );
