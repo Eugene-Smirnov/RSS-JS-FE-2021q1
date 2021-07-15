@@ -22,10 +22,10 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
 
   useEffect(() => {
     cardsService
-      .getCards(category.name)
+      .getCards(category.id)
       .then(categoryCards => setCards(categoryCards))
       .catch(() => {});
-  });
+  }, [category]);
 
   const onTitleChange = useCallback(
     (e: SyntheticEvent<HTMLInputElement>) => {

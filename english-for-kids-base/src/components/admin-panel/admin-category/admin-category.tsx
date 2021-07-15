@@ -15,10 +15,10 @@ export const AdminCategory: FC<AdminCategoryProps> = ({ category, onSelect, onCh
   const [cards, setCards] = useState<CardModel[]>([]);
   useEffect(() => {
     cardsService
-      .getCards(category.name)
+      .getCards(category.id)
       .then(categoryCards => setCards(categoryCards))
       .catch(() => {});
-  });
+  }, [category]);
 
   const onUpdateClick = useCallback(() => {
     onSelect(category);

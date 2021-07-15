@@ -1,13 +1,10 @@
-import { mockedCards } from '../assets/cards';
 import { CardModel } from '../models/card-model';
+import { CATEGORIES_URL } from './server-specs';
 
-class CardsService {
-  private readonly cards = mockedCards;
-
-  getCards(_category: string): Promise<CardModel[]> {
-    const categoryCards: CardModel[] | undefined = this.cards.get(_category);
-    return categoryCards ? Promise.resolve(categoryCards) : Promise.reject(categoryCards);
-  }
-}
-
-export const cardsService = new CardsService();
+export const cardsService = {
+  async getCards(categoryId: string): Promise<CardModel[]> {
+    const response = await fetch(`${CATEGORIES_URL}/${categoryId}/card`);
+    const data: CardModel[] = await response.json();
+    return data;
+  },
+};

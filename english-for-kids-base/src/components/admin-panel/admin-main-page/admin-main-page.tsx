@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { CategoryDTO, emptyCategory } from '../../../dto/category';
+import { CategoryDTO } from '../../../dto/category';
 import { categoryService } from '../../../services/category-service';
 import { setAdminActiveCategory } from '../../../store/actions';
 import { AppState } from '../../../store/reducer';
@@ -39,7 +39,7 @@ export const AdminMainPage: FC = () => {
   );
 
   const onCreate = useCallback(async () => {
-    const newCategory = await categoryService.create(emptyCategory);
+    const newCategory = await categoryService.create();
     dispatch(loadCategories());
     dispatch(setAdminActiveCategory(newCategory));
   }, [dispatch]);

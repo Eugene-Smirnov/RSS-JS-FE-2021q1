@@ -25,6 +25,7 @@ export const Menu: FC<MenuProps> = ({ isMenuOpen, outClick }: MenuProps) => {
         image: '',
         name: '',
         isActive: !isSelected,
+        id: '',
       },
       ...categories,
     ];

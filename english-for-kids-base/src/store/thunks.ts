@@ -21,7 +21,7 @@ export const loadCategories = () => {
 export const startGame = (category: CategoryDTO | undefined) => {
   return async (dispatch: Dispatch, getState: () => AppState): Promise<void> => {
     if (!category) return;
-    const cards = await cardsService.getCards(category.name);
+    const cards = await cardsService.getCards(category.id);
     const mixedCards = mixArray(cards);
     dispatch(resetGame());
     dispatch(setCards([category, mixedCards]));

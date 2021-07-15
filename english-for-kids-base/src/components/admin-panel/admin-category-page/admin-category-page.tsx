@@ -15,10 +15,11 @@ export const AdminCategoryPage: FC = () => {
   const [cards, setCards] = useState<CardModel[]>([]);
 
   useEffect(() => {
-    cardsService.getCards(categoryName).then(cards => {
+    if (!category) return;
+    cardsService.getCards(category.id).then(cards => {
       setCards(cards);
     });
-  });
+  }, [category]);
 
   const redirectToAdminMain = useCallback(() => {
     history.push('/admin');

@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { CardModel } from '../../models/card-model';
+import { CategoryModel } from '../../models/category-model';
 import { cardsService } from '../../services/cards-service';
 import { resetGame, setActiveCategory } from '../../store/actions';
 import { AppState } from '../../store/reducer';
@@ -17,16 +18,23 @@ export const CategoryPage: FC = () => {
   const isMenuOpen = useSelector<AppState, boolean>(({ isMenuOpen }) => isMenuOpen);
   const isLoginPopupDisplayed = useSelector<AppState, boolean>(({ isLoginPopupDisplayed }) => isLoginPopupDisplayed);
   const categoryName = useParams<{ name: string }>().name;
+  const category = useSelector<AppState, CategoryModel | undefined>(({ categories }) => {
+    return categories.find(cat => cat.name === categoryName);
+  });
   const [cards, setCards] = useState<CardModel[]>([]);
 
   useEffect(() => {
-    cardsService.getCards(categoryName).then(cards => {
+    if (!category) return;
+    cardsService.getCards(category.id).then(cards => {
       setCards(cards);
-      dispatch(setActiveCategory(categoryName));
-      dispatch(resetGame());
-      renderScorePoint([]);
     });
-  });
+  }, [category]);
+
+  useEffect(() => {
+    dispatch(setActiveCategory(categoryName));
+    dispatch(resetGame());
+    renderScorePoint([]);
+  }, [categoryName, dispatch]);
 
   return (
     <main id="main" className={`main${isGameMode ? ' game-mode' : ''}${isMenuOpen ? ' scroll-y-none' : ''}`}>
