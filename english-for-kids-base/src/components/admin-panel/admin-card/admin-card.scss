@@ -11,7 +11,7 @@
     perspective: 1200px;
     transition: all 0.3s ease-in-out;
 
-    &:hover .card {
+    &:hover .admin-card {
       box-shadow: 5px 5px 0px rgba(var(--yellow-data), 0.3);
     }
   }
@@ -66,14 +66,15 @@
   }
 
   &__audio-path {
+    overflow: hidden;
     position: relative;
     top: 0;
     left: 0;
     display: flex;
-    height: 2rem;
-    font-size: 12px;
-    align-items: center;
-    justify-content: center;
+    height: 1.5rem;
+    font-size: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
     text-shadow: none;
     cursor: pointer;
 
@@ -139,6 +140,72 @@
     &_edit {
       border: 2px solid var(--green-color);
       color: var(--green-color);
+    }
+  }
+
+  &__title,
+  &__audio-path {
+    &.admin-card-edit__input {
+      font-family: 'Alfa Slab One', cursive;
+    }
+  }
+
+  &-edit__input {
+    height: 1.5rem;
+    width: 100%;
+    padding-left: 0.5rem;
+    border: 2px dashed var(--yellow-color);
+    &:hover {
+      top: 0;
+      left: 0;
+      text-shadow: none;
+      cursor: text;
+    }
+  }
+
+  &-image-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &__label {
+      margin: 1rem;
+      width: 10rem;
+      height: 9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &::after {
+        content: '+';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
+        width: 5rem;
+
+        color: var(--black-color);
+        font-size: 5rem;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        border: 2px solid var(--black-color);
+        border-radius: 50%;
+      }
+
+      .admin-card-image {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &:hover .admin-card-image {
+        opacity: 0.3;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
     }
   }
 }

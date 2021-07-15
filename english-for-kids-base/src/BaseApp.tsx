@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
-import { CategoryPage } from './components/category-page/CategoryPage';
+import { CategoryPage } from './components/category-page/category-page';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/Header';
 import { MainPage } from './components/main-page/MainPage';

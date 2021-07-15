@@ -1,14 +1,15 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { CardModel } from '../../../models/card-model';
 import './admin-card.scss';
 
 type AdminCardProps = {
   card: CardModel;
+  setEditingCard: (card: CardModel | null) => void;
 };
 
 const DELETE_AFTER_EDITING_SERVER = '../';
 
-export const AdminCard: FC<AdminCardProps> = ({ card }: AdminCardProps) => {
+export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard }: AdminCardProps) => {
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
   const playTitle = () => {
@@ -17,6 +18,10 @@ export const AdminCard: FC<AdminCardProps> = ({ card }: AdminCardProps) => {
     const audio = new Audio(`${DELETE_AFTER_EDITING_SERVER}${card.audio}`);
     audio.play().then(() => setIsAudioPlaying(false));
   };
+
+  const onEditClick = useCallback(() => {
+    setEditingCard(card);
+  }, [card, setEditingCard]);
 
   return (
     <div className="admin-card__wrapper">
@@ -42,7 +47,9 @@ export const AdminCard: FC<AdminCardProps> = ({ card }: AdminCardProps) => {
         </div>
         <div className="admin-card__buttons">
           <button className="admin-card__button admin-card__button_delete">delete</button>
-          <button className="admin-card__button admin-card__button_edit">edit</button>
+          <button className="admin-card__button admin-card__button_edit" onClick={onEditClick}>
+            edit
+          </button>
         </div>
       </div>
     </div>

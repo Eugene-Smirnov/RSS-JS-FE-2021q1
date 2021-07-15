@@ -154,7 +154,8 @@
 
     &-image-input {
       position: absolute;
-      top: -9999999999px;
+      width: 0;
+      height: 0;
       opacity: 0;
 
       &__label {

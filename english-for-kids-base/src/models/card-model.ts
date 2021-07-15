@@ -4,4 +4,6 @@ export interface CardModel {
   image: string;
   audio: string;
   translation: string;
+  categoryId: string;
+  id: string;
 }

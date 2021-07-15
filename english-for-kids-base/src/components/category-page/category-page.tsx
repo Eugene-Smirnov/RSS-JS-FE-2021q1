@@ -10,7 +10,7 @@ import { Card } from '../card/card';
 import { LoginPopUp } from '../login-pop-up/login-pop-up';
 import { renderScorePoint } from '../score-bar/score-point/score-point';
 import { ScoreBar } from '../score-bar/ScoreBar';
-import './CategoryPage.scss';
+import './category-page.scss';
 
 export const CategoryPage: FC = () => {
   const dispatch = useDispatch();
