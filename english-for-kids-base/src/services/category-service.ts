@@ -25,7 +25,11 @@ export const categoryService = {
     formData.append('name', updatedCategory.name);
     formData.append('title', updatedCategory.title);
     formData.append('id', updatedCategory.id);
-    formData.append('image', imageFile ?? '');
+    if (imageFile) {
+      formData.append('image', imageFile);
+    } else {
+      formData.append('image', updatedCategory.image);
+    }
 
     const response = await fetch(`${CATEGORIES_URL}/${updatedCategory.id}`, {
       method: 'PUT',

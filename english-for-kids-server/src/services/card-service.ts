@@ -21,8 +21,10 @@ export class CardService {
     return this.cardRepository.create({ ...createCardDto, image, audio }, categoryId);
   }
 
-  async update(id: string, card: Partial<CreateCardDto>): Promise<Card | null> {
-    return this.cardRepository.update!(id, card);
+  async update(id: string, card: Partial<CreateCardDto>, imageName: string, audioName: string): Promise<Card | null> {
+    const image = imageName ? this.filePathResolver.resolve(imageName) : `${config.host}/public/static/images/EFK-base-image.jpg`;
+    const audio = this.filePathResolver.resolve(audioName);
+    return this.cardRepository.update!(id, { ...card, image, audio });
   }
 
   async remove(id: string): Promise<Card | null> {

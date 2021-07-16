@@ -35,8 +35,8 @@ categoryRouter.post('/', auth, uploadCategory, async (req, res) => {
 categoryRouter.put('/:id', auth, uploadCategory, async (req, res, next) => {
   const id: string = req.params.id;
   const categoryUpdate: Partial<CreateCategoryDto> = req.body;
-  const image: string = req.file?.filename ?? '';
-  const updatedCategory: Category | null = await context.categoryService.update(id, categoryUpdate, image);
+  const imageFile: string = req.file?.filename ?? '';
+  const updatedCategory: Category | null = await context.categoryService.update(id, categoryUpdate, imageFile);
 
   if (!updatedCategory) {
     return next(new NotFoundError('No Such Category'));

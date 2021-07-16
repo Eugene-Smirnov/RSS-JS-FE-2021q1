@@ -36,10 +36,11 @@ cardRouter.post('/', auth, uploadCard, async (req, res) => {
   res.json(card);
 });
 
-cardRouter.put('/:id', auth, async (req, res, next) => {
+cardRouter.put('/:id', auth, uploadCard, async (req, res, next) => {
   const id: string = req.params.id;
   const updateCardDto: Partial<CreateCardDto> = req.body;
-  const updatedCard: Card | null = await context.cardService.update(id, updateCardDto);
+  const { image, audio } = mapToFilenames(req.files);
+  const updatedCard: Card | null = await context.cardService.update(id, updateCardDto, image, audio);
 
   if (!updatedCard) {
     return next(new NotFoundError(`Card ${id} Not Found`));
