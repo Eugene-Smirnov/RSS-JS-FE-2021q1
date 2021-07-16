@@ -9,10 +9,8 @@ type AdminCardProps = {
   loadPage: () => void;
 };
 
-const DELETE_AFTER_EDITING_SERVER = '../';
-
 export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
-  const [thisCard, setThisCard] = useState<CardModel>({ ...card, image: `${DELETE_AFTER_EDITING_SERVER}${card.image}` });
+  const [thisCard, setThisCard] = useState<CardModel>({ ...card });
 
   const onImageChange = useCallback(
     (e: SyntheticEvent<HTMLInputElement>) => {

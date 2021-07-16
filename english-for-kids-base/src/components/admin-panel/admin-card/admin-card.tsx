@@ -9,15 +9,13 @@ type AdminCardProps = {
   loadPage: () => void;
 };
 
-const DELETE_AFTER_EDITING_SERVER = '../';
-
 export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
 
   const playTitle = () => {
     if (isAudioPlaying) return;
     setIsAudioPlaying(true);
-    const audio = new Audio(`${DELETE_AFTER_EDITING_SERVER}${card.audio}`);
+    const audio = new Audio(card.audio);
     audio.play().then(() => setIsAudioPlaying(false));
   };
 
@@ -34,7 +32,7 @@ export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }
     <div className="admin-card__wrapper">
       <div className="admin-card">
         <div className="admin-card-image__wrapper">
-          <div className="admin-card-image" style={{ backgroundImage: `url(${DELETE_AFTER_EDITING_SERVER}${card.image})` }} />
+          <div className="admin-card-image" style={{ backgroundImage: `url(${card.image})` }} />
         </div>
         <div className="admin-card-info">
           <div className="admin-card-info__row">

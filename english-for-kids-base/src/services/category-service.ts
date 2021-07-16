@@ -14,21 +14,25 @@ export const categoryService = {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${window.localStorage.getItem(LOCALSTORAGE_TOKEN_NAME)}`,
-        'Content-Type': 'application/json',
       },
     });
     const category: CategoryDTO = await response.json();
     return category;
   },
 
-  async update(updatedCategory: CategoryDTO): Promise<CategoryDTO> {
+  async update(updatedCategory: CategoryDTO, imageFile: File | null): Promise<CategoryDTO> {
+    const formData = new FormData();
+    formData.append('name', updatedCategory.name);
+    formData.append('title', updatedCategory.title);
+    formData.append('id', updatedCategory.id);
+    formData.append('image', imageFile ?? '');
+
     const response = await fetch(`${CATEGORIES_URL}/${updatedCategory.id}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${window.localStorage.getItem(LOCALSTORAGE_TOKEN_NAME)}`,
-        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updatedCategory),
+      body: formData,
     });
     const category: CategoryDTO = await response.json();
     return category;

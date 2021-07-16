@@ -19,6 +19,7 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
   const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
 
   const [cards, setCards] = useState<CardModel[]>([]);
+  const [fileImage, setfileImage] = useState<File | null>(null);
 
   useEffect(() => {
     cardsService
@@ -41,8 +42,10 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
   const onImageChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const { files } = e.currentTarget;
     if (!files) return;
+    const img = files[0];
+    setfileImage(img);
     const reader = new FileReader();
-    reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(img);
     reader.onload = () => {
       const data = reader.result || '';
       if (!updatingCategory) {
@@ -60,10 +63,10 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
 
   const onSubmit = useCallback(async () => {
     if (!updatingCategory) return;
-    await categoryService.update(updatingCategory);
+    await categoryService.update(updatingCategory, fileImage);
     dispatch(loadCategories());
     dispatch(setAdminActiveCategory(null));
-  }, [updatingCategory, dispatch]);
+  }, [updatingCategory, dispatch, fileImage]);
 
   const onCancel = useCallback(async () => {
     if (!updatingCategory) return;
