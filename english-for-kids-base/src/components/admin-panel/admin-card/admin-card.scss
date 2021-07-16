@@ -65,34 +65,6 @@
     text-shadow: none;
   }
 
-  &__audio-path {
-    overflow: hidden;
-    position: relative;
-    top: 0;
-    left: 0;
-    display: flex;
-    height: 1.5rem;
-    font-size: 8px;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-shadow: none;
-    cursor: pointer;
-
-    transition: all 0.1s ease-in-out;
-
-    &:hover {
-      top: -2px;
-      left: -2px;
-      text-shadow: 1px 1px 0px rgba(var(--yellow-data), 0.8);
-    }
-
-    &:active {
-      top: 0;
-      left: 0;
-      text-shadow: none;
-    }
-  }
-
   &__button {
     &s {
       width: 100%;
@@ -140,6 +112,35 @@
     &_edit {
       border: 2px solid var(--green-color);
       color: var(--green-color);
+    }
+  }
+
+  &__audio-path {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 1.5rem;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-shadow: none;
+    cursor: pointer;
+
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      top: -2px;
+      left: -2px;
+      text-shadow: 1px 1px 0px rgba(var(--yellow-data), 0.8);
+    }
+
+    &:active {
+      top: 0;
+      left: 0;
+      text-shadow: none;
     }
   }
 

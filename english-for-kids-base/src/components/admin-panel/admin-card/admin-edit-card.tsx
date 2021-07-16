@@ -11,13 +11,17 @@ type AdminCardProps = {
 
 export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
   const [thisCard, setThisCard] = useState<CardModel>({ ...card });
+  const [fileImage, setfileImage] = useState<File | null>(null);
+  const [fileSound, setfileSound] = useState<File | null>(null);
 
   const onImageChange = useCallback(
     (e: SyntheticEvent<HTMLInputElement>) => {
       const { files } = e.currentTarget;
       if (!files) return;
+      const img = files[0];
+      setfileImage(img);
       const reader = new FileReader();
-      reader.readAsDataURL(files[0]);
+      reader.readAsDataURL(img);
       reader.onload = () => {
         const data = reader.result || '';
         setThisCard({ ...thisCard, image: data.toString() });
@@ -40,22 +44,22 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPa
     [thisCard],
   );
 
-  const onAudioChange = useCallback(
-    (e: SyntheticEvent<HTMLInputElement>) => {
-      setThisCard({ ...thisCard, audio: e.currentTarget.value });
-    },
-    [thisCard],
-  );
+  const onAudioChange = useCallback((e: SyntheticEvent<HTMLInputElement>) => {
+    const { files } = e.currentTarget;
+    if (!files) return;
+    const sound = files[0];
+    setfileSound(sound);
+  }, []);
 
   const onCancelClick = useCallback(() => {
     setEditingCard(null);
   }, [setEditingCard]);
 
   const onSubmitClick = useCallback(async () => {
-    await cardsService.update(thisCard);
+    await cardsService.update(thisCard, fileImage, fileSound);
     setEditingCard(null);
     loadPage();
-  }, [loadPage, setEditingCard, thisCard]);
+  }, [loadPage, setEditingCard, thisCard, fileImage, fileSound]);
 
   return (
     <div className="admin-card__wrapper">
@@ -83,15 +87,9 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPa
               onChange={onTranslationChange}
             />
           </div>
-          <div className="admin-card-info__row">
-            <input
-              type="text"
-              placeholder="Audio path"
-              className="admin-card__audio-path admin-card-edit__input"
-              value={thisCard.audio}
-              onChange={onAudioChange}
-            />
-          </div>
+          <label className="admin-card-info__row">
+            <input type="file" className="admin-card-edit__input_file" onChange={onAudioChange} id="card-audio-input" />
+          </label>
         </div>
         <div className="admin-card__buttons">
           <button className="admin-card__button admin-card__button_cancel" onClick={onCancelClick}>

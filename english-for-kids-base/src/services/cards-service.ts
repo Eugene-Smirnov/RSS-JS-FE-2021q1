@@ -28,14 +28,28 @@ export const cardsService = {
     return newCard;
   },
 
-  async update(updatedCard: CardModel): Promise<CardModel> {
+  async update(updatedCard: CardModel, imageFile: File | null, audioFile: File | null): Promise<CardModel> {
+    const formData = new FormData();
+    formData.append('name', updatedCard.name);
+    formData.append('title', updatedCard.title);
+    formData.append('id', updatedCard.id);
+    if (imageFile) {
+      formData.append('image', imageFile);
+    } else {
+      formData.append('image', updatedCard.image);
+    }
+    if (audioFile) {
+      formData.append('audio', audioFile);
+    } else {
+      formData.append('audio', updatedCard.audio);
+    }
+
     const response = await fetch(`${createCardUrl(updatedCard.categoryId)}/${updatedCard.id}`, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${window.localStorage.getItem(LOCALSTORAGE_TOKEN_NAME)}`,
-        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updatedCard),
+      body: formData,
     });
     const card: CardModel = await response.json();
     return card;

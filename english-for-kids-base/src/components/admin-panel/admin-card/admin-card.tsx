@@ -45,9 +45,9 @@ export const AdminCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }
           </div>
           <div className="admin-card-info__row">
             {'Audio: '}
-            <div className="admin-card__audio-path" onClick={playTitle}>
-              {card.audio}
-            </div>
+            <button className="admin-card__button admin-card__audio-path" onClick={playTitle}>
+              {'🗣️'}
+            </button>
           </div>
         </div>
         <div className="admin-card__buttons">
