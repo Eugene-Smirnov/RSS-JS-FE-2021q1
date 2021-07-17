@@ -16,6 +16,7 @@ type AdminCategoryEditProps = {
 
 export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDelete }: AdminCategoryEditProps) => {
   const dispatch = useDispatch();
+  const [isSubmited, setIsSubmited] = useState<boolean>(true);
   const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
 
   const [cards, setCards] = useState<CardModel[]>([]);
@@ -63,6 +64,7 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
 
   const onSubmit = useCallback(async () => {
     if (!updatingCategory) return;
+    setIsSubmited(true);
     await categoryService.update(updatingCategory, fileImage);
     dispatch(loadCategories());
     dispatch(setAdminActiveCategory(null));
@@ -76,33 +78,42 @@ export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDele
 
   return (
     <div className="admin-category admin-category_edit">
-      <div className="admin-category-image__wrapper">
-        <div className="admin-category__delete" onClick={onDeleteClick}>
-          <span className="admin-category__delete-span" />
-          <span className="admin-category__delete-span" />
+      <div className="admin-category__wrapper">
+        {isSubmited ? (
+          <div className="admin-category__wait-msg">
+            <p>Category is updating. Please wait...</p>
+          </div>
+        ) : (
+          ''
+        )}
+        <div className="admin-category-image__wrapper">
+          <div className="admin-category__delete" onClick={onDeleteClick}>
+            <span className="admin-category__delete-span" />
+            <span className="admin-category__delete-span" />
+          </div>
+          <div className="admin-category__title">
+            <input type="text" placeholder="Category Title" value={updatingCategory?.title} onChange={onTitleChange}></input>
+            <p>{`Words: ${cards.length}`}</p>
+          </div>
+          <label className="admin-category-image-input__label" htmlFor="category-image-input">
+            <div className="admin-category-image" style={{ backgroundImage: `url(${updatingCategory?.image})` }} />
+          </label>
+          <input
+            className="admin-category-image-input"
+            type="file"
+            name="category-image-input"
+            id="category-image-input"
+            onChange={onImageChange}
+          />
         </div>
-        <div className="admin-category__title">
-          <input type="text" placeholder="Category Title" value={updatingCategory?.title} onChange={onTitleChange}></input>
-          <p>{`Words: ${cards.length}`}</p>
+        <div className="admin-category__buttons">
+          <button className="admin-category__button admin-category__button_cancel" id="category-update-cancel" onClick={onCancel}>
+            cancel
+          </button>
+          <button className="admin-category__button admin-category__button_submit" id="category-update-submit" onClick={onSubmit}>
+            submit
+          </button>
         </div>
-        <label className="admin-category-image-input__label" htmlFor="category-image-input">
-          <div className="admin-category-image" style={{ backgroundImage: `url(${updatingCategory?.image})` }} />
-        </label>
-        <input
-          className="admin-category-image-input"
-          type="file"
-          name="category-image-input"
-          id="category-image-input"
-          onChange={onImageChange}
-        />
-      </div>
-      <div className="admin-category__buttons">
-        <button className="admin-category__button admin-category__button_cancel" id="category-update-cancel" onClick={onCancel}>
-          cancel
-        </button>
-        <button className="admin-category__button admin-category__button_submit" id="category-update-submit" onClick={onSubmit}>
-          submit
-        </button>
       </div>
     </div>
   );

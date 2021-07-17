@@ -10,6 +10,7 @@ type AdminCardProps = {
 };
 
 export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPage }: AdminCardProps) => {
+  const [isSubmited, setIsSubmited] = useState<boolean>(false);
   const [thisCard, setThisCard] = useState<CardModel>({ ...card });
   const [fileImage, setfileImage] = useState<File | null>(null);
   const [fileSound, setfileSound] = useState<File | null>(null);
@@ -56,6 +57,7 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPa
   }, [setEditingCard]);
 
   const onSubmitClick = useCallback(async () => {
+    setIsSubmited(true);
     await cardsService.update(thisCard, fileImage, fileSound);
     setEditingCard(null);
     loadPage();
@@ -63,6 +65,13 @@ export const AdminEditCard: FC<AdminCardProps> = ({ card, setEditingCard, loadPa
 
   return (
     <div className="admin-card__wrapper">
+      {isSubmited ? (
+        <div className="admin-card__wait-msg">
+          <p>Card is updating. Please wait...</p>
+        </div>
+      ) : (
+        ''
+      )}
       <div className="admin-card">
         <label className="admin-card-image-input__label" htmlFor="card-image-input">
           <div className="admin-card-image" style={{ backgroundImage: `url(${thisCard.image})` }} />
