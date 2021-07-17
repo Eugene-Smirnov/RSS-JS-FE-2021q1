@@ -6,7 +6,8 @@ const upload = multer({
   storage: multer.diskStorage({
     destination: resolve(__dirname, '../public/dynamic'),
     filename(_req, file, cb) {
-      const name = `${uuidv4()}_${file.originalname}`;
+      const fileName = encodeURIComponent(file.originalname);
+      const name = `${uuidv4()}_${fileName}`;
       cb(null, name);
     },
   }),
