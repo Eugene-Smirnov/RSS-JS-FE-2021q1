@@ -16,7 +16,7 @@ type AdminCategoryEditProps = {
 
 export const AdminCategoryEdit: FC<AdminCategoryEditProps> = ({ category, onDelete }: AdminCategoryEditProps) => {
   const dispatch = useDispatch();
-  const [isSubmited, setIsSubmited] = useState<boolean>(true);
+  const [isSubmited, setIsSubmited] = useState<boolean>(false);
   const updatingCategory = useSelector<AppState, CategoryDTO | null>(({ admin }) => admin.updatingCategory);
 
   const [cards, setCards] = useState<CardModel[]>([]);
