@@ -31,16 +31,16 @@ cardRouter.get('/:id', async (req, res, next) => {
 cardRouter.post('/', auth, uploadCard, async (req, res) => {
   const { categoryId } = req.params as CardRoutesParams;
   const createCardDto: CreateCardDto = req.body;
-  const { image, audio } = mapToFilenames(req.files);
-  const card: Card = await context.cardService.create(createCardDto, categoryId, image, audio);
+  const { imageName, audioName } = mapToFilenames(req.files);
+  const card: Card = await context.cardService.create(createCardDto, categoryId, imageName, audioName);
   res.json(card);
 });
 
 cardRouter.put('/:id', auth, uploadCard, async (req, res, next) => {
   const id: string = req.params.id;
   const updateCardDto: Partial<CreateCardDto> = req.body;
-  const { image, audio } = mapToFilenames(req.files);
-  const updatedCard: Card | null = await context.cardService.update(id, updateCardDto, image, audio);
+  const { imageName, audioName } = mapToFilenames(req.files);
+  const updatedCard: Card | null = await context.cardService.update(id, updateCardDto, imageName, audioName);
 
   if (!updatedCard) {
     return next(new NotFoundError(`Card ${id} Not Found`));
@@ -60,8 +60,11 @@ cardRouter.delete('/:id', auth, async (req, res, next) => {
   res.json(removedCard);
 });
 
-const mapToFilenames = (files: any): { image: string; audio: string } => {
-  const image: string = files?.image[0].filename ?? '';
-  const audio: string = files?.audio[0].filename ?? '';
-  return { image, audio };
+const mapToFilenames = (files: any): { imageName: string; audioName: string } => {
+  if (!files) return { imageName: '', audioName: '' };
+  const image = files.image;
+  const imageName = image ? image[0].filename : '';
+  const audio = files.audio;
+  const audioName = audio ? audio[0].filename : '';
+  return { imageName, audioName };
 };

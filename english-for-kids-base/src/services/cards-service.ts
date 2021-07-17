@@ -32,6 +32,7 @@ export const cardsService = {
     const formData = new FormData();
     formData.append('name', updatedCard.name);
     formData.append('title', updatedCard.title);
+    formData.append('translation', updatedCard.translation);
     formData.append('id', updatedCard.id);
     if (imageFile) {
       formData.append('image', imageFile);
